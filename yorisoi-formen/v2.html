@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YORISOI FOR MEN｜男性専用フットケアサロン｜愛知県春日井市</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   YORISOI FOR MEN - SP First LP Mockup v2
+   Viewport: 390px base
+   ======================================== */
+
+:root {
+  --navy-deep: #0d1632;
+  --navy-dark: #000122;
+  --navy-light: #57719b;
+  --navy-muted: #1a2847;
+  --gold: #c5a55a;
+  --gold-light: #d4b96e;
+  --gold-bright: #d4a017;
+  --gold-pale: #f5ecd7;
+  --beige: #f7f3ec;
+  --beige-dark: #e8dfd2;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-body: #333333;
+  --text-light: #666666;
+  --text-on-dark: #e0ddd8;
+  --success: #2e7d5b;
+  --star: #e8b400;
+  --cta-gradient: linear-gradient(135deg, #d4a017 0%, #e8c252 50%, #d4a017 100%);
+  --section-dark: #0d1632;
+  --section-medium: #142040;
+  --overlay: rgba(13, 22, 50, 0.85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  color: var(--text-body);
+  background: var(--white);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------------------------------
+   Utility
+   ---------------------------------------- */
+.serif {
+  font-family: 'Noto Serif JP', 'Yu Mincho', serif;
+}
+
+.section-padding {
+  padding: 60px 20px;
+}
+
+.section-padding-lg {
+  padding: 80px 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-label-dark {
+  color: var(--gold);
+}
+
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.section-title-light {
+  color: var(--white);
+}
+
+.section-title-dark {
+  color: var(--navy-deep);
+}
+
+.section-lead {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* ----------------------------------------
+   Fixed Header (SP)
+   ---------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(13, 22, 50, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+}
+
+.header-logo span {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--gold);
+  display: block;
+  letter-spacing: 0.08em;
+  margin-top: -2px;
+}
+
+.header-cta {
+  background: var(--cta-gradient);
+  color: var(--navy-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* ----------------------------------------
+   Pulse Animation for CTA
+   ---------------------------------------- */
+@keyframes ctaPulse {
+  0% { box-shadow: 0 4px 24px rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 4px 32px rgba(212, 160, 23, 0.65); }
+  100% { box-shadow: 0 4px 24px rgba(212, 160, 23, 0.4); }
+}
+
+/* ----------------------------------------
+   First View
+   ---------------------------------------- */
+.fv {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--navy-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 24px 40px;
+  overflow: hidden;
+}
+
+.fv::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(87, 113, 155, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 80%, rgba(197, 165, 90, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.fv-content {
+  position: relative;
+  z-index: 2;
+}
+
+.fv-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.fv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(197, 165, 90, 0.15);
+  border: 1px solid rgba(197, 165, 90, 0.4);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.fv-badge-icon {
+  font-size: 0.8rem;
+}
+
+.fv-catch {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.fv-catch em {
+  font-style: normal;
+  color: var(--gold);
+  position: relative;
+}
+
+.fv-catch em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+.fv-sub {
+  font-size: 0.9rem;
+  color: var(--text-on-dark);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.fv-image {
+  border-radius: 8px;
+  height: 220px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.fv-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fv-stats {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(197, 165, 90, 0.25);
+}
+
+.fv-stat {
+  flex: 1;
+  text-align: center;
+  padding: 14px 8px;
+  background: rgba(197, 165, 90, 0.08);
+}
+
+.fv-stat + .fv-stat {
+  border-left: 1px solid rgba(197, 165, 90, 0.2);
+}
+
+.fv-stat-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.fv-stat-num span {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.fv-stat-label {
+  font-size: 0.65rem;
+  color: var(--text-on-dark);
+  margin-top: 2px;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 22px 28px;
+  background: var(--cta-gradient);
+  color: var(--navy-deep);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(212, 160, 23, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+
+.cta-btn:active {
+  transform: scale(0.98);
+  animation: none;
+}
+
+.cta-btn-arrow {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+}
+
+.cta-micro {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-on-dark);
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+}
+
+.cta-micro-dark {
+  color: var(--text-light);
+}
+
+.cta-micro-beige {
+  color: var(--navy-light);
+}
+
+.scroll-hint {
+  text-align: center;
+  margin-top: 32px;
+  color: var(--navy-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  animation: scrollBounce 2s infinite;
+}
+
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: var(--navy-light);
+  margin: 8px auto 0;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ----------------------------------------
+   悩み共感セクション
+   ---------------------------------------- */
+.worries {
+  background: var(--beige);
+  padding: 60px 20px;
+}
+
+.worries-intro {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1rem;
+  color: var(--navy-deep);
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.worries-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.worries-title em {
+  font-style: normal;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+.worry-list {
+  list-style: none;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.worry-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: var(--white);
+  border-radius: 6px;
+  border-left: 3px solid var(--gold);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.worry-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.worry-check::after {
+  content: '\2713';
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.worries-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.worries-cta-wrap {
+  margin-top: 40px;
+  padding-top: 8px;
+}
+
+.cta-btn-light {
+  background: var(--navy-deep);
+  color: var(--gold);
+  box-shadow: 0 4px 24px rgba(13, 22, 50, 0.25);
+  animation: ctaPulseDark 2.5s ease-in-out infinite;
+}
+
+@keyframes ctaPulseDark {
+  0% { box-shadow: 0 4px 24px rgba(13, 22, 50, 0.25); }
+  50% { box-shadow: 0 4px 32px rgba(13, 22, 50, 0.45); }
+  100% { box-shadow: 0 4px 24px rgba(13, 22, 50, 0.25); }
+}
+
+/* ----------------------------------------
+   選ばれる3つの理由
+   ---------------------------------------- */
+.reasons {
+  background: var(--section-dark);
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reasons::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(197, 165, 90, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.reason-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(197, 165, 90, 0.15);
+  border-radius: 10px;
+  padding: 32px 24px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.reason-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.25;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  line-height: 1;
+}
+
+.reason-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(197, 165, 90, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.reason-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.reason-text {
+  font-size: 0.85rem;
+  color: var(--text-on-dark);
+  line-height: 1.9;
+}
+
+.reason-image {
+  border-radius: 6px;
+  height: 160px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.reason-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ----------------------------------------
+   ビフォーアフター
+   ---------------------------------------- */
+.before-after {
+  background: var(--beige);
+  padding: 70px 20px;
+}
+
+.ba-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.ba-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.ba-images {
+  display: flex;
+  position: relative;
+}
+
+.ba-img {
+  flex: 1;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-align: center;
+  padding: 12px;
+}
+
+.ba-img-before {
+  background: #e8e0d6;
+}
+
+.ba-img-after {
+  background: #d6dfe8;
+}
+
+.ba-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--white);
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+
+.ba-label-before {
+  left: 8px;
+  background: rgba(0,0,0,0.45);
+}
+
+.ba-label-after {
+  right: 8px;
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+.ba-desc {
+  padding: 16px 20px;
+}
+
+.ba-case {
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ba-text {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.ba-note {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ----------------------------------------
+   お客様の声
+   ---------------------------------------- */
+.voice {
+  background: var(--section-medium);
+  padding: 70px 20px;
+}
+
+.voice-cards {
+  margin-top: 32px;
+}
+
+.voice-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(197, 165, 90, 0.12);
+  border-radius: 10px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+}
+
+.voice-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.voice-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--navy-muted);
+  border: 2px solid rgba(197, 165, 90, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--navy-light);
+  flex-shrink: 0;
+}
+
+.voice-meta {
+  flex: 1;
+}
+
+.voice-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.voice-attr {
+  font-size: 0.7rem;
+  color: var(--navy-light);
+}
+
+.voice-stars {
+  color: var(--star);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.voice-text {
+  font-size: 0.85rem;
+  color: var(--text-on-dark);
+  line-height: 1.9;
+  position: relative;
+  padding-left: 16px;
+  border-left: 2px solid rgba(197, 165, 90, 0.3);
+}
+
+.voice-disclaimer {
+  font-size: 0.65rem;
+  color: var(--navy-light);
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+/* ----------------------------------------
+   施術者紹介
+   ---------------------------------------- */
+.therapist {
+  background: var(--beige);
+  padding: 70px 20px;
+}
+
+.therapist-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin-top: 28px;
+}
+
+.therapist-photo {
+  height: 280px;
+  overflow: hidden;
+}
+
+.therapist-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.therapist-info {
+  padding: 28px 24px;
+}
+
+.therapist-role {
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.therapist-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 16px;
+}
+
+.therapist-quals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.therapist-qual {
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  color: var(--navy-deep);
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.therapist-text {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 2;
+}
+
+/* ----------------------------------------
+   理念セクション
+   ---------------------------------------- */
+.philosophy {
+  background: var(--navy-deep);
+  padding: 70px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(197, 165, 90, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.philosophy-content {
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-quote {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 2;
+  margin-bottom: 24px;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--gold);
+}
+
+.philosophy-text {
+  font-size: 0.85rem;
+  color: var(--text-on-dark);
+  line-height: 2.1;
+  margin-bottom: 16px;
+}
+
+.philosophy-highlight {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-align: center;
+  margin-top: 28px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* ----------------------------------------
+   メニュー
+   ---------------------------------------- */
+.menu {
+  background: var(--white);
+  padding: 70px 20px;
+}
+
+.menu-card {
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 28px;
+  box-shadow: 0 4px 20px rgba(197, 165, 90, 0.12);
+}
+
+.menu-header {
+  background: var(--navy-deep);
+  padding: 24px 24px 20px;
+  text-align: center;
+}
+
+.menu-label {
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.menu-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.menu-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.menu-price-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.menu-price-unit {
+  font-size: 0.85rem;
+  color: var(--gold-light);
+}
+
+.menu-price-tax {
+  font-size: 0.7rem;
+  color: var(--navy-light);
+  margin-top: 4px;
+}
+
+.menu-body {
+  padding: 24px;
+}
+
+.menu-includes {
+  list-style: none;
+}
+
+.menu-include {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ebe3;
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+
+.menu-include:last-child {
+  border-bottom: none;
+}
+
+.menu-include-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gold-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.menu-time {
+  text-align: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--beige-dark);
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ----------------------------------------
+   空間紹介
+   ---------------------------------------- */
+.space {
+  background: var(--section-dark);
+  padding: 70px 20px;
+}
+
+.space-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.space-img {
+  border-radius: 8px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.space-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.space-img-wide {
+  grid-column: 1 / -1;
+  height: 180px;
+}
+
+.space-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 28px;
+}
+
+.space-feature {
+  text-align: center;
+}
+
+.space-feature-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(197, 165, 90, 0.1);
+  border: 1px solid rgba(197, 165, 90, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 1rem;
+}
+
+.space-feature-text {
+  font-size: 0.75rem;
+  color: var(--text-on-dark);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------
+   アクセス
+   ---------------------------------------- */
+.access {
+  background: var(--beige);
+  padding: 70px 20px;
+}
+
+.access-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-top: 28px;
+}
+
+.access-map {
+  height: 200px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+.access-info {
+  padding: 24px;
+}
+
+.access-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 16px;
+}
+
+.access-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.access-row-label {
+  flex-shrink: 0;
+  width: 56px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  background: var(--beige);
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.access-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.access-tag {
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  font-size: 0.7rem;
+  color: var(--navy-deep);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ----------------------------------------
+   最終CTA
+   ---------------------------------------- */
+.final-cta {
+  background: var(--navy-deep);
+  padding: 70px 24px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(197, 165, 90, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.final-cta-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.final-cta-text {
+  font-size: 0.85rem;
+  color: var(--text-on-dark);
+  line-height: 1.9;
+  margin-bottom: 36px;
+}
+
+.final-cta-phone {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(87, 113, 155, 0.2);
+}
+
+.final-cta-phone-label {
+  font-size: 0.7rem;
+  color: var(--navy-light);
+  margin-bottom: 6px;
+}
+
+.final-cta-phone-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.final-cta-phone-note {
+  font-size: 0.65rem;
+  color: var(--navy-light);
+  margin-top: 4px;
+}
+
+/* ----------------------------------------
+   固定CTAバー
+   ---------------------------------------- */
+.fixed-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(20, 32, 64, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(197, 165, 90, 0.3);
+}
+
+.fixed-cta-info {
+  flex-shrink: 0;
+}
+
+.fixed-cta-price {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.fixed-cta-price span {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--navy-light);
+}
+
+.fixed-cta-btn {
+  flex: 1;
+  padding: 16px 18px;
+  background: var(--cta-gradient);
+  color: var(--navy-deep);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 16px rgba(212, 160, 23, 0.4);
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+
+.fixed-cta-sub {
+  font-size: 0.55rem;
+  font-weight: 500;
+  display: block;
+  margin-top: 1px;
+  opacity: 0.8;
+}
+
+/* ----------------------------------------
+   フッター
+   ---------------------------------------- */
+.footer {
+  background: var(--navy-dark);
+  padding: 32px 20px;
+  padding-bottom: calc(32px + 70px + env(safe-area-inset-bottom, 0px));
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-size: 0.65rem;
+  color: var(--navy-light);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  font-size: 0.7rem;
+  color: var(--navy-light);
+}
+
+.footer-copy {
+  font-size: 0.6rem;
+  color: rgba(87, 113, 155, 0.5);
+  font-family: 'Lato', sans-serif;
+}
+
+/* ----------------------------------------
+   CTA中間セクション
+   ---------------------------------------- */
+.cta-section {
+  background: var(--navy-deep);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.cta-section-beige {
+  background: linear-gradient(135deg, #f0e8d8 0%, #f7f3ec 50%, #f0e8d8 100%);
+}
+
+.cta-section-white {
+  background: var(--white);
+}
+
+/* ----------------------------------------
+   Desktop responsive (max-width: 768px is base)
+   ---------------------------------------- */
+@media (min-width: 768px) {
+  .fv {
+    padding: 120px 40px 60px;
+    align-items: center;
+  }
+  .fv-content {
+    max-width: 600px;
+  }
+  .section-padding,
+  .section-padding-lg {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .worries,
+  .reasons,
+  .before-after,
+  .voice,
+  .therapist,
+  .philosophy,
+  .menu,
+  .space,
+  .access,
+  .final-cta,
+  .cta-section,
+  .cta-section-beige,
+  .cta-section-white {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .ba-grid {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .voice-cards {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .therapist-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu-card {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .access-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ======== Fixed Header ======== -->
+<header class="header">
+  <div class="header-logo">
+    YORISOI FOR MEN
+    <span>男性専用フットケアサロン</span>
+  </div>
+  <a href="#reserve" class="header-cta">今すぐ予約</a>
+</header>
+
+<!-- ======== First View ======== -->
+<section class="fv">
+  <div class="fv-content">
+    <div class="fv-badges">
+      <span class="fv-badge"><span class="fv-badge-icon">&#9794;</span> 男性専用サロン</span>
+      <span class="fv-badge"><span class="fv-badge-icon">&#9670;</span> 完全個室</span>
+      <span class="fv-badge"><span class="fv-badge-icon">&#9733;</span> JR春日井駅 徒歩5分</span>
+    </div>
+
+    <h1 class="fv-catch">
+      足の悩み、<br>
+      <em>一人で抱えて</em><br>
+      いませんか？
+    </h1>
+
+    <p class="fv-sub">
+      タコ・ウオノメ、巻き爪、かかとのひび割れ――<br>
+      男性だからこそ後回しにしがちな足の悩みに、<br>
+      プロが丁寧に向き合います。
+    </p>
+
+    <div class="fv-image">
+      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80" alt="リラックスしながらフットケア施術を受けるイメージ">
+    </div>
+
+    <div class="fv-stats">
+      <div class="fv-stat">
+        <div class="fv-stat-num">300<span>名+</span></div>
+        <div class="fv-stat-label">施術実績</div>
+      </div>
+      <div class="fv-stat">
+        <div class="fv-stat-num">98<span>%</span></div>
+        <div class="fv-stat-label">満足度</div>
+      </div>
+      <div class="fv-stat">
+        <div class="fv-stat-num">5<span>年</span></div>
+        <div class="fv-stat-label">施術経験</div>
+      </div>
+    </div>
+
+    <a href="#reserve" class="cta-btn">
+      今すぐ予約する
+      <span class="cta-btn-arrow">&#9654;</span>
+    </a>
+    <div class="cta-micro">初めての方も安心｜所要時間 約60分</div>
+
+    <div class="scroll-hint">SCROLL</div>
+  </div>
+</section>
+
+<!-- ======== 悩み共感 ======== -->
+<section class="worries" id="worries">
+  <p class="worries-intro">こんなこと、ありませんか？</p>
+  <h2 class="worries-title">
+    足の悩み、<br><em>「これくらい」</em>と<br>我慢していませんか？
+  </h2>
+
+  <ul class="worry-list">
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      立ち仕事や外出のあと、足が重く疲れが取れない
+    </li>
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      かかとが割れて、ガサガサが気になる
+    </li>
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      タコ・ウオノメをセルフケアしても繰り返す
+    </li>
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      巻き爪や爪の変形が気になっている
+    </li>
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      爪が切りづらくなってきた
+    </li>
+    <li class="worry-item">
+      <span class="worry-check"></span>
+      足の悩みを相談できる場所がわからない
+    </li>
+  </ul>
+
+  <p class="worries-note">
+    1つでも当てはまる方は、<br>
+    まずはお気軽にご相談ください。
+  </p>
+
+  <div class="worries-cta-wrap">
+    <a href="#reserve" class="cta-btn cta-btn-light">
+      まずは相談する
+      <span class="cta-btn-arrow">&#9654;</span>
+    </a>
+    <div class="cta-micro cta-micro-dark">男性専用・完全個室だから安心</div>
+  </div>
+</section>
+
+<!-- ======== 選ばれる3つの理由 ======== -->
+<section class="reasons" id="about">
+  <span class="section-label section-label-dark text-center" style="display:block;">WHY CHOOSE US</span>
+  <h2 class="section-title section-title-light text-center">
+    YORISOI FOR MENが<br>選ばれる3つの理由
+  </h2>
+
+  <div class="reason-card">
+    <span class="reason-num">01</span>
+    <div class="reason-icon">&#9794;</div>
+    <h3 class="reason-title">男性専用・完全個室で<br>人目を気にせず安心</h3>
+    <p class="reason-text">
+      「フットケアサロンは女性の場所」という先入観を持つ方も多いはず。当サロンは男性専用の完全個室。足を見せることへの恥ずかしさや抵抗感に寄り添い、リラックスできる空間をご用意しています。
+    </p>
+    <div class="reason-image">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80" alt="落ち着いた個室のスパ空間">
+    </div>
+  </div>
+
+  <div class="reason-card">
+    <span class="reason-num">02</span>
+    <div class="reason-icon">&#9733;</div>
+    <h3 class="reason-title">ドイツ式フットケアで<br>丁寧にしっかりケア</h3>
+    <p class="reason-text">
+      タコ・ウオノメ、巻き爪、角質の硬化――セルフケアでは限界のある足のトラブルを、ドイツ式フットケアの技術で丁寧にお手入れ。表面的な処置ではなく、原因に向き合った施術を行います。
+    </p>
+    <div class="reason-image">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="プロによる丁寧な施術の手元">
+    </div>
+  </div>
+
+  <div class="reason-card">
+    <span class="reason-num">03</span>
+    <div class="reason-icon">&#9752;</div>
+    <h3 class="reason-title">足だけでなく、<br>暮らし全体に寄り添う</h3>
+    <p class="reason-text">
+      靴選びの相談から日々のセルフケアアドバイスまで。足の状態だけでなく、お客様の暮らしや想いにも目を向けた「人生に寄り添う」フットメンテナンスです。
+    </p>
+    <div class="reason-image">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="カウンセリング・相談のイメージ">
+    </div>
+  </div>
+</section>
+
+<!-- ======== 中間CTA ======== -->
+<div class="cta-section cta-section-beige">
+  <a href="#reserve" class="cta-btn" style="box-shadow: 0 4px 28px rgba(212,160,23,0.4); animation: ctaPulse 2.5s ease-in-out infinite;">
+    まずは体験してみる
+    <span class="cta-btn-arrow">&#9654;</span>
+  </a>
+  <div class="cta-micro cta-micro-beige">レギュラーコース 7,900円（税込）</div>
+</div>
+
+<!-- ======== ビフォーアフター ======== -->
+<section class="before-after">
+  <span class="section-label text-center" style="display:block; color: var(--navy-light);">BEFORE / AFTER</span>
+  <h2 class="section-title section-title-dark text-center">
+    施術による変化の一例
+  </h2>
+
+  <div class="ba-grid">
+    <div class="ba-card">
+      <div class="ba-images">
+        <div class="ba-img ba-img-before">
+          【Before】<br>ガサガサのかかと
+          <span class="ba-label ba-label-before">BEFORE</span>
+        </div>
+        <div class="ba-arrow">&#9654;</div>
+        <div class="ba-img ba-img-after">
+          【After】<br>滑らかなかかと
+          <span class="ba-label ba-label-after">AFTER</span>
+        </div>
+      </div>
+      <div class="ba-desc">
+        <div class="ba-case">CASE 01｜50代男性・公務員</div>
+        <div class="ba-text">長年気になっていたかかとのひび割れが、1回の施術でここまで滑らかに。<br><small style="color: var(--text-light); font-size: 0.75rem;">※施術による変化の一例です。効果には個人差があります。</small></div>
+      </div>
+    </div>
+
+    <div class="ba-card">
+      <div class="ba-images">
+        <div class="ba-img ba-img-before">
+          【Before】<br>タコ・ウオノメ
+          <span class="ba-label ba-label-before">BEFORE</span>
+        </div>
+        <div class="ba-arrow">&#9654;</div>
+        <div class="ba-img ba-img-after">
+          【After】<br>きれいな足裏
+          <span class="ba-label ba-label-after">AFTER</span>
+        </div>
+      </div>
+      <div class="ba-desc">
+        <div class="ba-case">CASE 02｜40代男性・税理士</div>
+        <div class="ba-text">繰り返していたタコが、プロのケアで状態が整いました。歩くのが楽になりました。<br><small style="color: var(--text-light); font-size: 0.75rem;">※施術による変化の一例です。効果には個人差があります。</small></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="ba-note">※ 効果には個人差があります。写真はイメージです。<br>※ 個人の感想です。効果を保証するものではありません。</p>
+</section>
+
+<!-- ======== お客様の声 ======== -->
+<section class="voice" id="voice">
+  <span class="section-label section-label-dark text-center" style="display:block;">VOICE</span>
+  <h2 class="section-title section-title-light text-center">
+    お客様の声
+  </h2>
+
+  <div class="voice-cards">
+    <div class="voice-card">
+      <div class="voice-header">
+        <div class="voice-avatar">&#128100;</div>
+        <div class="voice-meta">
+          <div class="voice-name">T.K 様</div>
+          <div class="voice-attr">40代男性・税理士</div>
+        </div>
+      </div>
+      <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="voice-text">
+        正直、男がフットケアなんて…と思っていましたが、完全個室で人目を気にせずリラックスできました。施術後は足が軽くなり、長時間のデスクワークも楽になった気がします。もっと早く来ればよかった。
+      </p>
+      <p class="voice-disclaimer">※個人の感想です。効果を保証するものではありません。</p>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-header">
+        <div class="voice-avatar">&#128100;</div>
+        <div class="voice-meta">
+          <div class="voice-name">S.M 様</div>
+          <div class="voice-attr">50代男性・公務員（県職員）</div>
+        </div>
+      </div>
+      <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="voice-text">
+        年々ひどくなるかかとのひび割れに悩んでいました。セルフケアでは限界を感じていたところ、こちらを知り来店。丁寧なカウンセリングと確かな技術に安心感がありました。定期的に通いたいと思います。
+      </p>
+      <p class="voice-disclaimer">※個人の感想です。効果を保証するものではありません。</p>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-header">
+        <div class="voice-avatar">&#128100;</div>
+        <div class="voice-meta">
+          <div class="voice-name">A.Y 様</div>
+          <div class="voice-attr">50代男性・広告制作会社</div>
+        </div>
+      </div>
+      <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="voice-text">
+        巻き爪が気になって靴を履くのが辛かったのですが、施術後はとても楽になりました。男性専用ということで入りやすく、落ち着いた空間も気に入っています。
+      </p>
+      <p class="voice-disclaimer">※個人の感想です。効果を保証するものではありません。</p>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-header">
+        <div class="voice-avatar">&#128100;</div>
+        <div class="voice-meta">
+          <div class="voice-name">K.T 様</div>
+          <div class="voice-attr">20代男性・金融機関</div>
+        </div>
+      </div>
+      <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <p class="voice-text">
+        営業で毎日歩くので足の疲れが溜まっていました。足湯から始まるコースがとても気持ちよく、靴の相談までしてもらえたのが嬉しかったです。同僚にも勧めています。
+      </p>
+      <p class="voice-disclaimer">※個人の感想です。効果を保証するものではありません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 中間CTA ======== -->
+<div class="cta-section">
+  <a href="#reserve" class="cta-btn">
+    予約して体験する
+    <span class="cta-btn-arrow">&#9654;</span>
+  </a>
+  <div class="cta-micro">お電話でもご予約いただけます</div>
+</div>
+
+<!-- ======== 施術者紹介 ======== -->
+<section class="therapist">
+  <span class="section-label text-center" style="display:block; color: var(--navy-light);">THERAPIST</span>
+  <h2 class="section-title section-title-dark text-center">
+    施術者紹介
+  </h2>
+
+  <div class="therapist-card">
+    <div class="therapist-photo">
+      <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80" alt="チーフセラピスト プロフィール写真">
+    </div>
+    <div class="therapist-info">
+      <div class="therapist-role">チーフセラピスト</div>
+      <div class="therapist-name">竹内</div>
+      <div class="therapist-quals">
+        <span class="therapist-qual">ドイツ式フットケア</span>
+        <span class="therapist-qual">施術歴5年</span>
+        <span class="therapist-qual">施術実績300名以上</span>
+      </div>
+      <p class="therapist-text">
+        足の悩みは人に相談しづらく、特に男性は「これくらいなら」と我慢してしまうことが多いものです。だからこそ、気軽に安心して相談できる場所でありたいと思っています。お客様一人ひとりの足と向き合い、暮らしに寄り添ったケアをお届けします。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 理念 ======== -->
+<section class="philosophy">
+  <div class="philosophy-content">
+    <span class="section-label section-label-dark text-center" style="display:block;">PHILOSOPHY</span>
+    <h2 class="section-title section-title-light text-center" style="margin-bottom: 32px;">
+      私たちの想い
+    </h2>
+
+    <blockquote class="philosophy-quote">
+      足のメンテナンスなんて、これまで考えたこともない。そんな男性にこそ、ぜひ一度体験してほしい。
+    </blockquote>
+
+    <p class="philosophy-text">
+      足が重い、疲れが取れない。タコ・ウオノメ、巻き爪、かかとのひび割れ、爪の変化など――足の悩みは人に相談しづらく、「これくらいなら」と我慢してしまうことも多いものです。
+    </p>
+    <p class="philosophy-text">
+      けれど足は、私たちの毎日を支え、人生の行きたい場所へ連れて行ってくれる大切な存在。小さなケアの積み重ねが、10年後の安心につながります。
+    </p>
+    <p class="philosophy-text">
+      YORISOI FOR MENは、足の状態だけでなく、その方の暮らしや想いにも目を向ける、人生に寄り添うフットメンテナンスです。
+    </p>
+
+    <p class="philosophy-highlight">
+      「足を守ることは、<br>人生を守ること」
+    </p>
+  </div>
+</section>
+
+<!-- ======== メニュー ======== -->
+<section class="menu" id="menu">
+  <span class="section-label text-center" style="display:block; color: var(--navy-light);">MENU &amp; PRICE</span>
+  <h2 class="section-title section-title-dark text-center">
+    メニュー・料金
+  </h2>
+
+  <div class="menu-card">
+    <div class="menu-header">
+      <div class="menu-label">REGULAR COURSE</div>
+      <div class="menu-name">レギュラーコース</div>
+      <div class="menu-price">
+        <span class="menu-price-num">7,900</span>
+        <span class="menu-price-unit">円</span>
+      </div>
+      <div class="menu-price-tax">（税込）</div>
+    </div>
+    <div class="menu-body">
+      <ul class="menu-includes">
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          足湯
+        </li>
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          タコ・ウオノメのお手入れ
+        </li>
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          角質ケア
+        </li>
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          爪ケア
+        </li>
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          足ほぐし
+        </li>
+        <li class="menu-include">
+          <span class="menu-include-icon">&#10003;</span>
+          靴相談
+        </li>
+      </ul>
+      <div class="menu-time">所要時間：約60分</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 空間紹介 ======== -->
+<section class="space">
+  <span class="section-label section-label-dark text-center" style="display:block;">SPACE</span>
+  <h2 class="section-title section-title-light text-center">
+    心休まる、くつろぎの空間
+  </h2>
+
+  <div class="space-images">
+    <div class="space-img space-img-wide">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=400&q=80" alt="落ち着いたサロンの個室空間">
+    </div>
+    <div class="space-img">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&q=80" alt="間接照明で落ち着く空間">
+    </div>
+    <div class="space-img">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=400&q=80" alt="くつろぎのサロン空間">
+    </div>
+  </div>
+
+  <div class="space-features">
+    <div class="space-feature">
+      <div class="space-feature-icon">&#128161;</div>
+      <div class="space-feature-text">間接照明で<br>落ち着く空間</div>
+    </div>
+    <div class="space-feature">
+      <div class="space-feature-icon">&#127925;</div>
+      <div class="space-feature-text">カフェ<br>ミュージック</div>
+    </div>
+    <div class="space-feature">
+      <div class="space-feature-icon">&#9670;</div>
+      <div class="space-feature-text">完全個室<br>プライベート</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 中間CTA ======== -->
+<div class="cta-section cta-section-white">
+  <a href="#reserve" class="cta-btn" style="background: var(--navy-deep); color: var(--gold); box-shadow: 0 4px 24px rgba(13,22,50,0.2); animation: ctaPulseDark 2.5s ease-in-out infinite;">
+    空き状況を確認する
+    <span class="cta-btn-arrow" style="color: var(--gold);">&#9654;</span>
+  </a>
+  <div class="cta-micro cta-micro-dark">カレンダーからご都合の良い日時を選べます</div>
+</div>
+
+<!-- ======== アクセス ======== -->
+<section class="access" id="access">
+  <span class="section-label text-center" style="display:block; color: var(--navy-light);">ACCESS</span>
+  <h2 class="section-title section-title-dark text-center">
+    所在地・アクセス
+  </h2>
+
+  <div class="access-card">
+    <div class="access-map">
+      【Google Maps 埋め込み】
+    </div>
+    <div class="access-info">
+      <div class="access-name">YORISOI FOR MEN</div>
+
+      <div class="access-row">
+        <span class="access-row-label">住所</span>
+        <span>〒486-0833<br>愛知県春日井市上条町五丁目7番地<br>タートルビル2D</span>
+      </div>
+
+      <div class="access-row">
+        <span class="access-row-label">電車</span>
+        <span>JR春日井駅から徒歩5分</span>
+      </div>
+
+      <div class="access-row">
+        <span class="access-row-label">電話</span>
+        <span>0568-50-2841</span>
+      </div>
+
+      <div class="access-tags">
+        <span class="access-tag">JR春日井駅 徒歩5分</span>
+        <span class="access-tag">駐車場完備</span>
+        <span class="access-tag">完全予約制</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 最終CTA ======== -->
+<section class="final-cta" id="reserve">
+  <div class="final-cta-content">
+    <span class="section-label section-label-dark" style="display:block; text-align:center;">RESERVATION</span>
+    <h2 class="final-cta-title">
+      まずは一歩、<br>足のケアを始めてみませんか？
+    </h2>
+    <p class="final-cta-text">
+      男性専用・完全個室のプライベート空間で、<br>
+      あなたの足の悩みに丁寧に向き合います。<br>
+      「こんなことで行っていいのかな？」<br>
+      大丈夫です。お気軽にどうぞ。
+    </p>
+
+    <a href="#" class="cta-btn" style="margin-bottom: 16px;">
+      今すぐ予約する
+      <span class="cta-btn-arrow">&#9654;</span>
+    </a>
+    <div class="cta-micro">オンライン予約・24時間受付</div>
+
+    <div class="final-cta-phone">
+      <div class="final-cta-phone-label">お電話でのご予約・お問い合わせ</div>
+      <a href="tel:0568502841" class="final-cta-phone-num">0568-50-2841</a>
+      <div class="final-cta-phone-note">受付時間：10:00〜19:00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== Footer ======== -->
+<footer class="footer">
+  <div class="footer-logo">YORISOI FOR MEN</div>
+  <div class="footer-sub">男性専用フットケアサロン</div>
+  <nav class="footer-links">
+    <a href="#about" class="footer-link">ABOUT</a>
+    <a href="#voice" class="footer-link">お客様の声</a>
+    <a href="#menu" class="footer-link">MENU・PRICE</a>
+    <a href="#access" class="footer-link">所在地</a>
+    <a href="#reserve" class="footer-link">ご予約</a>
+  </nav>
+  <div class="footer-copy">&copy; YORISOI FOR MEN All Rights Reserved.</div>
+</footer>
+
+<!-- ======== 固定CTAバー ======== -->
+<div class="fixed-cta">
+  <div class="fixed-cta-info">
+    <div class="fixed-cta-price">
+      &yen;7,900 <span>税込</span>
+    </div>
+  </div>
+  <a href="#reserve" class="fixed-cta-btn">
+    今すぐ予約する
+    <span class="fixed-cta-sub">初めての方も安心・完全個室</span>
+  </a>
+</div>
+
+</body>
+</html>

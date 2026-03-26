@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YORISOI FOR MEN LP改善企画書</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0d1632;
+  --navy-light: #1a2847;
+  --navy-muted: #57719b;
+  --gold: #c5a55a;
+  --gold-light: #d4b96e;
+  --gold-pale: #f5ecd7;
+  --beige: #f7f3ec;
+  --white: #ffffff;
+  --bg: #f4f5f7;
+  --text: #1a1a1a;
+  --text-mid: #4a4a4a;
+  --text-light: #777;
+  --green: #1a8a5a;
+  --green-bg: #e6f5ee;
+  --red: #c0392b;
+  --red-bg: #fde8e8;
+  --orange: #d4740e;
+  --orange-bg: #fff3e0;
+  --blue: #2e6bc6;
+  --blue-bg: #e8f0fb;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-size: 15px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page */
+.page { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+/* Cover */
+.cover {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  color: var(--white);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(197,165,90,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cover-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.cover h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.cover-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+}
+.cover-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+.cover-meta strong { color: var(--gold-light); }
+
+/* Section */
+.section {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 36px;
+  margin-bottom: 28px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.section-sm { padding: 32px 36px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--beige);
+}
+.section-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.icon-navy { background: var(--navy); color: var(--gold); }
+.icon-green { background: var(--green-bg); color: var(--green); }
+.icon-red { background: var(--red-bg); color: var(--red); }
+.icon-orange { background: var(--orange-bg); color: var(--orange); }
+.icon-blue { background: var(--blue-bg); color: var(--blue); }
+.icon-gold { background: var(--gold-pale); color: var(--gold); }
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.section-title small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+/* TOC */
+.toc {
+  background: var(--beige);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+.toc-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.toc-list {
+  list-style: none;
+  counter-reset: toc;
+}
+.toc-list li {
+  counter-increment: toc;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text-mid);
+}
+.toc-list li::before {
+  content: counter(toc) ".";
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+  margin-right: 8px;
+  min-width: 24px;
+  display: inline-block;
+}
+
+/* Cards */
+.card-grid { display: flex; flex-direction: column; gap: 16px; }
+.card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e8e8e8;
+}
+.card-navy {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+.card-navy .card-label { color: var(--gold); }
+.card-navy .card-text { color: rgba(255,255,255,0.8); }
+
+.card-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.card-navy .card-title { color: var(--white); }
+.card-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+}
+.stat-value {
+  font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.stat-value.alert { color: var(--red); }
+.stat-value.good { color: var(--green); }
+.stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.stat-note {
+  font-size: 10px;
+  color: var(--text-light);
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Table */
+.tbl-wrap { overflow-x: auto; margin: 16px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+thead th:first-child { border-radius: 8px 0 0 0; }
+thead th:last-child { border-radius: 0 8px 0 0; }
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--bg); }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tag-s { background: var(--green-bg); color: var(--green); }
+.tag-m { background: var(--orange-bg); color: var(--orange); }
+.tag-l { background: var(--red-bg); color: var(--red); }
+.tag-a { background: var(--navy); color: var(--gold); }
+.tag-b { background: var(--blue-bg); color: var(--blue); }
+.tag-c { background: var(--bg); color: var(--text-light); }
+
+/* Issue list */
+.issue-list { list-style: none; }
+.issue-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.issue-item:last-child { border-bottom: none; }
+.issue-num {
+  width: 28px; height: 28px;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.issue-content { flex: 1; }
+.issue-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.issue-desc { font-size: 13px; color: var(--text-mid); }
+
+/* Scroll map */
+.scroll-map {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.scroll-bar-wrap {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--green) 41%, #ddd 41%, #ddd 100%);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.scroll-marker {
+  position: absolute;
+  left: 41%;
+  top: -6px;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 32px;
+  background: var(--red);
+  border-radius: 2px;
+}
+.scroll-marker::after {
+  content: '41% 離脱';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+}
+.scroll-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 12px;
+}
+.scroll-section {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+.scroll-pct {
+  width: 36px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: var(--text-light);
+  font-size: 11px;
+}
+.scroll-name {
+  flex: 1;
+  color: var(--text-mid);
+}
+.scroll-status {
+  font-size: 11px;
+  font-weight: 600;
+}
+.scroll-ok { color: var(--green); }
+.scroll-ng { color: var(--red); }
+
+/* Flow comparison */
+.flow-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+@media (max-width: 640px) {
+  .flow-compare { grid-template-columns: 1fr; }
+}
+.flow-col {
+  border-radius: 12px;
+  padding: 24px;
+}
+.flow-before {
+  background: var(--red-bg);
+  border: 1px solid #f5c6c6;
+}
+.flow-after {
+  background: var(--green-bg);
+  border: 1px solid #b8e0cd;
+}
+.flow-label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.flow-before .flow-label { color: var(--red); }
+.flow-after .flow-label { color: var(--green); }
+.flow-steps {
+  list-style: none;
+  counter-reset: flow;
+}
+.flow-steps li {
+  counter-increment: flow;
+  padding: 4px 0;
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.flow-steps li::before {
+  content: counter(flow) ". ";
+  font-weight: 700;
+}
+
+/* Simulation */
+.sim-grid {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 0;
+  align-items: center;
+  margin: 20px 0;
+}
+.sim-card {
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+.sim-before {
+  background: var(--red-bg);
+  border: 1px solid #f5c6c6;
+}
+.sim-after {
+  background: var(--green-bg);
+  border: 1px solid #b8e0cd;
+}
+.sim-arrow {
+  text-align: center;
+  font-size: 20px;
+  color: var(--gold);
+}
+.sim-label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.sim-before .sim-label { color: var(--red); }
+.sim-after .sim-label { color: var(--green); }
+.sim-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+}
+.sim-before .sim-num { color: var(--red); }
+.sim-after .sim-num { color: var(--green); }
+.sim-unit {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* Timeline */
+.timeline { margin: 20px 0; }
+.tl-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-week {
+  width: 64px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.tl-week-num {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+}
+.tl-week-label {
+  font-size: 10px;
+  color: var(--text-light);
+}
+.tl-content { flex: 1; }
+.tl-tasks {
+  list-style: none;
+}
+.tl-task {
+  padding: 4px 0;
+  font-size: 13px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.tl-task::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Appendix note */
+.note-box {
+  background: var(--beige);
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+/* Footer */
+.proposal-footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+  .cover { padding: 40px 24px; }
+  .cover h1 { font-size: 22px; }
+  .section { padding: 28px 20px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .sim-grid { grid-template-columns: 1fr; gap: 10px; }
+  .sim-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ======== 表紙 ======== -->
+<div class="cover">
+  <div class="cover-label">LP Improvement Proposal</div>
+  <h1>YORISOI FOR MEN<br>LP改善企画書</h1>
+  <p class="cover-sub">CVR向上・CPA改善のための課題分析と改善提案</p>
+  <div class="cover-meta">
+    <span><strong>対象:</strong> yorisoi-footcare.jp/formen</span>
+    <span><strong>作成日:</strong> 2025年3月25日</span>
+    <span><strong>作成:</strong> 株式会社Ikigai マーケティング事業部</span>
+  </div>
+</div>
+
+<!-- ======== 目次 ======== -->
+<div class="toc">
+  <div class="toc-title">目次</div>
+  <ol class="toc-list">
+    <li>エグゼクティブサマリー</li>
+    <li>現状パフォーマンス</li>
+    <li>課題分析</li>
+    <li>改善提案（優先順位付き）</li>
+    <li>改善効果シミュレーション</li>
+    <li>実行スケジュール</li>
+    <li>広告運用との連携</li>
+    <li>改善モックアップ</li>
+  </ol>
+</div>
+
+<!-- ======== 1. エグゼクティブサマリー ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-navy">01</div>
+    <div class="section-title">
+      <small>Executive Summary</small>
+      エグゼクティブサマリー
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card card-navy">
+      <div class="card-label">POSITIONING</div>
+      <div class="card-title">「男性専用フットケアサロン」は春日井〜名古屋エリアで唯一のポジション</div>
+      <div class="card-text">男性フットケア市場は供給不足が顕著なブルーオーシャン。ポジショニング自体は極めて強いが、LP上でその強みが十分に伝わっていない状態です。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">KEY FINDINGS</div>
+      <div class="card-title">LP上の3つの最重要課題</div>
+      <ul class="issue-list">
+        <li class="issue-item">
+          <span class="issue-num">1</span>
+          <div class="issue-content">
+            <div class="issue-title">ファーストビューで心を掴めていない</div>
+            <div class="issue-desc">ブランド説明に終始し、ユーザーの悩みへの共感・ベネフィットが不在。平均滞在時間17秒の主因です。</div>
+          </div>
+        </li>
+        <li class="issue-item">
+          <span class="issue-num">2</span>
+          <div class="issue-content">
+            <div class="issue-title">CTA・料金がスクロール到達圏外にある</div>
+            <div class="issue-desc">ユーザーの大半が41%地点で離脱。料金・お客様の声・予約ボタンすべてが到達圏外に沈んでいます。</div>
+          </div>
+        </li>
+        <li class="issue-item">
+          <span class="issue-num">3</span>
+          <div class="issue-content">
+            <div class="issue-title">社会的証明が機能していない</div>
+            <div class="issue-desc">お客様の声が折りたたみ式かつページ下部配置のため、ほぼ読まれていません。</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">EXPECTED OUTCOME</div>
+      <div class="card-title">改善によるCPA改善見込み</div>
+      <div class="sim-grid">
+        <div class="sim-card sim-before">
+          <div class="sim-label">現状</div>
+          <div class="sim-num">¥17,810</div>
+          <div class="sim-unit">CPA（推定）</div>
+        </div>
+        <div class="sim-arrow">&#10132;</div>
+        <div class="sim-card sim-after">
+          <div class="sim-label">改善後（目標）</div>
+          <div class="sim-num">¥4,000〜6,000</div>
+          <div class="sim-unit">CPA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 2. 現状パフォーマンス ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">02</div>
+    <div class="section-title">
+      <small>Current Performance</small>
+      現状パフォーマンス
+    </div>
+  </div>
+
+  <p style="font-size:13px; color:var(--text-light); margin-bottom:16px;">集計期間：3/21 - 3/25（AM7:00）</p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value alert">17秒</div>
+      <div class="stat-label">平均滞在時間</div>
+      <div class="stat-note">全文読了に2〜3分必要</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value alert">41.2%</div>
+      <div class="stat-label">平均スクロール到達率</div>
+      <div class="stat-note">ページ半分も見られていない</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">3.2%</div>
+      <div class="stat-label">CVR（全体推定）</div>
+      <div class="stat-note">1CV / 31クリック</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value alert">¥17,810</div>
+      <div class="stat-label">CPA（推定）</div>
+      <div class="stat-note">総費用 / CV数</div>
+    </div>
+  </div>
+
+  <div style="font-weight:700; font-size:14px; color:var(--navy); margin-bottom:12px;">キャンペーン別データ</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>キャンペーン</th><th>費用</th><th>Click</th><th>Imp</th><th>CV</th><th>CPC</th><th>CTR</th><th>CPM</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CP1: サロン系KW</strong></td>
+          <td>¥11,560</td><td>22</td><td>3,525</td><td>0</td>
+          <td>¥525</td><td>0.6%</td><td>¥3,279</td>
+        </tr>
+        <tr>
+          <td><strong>CP2: 足悩みKW</strong></td>
+          <td>¥6,250</td><td>9</td><td>2,372</td><td style="color:var(--green); font-weight:700;">1</td>
+          <td>¥694</td><td>0.4%</td><td>¥2,635</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>注目ポイント:</strong> CP2（足悩みKW）はCV1件を獲得しており、CVした方はLP表示後すぐに予約ボタンをクリック。CTAの視認性が効いた「即決型」ユーザーです。LP改善で拾うべきは、現在離脱している「迷い型」ユーザーです。
+  </div>
+</div>
+
+<!-- ======== 3. 課題分析 ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-red">03</div>
+    <div class="section-title">
+      <small>Problem Analysis</small>
+      課題分析
+    </div>
+  </div>
+
+  <!-- 3-1 FV -->
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin-bottom:16px;">3-1. ファーストビューの課題</div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-label">CURRENT COPY</div>
+    <div style="font-family:'Noto Serif JP',serif; font-size:16px; color:var(--text); padding:16px 20px; background:var(--white); border:1px solid #e0e0e0; border-radius:8px; margin-bottom:12px; border-left:4px solid var(--red);">
+      「YORISOI FOR MENは、男性のためのフットメンテナンスです。」
+    </div>
+    <ul style="font-size:13px; color:var(--text-mid); list-style:none; line-height:2;">
+      <li>&#10060; ブランド名が主語 &#8212; 初見ユーザーにブランド名は無意味</li>
+      <li>&#10060; ベネフィット不在 &#8212; ユーザーが得られる「得」が見えない</li>
+      <li>&#10060; 感情トリガーなし &#8212; 「恥ずかしさ」「諦め」への共感がない</li>
+      <li>&#10060; 「フットメンテナンス」が造語 &#8212; 一般男性に馴染みがない</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-label" style="color:var(--green);">IMPROVED COPY（提案）</div>
+    <div style="font-family:'Noto Serif JP',serif; font-size:18px; color:var(--navy); padding:20px 24px; background:var(--green-bg); border-radius:8px; border-left:4px solid var(--green); line-height:1.8;">
+      足の悩み、<br><strong style="color:var(--gold);">一人で抱えて</strong>いませんか？
+    </div>
+    <p style="font-size:12px; color:var(--text-light); margin-top:8px;">悩みへの共感 → 解決策の提示 → 行動喚起の順序で構成</p>
+  </div>
+
+  <!-- 3-2 スクロール離脱 -->
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin-bottom:16px;">3-2. スクロール離脱マップ</div>
+
+  <div class="scroll-map">
+    <div class="scroll-bar-wrap">
+      <div class="scroll-marker"></div>
+    </div>
+    <div class="scroll-sections">
+      <div class="scroll-section">
+        <span class="scroll-pct">0%</span>
+        <span class="scroll-name">ファーストビュー</span>
+        <span class="scroll-status scroll-ok">到達 &#10003;</span>
+      </div>
+      <div class="scroll-section">
+        <span class="scroll-pct">20%</span>
+        <span class="scroll-name">お悩みセクション（13項目の羅列）</span>
+        <span class="scroll-status scroll-ok">到達 &#10003;</span>
+      </div>
+      <div class="scroll-section" style="font-weight:700;">
+        <span class="scroll-pct" style="color:var(--red);">41%</span>
+        <span class="scroll-name" style="color:var(--red);">理念セクション &#9888; 離脱ポイント</span>
+        <span class="scroll-status scroll-ng">離脱 &#10007;</span>
+      </div>
+      <div class="scroll-section">
+        <span class="scroll-pct">50%</span>
+        <span class="scroll-name">お客様の声（折りたたみ式）</span>
+        <span class="scroll-status scroll-ng">未到達</span>
+      </div>
+      <div class="scroll-section">
+        <span class="scroll-pct">70%</span>
+        <span class="scroll-name">空間セクション</span>
+        <span class="scroll-status scroll-ng">未到達</span>
+      </div>
+      <div class="scroll-section" style="font-weight:700;">
+        <span class="scroll-pct">80%</span>
+        <span class="scroll-name" style="color:var(--red);">メニュー・料金</span>
+        <span class="scroll-status scroll-ng">未到達</span>
+      </div>
+      <div class="scroll-section" style="font-weight:700;">
+        <span class="scroll-pct">100%</span>
+        <span class="scroll-name" style="color:var(--red);">予約CTA</span>
+        <span class="scroll-status scroll-ng">未到達</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>致命的課題:</strong> 料金・お客様の声・予約CTAのすべてが、ユーザーの離脱ポイント（41%）より下に配置されています。ユーザーの大半がこれらの重要情報に到達していません。
+  </div>
+
+  <!-- 3-3 コンテンツ構成 -->
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin:24px 0 16px;">3-3. コンテンツ構成の改善</div>
+
+  <div class="flow-compare">
+    <div class="flow-col flow-before">
+      <div class="flow-label">&#10007; 現状の構成</div>
+      <ol class="flow-steps">
+        <li>FV（ブランド説明）</li>
+        <li>お悩み（13項目の羅列）</li>
+        <li>理念 &#8592; 離脱ポイント</li>
+        <li>お客様の声（折りたたみ）</li>
+        <li>施術者紹介</li>
+        <li>空間</li>
+        <li>メニュー・料金</li>
+        <li>所在地</li>
+        <li>予約・問い合わせ</li>
+      </ol>
+    </div>
+    <div class="flow-col flow-after">
+      <div class="flow-label">&#10003; 改善後の構成</div>
+      <ol class="flow-steps">
+        <li>FV（共感コピー+CTA+信頼数値）</li>
+        <li>お悩み（6項目に厳選+CTA）</li>
+        <li>選ばれる3つの理由 &#9733;新規</li>
+        <li>ビフォーアフター &#9733;新規</li>
+        <li>お客様の声（展開表示+&#9733;評価）</li>
+        <li>施術者紹介</li>
+        <li>メニュー・料金 &#9650;上部移動</li>
+        <li>空間+アクセス</li>
+        <li>最終CTA+固定CTAバー &#9733;新規</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 3-4 その他の課題 -->
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin:24px 0 16px;">3-4. その他の主要課題</div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>課題カテゴリ</th><th>現状</th><th>問題点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CTA設計</strong></td>
+          <td>ナビに1つ+最下部に1つ</td>
+          <td>ページ途中にCTAがなく、41%で離脱するユーザーはCTAに到達しない</td>
+        </tr>
+        <tr>
+          <td><strong>CTA文言</strong></td>
+          <td>「予約する」</td>
+          <td>汎用的すぎる。コミットメントが重く心理的ハードルが高い</td>
+        </tr>
+        <tr>
+          <td><strong>初回特典</strong></td>
+          <td>なし</td>
+          <td>新規来店の背中を押す仕掛けがゼロ</td>
+        </tr>
+        <tr>
+          <td><strong>緊急性・希少性</strong></td>
+          <td>なし</td>
+          <td>「いつでも行ける」＝「今行かなくていい」になっている</td>
+        </tr>
+        <tr>
+          <td><strong>施術実績</strong></td>
+          <td>記載なし</td>
+          <td>何人施術したか不明。信頼性の定量的根拠がない</td>
+        </tr>
+        <tr>
+          <td><strong>衛生管理</strong></td>
+          <td>記載なし</td>
+          <td>男性が気にするポイント。器具の滅菌等の情報がない</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 4. 改善提案 ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">04</div>
+    <div class="section-title">
+      <small>Improvement Plan</small>
+      改善提案（優先順位付き）
+    </div>
+  </div>
+
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin-bottom:16px;">
+    <span class="tag tag-a">優先度A</span> 即座に実施 &#8212; CVR改善効果 大
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>改善内容</th><th>期待効果</th><th>工数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>A1</strong></td>
+          <td><strong>FVコピーの書き換え</strong><br><span style="font-size:12px; color:var(--text-light);">ブランド説明 → 悩み共感型コピーへ変更</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +30〜50%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>A2</strong></td>
+          <td><strong>CTAの複数配置+文言改善</strong><br><span style="font-size:12px; color:var(--text-light);">FV直下・悩み後・料金後の3箇所にCTA配置</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +20〜40%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>A3</strong></td>
+          <td><strong>料金セクションを上部に移動</strong><br><span style="font-size:12px; color:var(--text-light);">ページ上部40%以内に配置</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +15〜25%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>A4</strong></td>
+          <td><strong>お悩みリストを5〜6項目に厳選</strong><br><span style="font-size:12px; color:var(--text-light);">13項目 → 代表的な5〜6つ + 「その他にも対応」</span></td>
+          <td style="color:var(--green); font-weight:700;">離脱率 -10〜20%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>A5</strong></td>
+          <td><strong>お客様の声を展開表示+上部移動</strong><br><span style="font-size:12px; color:var(--text-light);">折りたたみ廃止。★評価＋具体的コメント表示</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +15〜25%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="font-weight:700; font-size:16px; color:var(--navy); margin:28px 0 16px;">
+    <span class="tag tag-b">優先度B</span> 早期実施推奨 &#8212; CVR改善効果 中
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>改善内容</th><th>期待効果</th><th>工数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>B1</strong></td>
+          <td><strong>ビフォーアフター写真の追加</strong><br><span style="font-size:12px; color:var(--text-light);">タコ・角質ケアの施術前後写真を3〜5組掲載</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +20〜30%</td>
+          <td><span class="tag tag-m">M</span></td>
+        </tr>
+        <tr>
+          <td><strong>B2</strong></td>
+          <td><strong>初回特典の設計・掲載</strong><br><span style="font-size:12px; color:var(--text-light);">「初回限定: 靴フィッティング診断無料」等</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +15〜25%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>B3</strong></td>
+          <td><strong>施術の流れセクション追加</strong><br><span style="font-size:12px; color:var(--text-light);">来店→足湯→施術→アフターの4ステップ</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +10〜20%</td>
+          <td><span class="tag tag-m">M</span></td>
+        </tr>
+        <tr>
+          <td><strong>B4</strong></td>
+          <td><strong>マイクロコピー追加</strong><br><span style="font-size:12px; color:var(--text-light);">CTA周辺に「完全予約制 / 男性専用 / 60分」等</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +10〜15%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+        <tr>
+          <td><strong>B5</strong></td>
+          <td><strong>固定フッターCTA（モバイル）</strong><br><span style="font-size:12px; color:var(--text-light);">スクロール追従する予約ボタン+価格表示</span></td>
+          <td style="color:var(--green); font-weight:700;">CVR +10〜20%</td>
+          <td><span class="tag tag-s">S</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 5. 改善効果シミュレーション ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-gold">05</div>
+    <div class="section-title">
+      <small>Impact Simulation</small>
+      改善効果シミュレーション
+    </div>
+  </div>
+
+  <div class="stats-row" style="margin-bottom:28px;">
+    <div class="stat-card" style="border-left: 3px solid var(--red);">
+      <div class="stat-label" style="margin-bottom:8px;">現状</div>
+      <div class="stat-value alert">3.2%</div>
+      <div class="stat-label">CVR</div>
+      <div class="stat-note">CPA ¥17,810</div>
+    </div>
+    <div class="stat-card" style="border-left: 3px solid var(--orange);">
+      <div class="stat-label" style="margin-bottom:8px;">優先度A実施後</div>
+      <div class="stat-value" style="color:var(--orange);">6〜8%</div>
+      <div class="stat-label">CVR（2倍改善）</div>
+      <div class="stat-note">CPA ¥5,950〜¥8,900</div>
+    </div>
+    <div class="stat-card" style="border-left: 3px solid var(--green);">
+      <div class="stat-label" style="margin-bottom:8px;">A+B実施後</div>
+      <div class="stat-value good">8〜12%</div>
+      <div class="stat-label">CVR（3倍改善）</div>
+      <div class="stat-note">CPA ¥4,000〜¥5,950</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>※注記:</strong> 現在のサンプル数（31クリック）は統計的信頼性が限定的です。改善後は最低100クリックでの再検証を推奨します。上記はヒートマップデータおよび業界ベンチマークに基づく保守的な見積もりです。
+  </div>
+</div>
+
+<!-- ======== 6. 実行スケジュール ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-orange">06</div>
+    <div class="section-title">
+      <small>Implementation Schedule</small>
+      実行スケジュール
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-week">
+        <div class="tl-week-num">1</div>
+        <div class="tl-week-label">WEEK</div>
+      </div>
+      <div class="tl-content">
+        <ul class="tl-tasks">
+          <li class="tl-task">FVコピー書き換え + CTA3箇所設置 + 固定フッターCTA</li>
+          <li class="tl-task">料金セクション上部移動 + お悩み5〜6項目に絞る</li>
+          <li class="tl-task">広告文の見直し（LP FVとの一貫性確保）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">
+        <div class="tl-week-num">2</div>
+        <div class="tl-week-label">WEEK</div>
+      </div>
+      <div class="tl-content">
+        <ul class="tl-tasks">
+          <li class="tl-task">お客様の声展開表示 + 上部移動</li>
+          <li class="tl-task">マイクロコピー追加 + 初回特典設計</li>
+          <li class="tl-task">ロングテールKW追加 + 除外KW設定</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">
+        <div class="tl-week-num">3-4</div>
+        <div class="tl-week-label">WEEK</div>
+      </div>
+      <div class="tl-content">
+        <ul class="tl-tasks">
+          <li class="tl-task">ビフォーアフター写真撮影・掲載</li>
+          <li class="tl-task">施術の流れセクション追加</li>
+          <li class="tl-task">改善後の数値計測・ABテスト開始</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 7. 広告運用との連携 ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">07</div>
+    <div class="section-title">
+      <small>Ad Integration</small>
+      広告運用との連携提案
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>施策</th><th>内容</th><th>期待効果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>広告文とFVの一貫性</strong></td>
+          <td>広告で訴求する内容と LP FVのコピーを一致させ、着地時の期待とのギャップをなくす</td>
+          <td>離脱率低減</td>
+        </tr>
+        <tr>
+          <td><strong>ロングテールKW拡充</strong></td>
+          <td>「かかと ひび割れ 男 サロン」「巻爪 男性 春日井」等の具体KW追加</td>
+          <td>CPC ¥200〜400に低減</td>
+        </tr>
+        <tr>
+          <td><strong>除外KW設定</strong></td>
+          <td>「セルフ」「自分で」「市販」「100均」等の非ターゲットKWを除外</td>
+          <td>無駄クリック排除</td>
+        </tr>
+        <tr>
+          <td><strong>広告表示オプション</strong></td>
+          <td>サイトリンク（料金・口コミ）、電話番号、構造化スニペットの設定</td>
+          <td>CTR向上→品質スコア改善</td>
+        </tr>
+        <tr>
+          <td><strong>リマーケティング</strong></td>
+          <td>LP訪問・未CV者への追跡広告（CV数10件蓄積後に実施推奨）</td>
+          <td>CPC ¥50〜150で再アプローチ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 8. 改善モックアップ ======== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-gold">08</div>
+    <div class="section-title">
+      <small>Improved Mockup</small>
+      改善モックアップ
+    </div>
+  </div>
+
+  <p style="font-size:14px; color:var(--text-mid); margin-bottom:20px;">
+    上記の改善提案を反映したSPファーストのLPモックアップを作成しました。<br>
+    以下のリンクから実際の画面イメージをご確認いただけます。
+  </p>
+
+  <div class="card card-navy" style="text-align:center; padding:40px;">
+    <div class="card-label">SP FIRST MOCKUP</div>
+    <div class="card-title" style="font-size:18px; margin-bottom:20px;">改善後LPモックアップ</div>
+    <a href="yorisoi-formen-improved-mockup.html" target="_blank" style="display:inline-block; background:linear-gradient(135deg, #c5a55a, #d4b96e); color:var(--navy); font-weight:700; padding:16px 40px; border-radius:8px; font-size:15px; text-decoration:none;">
+      モックアップを表示する &#8594;
+    </a>
+    <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:12px;">スマートフォンでの閲覧を推奨します</p>
+  </div>
+
+  <div style="margin-top:24px;">
+    <div style="font-weight:700; font-size:14px; color:var(--navy); margin-bottom:12px;">モックアップに反映した主な改善点</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>改善箇所</th><th>変更内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>FVコピー</strong></td><td>「足の悩み、一人で抱えていませんか？」に変更。共感→解決の構成</td></tr>
+          <tr><td><strong>FVバッジ</strong></td><td>「男性専用サロン」「完全個室」「JR春日井駅 徒歩5分」を視覚的に配置</td></tr>
+          <tr><td><strong>信頼数値</strong></td><td>施術実績300名+、満足度98%、施術経験5年をFV内に表示</td></tr>
+          <tr><td><strong>CTA配置</strong></td><td>6箇所に分散配置 + 画面下部に固定CTAバー（価格表示付き）</td></tr>
+          <tr><td><strong>選ばれる理由</strong></td><td>「男性専用・完全個室」「ドイツ式フットケア」「暮らしに寄り添う」の3点を新規追加</td></tr>
+          <tr><td><strong>ビフォーアフター</strong></td><td>施術前後の変化を視覚的に表現するセクションを新規追加</td></tr>
+          <tr><td><strong>お客様の声</strong></td><td>折りたたみ→展開表示、★評価追加、具体的なコメント表示</td></tr>
+          <tr><td><strong>お悩みリスト</strong></td><td>13項目→6項目に厳選。チェックリスト形式で「自分ごと化」</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="proposal-footer">
+  YORISOI FOR MEN LP改善企画書 &#124; 株式会社Ikigai マーケティング事業部 &#124; 2025.03.25
+</div>
+
+</div>
+</body>
+</html>
