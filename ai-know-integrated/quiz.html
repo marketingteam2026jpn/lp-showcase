@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全解析パーソナリティ診断 — 質問 | AI-KNOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  background: #FFFBFE;
+  color: #2D2346;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ========== NAV ========== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255, 251, 254, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(45, 35, 70, 0.06);
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-back {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 13px; color: #7A6B8A;
+  cursor: pointer; background: none; border: none;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: #9B6DD7; }
+.nav-back svg { width: 18px; height: 18px; }
+.nav-logo { font-size: 16px; font-weight: 800; color: #9B6DD7; letter-spacing: 0.02em; }
+.nav-qcount { font-size: 12px; color: #7A6B8A; font-weight: 600; font-family: 'Inter', sans-serif; }
+
+/* ========== PROGRESS ========== */
+.progress-wrap {
+  background: #fff;
+  border-bottom: 1px solid rgba(45, 35, 70, 0.04);
+  padding: 14px 20px 16px;
+}
+.progress-parts {
+  display: flex; gap: 6px; margin-bottom: 10px;
+}
+.progress-part {
+  flex: 1; height: 6px; border-radius: 99px;
+  background: #F0E6F6;
+  overflow: hidden; position: relative;
+}
+.progress-part-fill {
+  position: absolute; left: 0; top: 0; height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #C77DBA, #9B6DD7);
+  transition: width 0.4s cubic-bezier(.25,.46,.45,.94);
+  width: 0;
+}
+.progress-info {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.progress-part-label {
+  font-size: 12px; font-weight: 600; color: #9B6DD7;
+}
+.progress-text {
+  font-size: 12px; color: #7A6B8A;
+  font-family: 'Inter', sans-serif; font-weight: 600;
+}
+
+/* ========== PART INTERSTITIAL ========== */
+.part-screen {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: linear-gradient(160deg, #E8D5F5 0%, #F5D5E8 40%, #FDE8D5 100%);
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px 24px; text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+.part-screen.active { display: flex; }
+.part-icon { font-size: 56px; margin-bottom: 20px; }
+.part-badge {
+  display: inline-block; padding: 6px 18px;
+  border-radius: 99px; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(255,255,255,0.7);
+  color: #9B6DD7;
+  margin-bottom: 16px;
+  backdrop-filter: blur(4px);
+}
+.part-title {
+  font-size: 22px; font-weight: 900; color: #2D2346;
+  margin-bottom: 10px; line-height: 1.4;
+}
+.part-desc {
+  font-size: 14px; color: #5A4D6B; line-height: 1.8;
+  margin-bottom: 8px; font-weight: 300;
+}
+.part-meta {
+  font-size: 13px; color: #7A6B8A; margin-bottom: 32px;
+}
+.part-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 36px; border-radius: 60px; border: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, #C77DBA, #9B6DD7);
+  box-shadow: 0 6px 28px rgba(155, 109, 215, 0.3);
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+}
+.part-btn:hover { transform: scale(1.04); box-shadow: 0 10px 36px rgba(155, 109, 215, 0.4); }
+.part-save-note {
+  margin-top: 16px; font-size: 12px; color: #7A6B8A;
+}
+
+/* ========== QUIZ ========== */
+.quiz-shell {
+  max-width: 640px; margin: 0 auto;
+  padding: 28px 20px 140px;
+}
+.q-card {
+  display: none;
+  animation: slideIn 0.35s ease;
+}
+.q-card.active { display: block; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.q-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: #C77DBA;
+  margin-bottom: 12px;
+}
+.q-text {
+  font-size: 19px; font-weight: 700;
+  line-height: 1.7; margin-bottom: 36px;
+  color: #2D2346;
+}
+
+/* ========== SLIDER ANSWER ========== */
+.answer-area {
+  background: #fff;
+  border: 1px solid rgba(45, 35, 70, 0.06);
+  border-radius: 20px;
+  padding: 28px 20px 24px;
+  box-shadow: 0 2px 16px rgba(45, 35, 70, 0.04);
+}
+.slider-labels {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: #7A6B8A;
+  margin-bottom: 20px; font-weight: 500;
+}
+.slider-options {
+  display: flex; justify-content: space-between;
+  gap: 8px; margin-bottom: 12px;
+}
+.slider-opt {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  cursor: pointer;
+}
+.slider-opt input { display: none; }
+.slider-circle {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 2px solid #E8D5F5;
+  background: #FAFAFE;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s cubic-bezier(.34,1.56,.64,1);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: #B8A0D6;
+}
+.slider-opt:hover .slider-circle {
+  border-color: #C77DBA;
+  background: #FFF5F9;
+}
+.slider-opt input:checked + .slider-circle {
+  transform: scale(1.15);
+  color: #fff;
+  background: linear-gradient(135deg, #C77DBA, #9B6DD7);
+  border-color: #9B6DD7;
+  box-shadow: 0 4px 16px rgba(155, 109, 215, 0.35);
+}
+.slider-opt-label {
+  font-size: 10px; color: #7A6B8A;
+  text-align: center; line-height: 1.3;
+}
+
+/* ========== BOTTOM BAR ========== */
+.bottom-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(255, 251, 254, 0.95);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(45, 35, 70, 0.06);
+  padding: 14px 20px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 100;
+  display: flex; align-items: center; gap: 12px;
+}
+.btn-prev {
+  padding: 12px 20px; border-radius: 14px;
+  background: #F0E6F6;
+  border: none;
+  color: #7A6B8A;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-prev:hover { background: #E8D5F5; color: #9B6DD7; }
+.btn-prev:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.btn-next {
+  flex: 1; padding: 14px 0; border-radius: 14px;
+  border: none; font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  cursor: pointer; transition: all 0.2s;
+  background: #E0D5E8;
+  color: #B8A0D6;
+}
+.btn-next.enabled {
+  background: linear-gradient(135deg, #C77DBA, #9B6DD7);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(155, 109, 215, 0.3);
+}
+.btn-next.enabled:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(155, 109, 215, 0.4); }
+.btn-next:disabled { cursor: not-allowed; }
+
+/* ========== PRAISE POPUP ========== */
+.praise-popup {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+  background: #fff;
+  border: 1px solid rgba(45, 35, 70, 0.08);
+  border-radius: 24px; padding: 32px 28px;
+  text-align: center; z-index: 300;
+  opacity: 0; pointer-events: none;
+  transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
+  box-shadow: 0 12px 40px rgba(45, 35, 70, 0.12);
+}
+.praise-popup.show {
+  opacity: 1; transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+.praise-emoji { font-size: 48px; margin-bottom: 12px; }
+.praise-text { font-size: 16px; font-weight: 700; color: #2D2346; margin-bottom: 6px; }
+.praise-sub { font-size: 13px; color: #7A6B8A; }
+
+/* ========== LOADING / ANALYSIS ========== */
+.analysis-screen {
+  display: none; position: fixed; inset: 0; z-index: 500;
+  background: linear-gradient(160deg, #E8D5F5 0%, #F5D5E8 40%, #FDE8D5 100%);
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px 24px; text-align: center;
+}
+.analysis-screen.active { display: flex; }
+.analysis-orb-wrap {
+  width: 100px; height: 100px; margin-bottom: 32px;
+  position: relative;
+}
+.analysis-orb {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#C77DBA, #9B6DD7, #7EC8E3, #F5A0B8, #C77DBA);
+  animation: orbSpin 2.5s linear infinite;
+  position: relative;
+}
+.analysis-orb::after {
+  content: ''; position: absolute;
+  inset: 10px; border-radius: 50%;
+  background: linear-gradient(160deg, #E8D5F5, #F5D5E8);
+}
+@keyframes orbSpin { to { transform: rotate(360deg); } }
+.analysis-title {
+  font-size: 18px; font-weight: 700; color: #2D2346;
+  margin-bottom: 24px; line-height: 1.6;
+}
+.analysis-steps { width: 100%; max-width: 320px; text-align: left; }
+.analysis-step {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; font-size: 13px;
+  color: #B8A0D6;
+  transition: color 0.3s;
+}
+.analysis-step.active { color: #5A4D6B; }
+.analysis-step.done { color: #9B6DD7; font-weight: 600; }
+.analysis-step-icon { width: 20px; text-align: center; }
+.analysis-flavor {
+  margin-top: 28px; font-size: 13px;
+  color: #7A6B8A; font-style: italic;
+  min-height: 40px;
+  transition: opacity 0.3s;
+}
+.analysis-bar-bg {
+  width: 100%; max-width: 320px;
+  height: 4px; border-radius: 99px;
+  background: rgba(155, 109, 215, 0.15);
+  margin-top: 20px; overflow: hidden;
+}
+.analysis-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, #C77DBA, #9B6DD7);
+  transition: width 0.5s ease;
+  width: 0;
+}
+
+/* ========== PARTICLES ========== */
+.particle {
+  position: fixed; pointer-events: none;
+  width: 5px; height: 5px; border-radius: 50%;
+  z-index: 50; opacity: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 480px) {
+  .slider-circle { width: 54px; height: 54px; font-size: 17px; }
+  .q-text { font-size: 21px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <button class="nav-back" onclick="goPrev()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    戻る
+  </button>
+  <span class="nav-logo">AI-KNOW</span>
+  <span class="nav-qcount" id="navCount">Q1 / 101</span>
+</nav>
+
+<!-- Progress -->
+<div class="progress-wrap">
+  <div class="progress-parts" id="progressParts">
+    <div class="progress-part" data-part="0"><div class="progress-part-fill"></div></div>
+    <div class="progress-part" data-part="1"><div class="progress-part-fill"></div></div>
+    <div class="progress-part" data-part="2"><div class="progress-part-fill"></div></div>
+    <div class="progress-part" data-part="3"><div class="progress-part-fill"></div></div>
+  </div>
+  <div class="progress-info">
+    <div class="progress-part-label" id="partLabel">Part 1 / 4</div>
+    <div class="progress-text" id="totalText">0%</div>
+  </div>
+</div>
+
+<!-- Quiz Area -->
+<div class="quiz-shell" id="quizShell"></div>
+
+<!-- Bottom Bar -->
+<div class="bottom-bar">
+  <button class="btn-prev" id="btnPrev" disabled onclick="goPrev()">&#8592; 前へ</button>
+  <button class="btn-next" id="btnNext" disabled onclick="goNext()">次へ &#8594;</button>
+</div>
+
+<!-- Praise Popup -->
+<div class="praise-popup" id="praisePopup">
+  <div class="praise-emoji" id="praiseEmoji"></div>
+  <div class="praise-text" id="praiseText"></div>
+  <div class="praise-sub" id="praiseSub"></div>
+</div>
+
+<!-- Part Interstitial Screens -->
+<div class="part-screen" id="partScreen0">
+  <div class="part-icon">🔮</div>
+  <div class="part-badge">Part 1 / 4</div>
+  <div class="part-title">あなたの内面を<br>探っていきましょう</div>
+  <div class="part-desc">まずは直感で答えてください。<br>正解・不正解はありません。</div>
+  <div class="part-meta">45問 ・ 約7分</div>
+  <button class="part-btn" onclick="closePart(0)">さっそく始める &#8594;</button>
+</div>
+
+<div class="part-screen" id="partScreen1">
+  <div class="part-icon">🧠</div>
+  <div class="part-badge">Part 2 / 4</div>
+  <div class="part-title">あなたの思考パターンを<br>見ていきます</div>
+  <div class="part-desc">考え方や行動の傾向について<br>答えてみてください。</div>
+  <div class="part-meta">16問 ・ 約2分</div>
+  <button class="part-btn" onclick="closePart(1)">次のパートへ &#8594;</button>
+  <div class="part-save-note">進捗は自動保存されています</div>
+</div>
+
+<div class="part-screen" id="partScreen2">
+  <div class="part-icon">📊</div>
+  <div class="part-badge">Part 3 / 4</div>
+  <div class="part-title">あともう少し！<br>日常のあなたについて</div>
+  <div class="part-desc">ふだんの行動や考え方を<br>振り返ってみてください。</div>
+  <div class="part-meta">20問 ・ 約3分</div>
+  <button class="part-btn" onclick="closePart(2)">次のパートへ &#8594;</button>
+  <div class="part-save-note">進捗は自動保存されています</div>
+</div>
+
+<div class="part-screen" id="partScreen3">
+  <div class="part-icon">💗</div>
+  <div class="part-badge">Part 4 / 4 ・ ラスト！</div>
+  <div class="part-title">最後のパートです！<br>あなたの心のバランスを測ります</div>
+  <div class="part-desc">もうひと頑張り！<br>結果がもうすぐ見られます。</div>
+  <div class="part-meta">20問 ・ 約3分</div>
+  <button class="part-btn" onclick="closePart(3)">ラストスパート &#8594;</button>
+  <div class="part-save-note">進捗は自動保存されています</div>
+</div>
+
+<!-- Analysis Screen -->
+<div class="analysis-screen" id="analysisScreen">
+  <div class="analysis-orb-wrap"><div class="analysis-orb"></div></div>
+  <div class="analysis-title">あなたのパーソナリティを<br>AI解析しています...</div>
+  <div class="analysis-steps">
+    <div class="analysis-step" id="as-1"><span class="analysis-step-icon">○</span> 内面の動機を分析中...</div>
+    <div class="analysis-step" id="as-2"><span class="analysis-step-icon">○</span> 思考パターンを判定中...</div>
+    <div class="analysis-step" id="as-3"><span class="analysis-step-icon">○</span> 性格特性をスコアリング中...</div>
+    <div class="analysis-step" id="as-4"><span class="analysis-step-icon">○</span> 心のバランスを計算中...</div>
+    <div class="analysis-step" id="as-5"><span class="analysis-step-icon">○</span> AI統合クロス分析中...</div>
+  </div>
+  <div class="analysis-bar-bg"><div class="analysis-bar-fill" id="analysisBar"></div></div>
+  <div class="analysis-flavor" id="analysisFlavor"></div>
+</div>
+
+<script>
+// ========== CONFIG ==========
+const QUESTIONS = [];
+
+// Parts: index-based (no theory names exposed)
+const PARTS = [
+  { count: 45, icon: '🔮', label: 'Part 1' },
+  { count: 16, icon: '🧠', label: 'Part 2' },
+  { count: 20, icon: '📊', label: 'Part 3' },
+  { count: 20, icon: '💗', label: 'Part 4' },
+];
+
+const SLIDER_OPTION_LABELS_DEFAULT = ['いいえ', 'あまり\n当てはまらない', 'どちらとも', 'やや\n当てはまる', 'はい'];
+
+const PRAISE_MILESTONES = {
+  25: { emoji: '✨', text: 'いい調子です！', sub: 'あなたの性格が見えてきました' },
+  50: { emoji: '🎯', text: '折り返し地点！', sub: '分析の精度がどんどん上がっています' },
+  75: { emoji: '🔥', text: 'もう少し！', sub: 'あなただけの結果が完成間近です' },
+};
+
+const FLAVOR_TEXTS = [
+  "あなたの回答パターンには興味深い傾向が見られます",
+  "複数の分析軸で特徴的な相関を検出しました",
+  "通常より深い自己認識の傾向が見られます",
+  "AIクロス分析で新しい発見がありそうです",
+  "あなたと同じ組み合わせは全体の約2.3%です",
+];
+
+let currentIndex = 0;
+let answers = {};
+let partShown = [false, false, false, false];
+
+// ========== HELPERS ==========
+function getPartIndex(qIndex) {
+  let offset = 0;
+  for (let i = 0; i < PARTS.length; i++) {
+    if (qIndex < offset + PARTS[i].count) return i;
+    offset += PARTS[i].count;
+  }
+  return PARTS.length - 1;
+}
+
+function getPartRange(partIdx) {
+  let start = 0;
+  for (let i = 0; i < partIdx; i++) start += PARTS[i].count;
+  return { start, end: start + PARTS[partIdx].count };
+}
+
+// ========== LOAD QUESTIONS ==========
+async function loadQuestions() {
+  try {
+    const res = await fetch('questions.json');
+    const data = await res.json();
+    data.forEach((q, i) => {
+      const f = q.fields;
+      let aConfig = {};
+      try { aConfig = JSON.parse(f.a_example); } catch(e) {}
+      QUESTIONS.push({
+        id: f.q_name,
+        num: i + 1,
+        text: f.q_display.replace(/^Q\d+\.\s*/, ''),
+        type: f.q_type,
+        min_label: aConfig.display_min || '',
+        max_label: aConfig.display_max || '',
+      });
+    });
+    buildQuizCards();
+    showPart(0);
+  } catch(e) {
+    console.error('Failed to load questions:', e);
+  }
+}
+
+// ========== BUILD QUIZ CARDS ==========
+function buildQuizCards() {
+  const shell = document.getElementById('quizShell');
+  shell.innerHTML = '';
+  QUESTIONS.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card' + (i === 0 ? ' active' : '');
+    card.dataset.index = i;
+
+    const partIdx = getPartIndex(i);
+    const hasCustomLabels = q.min_label && q.max_label;
+    const optLabels = hasCustomLabels
+      ? [q.min_label, '', 'どちらとも', '', q.max_label]
+      : SLIDER_OPTION_LABELS_DEFAULT;
+    const minLabel = hasCustomLabels ? q.min_label : 'いいえ';
+    const maxLabel = hasCustomLabels ? q.max_label : 'はい';
+
+    card.innerHTML = `
+      <div class="q-num">Q.${q.num} / 101</div>
+      <div class="q-text">${q.text}</div>
+      <div class="answer-area">
+        <div class="slider-labels">
+          <span>${minLabel}</span>
+          <span>${maxLabel}</span>
+        </div>
+        <div class="slider-options">
+          ${[1,2,3,4,5].map(v => `
+            <label class="slider-opt">
+              <input type="radio" name="q-${q.id}" value="${v}"
+                ${answers[q.id] == v ? 'checked' : ''}
+                onchange="onAnswer('${q.id}', ${v}, ${i})">
+              <span class="slider-circle">${v}</span>
+              <span class="slider-opt-label">${optLabels[v-1] || ''}</span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    shell.appendChild(card);
+  });
+  updateUI();
+}
+
+// ========== PART SCREENS ==========
+function showPart(partIdx) {
+  if (partShown[partIdx]) return;
+  partShown[partIdx] = true;
+  const el = document.getElementById('partScreen' + partIdx);
+  if (el) el.classList.add('active');
+}
+
+function closePart(partIdx) {
+  const el = document.getElementById('partScreen' + partIdx);
+  if (el) el.classList.remove('active');
+}
+
+// ========== ANSWER HANDLING ==========
+function onAnswer(qId, value, index) {
+  answers[qId] = value;
+  saveProgress();
+  spawnParticles();
+
+  const pct = Math.round((Object.keys(answers).length / QUESTIONS.length) * 100);
+  if (PRAISE_MILESTONES[pct]) showPraise(PRAISE_MILESTONES[pct]);
+
+  updateUI();
+
+  setTimeout(() => {
+    if (currentIndex < QUESTIONS.length - 1) goNext();
+  }, 400);
+}
+
+// ========== NAVIGATION ==========
+function goNext() {
+  if (currentIndex >= QUESTIONS.length - 1) {
+    startAnalysis();
+    return;
+  }
+
+  const nextIndex = currentIndex + 1;
+  const curPart = getPartIndex(currentIndex);
+  const nextPart = getPartIndex(nextIndex);
+
+  if (nextPart !== curPart) showPart(nextPart);
+
+  currentIndex = nextIndex;
+  showCard(currentIndex);
+  updateUI();
+}
+
+function goPrev() {
+  if (currentIndex <= 0) return;
+  currentIndex--;
+  showCard(currentIndex);
+  updateUI();
+}
+
+function showCard(index) {
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('active'));
+  const card = document.querySelector(`.q-card[data-index="${index}"]`);
+  if (card) card.classList.add('active');
+}
+
+// ========== UI UPDATE ==========
+function updateUI() {
+  const total = QUESTIONS.length;
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / total) * 100);
+  const q = QUESTIONS[currentIndex];
+  const curPart = getPartIndex(currentIndex);
+
+  // Nav
+  document.getElementById('navCount').textContent = `Q${currentIndex + 1} / ${total}`;
+  document.getElementById('totalText').textContent = pct + '%';
+  document.getElementById('partLabel').textContent = `Part ${curPart + 1} / 4`;
+
+  // Part progress bars
+  PARTS.forEach((part, i) => {
+    const range = getPartRange(i);
+    let answeredInPart = 0;
+    for (let j = range.start; j < range.end; j++) {
+      if (QUESTIONS[j] && answers[QUESTIONS[j].id]) answeredInPart++;
+    }
+    const segPct = Math.round((answeredInPart / part.count) * 100);
+    const fill = document.querySelector(`.progress-part[data-part="${i}"] .progress-part-fill`);
+    if (fill) fill.style.width = segPct + '%';
+  });
+
+  // Buttons
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  btnPrev.disabled = currentIndex === 0;
+
+  const hasAnswer = q && answers[q.id];
+  if (hasAnswer) {
+    btnNext.classList.add('enabled');
+    btnNext.disabled = false;
+    btnNext.textContent = currentIndex === total - 1 ? '診断結果を見る →' : '次へ →';
+  } else {
+    btnNext.classList.remove('enabled');
+    btnNext.disabled = true;
+    btnNext.textContent = '回答を選んでください';
+  }
+}
+
+// ========== PARTICLES ==========
+function spawnParticles() {
+  const colors = ['#C77DBA', '#9B6DD7', '#F5A0B8', '#7EC8E3'];
+  for (let i = 0; i < 5; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.left = (Math.random() * 60 + 20) + '%';
+    p.style.top = (Math.random() * 40 + 40) + '%';
+    document.body.appendChild(p);
+    p.animate([
+      { opacity: 0.8, transform: 'translate(0,0) scale(1)' },
+      { opacity: 0, transform: `translate(${(Math.random()-0.5)*80}px, ${-Math.random()*60-20}px) scale(0)` }
+    ], { duration: 600 + Math.random() * 400, easing: 'ease-out' });
+    setTimeout(() => p.remove(), 1100);
+  }
+}
+
+// ========== PRAISE POPUP ==========
+function showPraise(data) {
+  const popup = document.getElementById('praisePopup');
+  document.getElementById('praiseEmoji').textContent = data.emoji;
+  document.getElementById('praiseText').textContent = data.text;
+  document.getElementById('praiseSub').textContent = data.sub;
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 2200);
+}
+
+// ========== SAVE / RESTORE ==========
+function saveProgress() {
+  try {
+    localStorage.setItem('aiknow-integrated-answers', JSON.stringify(answers));
+    localStorage.setItem('aiknow-integrated-index', currentIndex);
+  } catch(e) {}
+}
+
+function restoreProgress() {
+  try {
+    const saved = localStorage.getItem('aiknow-integrated-answers');
+    const savedIdx = localStorage.getItem('aiknow-integrated-index');
+    if (saved) {
+      answers = JSON.parse(saved);
+      if (savedIdx) currentIndex = parseInt(savedIdx, 10);
+      let offset = 0;
+      PARTS.forEach((part, i) => {
+        if (currentIndex >= offset) partShown[i] = true;
+        offset += part.count;
+      });
+    }
+  } catch(e) {}
+}
+
+// ========== ANALYSIS SCREEN ==========
+function startAnalysis() {
+  const screen = document.getElementById('analysisScreen');
+  screen.classList.add('active');
+  document.querySelector('.bottom-bar').style.display = 'none';
+
+  const steps = [
+    { id: 'as-1', delay: 2000 },
+    { id: 'as-2', delay: 4000 },
+    { id: 'as-3', delay: 6000 },
+    { id: 'as-4', delay: 8000 },
+    { id: 'as-5', delay: 10000 },
+  ];
+
+  const bar = document.getElementById('analysisBar');
+  const flavorEl = document.getElementById('analysisFlavor');
+  let flavorIdx = 0;
+
+  const totalTime = 13000;
+  const startTime = Date.now();
+  function animateBar() {
+    const elapsed = Date.now() - startTime;
+    const pct = Math.min((elapsed / totalTime) * 100, 100);
+    bar.style.width = pct + '%';
+    if (pct < 100) requestAnimationFrame(animateBar);
+  }
+  requestAnimationFrame(animateBar);
+
+  steps.forEach((step, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(step.id);
+      el.classList.remove('active');
+      el.classList.add('done');
+      el.querySelector('.analysis-step-icon').textContent = '✓';
+      if (i + 1 < steps.length) {
+        document.getElementById(steps[i+1].id).classList.add('active');
+      }
+    }, step.delay);
+  });
+
+  document.getElementById(steps[0].id).classList.add('active');
+
+  flavorEl.textContent = FLAVOR_TEXTS[0];
+  setInterval(() => {
+    flavorIdx = (flavorIdx + 1) % FLAVOR_TEXTS.length;
+    flavorEl.style.opacity = 0;
+    setTimeout(() => {
+      flavorEl.textContent = FLAVOR_TEXTS[flavorIdx];
+      flavorEl.style.opacity = 1;
+    }, 300);
+  }, 2500);
+
+  setTimeout(() => {
+    window.location.href = 'result-mock-mikami.html';
+  }, 14000);
+}
+
+// ========== INIT ==========
+restoreProgress();
+loadQuestions();
+</script>
+</body>
+</html>

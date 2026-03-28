@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三神勇治さんの診断結果 | 全解析パーソナリティ診断 | AI-KNOW</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  color: #2D2346;
+  background: #FFFBFE;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* ========== RESULT HEADER (スクショ1枚に収まるよう設計) ========== */
+.result-header {
+  background: linear-gradient(160deg, #E8D5F5 0%, #F5D5E8 40%, #FDE8D5 100%);
+  padding: 28px 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.result-header::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -40px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  filter: blur(50px);
+}
+.result-header-inner { position: relative; z-index: 1; }
+.result-brand {
+  font-size: 10px;
+  color: #9B6DD7;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.result-name {
+  font-size: 13px;
+  color: #5A4D6B;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+.result-main-title {
+  font-size: 11px;
+  color: #7A6B8A;
+  margin-bottom: 12px;
+}
+.result-type-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 14px 28px;
+  margin-bottom: 10px;
+}
+.result-type-label {
+  font-size: 10px;
+  color: #9B6DD7;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.result-type-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2D2346;
+  line-height: 1.3;
+}
+.result-type-sub {
+  font-size: 12px;
+  color: #7A6B8A;
+  margin-top: 2px;
+}
+.result-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.result-tag {
+  background: rgba(155, 109, 215, 0.12);
+  color: #9B6DD7;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 100px;
+}
+
+/* ========== OVERVIEW CARDS (ヘッダーと一体化してスクショに収める) ========== */
+.overview-section {
+  background: linear-gradient(180deg, #FDE8D5 0%, #FFFBFE 100%);
+  padding: 14px 0 20px;
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-bottom: 0;
+}
+.overview-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 14px;
+  padding: 10px 6px;
+  text-align: center;
+  box-shadow: 0 1px 8px rgba(45,35,70,0.06);
+  border-top: 2px solid;
+}
+.overview-card--full {
+  grid-column: 1 / -1;
+}
+.overview-card--enneagram { border-top-color: #7EC8E3; }
+.overview-card--16type { border-top-color: #81C995; }
+.overview-card--big5 { border-top-color: #F5C26B; }
+.overview-card--egogram { border-top-color: #F5A0B8; }
+.overview-card--tritype { border-top-color: #B8A0D6; }
+.overview-card-icon { font-size: 16px; margin-bottom: 2px; }
+.overview-card-label { font-size: 9px; color: #7A6B8A; font-weight: 500; margin-bottom: 1px; line-height: 1.3; }
+.overview-card-value { font-size: 15px; font-weight: 700; color: #2D2346; line-height: 1.2; }
+.overview-card-desc { font-size: 10px; color: #9B6DD7; margin-top: 1px; font-weight: 500; line-height: 1.3; }
+
+/* ========== SECTION STYLES ========== */
+.section { padding: 32px 0; }
+.section-alt { padding: 32px 0; background: #FFF5F9; }
+.section-icon { font-size: 28px; margin-bottom: 8px; text-align: center; }
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+  color: #2D2346;
+}
+.section-title em { font-style: normal; background: linear-gradient(transparent 60%, #F9D1E8 60%); }
+.section-sub {
+  font-size: 13px;
+  color: #7A6B8A;
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+/* ========== STATS BAR ========== */
+.stat-bars { display: flex; flex-direction: column; gap: 16px; }
+.stat-bar-item {}
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.stat-bar-label { font-size: 14px; font-weight: 500; }
+.stat-bar-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9B6DD7;
+}
+.stat-bar-bg {
+  height: 10px;
+  background: #F0E8F7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+.stat-bar-desc {
+  font-size: 12px;
+  color: #7A6B8A;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* ========== DETAIL CARD ========== */
+.detail-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 16px rgba(45,35,70,0.05);
+  margin-bottom: 16px;
+}
+.detail-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.detail-card p {
+  font-size: 14px;
+  color: #5A4D6B;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.detail-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9B6DD7;
+  background: #F0E8F7;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* ========== ABILITY VALUES ========== */
+.abilities {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.ability {
+  background: #FFF5F9;
+  border-radius: 12px;
+  padding: 10px 14px;
+  text-align: center;
+  flex: 1;
+  min-width: 90px;
+}
+.ability-name { font-size: 11px; color: #7A6B8A; margin-bottom: 2px; }
+.ability-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #9B6DD7;
+}
+
+/* ========== COMPATIBILITY ========== */
+.compat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.compat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(45,35,70,0.04);
+}
+.compat-card-label { font-size: 11px; color: #7A6B8A; margin-bottom: 4px; }
+.compat-card-type { font-size: 16px; font-weight: 700; color: #2D2346; margin-bottom: 2px; }
+.compat-card-name { font-size: 12px; color: #9B6DD7; }
+.compat-good { border-left: 3px solid #81C995; }
+.compat-challenge { border-left: 3px solid #F5A0B8; }
+
+/* ========== CROSS ANALYSIS ========== */
+.cross-card {
+  background: linear-gradient(135deg, #F0E8F7, #FFF5F9);
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+}
+.cross-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.cross-card p {
+  font-size: 14px;
+  color: #5A4D6B;
+  line-height: 1.9;
+  font-weight: 300;
+}
+.cross-highlight {
+  background: rgba(155, 109, 215, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #9B6DD7;
+}
+
+/* ========== PAYWALL ========== */
+.paywall {
+  background: linear-gradient(160deg, #E8D5F5, #F5D5E8);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  margin: 24px 0;
+}
+.paywall h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.paywall p { font-size: 13px; color: #5A4D6B; margin-bottom: 20px; font-weight: 300; }
+.paywall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #C77DBA, #9B6DD7);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 60px;
+  padding: 14px 32px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(155,109,215,0.3);
+}
+.paywall-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+.paywall-feature {
+  font-size: 13px;
+  color: #5A4D6B;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.paywall-check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C77DBA, #9B6DD7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ========== SHARE ========== */
+.share-section {
+  text-align: center;
+  padding: 32px 0;
+}
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.share-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+.share-x { background: #000; }
+.share-line { background: #06C755; }
+.share-insta { background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF); }
+.share-copy { background: #7A6B8A; }
+
+/* ========== FOOTER ========== */
+.result-footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #7A6B8A;
+  border-top: 1px solid #F0E8F7;
+}
+
+@media (min-width: 768px) {
+  .overview-grid { grid-template-columns: repeat(5, 1fr); }
+  .compat-grid { grid-template-columns: repeat(4, 1fr); }
+  .result-type-name { font-size: 30px; }
+  .overview-card { padding: 14px 10px; }
+  .overview-card-value { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== RESULT HEADER ==================== -->
+<section class="result-header">
+  <div class="container">
+    <div class="result-header-inner">
+      <div class="result-brand">AI-KNOW 全解析パーソナリティ診断</div>
+      <div class="result-name">三神 勇治 さんの診断結果</div>
+      <div class="result-main-title">2026年3月16日 受験</div>
+
+      <div class="result-type-badge">
+        <div class="result-type-label">あなたの統合タイプ</div>
+        <div class="result-type-name">戦略的ビジョナリー</div>
+        <div class="result-type-sub">INTJ × 5w6 × 知的リーダー型</div>
+      </div>
+
+      <div class="result-tags">
+        <span class="result-tag">#独立思考</span>
+        <span class="result-tag">#戦略家</span>
+        <span class="result-tag">#深い洞察力</span>
+        <span class="result-tag">#完璧主義</span>
+        <span class="result-tag">#知識欲旺盛</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OVERVIEW CARDS ==================== -->
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="overview-card overview-card--enneagram">
+        <div class="overview-card-icon">💫</div>
+        <div class="overview-card-label">エニアグラム</div>
+        <div class="overview-card-value">5w6</div>
+        <div class="overview-card-desc">探究する人</div>
+      </div>
+      <div class="overview-card overview-card--16type">
+        <div class="overview-card-icon">🌸</div>
+        <div class="overview-card-label">16タイプ</div>
+        <div class="overview-card-value">INTJ</div>
+        <div class="overview-card-desc">建築家</div>
+      </div>
+      <div class="overview-card overview-card--big5">
+        <div class="overview-card-icon">⭐</div>
+        <div class="overview-card-label">Big5</div>
+        <div class="overview-card-value" style="font-size:12px;">開放性90</div>
+        <div class="overview-card-desc">知的探究型</div>
+      </div>
+      <div class="overview-card overview-card--egogram">
+        <div class="overview-card-icon">💝</div>
+        <div class="overview-card-label">エゴグラム</div>
+        <div class="overview-card-value" style="font-size:14px;">A優位</div>
+        <div class="overview-card-desc">賢いリーダー</div>
+      </div>
+      <div class="overview-card overview-card--tritype">
+        <div class="overview-card-icon">✨</div>
+        <div class="overview-card-label">トライタイプ</div>
+        <div class="overview-card-value">5-3-1</div>
+        <div class="overview-card-desc">知性×達成</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BIG5 DETAIL ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-icon">⭐</div>
+    <div class="section-title"><em>ビッグファイブ</em>スコア</div>
+    <div class="section-sub">科学的に最も信頼されている5因子であなたの性格を可視化</div>
+
+    <div class="detail-card">
+      <div class="stat-bars">
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">🌍 開放性（好奇心・創造性）</span>
+            <span class="stat-bar-value">90%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:90%; background: linear-gradient(90deg, #B8A0D6, #9B6DD7);"></div></div>
+          <div class="stat-bar-desc">新しい考え方やアイデアに強く惹かれます。知的好奇心が非常に高く、常に「もっと深く知りたい」という欲求があります。</div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">💬 協調性（共感・やさしさ）</span>
+            <span class="stat-bar-value">80%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:80%; background: linear-gradient(90deg, #81C995, #5DAD73);"></div></div>
+          <div class="stat-bar-desc">相手の気持ちを理解する力が高く、チームワークを大切にします。ただし信頼できる相手にだけ深く関わる傾向があります。</div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">📋 誠実性（計画性・責任感）</span>
+            <span class="stat-bar-value">70%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:70%; background: linear-gradient(90deg, #F5C26B, #E0A84D);"></div></div>
+          <div class="stat-bar-desc">目標に向かって着実に努力できる力があります。ただし、興味のないことに対しては後回しにすることも。</div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">✨ 外向性（社交性・活力）</span>
+            <span class="stat-bar-value">70%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:70%; background: linear-gradient(90deg, #7EC8E3, #5BA8C8);"></div></div>
+          <div class="stat-bar-desc">必要な場面ではしっかりと人と関わり、リーダーシップも発揮できます。ただし、一人の時間で充電するタイプです。</div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">🛡️ 情緒安定性（ストレス耐性）</span>
+            <span class="stat-bar-value">60%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:60%; background: linear-gradient(90deg, #F5A0B8, #E0809A);"></div></div>
+          <div class="stat-bar-desc">基本的にストレスに強く冷静ですが、自分の理想と現実のギャップが大きいときに内面的な葛藤を感じることがあります。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ENNEAGRAM DETAIL ==================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-icon">💫</div>
+    <div class="section-title">エニアグラム: <em>タイプ5w6</em></div>
+    <div class="section-sub">探究する忠実な人 — あなたの根源的な動機と恐れ</div>
+
+    <div class="abilities">
+      <div class="ability">
+        <div class="ability-name">分析力</div>
+        <div class="ability-value">92</div>
+      </div>
+      <div class="ability">
+        <div class="ability-name">洞察力</div>
+        <div class="ability-value">88</div>
+      </div>
+      <div class="ability">
+        <div class="ability-name">忍耐力</div>
+        <div class="ability-value">76</div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3>🔍 あなたの性格の特徴</h3>
+      <p>あなたは「知ること」に強い喜びを感じる人です。物事の表面だけでは満足できず、「なぜそうなるのか」「本質は何か」を徹底的に掘り下げたくなります。知識は武器であり、盾でもあります。十分に理解してから行動に移すスタイルで、周囲からは「冷静で頼りになる」と思われていることが多いでしょう。5w6の組み合わせにより、純粋な探究心に加えて「信頼できるものを見極めたい」という慎重さも持ち合わせています。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>💕 恋愛での傾向</h3>
+      <p>すぐに心を開くタイプではありません。でも一度信頼した相手には、驚くほど深い愛情を注ぎます。言葉より行動で愛を示すタイプ。相手の考えを深く理解しようとする姿勢が、あなたの最大の魅力です。ただし、感情表現が苦手な面があり、パートナーから「何を考えているかわからない」と言われることも。自分の気持ちを言葉にする練習が、関係をより深くしてくれます。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>😌 心がラクになる過ごし方</h3>
+      <p>静かな環境で本を読んだり、新しい知識を吸収する時間があなたのエネルギー源。人と会った後は、必ず一人の時間を確保してください。散歩や瞑想など、頭を空っぽにする時間も大切です。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>🌊 深層心理</h3>
+      <p>あなたの奥深くには「無力でいたくない」「頼りにされる存在でありたい」という強い願いがあります。知識を蓄えるのは、この世界で自分の居場所を確保するため。でも実は、あなたはすでに十分な知識と能力を持っています。「もう少し調べてから」を「今のままで十分」に変えることが、あなたの次のステージへの鍵です。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>⚡ ストレスサイン</h3>
+      <p>ストレスが溜まると、人との距離をさらに広げ、頭の中だけで考え続けるループに入りがち。眠れない夜が増えたり、些細なことに不安を感じたら、信頼できる人に「今ちょっとしんどい」と伝えてみてください。あなたが思っている以上に、周りはあなたを助けたいと思っています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 16TYPE DETAIL ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-icon">🌸</div>
+    <div class="section-title">16タイプ: <em>INTJ</em></div>
+    <div class="section-sub">ビジョナリーな建築家 — あなたの思考と意思決定のスタイル</div>
+
+    <div class="detail-card">
+      <div class="detail-label">4軸のバランス</div>
+      <div class="stat-bars">
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">内向的 (I)</span>
+            <span class="stat-bar-value">65%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:65%; background:#9B6DD7;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">直観的 (N)</span>
+            <span class="stat-bar-value">85%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:85%; background:#81C995;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">思考的 (T)</span>
+            <span class="stat-bar-value">60%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:60%; background:#F5C26B;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">計画的 (J)</span>
+            <span class="stat-bar-value">70%</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:70%; background:#7EC8E3;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3>🧠 あなたの思考スタイル</h3>
+      <p>あなたは「未来を見据えて、最善の道を設計する」タイプ。目の前の出来事よりも、その先にある可能性やパターンに目が向きます。直観力（N: 85%）が非常に高く、他の人が見過ごすような本質をつかむ力があります。一方で、思考と感情のバランス（T: 60%）から、論理的でありながらも人の気持ちを完全に無視はしない——この絶妙なバランスが、あなたのリーダーシップの源泉です。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>💕 INTJの恋愛スタイル</h3>
+      <p>表面的な恋愛には興味がなく、知的に刺激し合える深い関係を求めます。「この人は本物だ」と確信できるまで時間がかかりますが、一度心を決めたら驚くほど一途。デートでも「二人で新しい知識を得る体験」（美術館、読書会、旅先でのディープな会話）を好みます。相性が良いのは、あなたの内面を理解しようとしてくれるENFP・ENFJ・INFP。逆に、表面的な付き合いを求めるタイプとは長続きしにくいかも。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EGOGRAM DETAIL ==================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-icon">💝</div>
+    <div class="section-title">エゴグラム: <em>知的で賢いリーダー</em></div>
+    <div class="section-sub">あなたの対人スタイルを5つの自我状態で分析</div>
+
+    <div class="detail-card">
+      <div class="stat-bars">
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">CP（厳しい親）</span>
+            <span class="stat-bar-value">14/16</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:87%; background:#F5A0B8;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">NP（優しい親）</span>
+            <span class="stat-bar-value">10/16</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:62%; background:#81C995;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">A（冷静な大人）</span>
+            <span class="stat-bar-value">15/16</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:94%; background:#F5C26B;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">FC（自由な子ども）</span>
+            <span class="stat-bar-value">11/16</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:69%; background:#7EC8E3;"></div></div>
+        </div>
+        <div class="stat-bar-item">
+          <div class="stat-bar-header">
+            <span class="stat-bar-label">AC（順応する子ども）</span>
+            <span class="stat-bar-value">6/16</span>
+          </div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill" style="width:37%; background:#B8A0D6;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3>💬 あなたのコミュニケーションのクセ</h3>
+      <p>A（冷静な大人）が最も高く、感情に流されず論理的に会話ができるのがあなたの強み。CP（厳しい親）も高いため、自分にも他人にも高い基準を求める傾向があります。一方、AC（順応する子ども）が低いのは、空気を読んで自分を抑えることが少ないということ。裏を返せば「自分の意見をしっかり持っている」ということですが、時に「怖い」「近寄りがたい」と思われることも。NP（優しい親）を意識的に出すことで、チームからの信頼がさらに深まります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRITYPE ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-icon">✨</div>
+    <div class="section-title">トライタイプ: <em>5-3-1</em></div>
+    <div class="section-sub">知性 × 達成 × 正義 — あなたの3つのエンジン</div>
+
+    <div class="detail-card">
+      <h3>🔮 あなたのトライタイプの意味</h3>
+      <p>5（ヘッドセンター）、3（ハートセンター）、1（ガットセンター）の組み合わせは、<strong>「知識で武装し、成果を出し、正しい道を歩む」</strong>という強い推進力を持つタイプです。ただ知るだけでは満足できず、それを形にして社会に示したい。そして、その過程は常に正しくありたい——この3つの力が、あなたの起業家精神の源泉です。</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>💡 信頼度</h3>
+      <p>あなたのエニアグラムスコアでは、タイプ5が他のタイプを大きく上回っています。メインタイプの信頼度は<strong style="color:#9B6DD7;">90%（非常に高い）</strong>です。あなたはかなり純粋なタイプ5であり、このタイプの特徴が強く当てはまります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COMPATIBILITY (FREE) ==================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-icon">💕</div>
+    <div class="section-title"><em>相性</em>のヒント</div>
+    <div class="section-sub">あなたと相性の良いタイプ・すれ違いやすいタイプ</div>
+
+    <div class="compat-grid">
+      <div class="compat-card compat-good">
+        <div class="compat-card-label">💚 恋愛で相性◎</div>
+        <div class="compat-card-type">ENFP</div>
+        <div class="compat-card-name">広報運動家</div>
+      </div>
+      <div class="compat-card compat-good">
+        <div class="compat-card-label">💚 友達で相性◎</div>
+        <div class="compat-card-type">INTP</div>
+        <div class="compat-card-name">論理学者</div>
+      </div>
+      <div class="compat-card compat-challenge">
+        <div class="compat-card-label">💔 すれ違いやすい</div>
+        <div class="compat-card-type">ESFP</div>
+        <div class="compat-card-name">エンターテイナー</div>
+      </div>
+      <div class="compat-card compat-challenge">
+        <div class="compat-card-label">💔 すれ違いやすい</div>
+        <div class="compat-card-type">ESFJ</div>
+        <div class="compat-card-name">領事官</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CROSS ANALYSIS (PAYWALL) ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-icon">🔮</div>
+    <div class="section-title"><em>統合クロス分析</em></div>
+    <div class="section-sub">5つの結果を横断した、あなただけの深層分析</div>
+
+    <div class="cross-card">
+      <h3>🧬 INTJ × 5w6 の組み合わせ</h3>
+      <p>あなたの<span class="cross-highlight">INTJ × エニアグラム5w6</span>という組み合わせは、全人口の中でも<span class="cross-highlight">約1.2%</span>しかいない非常に稀なタイプです。「未来のビジョンを描く直観力」と「本質を見抜く分析力」が合わさった、まさにビジョナリーな戦略家。事業を構想する力は抜群ですが、一人で抱え込みすぎる傾向があります。信頼できる右腕を見つけることが、あなたのビジョンを現実にする最大の鍵です。</p>
+    </div>
+
+    <!-- PAYWALL -->
+    <div class="paywall">
+      <h3>🔓 もっと深く知りたい？</h3>
+      <p>有料版では、さらに詳しい統合分析が開放されます</p>
+      <div class="paywall-features">
+        <div class="paywall-feature"><span class="paywall-check">✓</span> 恋愛パターンの徹底分析（3,000字）</div>
+        <div class="paywall-feature"><span class="paywall-check">✓</span> あなたの取扱説明書（人間関係・仕事・恋愛）</div>
+        <div class="paywall-feature"><span class="paywall-check">✓</span> 全タイプとの詳細相性マトリクス</div>
+        <div class="paywall-feature"><span class="paywall-check">✓</span> ストレス対処法＆成長ロードマップ</div>
+        <div class="paywall-feature"><span class="paywall-check">✓</span> PDF保存＆友達との比較機能</div>
+      </div>
+      <button class="paywall-btn">詳細結果を見る →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SHARE ==================== -->
+<section class="share-section">
+  <div class="container">
+    <div class="section-title">結果を<em>シェア</em>しよう</div>
+    <div class="section-sub">友達や恋人と結果を見せ合うのがおすすめ！</div>
+    <div class="share-buttons">
+      <a href="#" class="share-btn share-x">𝕏</a>
+      <a href="#" class="share-btn share-line">L</a>
+      <a href="#" class="share-btn share-insta">📷</a>
+      <a href="#" class="share-btn share-copy">🔗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="result-footer">
+  <div class="container">
+    <p>© 2026 AI-KNOW. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
