@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フランチャイズ総合代理店｜あなたに合った独立・副業の選択肢を無料でご提案</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      color: #333;
+      background: #FFFFFF;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    :root {
+      --primary: #FF6B35;
+      --primary-dark: #E55A28;
+      --primary-pale: #FFF5F0;
+      --green: #10B981;
+      --green-pale: #ECFDF5;
+      --accent: #2563EB;
+      --accent-light: #EFF6FF;
+      --navy: #1E293B;
+      --text: #333333;
+      --text-light: #64748B;
+      --bg: #FFFFFF;
+      --bg-warm: #FFFBF7;
+      --bg-gray: #F8FAFC;
+      --border: #E2E8F0;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* === BUTTONS === */
+    .btn-cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 20px 48px;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(255, 107, 53, 0.35);
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(255, 107, 53, 0.4);
+    }
+
+    .btn-cta-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-green:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .section-pad { padding: 88px 0; }
+
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      margin-bottom: 10px;
+      background: var(--primary-pale);
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+
+    /* ============================================================ */
+    /* NAVIGATION                                                    */
+    /* ============================================================ */
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--primary) 0%, #FF8F65 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .nav-logo-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .nav-logo-text span {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-light);
+      display: block;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-tel {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .nav-tel .num {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-cta-btn {
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(255, 107, 53, 0.25);
+      transition: background 0.2s;
+    }
+
+    .nav-cta-btn:hover { background: var(--primary-dark); }
+
+
+    /* ============================================================ */
+    /* FIRST VIEW                                                    */
+    /* ============================================================ */
+
+    .fv {
+      padding-top: 64px;
+      background: linear-gradient(168deg, #FFFBF7 0%, #FFF5EE 50%, #FFF0E8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fv::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    .fv-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 52px 20px 60px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .fv-content {
+      flex: 1;
+    }
+
+    .fv-eyecatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 5px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .fv-eyecatch-dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .fv-h1 {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .fv-h1 .em {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .fv-h1 .em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 8px;
+      background: rgba(255,107,53,0.15);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .fv-sub {
+      font-size: 16px;
+      color: var(--text-light);
+      font-weight: 500;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .fv-checks {
+      margin-bottom: 28px;
+    }
+
+    .fv-checks li {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fv-checks li .icon {
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    .fv-cta-area {
+      margin-bottom: 8px;
+    }
+
+    .fv-cta-note {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 10px;
+    }
+
+    .fv-image {
+      flex-shrink: 0;
+      width: 380px;
+      position: relative;
+    }
+
+    .fv-image-box {
+      width: 380px;
+      height: 360px;
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fv-image-placeholder {
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    .fv-image-placeholder .icon {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
+    .fv-image-placeholder .label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .fv-float-card {
+      position: absolute;
+      bottom: -16px;
+      left: -24px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .fv-float-card .num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .fv-float-card .num .unit {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .fv-float-card .label {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+
+    /* ============================================================ */
+    /* SOCIAL PROOF BAR                                              */
+    /* ============================================================ */
+
+    .proof-bar {
+      background: var(--navy);
+      padding: 20px 0;
+    }
+
+    .proof-bar-inner {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-item .num {
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .proof-item .num .unit {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .proof-item .label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+
+    /* ============================================================ */
+    /* PROBLEM                                                       */
+    /* ============================================================ */
+
+    .problem {
+      background: var(--bg);
+      padding: 88px 0;
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 740px;
+      margin: 0 auto 48px;
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg-gray);
+      border-radius: var(--radius-sm);
+      padding: 22px 20px;
+      border: 1px solid var(--border);
+    }
+
+    .problem-item .icon {
+      flex-shrink: 0;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .problem-item p {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    .problem-answer {
+      text-align: center;
+    }
+
+    .problem-arrow {
+      font-size: 28px;
+      color: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .problem-answer-text {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .problem-answer-text .em { color: var(--primary); }
+
+    .problem-answer-sub {
+      font-size: 15px;
+      color: var(--text-light);
+    }
+
+
+    /* ============================================================ */
+    /* WHAT IS                                                       */
+    /* ============================================================ */
+
+    .whatis {
+      background: var(--bg-warm);
+      padding: 88px 0;
+    }
+
+    .whatis-visual {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .whatis-left {
+      flex: 1;
+    }
+
+    .whatis-left h3 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .whatis-left h3 .em { color: var(--primary); }
+
+    .whatis-left p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .whatis-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .whatis-tag {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .whatis-right {
+      flex-shrink: 0;
+      width: 320px;
+    }
+
+    .whatis-diagram {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .whatis-diagram-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .whatis-diagram-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .whatis-diagram-step {
+      width: 100%;
+      background: var(--bg-gray);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .whatis-diagram-step.highlight {
+      background: var(--primary-pale);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .whatis-diagram-arrow {
+      font-size: 18px;
+      color: var(--border);
+    }
+
+
+    /* ============================================================ */
+    /* MERIT (選ばれる理由)                                           */
+    /* ============================================================ */
+
+    .merit {
+      background: var(--bg);
+      padding: 88px 0;
+    }
+
+    .merit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .merit-card {
+      background: var(--bg-gray);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .merit-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .merit-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      letter-spacing: 0.1em;
+    }
+
+    .merit-icon {
+      width: 60px; height: 60px;
+      background: var(--primary-pale);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    .merit-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .merit-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+
+    /* ============================================================ */
+    /* HOW IT WORKS                                                  */
+    /* ============================================================ */
+
+    .howit {
+      background: var(--bg-warm);
+      padding: 88px 0;
+    }
+
+    .howit-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto 40px;
+    }
+
+    .howit-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .howit-step-num {
+      width: 44px; height: 44px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
+
+    .howit-step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .howit-step p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .howit-step + .howit-step::before {
+      content: '▶';
+      position: absolute;
+      top: 12px;
+      left: -12px;
+      font-size: 12px;
+      color: var(--border);
+    }
+
+    .howit-cta {
+      text-align: center;
+    }
+
+
+    /* ============================================================ */
+    /* SUPPORT                                                       */
+    /* ============================================================ */
+
+    .support {
+      background: var(--bg);
+      padding: 88px 0;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .support-card {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .support-card .icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .support-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .support-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* ============================================================ */
+    /* VOICE                                                         */
+    /* ============================================================ */
+
+    .voice {
+      background: var(--bg-warm);
+      padding: 88px 0;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .voice-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    }
+
+    .voice-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .voice-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .voice-avatar.m { background: var(--accent-light); }
+    .voice-avatar.f { background: #FDF2F8; }
+
+    .voice-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .voice-meta { font-size: 12px; color: var(--text-light); }
+    .voice-stars { color: #F59E0B; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+
+    .voice-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    .voice-result {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 3px 12px;
+      border-radius: 4px;
+    }
+
+
+    /* ============================================================ */
+    /* FAQ                                                           */
+    /* ============================================================ */
+
+    .faq {
+      background: var(--bg);
+      padding: 88px 0;
+    }
+
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-gray);
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .faq-q {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-q-badge {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .faq-a {
+      padding: 0 24px 20px 62px;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+
+
+    /* ============================================================ */
+    /* MID CTA                                                       */
+    /* ============================================================ */
+
+    .mid-cta {
+      background: var(--primary-pale);
+      padding: 56px 0;
+      text-align: center;
+    }
+
+    .mid-cta h3 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .mid-cta p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+
+    /* ============================================================ */
+    /* FINAL CTA                                                     */
+    /* ============================================================ */
+
+    .final-cta {
+      background: linear-gradient(160deg, #1E293B 0%, #334155 100%);
+      padding: 72px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -40px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    .final-cta-inner { position: relative; z-index: 1; }
+
+    .final-cta h2 {
+      font-size: 30px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .final-cta .btn-cta {
+      font-size: 20px;
+      padding: 22px 56px;
+    }
+
+    .final-cta-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta-badge {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+
+    /* ============================================================ */
+    /* FOOTER                                                        */
+    /* ============================================================ */
+
+    .footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .footer-logo-icon {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 900; color: #fff;
+    }
+
+    .footer-logo-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .footer-info {
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+
+    /* ============================================================ */
+    /* RESPONSIVE                                                    */
+    /* ============================================================ */
+
+    @media (max-width: 768px) {
+      .fv-inner { flex-direction: column; text-align: center; }
+      .fv-content { order: 1; }
+      .fv-image { order: 2; width: 100%; display: none; }
+      .fv-h1 { font-size: 28px; }
+      .fv-checks { display: inline-block; text-align: left; }
+      .nav-tel { display: none; }
+
+      .section-title { font-size: 26px; }
+
+      .problem-list,
+      .merit-grid,
+      .voice-grid,
+      .support-grid { grid-template-columns: 1fr; }
+
+      .howit-steps { grid-template-columns: 1fr 1fr; }
+      .howit-step + .howit-step::before { display: none; }
+
+      .whatis-visual { flex-direction: column; }
+      .whatis-right { width: 100%; }
+
+      .proof-bar-inner { gap: 24px; }
+
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">DP</div>
+      <div class="nav-logo-text">
+        DREAM PONY
+        <span>フランチャイズ総合代理店</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="nav-tel">
+        <span class="num">0120-949-346</span>
+      </div>
+      <a href="#cta" class="nav-cta-btn">無料で相談する</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ===================== FIRST VIEW ===================== -->
+<section class="fv">
+  <div class="fv-inner">
+    <div class="fv-content">
+      <div class="fv-eyecatch">
+        <span class="fv-eyecatch-dot"></span>
+        無料相談 受付中
+      </div>
+      <h1 class="fv-h1">
+        「副業」も「独立」も、<br>
+        <span class="em">あなたに合うFC</span>が<br>
+        きっと見つかる。
+      </h1>
+      <p class="fv-sub">
+        200以上のフランチャイズの中から、<br>
+        あなたの予算・働き方・目標に合った選択肢を無料でご提案します。
+      </p>
+      <ul class="fv-checks">
+        <li><span class="icon">&#x2714;</span> 相談は完全無料</li>
+        <li><span class="icon">&#x2714;</span> 副業 OK のFCも多数</li>
+        <li><span class="icon">&#x2714;</span> 会社員のまま始められる</li>
+        <li><span class="icon">&#x2714;</span> 開業資金0円〜のFCもご紹介</li>
+      </ul>
+      <div class="fv-cta-area">
+        <a href="#cta" class="btn-cta">
+          まずは無料で相談してみる
+          <span class="btn-cta-sub">オンライン面談 約30分 ／ 強引な勧誘なし</span>
+        </a>
+        <p class="fv-cta-note">※ 情報収集だけでもOKです。お気軽にどうぞ。</p>
+      </div>
+    </div>
+    <div class="fv-image">
+      <div class="fv-image-box">
+        <div class="fv-image-placeholder">
+          <div class="icon">&#x1F91D;</div>
+          <div class="label">コンサルタントとの面談イメージ</div>
+        </div>
+      </div>
+      <div class="fv-float-card">
+        <div class="num">200<span class="unit">+</span></div>
+        <div class="label">取り扱いFC数</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== SOCIAL PROOF BAR ===================== -->
+<section class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item">
+      <div class="num">200<span class="unit">社+</span></div>
+      <div class="label">コンサルティング実績</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">340<span class="unit">+</span></div>
+      <div class="label">累計支援店舗数</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">30<span class="unit">種+</span></div>
+      <div class="label">取り扱い業種</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">相談<span class="unit">無料</span></div>
+      <div class="label">何度でもOK</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="problem">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">PROBLEM</span>
+      <h2 class="section-title">こんなお悩みはありませんか？</h2>
+    </div>
+    <div class="problem-list">
+      <div class="problem-item">
+        <span class="icon">&#x1F4B0;</span>
+        <p>副業で収入の柱を<br>もうひとつ作りたい</p>
+      </div>
+      <div class="problem-item">
+        <span class="icon">&#x1F614;</span>
+        <p>会社に不満がある。<br>いつかは独立したい</p>
+      </div>
+      <div class="problem-item">
+        <span class="icon">&#x1F914;</span>
+        <p>フランチャイズに興味はあるが<br>選び方がわからない</p>
+      </div>
+      <div class="problem-item">
+        <span class="icon">&#x1F6E1;</span>
+        <p>失敗したくない。<br>リスクを最小限にしたい</p>
+      </div>
+    </div>
+    <div class="problem-answer">
+      <div class="problem-arrow">&#x25BC;</div>
+      <p class="problem-answer-text">
+        その悩み、<span class="em">FC選びのプロ</span>に<br>
+        まるごと相談しませんか？
+      </p>
+      <p class="problem-answer-sub">フランチャイズ総合代理店は、あなたに最適なFCを「無料」でご提案するサービスです。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== WHAT IS ===================== -->
+<section class="whatis">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">ABOUT</span>
+      <h2 class="section-title">フランチャイズ総合代理店とは？</h2>
+    </div>
+    <div class="whatis-visual">
+      <div class="whatis-left">
+        <h3>
+          200以上のFCから、<br>
+          <span class="em">あなたに合う1社</span>を見つける
+        </h3>
+        <p>
+          私たちは特定のフランチャイズだけを押し売りしません。<br>
+          あなたの「予算」「働き方」「将来の目標」をヒアリングした上で、最適なフランチャイズをご提案します。
+        </p>
+        <div class="whatis-tags">
+          <span class="whatis-tag">&#x1F4BB; IT・通信</span>
+          <span class="whatis-tag">&#x1F48E; 物販</span>
+          <span class="whatis-tag">&#x1F354; 飲食</span>
+          <span class="whatis-tag">&#x1F3E0; 不動産</span>
+          <span class="whatis-tag">&#x1F4DA; 教育</span>
+          <span class="whatis-tag">&#x2702;&#xFE0F; 美容・健康</span>
+          <span class="whatis-tag">&#x1F527; サービス</span>
+          <span class="whatis-tag">…ほか多数</span>
+        </div>
+      </div>
+      <div class="whatis-right">
+        <div class="whatis-diagram">
+          <div class="whatis-diagram-title">ご利用の流れ</div>
+          <div class="whatis-diagram-flow">
+            <div class="whatis-diagram-step">あなたの希望をヒアリング</div>
+            <div class="whatis-diagram-arrow">&#x25BC;</div>
+            <div class="whatis-diagram-step highlight">200+のFCから最適を厳選</div>
+            <div class="whatis-diagram-arrow">&#x25BC;</div>
+            <div class="whatis-diagram-step">比較資料をお渡し</div>
+            <div class="whatis-diagram-arrow">&#x25BC;</div>
+            <div class="whatis-diagram-step">FC本部と面談・加盟</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== MERIT ===================== -->
+<section class="merit">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">MERIT</span>
+      <h2 class="section-title">DREAM PONYが選ばれる理由</h2>
+    </div>
+    <div class="merit-grid">
+      <div class="merit-card">
+        <div class="merit-num">MERIT 01</div>
+        <div class="merit-icon">&#x1F50D;</div>
+        <h3>自分で探す手間ゼロ</h3>
+        <p>200以上のFCから、あなたの条件にマッチする候補を厳選してご提案。比較検討の時間を大幅に短縮。</p>
+      </div>
+      <div class="merit-card">
+        <div class="merit-num">MERIT 02</div>
+        <div class="merit-icon">&#x1F4CB;</div>
+        <h3>中立な立場でアドバイス</h3>
+        <p>特定のFCに偏らず、あなたの予算・働き方・目標に合った選択肢を中立な視点でご提案します。</p>
+      </div>
+      <div class="merit-card">
+        <div class="merit-num">MERIT 03</div>
+        <div class="merit-icon">&#x1F91D;</div>
+        <h3>開業後もサポート</h3>
+        <p>FC選びだけでなく、加盟後の研修・集客・運営面のフォローまで。成功を継続的にサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== MID CTA ===================== -->
+<section class="mid-cta">
+  <div class="container">
+    <h3>「何から始めればいいかわからない」でOK。</h3>
+    <p>まずはお気軽にオンライン無料相談へ。あなたの状況をお聞かせください。</p>
+    <a href="#cta" class="btn-green">無料相談を予約する</a>
+  </div>
+</section>
+
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="howit">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FLOW</span>
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-subtitle">お問い合わせから開業まで、すべてのステップで専任スタッフがサポートします。</p>
+    </div>
+    <div class="howit-steps">
+      <div class="howit-step">
+        <div class="howit-step-num">1</div>
+        <h4>無料相談<br>お申し込み</h4>
+        <p>フォームまたはお電話で。所要時間は約30分。</p>
+      </div>
+      <div class="howit-step">
+        <div class="howit-step-num">2</div>
+        <h4>ヒアリング<br>＆ご提案</h4>
+        <p>予算・希望の働き方・目標を伺い、最適なFCを厳選。</p>
+      </div>
+      <div class="howit-step">
+        <div class="howit-step-num">3</div>
+        <h4>FC本部と<br>面談・比較</h4>
+        <p>気になるFCの説明会や個別面談をアレンジします。</p>
+      </div>
+      <div class="howit-step">
+        <div class="howit-step-num">4</div>
+        <h4>加盟契約<br>＆開業</h4>
+        <p>契約手続きから開業準備まで、ワンストップでサポート。</p>
+      </div>
+    </div>
+    <div class="howit-cta">
+      <p style="font-size:14px;color:var(--text-light);margin-bottom:4px;">※ ステップ1〜2は完全無料です</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== SUPPORT ===================== -->
+<section class="support">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">SUPPORT</span>
+      <h2 class="section-title">手厚いサポート体制</h2>
+      <p class="section-subtitle">FC選びから開業後の運営まで、トータルで支援します。</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="icon">&#x1F393;</div>
+        <div>
+          <h4>研修サポート</h4>
+          <p>加盟先の研修に加え、ビジネスの基礎から丁寧にレクチャー。未経験でも安心。</p>
+        </div>
+      </div>
+      <div class="support-card">
+        <div class="icon">&#x1F4E3;</div>
+        <div>
+          <h4>集客サポート</h4>
+          <p>開業時の集客施策を一緒に設計。Web広告やSNS活用のノウハウも共有。</p>
+        </div>
+      </div>
+      <div class="support-card">
+        <div class="icon">&#x1F4CA;</div>
+        <div>
+          <h4>運営サポート</h4>
+          <p>開業後の売上改善・業務効率化など、継続的にフォロー。一人で悩まなくてOK。</p>
+        </div>
+      </div>
+      <div class="support-card">
+        <div class="icon">&#x1F4DD;</div>
+        <div>
+          <h4>契約面サポート</h4>
+          <p>FC契約の内容確認や資金計画のアドバイス。不利な条件を見逃しません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== VOICE ===================== -->
+<section class="voice">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">VOICE</span>
+      <h2 class="section-title">ご利用者の声</h2>
+      <p class="section-subtitle">実際にフランチャイズ総合代理店を利用して独立・副業を始めた方のリアルな声です。</p>
+    </div>
+    <div class="voice-grid">
+
+      <div class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-avatar m">&#x1F468;</div>
+          <div>
+            <div class="voice-name">T.K.さん</div>
+            <div class="voice-meta">30代男性・元会社員 → 独立</div>
+          </div>
+        </div>
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="voice-text">自分ひとりでは膨大なFC情報を比較しきれなかった。担当の方が条件を整理して3社に絞ってくれたおかげで、迷わず決断できました。</p>
+        <span class="voice-result">相談から2ヶ月で開業</span>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-avatar f">&#x1F469;</div>
+          <div>
+            <div class="voice-name">M.S.さん</div>
+            <div class="voice-meta">40代女性・会社員（副業）</div>
+          </div>
+        </div>
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="voice-text">本業を続けながらできるFCを探していました。「副業OK」かつ「在宅可能」な選択肢を複数提案してもらえて、とても助かりました。</p>
+        <span class="voice-result">副業で月15万円の副収入</span>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-card-header">
+          <div class="voice-avatar m">&#x1F468;</div>
+          <div>
+            <div class="voice-name">H.N.さん</div>
+            <div class="voice-meta">50代男性・個人事業主</div>
+          </div>
+        </div>
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="voice-text">正直、最初はフランチャイズに懐疑的でした。でも契約内容のチェックまでしてくれて、安心して加盟できました。相談だけでも価値があります。</p>
+        <span class="voice-result">事業の柱を2本目に拡大</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q</span>
+          相談は本当に無料ですか？
+        </div>
+        <div class="faq-a">はい、完全無料です。ヒアリングからFC候補のご提案、比較資料のお渡しまで、一切費用はかかりません。何度でもお気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q</span>
+          まだ独立するか決めていないのですが、相談できますか？
+        </div>
+        <div class="faq-a">もちろんです。「まだ情報収集段階」という方も多くいらっしゃいます。副業からスタートできるFCもご紹介していますので、まずはお話をお聞かせください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q</span>
+          どんな業種のフランチャイズがありますか？
+        </div>
+        <div class="faq-a">飲食、IT・通信、物販、教育、美容・健康、不動産、サービス業など幅広い業種をカバーしています。副業・在宅OKのFCから、店舗型まで多様な選択肢があります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q</span>
+          資金がほとんどないのですが大丈夫ですか？
+        </div>
+        <div class="faq-a">はい。開業資金0円〜のFCもご紹介可能です。あなたの予算に合わせた選択肢をご提案しますので、まずは現状をお聞かせください。資金計画のアドバイスも行っています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q</span>
+          相談したら必ず加盟しないといけませんか？
+        </div>
+        <div class="faq-a">いいえ、まったくそんなことはありません。ご相談いただいた方の中には、情報収集だけで終わる方も多数いらっしゃいます。強引な勧誘は一切行いませんのでご安心ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta" id="cta">
+  <div class="container final-cta-inner">
+    <h2>「副業」も「独立」も、<br>最初の一歩は無料相談から。</h2>
+    <p>あなたの予算・働き方・目標を聞いた上で、<br>最適なフランチャイズを無料でご提案します。</p>
+    <a href="#" class="btn-cta">
+      無料相談に申し込む
+      <span class="btn-cta-sub">オンライン面談 約30分 ／ 勧誘なし ／ 何度でも無料</span>
+    </a>
+    <div class="final-cta-badges">
+      <span class="final-cta-badge">&#x2705; 完全無料</span>
+      <span class="final-cta-badge">&#x2705; オンライン対応</span>
+      <span class="final-cta-badge">&#x2705; 強引な勧誘なし</span>
+      <span class="final-cta-badge">&#x2705; 情報収集だけでもOK</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">DP</div>
+      <span class="footer-logo-text">DREAM PONY</span>
+    </div>
+    <div class="footer-info">
+      株式会社DREAM PONY｜東京都千代田区麹町4-2-11 2階<br>
+      TEL: 0120-949-346
+    </div>
+    <div class="footer-copy">&copy; 2026 DREAM PONY Inc.</div>
+  </div>
+</footer>
+
+
+</body>
+</html>

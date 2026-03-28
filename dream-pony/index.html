@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DREAM PONY｜あなたに合うFC事業がきっと見つかる</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-light: #2a3d63;
+  --orange: #FF6B35;
+  --orange-hover: #e85a25;
+  --gold: #D4A843;
+  --white: #FFFFFF;
+  --gray-bg: #F5F6F8;
+  --text: #333333;
+  --text-sub: #666666;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 72px;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--navy);
+  padding: 12px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.header .container {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-logo {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+}
+.header-logo span { color: var(--gold); }
+.header-cta {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.header-cta:hover { background: var(--orange-hover); }
+
+/* ===== FIRST VIEW ===== */
+.fv {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 48px 0 56px;
+  position: relative;
+  overflow: hidden;
+}
+.fv::after {
+  content: '';
+  position: absolute; right: -80px; top: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(212,168,67,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.fv-inner {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  position: relative; z-index: 1;
+}
+.fv-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.fv h1 {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.fv h1 em {
+  font-style: normal;
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+}
+.fv-disclaimer {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+.fv-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  max-width: 560px;
+}
+.fv-body {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+.fv-photo {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 3px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* FV Checks */
+.fv-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+.fv-check-item {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  text-decoration: none;
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+.cta-btn:hover { background: var(--orange-hover); transform: scale(1.02); }
+.cta-micro {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 8px;
+  text-align: center;
+}
+.fv .cta-micro { color: rgba(255,255,255,0.5); }
+
+/* Trust Badges */
+.trust-badges {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.trust-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  min-width: 100px;
+}
+.trust-badge .num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+  line-height: 1.2;
+}
+.trust-badge .label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ===== SECTION COMMON ===== */
+.section { padding: 64px 0; }
+.section-gray { background: var(--gray-bg); }
+.section-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--orange);
+  margin: 12px auto 0;
+}
+.section-navy .section-title::after { background: var(--gold); }
+
+/* ===== WORRIES ===== */
+.worry-list {
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+.worry-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--white);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+.worry-check {
+  width: 22px; height: 22px;
+  border: 2px solid var(--orange);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 700;
+}
+.worry-text { font-size: 14px; line-height: 1.6; }
+.worry-bridge {
+  text-align: center;
+  margin: 32px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.worry-bridge .arrow {
+  display: block;
+  font-size: 24px;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+/* ===== SERVICE ===== */
+.service-lead {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-sub);
+  margin-bottom: 40px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 48px; height: 48px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.step-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.step-content p {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+.service-analogy {
+  text-align: center;
+  background: rgba(27,42,74,0.05);
+  border-left: 4px solid var(--navy);
+  padding: 16px 20px;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-size: 14px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* Comparison Table */
+.compare-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+.compare-table {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.compare-table th, .compare-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+.compare-table thead th {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+}
+.compare-table thead th:first-child { border-radius: 8px 0 0 0; }
+.compare-table thead th:last-child { border-radius: 0 8px 0 0; }
+.compare-table .col-self { color: #c0392b; }
+.compare-table .col-dp { color: var(--navy); font-weight: 700; }
+.compare-table .icon-x { color: #c0392b; font-weight: 700; margin-right: 4px; }
+.compare-table .icon-o { color: #27ae60; font-weight: 700; margin-right: 4px; }
+
+/* ===== RESULTS ===== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.result-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.result-card .num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.result-card .unit {
+  font-size: 16px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.result-card .label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+}
+.result-card .note {
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+.result-card.full { grid-column: 1 / -1; }
+
+/* ===== CTA BAND ===== */
+.cta-band {
+  background: linear-gradient(135deg, var(--orange) 0%, #ff8f5e 100%);
+  padding: 40px 0;
+  text-align: center;
+}
+.cta-band .cta-btn {
+  background: var(--white);
+  color: var(--orange);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.cta-band .cta-btn:hover { background: #f0f0f0; }
+.cta-band-text {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cta-band .cta-micro { color: rgba(255,255,255,0.7); }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.testimonial-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-sub);
+  background: #fff3cd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.testimonial-card {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.testimonial-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--gray-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.testimonial-info .name { font-weight: 700; font-size: 14px; }
+.testimonial-info .attr { font-size: 12px; color: var(--text-sub); }
+.testimonial-headline {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.testimonial-body {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ===== REASONS ===== */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.reason-card {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+  position: relative;
+  border-top: 3px solid var(--navy);
+}
+.reason-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: rgba(27,42,74,0.08);
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+.reason-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.reason-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.reason-card p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ===== SUPPORT ===== */
+.support-timeline {
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 40px;
+}
+.support-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--navy);
+}
+.support-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+.support-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 4px;
+  width: 12px; height: 12px;
+  background: var(--navy);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--navy);
+}
+.support-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.support-item p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ===== FAQ ===== */
+.faq-list {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+  gap: 12px;
+}
+.faq-q .q-badge {
+  background: var(--navy);
+  color: var(--white);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.faq-q .toggle {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--gray-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  color: var(--text-sub);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 20px 16px 60px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+  display: none;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  background: var(--navy);
+  padding: 56px 0;
+  text-align: center;
+  color: var(--white);
+}
+.final-cta h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.final-cta .sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+.form-box {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-box h3 {
+  text-align: center;
+  color: var(--navy);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.form-group label .req {
+  background: var(--orange);
+  color: var(--white);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--navy); }
+.form-box .cta-btn {
+  margin-top: 8px;
+  display: block;
+}
+.form-box .cta-micro { color: var(--text-sub); }
+
+/* ===== FIXED CTA BAR ===== */
+.fixed-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid #e0e0e0;
+  padding: 10px 16px;
+  z-index: 100;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+}
+.fixed-cta-bar .cta-btn {
+  font-size: 14px;
+  padding: 14px 20px;
+  display: block;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 24px 0;
+  font-size: 12px;
+}
+
+/* ===== PC ===== */
+@media (min-width: 768px) {
+  body { font-size: 16px; padding-bottom: 0; }
+  .fv { padding: 72px 0 80px; }
+  .fv h1 { font-size: 48px; }
+  .fv h1 em { font-size: 56px; }
+  .fv-sub { font-size: 16px; }
+  .fv-photo { width: 240px; height: 240px; }
+  .section { padding: 100px 0; }
+  .section-title { font-size: 32px; margin-bottom: 56px; }
+  .trust-badge .num { font-size: 36px; }
+  .results-grid { grid-template-columns: repeat(3, 1fr); }
+  .result-card .num { font-size: 56px; }
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials { flex-direction: row; flex-wrap: wrap; }
+  .testimonial-card { flex: 1 1 calc(50% - 10px); min-width: 280px; }
+  .fixed-cta-bar { display: none; }
+  .compare-table { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-logo">DREAM <span>PONY</span> <small style="font-size:11px;color:rgba(255,255,255,0.6);font-weight:400;margin-left:4px;">フランチャイズ総合代理店</small></div>
+    <a href="#form" class="header-cta">無料で相談 / 資料請求</a>
+  </div>
+</header>
+
+<!-- FIRST VIEW -->
+<section class="fv">
+  <div class="container fv-inner">
+    <div class="fv-photo">ヒロミさん<br>or 代表写真<br>(placeholder)</div>
+    <h1>副業/独立で月収<em>+100</em>万円を<br>あなたに合うFC事業が<br>きっと見つかる。</h1>
+    <p class="fv-disclaimer">※成果は個人差があり、保証するものではありません</p>
+    <div class="fv-badge">フランチャイズ総合代理店</div>
+    <p class="fv-sub">約60社から、あなたの予算・働き方・目標に合った事業をプロが無料で厳選提案。<br>副業で月100万円、脱サラで年商1億超えも。あなたのペースで始められます。</p>
+    <div class="fv-checks">
+      <span class="fv-check-item">&#10004; 相談は完全無料</span>
+      <span class="fv-check-item">&#10004; 副業OKのFCも多数</span>
+      <span class="fv-check-item">&#10004; 会社員のまま始められる</span>
+      <span class="fv-check-item">&#10004; 開業資金0円からのFCもご紹介</span>
+    </div>
+    <a href="#form" class="cta-btn">まずは無料で資料を見てみる →</a>
+    <p class="cta-micro" style="font-weight:700;color:rgba(255,255,255,0.7);">強引な勧誘なし</p>
+    <p class="cta-micro">※情報収集だけでもOKです。お気軽にどうぞ</p>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <span class="num">60<small style="font-size:16px">社</small></span>
+        <span class="label">取扱FC本部数</span>
+      </div>
+      <div class="trust-badge">
+        <span class="num">500<small style="font-size:16px">件超</small></span>
+        <span class="label">相談実績</span>
+      </div>
+      <div class="trust-badge">
+        <span class="num">1,000<small style="font-size:14px">万円</small></span>
+        <span class="label">月商※</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORRIES -->
+<section class="section section-gray">
+  <div class="container">
+    <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+    <div class="worry-list">
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">独立したいけど、何を始めればいいか分からない</div>
+      </div>
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">副業を始めたいけど、失敗して損するのが怖い</div>
+      </div>
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">フランチャイズに興味はあるけど、どれを選べば失敗しないか分からない</div>
+      </div>
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">本業が忙しくて、自分で何十社も調べる時間がない</div>
+      </div>
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">家族を説得できるだけの根拠がほしい</div>
+      </div>
+      <div class="worry-item">
+        <div class="worry-check">&#10003;</div>
+        <div class="worry-text">定年後やセカンドキャリアとして、安定した収入源を作りたい</div>
+      </div>
+    </div>
+    <div class="worry-bridge">
+      <span class="arrow">&#9660;</span>
+      一つでも当てはまるなら、解決策があります。
+    </div>
+    <div style="text-align:center;">
+      <a href="#form" class="cta-btn" style="max-width:480px;">まずは60社の比較事例を見てみる →</a>
+      <p class="cta-micro">※無料・30秒で完了</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">フランチャイズ総合代理店とは？</h2>
+    <p class="service-lead">DREAM PONYは、約60社のフランチャイズ本部と提携する「総合代理店」です。<br>特定のFC本部に偏らず、あなたの状況に最適な事業を中立的な立場でご提案します。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>ヒアリング</h3>
+          <p>資金・経験・希望の働き方を無料でヒアリング（オンライン完結OK）</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>マッチング</h3>
+          <p>約60社の中から最適なFC事業を厳選提案（比較表つきで分かりやすい）</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>開業サポート</h3>
+          <p>契約・開業・運営開始まで伴走支援（最短3ヶ月で開業）</p>
+        </div>
+      </div>
+    </div>
+    <div class="service-analogy">
+      保険の相談窓口のように、複数のFC本部をまとめて比較検討できる。<br>それがフランチャイズ総合代理店「DREAM PONY」です。
+    </div>
+
+    <!-- Comparison Table -->
+    <p class="compare-title">「自分で探す」vs「DREAM PONYで探す」</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th>自分で探す場合</th>
+          <th>DREAM PONYの場合</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>調べる時間</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>数十時間〜数ヶ月</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>プロが厳選して提案</td>
+        </tr>
+        <tr>
+          <td>比較できるFC数</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>数社が限界</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>約60社から最適を選定</td>
+        </tr>
+        <tr>
+          <td>情報の質</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>FC本部の営業トーク</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>中立的な第三者の分析</td>
+        </tr>
+        <tr>
+          <td>失敗リスク</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>自己判断で高い</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>プロの目利きで最小化</td>
+        </tr>
+        <tr>
+          <td>費用</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>有料セミナー等もあり</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>相談・紹介すべて無料</td>
+        </tr>
+        <tr>
+          <td>特別条件</td>
+          <td class="col-self"><span class="icon-x">&#10007;</span>通常条件のみ</td>
+          <td class="col-dp"><span class="icon-o">&#10003;</span>ロイヤリティ割引等の交渉あり</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section section-navy">
+  <div class="container">
+    <h2 class="section-title">数字で見るDREAM PONYの実力</h2>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="num">60<span class="unit">社</span></div>
+        <div class="label">取扱FC本部数</div>
+      </div>
+      <div class="result-card">
+        <div class="num">1,000<span class="unit">万円</span></div>
+        <div class="label">目指せる月商水準</div>
+        <div class="note">※個人差あり・保証なし</div>
+      </div>
+      <div class="result-card">
+        <div class="num">3<span class="unit">ヶ月</span></div>
+        <div class="label">最短開業期間</div>
+        <div class="note">※業種・条件により異なります</div>
+      </div>
+      <div class="result-card">
+        <div class="num">0<span class="unit">円〜</span></div>
+        <div class="label">初期費用</div>
+      </div>
+      <div class="result-card">
+        <div class="num">500<span class="unit">件超</span></div>
+        <div class="label">累計相談実績</div>
+        <div class="note">※仮数値・要確認</div>
+      </div>
+      <div class="result-card">
+        <div class="num">0<span class="unit">円</span></div>
+        <div class="label">相談料・紹介料</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="container">
+    <p class="cta-band-text">まずは成功事例を見てみませんか？</p>
+    <a href="#form" class="cta-btn">【無料】成功事例つき資料をもらう →</a>
+    <p class="cta-micro">※30秒で完了・営業電話なし</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section section-gray">
+  <div class="container">
+    <h2 class="section-title">DREAM PONYで独立した<br>先輩たちの声</h2>
+    <div class="testimonial-note">※以下はイメージです。実際のお客様の声に差し替え予定</div>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">&#128104;</div>
+          <div class="testimonial-info">
+            <div class="name">A.T さん</div>
+            <div class="attr">30代男性 / 会社員（副業から開始）</div>
+          </div>
+        </div>
+        <div class="testimonial-headline">「本業を続けながら、月収+40万円の副収入に」</div>
+        <div class="testimonial-body">60社の中から副業OKの事業を提案してもらい、本業と無理なく両立できています。自分一人では見つけられなかった選択肢でした。</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">&#128104;&#8205;&#128188;</div>
+          <div class="testimonial-info">
+            <div class="name">K.M さん</div>
+            <div class="attr">40代男性 / 元営業職（脱サラ独立）</div>
+          </div>
+        </div>
+        <div class="testimonial-headline">「年収が会社員時代の2倍に」</div>
+        <div class="testimonial-body">3社を比較提案してもらい、自分の経験が活かせる事業を選べました。相談は無料なので、迷っている方はまず話を聞いてもらうだけでも価値があると思います。</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">&#128116;</div>
+          <div class="testimonial-info">
+            <div class="name">S.Y さん</div>
+            <div class="attr">50代男性 / セカンドキャリア</div>
+          </div>
+        </div>
+        <div class="testimonial-headline">「60社から3社に絞ってもらえて、即決できた」</div>
+        <div class="testimonial-body">自分で調べていたら何年もかかっていたと思います。プロが条件に合うものだけ提案してくれるので、家族にも自信を持って説明できました。</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">&#128105;</div>
+          <div class="testimonial-info">
+            <div class="name">M.H さん</div>
+            <div class="attr">30代女性 / 未経験から開業</div>
+          </div>
+        </div>
+        <div class="testimonial-headline">「初期費用ほぼゼロで始められた」</div>
+        <div class="testimonial-body">資金面が一番の不安でしたが、初期費用0円の事業を紹介してもらい、リスクなく始められました。サポートも手厚くて安心でした。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND 2 -->
+<div class="cta-band">
+  <div class="container">
+    <p class="cta-band-text">あなたに合うFC事業、プロが無料でお探しします</p>
+    <a href="#form" class="cta-btn">【無料】プロに相談してみる →</a>
+    <p class="cta-micro">※相談料0円・まずは話を聞くだけでもOK</p>
+  </div>
+</div>
+
+<!-- REASONS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">DREAM PONYが選ばれる<br>4つの理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-num">01</span>
+        <div class="reason-icon">&#128737;</div>
+        <h3>約60社のFC本部から中立提案</h3>
+        <p>特定のFC本部の「営業」ではありません。約60社の中から、あなたの資金・経験・ライフスタイルに合った事業を中立の立場で厳選。保険のプロに相談するように、フランチャイズ選びもプロに任せる時代です。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">02</span>
+        <div class="reason-icon">&#128200;</div>
+        <h3>月商1,000万円を狙える高収益事業をラインナップ</h3>
+        <p>年商1.2億円ペースを実現している開業者も。初期費用0円・在庫リスクゼロ・自動運営型など、リスクを抑えながら高収益を目指せる事業を厳選してご紹介します。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">03</span>
+        <div class="reason-icon">&#128176;</div>
+        <h3>ロイヤリティ割引など、代理店だけの特別条件</h3>
+        <p>DREAM PONY経由だからこそ実現できる特別条件があります。ロイヤリティ半年無料キャンペーンへの申込みや、加盟金の減額交渉など、直接では得られない優遇をご提案可能です。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">04</span>
+        <div class="reason-icon">&#129309;</div>
+        <h3>相談から開業まで完全無料の伴走サポート</h3>
+        <p>相談料・紹介料は一切無料。ヒアリング→マッチング→比較検討→契約→開業まで、あなた専任のアドバイザーが最後まで伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="section section-gray">
+  <div class="container">
+    <h2 class="section-title">開業前も、開業後も。<br>手厚いサポート体制。</h2>
+    <div class="support-timeline">
+      <div class="support-item">
+        <h3>&#9312; 無料ヒアリング＆診断</h3>
+        <p>オンラインで30分。あなたの資金状況・希望年収・使える時間をヒアリングし、最適なFC事業タイプを診断します。</p>
+      </div>
+      <div class="support-item">
+        <h3>&#9313; 比較提案レポート</h3>
+        <p>最大3社のFC事業を、初期費用・月間コスト・想定収益・サポート体制で比較した「あなた専用レポート」を無料で作成。</p>
+      </div>
+      <div class="support-item">
+        <h3>&#9314; 契約・開業手続きサポート</h3>
+        <p>FC本部との契約手続き、開業届、資金計画など、初めてでも迷わないよう専任アドバイザーがサポート。</p>
+      </div>
+      <div class="support-item">
+        <h3>&#9315; 開業後のフォローアップ</h3>
+        <p>開業後も定期的にフォロー。困ったことがあればいつでも相談可能。あなたの成功がDREAM PONYの成果です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">相談は本当に無料ですか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">はい、相談料・紹介料は一切かかりません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">まだ独立するか決めていませんが、相談してもいいですか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">もちろんです。「まずは情報収集だけ」という方が半数以上です。お気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">副業としてフランチャイズを始めることはできますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">はい、副業対応可能なFC事業も多数ご用意しています。本業を続けながら始められるビジネスをご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">自己資金が少なくても始められますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">初期費用0円から始められる事業もあります。ご予算に合わせたご提案が可能ですので、まずはお気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">どんな業種のフランチャイズがありますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">飲食・小売・サービス・IT・教育など幅広い業種で約60社と提携しています。あなたの経験や興味に合った業種をご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">相談から開業までどのくらいかかりますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">最短で約3ヶ月です。もちろん、じっくり検討されたい方はお時間をかけていただいて構いません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="q-badge">Q</span>
+          <span style="flex:1">特定のフランチャイズを無理に勧められませんか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">一切ありません。DREAM PONYは約60社の中から中立の立場でご提案する総合代理店です。お客様にとって最適でないと判断した場合は、正直にお伝えします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA + FORM -->
+<section class="final-cta" id="form">
+  <div class="container">
+    <h2>あなたに合うFC事業を<br>プロが無料でお探しします</h2>
+    <p class="sub">まずは無料の成功事例資料をお受け取りください</p>
+    <div class="form-box">
+      <h3>【無料】成功事例つき資料をもらう</h3>
+      <div class="form-group">
+        <label>お名前 <span class="req">必須</span></label>
+        <input type="text" placeholder="山田 太郎">
+      </div>
+      <div class="form-group">
+        <label>おなまえ（ふりがな） <span class="req">必須</span></label>
+        <input type="text" placeholder="やまだ たろう">
+      </div>
+      <div class="form-group">
+        <label>電話番号 <span class="req">必須</span></label>
+        <input type="tel" placeholder="090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label>メールアドレス <span class="req">必須</span></label>
+        <input type="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label>お問い合わせ内容</label>
+        <textarea style="width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:8px;font-size:15px;font-family:'Noto Sans JP',sans-serif;outline:none;resize:vertical;min-height:80px;" placeholder="ご質問やご要望があればご記入ください（任意）"></textarea>
+      </div>
+      <a href="#" class="cta-btn" onclick="event.preventDefault();alert('モックアップのため送信は行われません')">【無料】成功事例つき資料をもらう →</a>
+      <p class="cta-micro">※30秒で完了。しつこい営業は一切しません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 DREAM PONY All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- FIXED CTA BAR (Mobile) -->
+<div class="fixed-cta-bar">
+  <a href="#form" class="cta-btn">【無料】事例資料をもらう →</a>
+</div>
+
+</body>
+</html>
