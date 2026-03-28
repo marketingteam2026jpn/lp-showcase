@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-KNOW | AIがあなたを本気で分析する診断プラットフォーム</title>
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main: #6C5CE7;
+  --sub-lavender: #A29BFE;
+  --sub-pink: #FD79A8;
+  --sub-yellow: #FDCB6E;
+  --cta: #E17055;
+  --bg-white: #FFFFFF;
+  --bg-warm: #FFF8F0;
+  --text-dark: #2D3436;
+  --text-gray: #636E72;
+  --font-stack: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-stack);
+  color: var(--text-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(108, 92, 231, 0.08);
+  transition: box-shadow 0.3s;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--main);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--main);
+}
+
+.nav .btn-cta-header {
+  background: var(--cta);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav .btn-cta-header:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(225, 112, 85, 0.4);
+  color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 160px 24px 100px;
+  text-align: center;
+  background: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 50%, #FD79A8 100%);
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-circle.c1 {
+  width: 500px;
+  height: 500px;
+  background: var(--sub-yellow);
+  top: -100px;
+  right: -100px;
+}
+
+.hero-bg-circle.c2 {
+  width: 400px;
+  height: 400px;
+  background: var(--sub-pink);
+  bottom: -80px;
+  left: -60px;
+}
+
+.hero-bg-circle.c3 {
+  width: 300px;
+  height: 300px;
+  background: var(--sub-yellow);
+  bottom: 40px;
+  right: 15%;
+}
+
+.hero-bg-circle.c4 {
+  width: 250px;
+  height: 250px;
+  background: #FD79A8;
+  top: 20%;
+  left: 10%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: #fff;
+  color: var(--main);
+  font-size: 18px;
+  font-weight: 800;
+  padding: 18px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: var(--bg-white);
+  padding: 72px 24px;
+}
+
+.stats-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.stat-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 28px;
+}
+
+.stat-icon.users { background: linear-gradient(135deg, #DDD6FE, #E8DAEF); }
+.stat-icon.types { background: linear-gradient(135deg, #FDEBD0, #FDCB6E55); }
+.stat-icon.rating { background: linear-gradient(135deg, #FADBD8, #FD79A844); }
+
+.stat-number {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--main);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ===== SECTION COMMON ===== */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--main);
+  margin-bottom: 48px;
+}
+
+/* ===== POPULAR DIAGNOSIS ===== */
+.popular {
+  background: var(--bg-white);
+  padding: 80px 24px;
+}
+
+.cards-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.diagnosis-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnosis-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  position: relative;
+}
+
+.card-thumb.grad-violet-blue { background: linear-gradient(135deg, #6C5CE7, #74B9FF); }
+.card-thumb.grad-pink-orange { background: linear-gradient(135deg, #FD79A8, #E17055); }
+.card-thumb.grad-teal-green { background: linear-gradient(135deg, #00CEC9, #00B894); }
+.card-thumb.grad-pink-red { background: linear-gradient(135deg, #FD79A8, #E84393); }
+.card-thumb.grad-green-teal { background: linear-gradient(135deg, #00B894, #00CEC9); }
+.card-thumb.grad-indigo-purple { background: linear-gradient(135deg, #4834D4, #6C5CE7); }
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.card-badge.hot { background: #E84393; }
+.card-badge.top-rated { background: #FDCB6E; color: #2D3436; }
+.card-badge.new { background: #0984E3; }
+.card-badge.recommend { background: #6C5CE7; }
+
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.card-meta {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-meta .stars {
+  color: #FDCB6E;
+}
+
+.card-btn {
+  display: block;
+  text-align: center;
+  background: var(--cta);
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: auto;
+}
+
+.card-btn:hover {
+  background: #D35D48;
+  transform: translateY(-1px);
+}
+
+/* ===== MORE DIAGNOSIS ===== */
+.more {
+  background: var(--bg-warm);
+  padding: 80px 24px;
+}
+
+.more .cards-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.more-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.more-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.more-card-emoji {
+  font-size: 44px;
+  margin-bottom: 14px;
+}
+
+.more-card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.more-card-desc {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+}
+
+.more-card-meta {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+}
+
+.more-card-meta .stars {
+  color: #FDCB6E;
+}
+
+.more-card-btn {
+  display: block;
+  text-align: center;
+  border: 2px solid var(--cta);
+  color: var(--cta);
+  padding: 8px 0;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin-top: auto;
+}
+
+.more-card-btn:hover {
+  background: var(--cta);
+  color: #fff;
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--bg-white);
+  padding: 80px 24px;
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid #EEE;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.15s;
+}
+
+.faq-q:hover {
+  background: #FAFAFA;
+}
+
+.faq-q::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--main);
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-q::after {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 0 24px 20px;
+}
+
+.faq-a p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.8;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #2D3436;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 60px 24px 32px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand .logo {
+  color: #fff;
+  font-size: 22px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ===== MOBILE FIXED CTA ===== */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-cta a {
+  display: block;
+  background: var(--cta);
+  color: #fff;
+  text-align: center;
+  padding: 14px 0;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(225, 112, 85, 0.35);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .more .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 16px;
+  }
+  .nav a:not(.btn-cta-header) {
+    display: none;
+  }
+  .hero {
+    padding: 130px 20px 80px;
+    min-height: auto;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-sub {
+    font-size: 15px;
+  }
+  .hero-cta {
+    font-size: 16px;
+    padding: 16px 36px;
+  }
+  .stats-inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .stat-number {
+    font-size: 28px;
+  }
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+  .more .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .mobile-cta {
+    display: block;
+  }
+  body {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  .stat-number {
+    font-size: 24px;
+  }
+  .stat-label {
+    font-size: 11px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">AI-KNOW</a>
+    <nav class="nav">
+      <a href="#popular">診断一覧</a>
+      <a href="#">ログイン</a>
+      <a href="#" class="btn-cta-header">無料で始める</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c3"></div>
+  <div class="hero-bg-circle c4"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#127881; 累計139万人が体験！</div>
+    <h1>あなたは、自分のこと<br>どれくらい知ってる？</h1>
+    <p class="hero-sub">AIが本気であなたを分析。15種類以上の診断で新しい自分に出会おう&#10024;</p>
+    <a href="#popular" class="hero-cta">さっそく診断してみる &rarr;</a>
+    <p class="hero-note">無料・登録なし・たった3分！</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <div class="stat-icon users">&#128101;</div>
+      <div class="stat-number">139万人+</div>
+      <div class="stat-label">みんなが体験済み！</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon types">&#128203;</div>
+      <div class="stat-number">15種類+</div>
+      <div class="stat-label">選べる本格診断</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon rating">&#11088;</div>
+      <div class="stat-number">4.5</div>
+      <div class="stat-label">みんなの満足度</div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR DIAGNOSIS -->
+<section class="popular" id="popular">
+  <h2 class="section-title">&#128293; みんながハマってる診断</h2>
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-violet-blue">
+        <span class="card-badge hot">&#128293; 人気No.1</span>
+        &#129504;
+      </div>
+      <div class="card-body">
+        <div class="card-title">最新16タイプ性格診断 v4</div>
+        <div class="card-desc">あなたは16タイプのどれ？</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.8</span>
+          <span>941,111人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-pink-orange">
+        <span class="card-badge top-rated">&#11088; 満足度No.1</span>
+        &#128202;
+      </div>
+      <div class="card-body">
+        <div class="card-title">本格IQテスト</div>
+        <div class="card-desc">あなたのIQ、AIが本気で測定</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>4.7</span>
+          <span>335,250人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-teal-green">
+        <span class="card-badge new">&#127381; NEW</span>
+        &#128302;
+      </div>
+      <div class="card-body">
+        <div class="card-title">エニアグラム/トライタイプ</div>
+        <div class="card-desc">9つの性格、あなたはどれ？</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>4.5</span>
+          <span>128,400人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-pink-red">
+        <span class="card-badge recommend">&#10024; おすすめ</span>
+        &#128149;
+      </div>
+      <div class="card-body">
+        <div class="card-title">恋愛タイプ診断</div>
+        <div class="card-desc">恋愛での"あなたらしさ"を発見</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>4.6</span>
+          <span>89,200人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-green-teal">
+        <span class="card-badge new">&#127381; NEW</span>
+        &#128188;
+      </div>
+      <div class="card-body">
+        <div class="card-title">適職診断AI</div>
+        <div class="card-desc">AIが本気であなたの天職を探す</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>4.4</span>
+          <span>56,800人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="diagnosis-card">
+      <div class="card-thumb grad-indigo-purple">
+        <span class="card-badge recommend">&#10024; おすすめ</span>
+        &#127775;
+      </div>
+      <div class="card-body">
+        <div class="card-title">ビッグファイブ性格診断</div>
+        <div class="card-desc">科学的に性格を5つの軸で分析</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>4.5</span>
+          <span>72,100人</span>
+        </div>
+        <a href="#" class="card-btn">診断してみる &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MORE DIAGNOSIS -->
+<section class="more">
+  <h2 class="section-title">&#128218; もっと自分を知りたいなら</h2>
+  <div class="cards-grid">
+
+    <div class="more-card">
+      <div class="more-card-emoji">&#127917;</div>
+      <div class="more-card-title">裏性格診断</div>
+      <div class="more-card-desc">普段見せない本当の顔は？</div>
+      <div class="more-card-meta">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.3 / 45,600人
+      </div>
+      <a href="#" class="more-card-btn">診断してみる &rarr;</a>
+    </div>
+
+    <div class="more-card">
+      <div class="more-card-emoji">&#129516;</div>
+      <div class="more-card-title">HSP診断</div>
+      <div class="more-card-desc">繊細さは才能かも</div>
+      <div class="more-card-meta">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.6 / 67,300人
+      </div>
+      <a href="#" class="more-card-btn">診断してみる &rarr;</a>
+    </div>
+
+    <div class="more-card">
+      <div class="more-card-emoji">&#127919;</div>
+      <div class="more-card-title">ストレングスファインダー風</div>
+      <div class="more-card-desc">あなたの強みTOP5</div>
+      <div class="more-card-meta">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.4 / 38,900人
+      </div>
+      <a href="#" class="more-card-btn">診断してみる &rarr;</a>
+    </div>
+
+    <div class="more-card">
+      <div class="more-card-emoji">&#127752;</div>
+      <div class="more-card-title">カラー性格診断</div>
+      <div class="more-card-desc">あなたを色で表すと？</div>
+      <div class="more-card-meta">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.2 / 29,700人
+      </div>
+      <a href="#" class="more-card-btn">診断してみる &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="section-title">よくある質問</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        本当に無料ですか？
+      </div>
+      <div class="faq-a">
+        <p>はい、すべての診断を無料でご利用いただけます。登録も不要で、すぐに診断を始められます。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        診断にはどれくらい時間がかかりますか？
+      </div>
+      <div class="faq-a">
+        <p>ほとんどの診断は3〜5分程度で完了します。スキマ時間にサクッと受けられます。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        診断結果は正確ですか？
+      </div>
+      <div class="faq-a">
+        <p>心理学の理論とAI技術を組み合わせた独自アルゴリズムで分析しています。多くのユーザーから「当たってる！」と好評をいただいています。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        個人情報は大丈夫ですか？
+      </div>
+      <div class="faq-a">
+        <p>診断に個人情報の入力は必要ありません。回答データは統計的な改善目的のみに利用し、第三者への提供は一切行いません。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        何度でも受けられますか？
+      </div>
+      <div class="faq-a">
+        <p>はい、何度でも無料で受けられます。時期によって結果が変わることもあるので、定期的に受けてみるのもおすすめです。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">AI-KNOW</a>
+      <p>AIがあなたを本気で分析する<br>診断プラットフォーム</p>
+    </div>
+    <div class="footer-col">
+      <h4>サービス</h4>
+      <a href="#">診断一覧</a>
+      <a href="#">人気ランキング</a>
+      <a href="#">新着診断</a>
+    </div>
+    <div class="footer-col">
+      <h4>サポート</h4>
+      <a href="#">よくある質問</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#">フィードバック</a>
+    </div>
+    <div class="footer-col">
+      <h4>法的情報</h4>
+      <a href="#">利用規約</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 AI-KNOW by 株式会社Ikigai. All rights reserved.
+  </div>
+</footer>
+
+<!-- MOBILE FIXED CTA -->
+<div class="mobile-cta">
+  <a href="#popular">さっそく診断してみる &rarr;</a>
+</div>
+
+<script>
+// Header scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+</script>
+
+</body>
+</html>

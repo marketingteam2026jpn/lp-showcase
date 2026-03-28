@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-KNOW | AIがあなたの本当の性格を解き明かす</title>
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main: #1A237E;
+  --sub: #42A5F5;
+  --cta: #FF6D00;
+  --cta-hover: #E65100;
+  --bg-white: #FFFFFF;
+  --bg-alt: #F5F9FF;
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  --footer-bg: #0D1642;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ HEADER ============ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.header-logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--main);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.header-nav a:hover {
+  color: var(--main);
+}
+
+.header-nav .btn-start {
+  background: var(--cta);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.header-nav .btn-start:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+}
+
+/* ============ FIRST VIEW ============ */
+.fv {
+  margin-top: 64px;
+  background: linear-gradient(135deg, #1A237E 0%, #1565C0 100%);
+  padding: 100px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fv::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(66,165,245,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.fv::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,109,0,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.fv-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.fv-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(4px);
+}
+
+.fv h1 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.fv-sub {
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.btn-cta {
+  display: inline-block;
+  background: var(--cta);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 18px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(255,109,0,0.4);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-cta:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255,109,0,0.5);
+}
+
+.fv-note {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+/* ============ NUMBERS ============ */
+.numbers {
+  background: var(--bg-white);
+  padding: 72px 24px;
+}
+
+.numbers-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.number-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.number-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.number-card .num {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.number-card .label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ============ SECTIONS ============ */
+.section {
+  padding: 80px 24px;
+}
+
+.section.alt {
+  background: var(--bg-alt);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--main);
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--sub);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ============ CARD GRID ============ */
+.card-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-thumb {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  position: relative;
+}
+
+.card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.badge-orange { background: #FF6D00; }
+.badge-green { background: #2E7D32; }
+.badge-blue { background: #1565C0; }
+.badge-purple { background: #6A1B9A; }
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.card-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-meta .stars {
+  color: #FFC107;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--cta);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.card-btn:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+}
+
+/* Gradient backgrounds for cards */
+.grad-blue { background: linear-gradient(135deg, #1A237E, #42A5F5); }
+.grad-purple { background: linear-gradient(135deg, #4A148C, #AB47BC); }
+.grad-teal { background: linear-gradient(135deg, #004D40, #26A69A); }
+.grad-pink { background: linear-gradient(135deg, #880E4F, #F06292); }
+.grad-green { background: linear-gradient(135deg, #1B5E20, #66BB6A); }
+.grad-indigo { background: linear-gradient(135deg, #1A237E, #7986CB); }
+.grad-dark-purple { background: linear-gradient(135deg, #311B92, #9575CD); }
+.grad-soft-blue { background: linear-gradient(135deg, #0D47A1, #90CAF9); }
+.grad-orange { background: linear-gradient(135deg, #BF360C, #FF8A65); }
+.grad-rainbow { background: linear-gradient(135deg, #E91E63, #FF9800, #4CAF50, #2196F3); }
+
+/* ============ FAQ ============ */
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.faq-q:hover {
+  background: var(--bg-alt);
+}
+
+.faq-q::before {
+  content: "Q.";
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--sub);
+  flex-shrink: 0;
+}
+
+.faq-q::after {
+  content: "";
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--main);
+  border-bottom: 2px solid var(--main);
+  transform: rotate(45deg);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-q::after {
+  transform: rotate(-135deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 300px;
+}
+
+.faq-a-inner {
+  padding: 0 24px 20px 52px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--footer-bg);
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  color: rgba(255,255,255,0.35);
+  font-size: 12px;
+}
+
+/* ============ MOBILE FIXED CTA ============ */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.mobile-cta a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--cta);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .header-nav a.nav-link {
+    display: none;
+  }
+
+  .header-nav {
+    gap: 12px;
+  }
+
+  .fv {
+    padding: 72px 20px 60px;
+  }
+
+  .fv h1 {
+    font-size: 26px;
+  }
+
+  .fv-sub {
+    font-size: 14px;
+  }
+
+  .btn-cta {
+    font-size: 15px;
+    padding: 16px 36px;
+  }
+
+  .numbers-inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .number-card {
+    padding: 24px 12px;
+  }
+
+  .number-card .num {
+    font-size: 24px;
+  }
+
+  .number-card .label {
+    font-size: 11px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 480px;
+  }
+
+  .section {
+    padding: 56px 16px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 32px;
+  }
+
+  .mobile-cta {
+    display: block;
+  }
+
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <a href="#" class="header-logo">AI-KNOW</a>
+  <nav class="header-nav">
+    <a href="#popular" class="nav-link">診断一覧</a>
+    <a href="#" class="nav-link">ログイン</a>
+    <a href="#" class="btn-start">無料で始める</a>
+  </nav>
+</header>
+
+<!-- ===== FIRST VIEW ===== -->
+<section class="fv">
+  <div class="fv-inner">
+    <span class="fv-badge">累計139万人が受験</span>
+    <h1>AIがあなたの本当の<br>性格を解き明かす</h1>
+    <p class="fv-sub">脳科学×心理学ベースの本格AI診断。<br>15種類以上から選んで、自分を深く知ろう。</p>
+    <a href="#" class="btn-cta">無料で診断を始める</a>
+    <p class="fv-note">登録不要・3分で結果がわかる</p>
+  </div>
+</section>
+
+<!-- ===== NUMBERS ===== -->
+<section class="numbers">
+  <div class="numbers-inner">
+    <div class="number-card">
+      <div class="num">139万人+</div>
+      <div class="label">累計受験者数</div>
+    </div>
+    <div class="number-card">
+      <div class="num">15種類+</div>
+      <div class="label">本格AI診断</div>
+    </div>
+    <div class="number-card">
+      <div class="num">4.5/5.0</div>
+      <div class="label">平均満足度</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPULAR ===== -->
+<section id="popular" class="section">
+  <h2 class="section-title">人気の診断</h2>
+  <div class="card-grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-thumb grad-blue">
+        <span class="card-badge badge-orange">人気No.1</span>
+        <span>&#x1F9E0;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">最新16タイプ性格診断 v4</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.8</span>
+          <span>941,111人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-thumb grad-purple">
+        <span class="card-badge badge-green">満足度No.1</span>
+        <span>&#x1F4CA;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">本格IQテスト</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.7</span>
+          <span>335,250人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-thumb grad-teal">
+        <span class="card-badge badge-blue">NEW</span>
+        <span>&#x1F52E;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">エニアグラム/トライタイプ診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.5</span>
+          <span>128,400人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-thumb grad-pink">
+        <span class="card-badge badge-purple">公式おすすめ</span>
+        <span>&#x1F495;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">恋愛タイプ診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.6</span>
+          <span>89,200人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="card">
+      <div class="card-thumb grad-green">
+        <span class="card-badge badge-blue">NEW</span>
+        <span>&#x1F4BC;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">適職診断AI</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.4</span>
+          <span>56,800人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="card">
+      <div class="card-thumb grad-indigo">
+        <span class="card-badge badge-purple">公式おすすめ</span>
+        <span>&#x1F31F;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ビッグファイブ性格診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.5</span>
+          <span>72,100人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERIOUS ===== -->
+<section class="section alt">
+  <h2 class="section-title">本格診断</h2>
+  <div class="card-grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-thumb grad-dark-purple">
+        <span>&#x1F3AD;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">裏性格診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.3</span>
+          <span>45,600人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-thumb grad-soft-blue">
+        <span>&#x1F9EC;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">HSP診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.6</span>
+          <span>67,300人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-thumb grad-orange">
+        <span>&#x1F3AF;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ストレングスファインダー風診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.4</span>
+          <span>38,900人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-thumb grad-rainbow">
+        <span>&#x1F308;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">カラー性格診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.2</span>
+          <span>29,700人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW ===== -->
+<section class="section">
+  <h2 class="section-title">新着診断</h2>
+  <div class="card-grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-thumb grad-teal">
+        <span class="card-badge badge-blue">NEW</span>
+        <span>&#x1F9E9;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">コミュニケーションタイプ診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.3</span>
+          <span>12,400人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-thumb grad-pink">
+        <span class="card-badge badge-blue">NEW</span>
+        <span>&#x1F9D8;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">メンタルヘルスチェック</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.5</span>
+          <span>8,700人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-thumb grad-indigo">
+        <span class="card-badge badge-blue">NEW</span>
+        <span>&#x1F4A1;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">創造性タイプ診断</div>
+        <div class="card-meta">
+          <span class="stars">&#9733;4.4</span>
+          <span>5,200人が受験</span>
+        </div>
+        <a href="#" class="card-btn">無料で診断する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section alt">
+  <h2 class="section-title">よくある質問</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">AI診断は本当に正確ですか？</div>
+      <div class="faq-a"><div class="faq-a-inner">AI-KNOWの診断は、脳科学・心理学の学術研究に基づいたアルゴリズムで設計されています。ビッグファイブやMBTI理論など、科学的に検証された性格モデルをベースに、AIが回答パターンを分析して結果を算出します。平均満足度4.5/5.0という高い評価をいただいています。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">料金はかかりますか？</div>
+      <div class="faq-a"><div class="faq-a-inner">基本的な診断はすべて無料でご利用いただけます。より詳細な分析レポートや追加機能をご希望の場合は、有料プランもご用意しています。まずは無料で気になる診断をお試しください。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">会員登録は必要ですか？</div>
+      <div class="faq-a"><div class="faq-a-inner">登録不要で診断を受けることができます。ただし、結果の保存や過去の診断履歴の確認には無料の会員登録をおすすめしています。メールアドレスだけで簡単に登録できます。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">診断にかかる時間はどれくらいですか？</div>
+      <div class="faq-a"><div class="faq-a-inner">ほとんどの診断は3〜5分程度で完了します。本格IQテストなど一部の診断は10〜15分程度かかる場合がありますが、各診断ページに目安時間を表示していますのでご確認ください。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">個人情報は安全に管理されていますか？</div>
+      <div class="faq-a"><div class="faq-a-inner">お客様の個人情報および診断結果は、SSL暗号化通信により保護されています。第三者への提供は一切行いません。詳しくはプライバシーポリシーをご確認ください。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#">利用規約</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">特定商取引法に基づく表記</a>
+    <a href="#">お問い合わせ</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 AI-KNOW All rights reserved.</p>
+</footer>
+
+<!-- ===== MOBILE FIXED CTA ===== -->
+<div class="mobile-cta">
+  <a href="#">無料で診断を始める</a>
+</div>
+
+</body>
+</html>
