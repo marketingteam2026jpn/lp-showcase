@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マイページ — Wellulu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #ff6b9d;
+      --pink-light: #ffabce;
+      --pink-bg: #fff0f5;
+      --gold: #f59e0b;
+      --gold-bg: #fef9c3;
+      --text: #32373c;
+      --text-sub: #6b7280;
+      --text-xs: #9ca3af;
+      --dark: #1c1c2e;
+      --dark2: #2d2d44;
+      --white: #fff;
+      --bg: #f3f4f6;
+      --border: #e5e7eb;
+      --radius: 12px;
+    }
+    body { font-family: 'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif; background: #0e0e1a; color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 0 40px; }
+
+    .device-label { text-align: center; padding: 20px 0 8px; font-size: 12px; color: #6b7280; font-weight: 600; letter-spacing: 1px; }
+    .device-label span { color: var(--gold); }
+
+    .app-shell { width: 100%; max-width: 520px; min-height: 100vh; background: var(--dark); color: #e5e7eb; position: relative; }
+
+    /* Top nav */
+    .top-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-logo { font-size: 18px; font-weight: 800; color: var(--pink); }
+    .nav-icons { display: flex; gap: 14px; font-size: 20px; }
+
+    /* Cover */
+    .cover { height: 120px; background: linear-gradient(135deg, #2d1b4e 0%, #1a2a4a 50%, #1c2e1c 100%); position: relative; display: flex; align-items: flex-end; padding: 12px 18px; }
+    .cover-rank-overlay { position: absolute; top: 12px; right: 14px; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(245,158,11,0.4); border-radius: 9999px; padding: 5px 12px; }
+    .cover-rank-icon { font-size: 16px; }
+    .cover-rank-text { font-size: 12px; font-weight: 700; color: var(--gold); }
+
+    /* Profile row */
+    .profile-row { display: flex; align-items: flex-end; gap: 14px; padding: 0 18px; margin-top: -28px; margin-bottom: 14px; }
+    .avatar { width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--dark); background: linear-gradient(135deg, var(--gold), #f97316); display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+    .profile-info { flex: 1; padding-bottom: 4px; }
+    .display-name { font-size: 18px; font-weight: 800; color: #f9fafb; line-height: 1.2; }
+    .username { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .edit-btn { border: 1.5px solid rgba(255,255,255,0.15); border-radius: 9999px; padding: 7px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); background: transparent; cursor: pointer; white-space: nowrap; align-self: center; margin-left: auto; flex-shrink: 0; }
+
+    /* Rank + Level card */
+    .rank-card { margin: 0 18px 16px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: var(--radius); padding: 16px; }
+    .rank-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .rank-left { display: flex; align-items: center; gap: 10px; }
+    .rank-badge-big { font-size: 28px; }
+    .rank-name { font-size: 16px; font-weight: 800; color: var(--gold); }
+    .rank-sub { font-size: 11px; color: rgba(255,255,255,0.4); }
+    .rank-lv { font-size: 24px; font-weight: 900; color: #f9fafb; }
+    .rank-lv-label { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; }
+    .exp-bar-bg { background: rgba(255,255,255,0.08); border-radius: 9999px; height: 8px; overflow: hidden; margin-bottom: 6px; }
+    .exp-bar-fill { height: 100%; width: 74%; background: linear-gradient(90deg, #fbbf24, var(--gold)); border-radius: 9999px; }
+    .exp-nums { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.4); }
+
+    /* Stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 16px; }
+    .stat-item { background: var(--dark); text-align: center; padding: 14px 6px; }
+    .stat-num { font-size: 17px; font-weight: 800; color: #f9fafb; }
+    .stat-label { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+    /* Tags */
+    .tags-section { padding: 0 18px 14px; }
+    .section-heading { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { font-size: 13px; font-weight: 600; background: rgba(255,107,157,0.12); color: var(--pink-light); border-radius: 9999px; padding: 5px 13px; border: 1px solid rgba(255,107,157,0.2); }
+
+    /* Achievements */
+    .achieve-section { padding: 0 18px 16px; }
+    .achieve-grid { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+    .achieve-grid::-webkit-scrollbar { display: none; }
+    .achieve-item { flex-shrink: 0; text-align: center; }
+    .achieve-badge { width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(245,158,11,0.4); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 5px; background: rgba(245,158,11,0.08); }
+    .achieve-badge.locked { filter: grayscale(1) brightness(0.4); border-color: rgba(255,255,255,0.1); }
+    .achieve-name { font-size: 10px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+
+    /* Divider */
+    .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 4px 0; }
+
+    /* Tab */
+    .tab-bar { display: flex; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .tab { flex: 1; text-align: center; padding: 13px 0; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4); cursor: pointer; position: relative; }
+    .tab.active { color: var(--gold); }
+    .tab.active::after { content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 2px; background: var(--gold); border-radius: 2px; }
+
+    /* Activity */
+    .activity { padding: 12px 18px; display: flex; flex-direction: column; gap: 10px; }
+    .activity-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+    .act-icon { width: 40px; height: 40px; border-radius: 9px; background: rgba(245,158,11,0.1); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .act-body { flex: 1; }
+    .act-title { font-size: 13px; font-weight: 700; color: #f9fafb; margin-bottom: 3px; }
+    .act-meta { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .act-exp { font-size: 12px; font-weight: 700; color: var(--gold); white-space: nowrap; }
+
+    /* Bottom nav */
+    .bottom-nav { display: flex; background: #12121f; border-top: 1px solid rgba(255,255,255,0.07); padding: 8px 0 20px; }
+    .bnav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; padding: 4px 0; }
+    .bnav-icon { font-size: 22px; }
+    .bnav-label { font-size: 10px; color: rgba(255,255,255,0.35); font-weight: 600; }
+    .bnav-item.active .bnav-label { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<div class="device-label">📱 マイページ プレビュー — <span>案B：ゲーム・ダークモード型</span></div>
+
+<div class="app-shell">
+  <nav class="top-nav">
+    <span class="nav-logo">Wellulu</span>
+    <div class="nav-icons"><span>🔔</span><span>⚙️</span></div>
+  </nav>
+
+  <div class="cover">
+    <div class="cover-rank-overlay">
+      <span class="cover-rank-icon">🥇</span>
+      <span class="cover-rank-text">GOLD ランク</span>
+    </div>
+  </div>
+
+  <div class="profile-row">
+    <div class="avatar">🌟</div>
+    <div class="profile-info">
+      <div class="display-name">healthlife_nao</div>
+      <div class="username">@healthlife_nao</div>
+    </div>
+    <button class="edit-btn">編集</button>
+  </div>
+
+  <!-- Rank card -->
+  <div class="rank-card">
+    <div class="rank-top">
+      <div class="rank-left">
+        <span class="rank-badge-big">🥇</span>
+        <div>
+          <div class="rank-name">GOLD</div>
+          <div class="rank-sub">上位8%のユーザー</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="rank-lv">Lv.38</div>
+        <div class="rank-lv-label">レベル</div>
+      </div>
+    </div>
+    <div class="exp-bar-bg"><div class="exp-bar-fill"></div></div>
+    <div class="exp-nums"><span>12,840 EXP</span><span>次のLv.39まで 500</span></div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-item"><div class="stat-num">312</div><div class="stat-label">記事読了</div></div>
+    <div class="stat-item"><div class="stat-num">84</div><div class="stat-label">コメント</div></div>
+    <div class="stat-item"><div class="stat-num">127</div><div class="stat-label">フォロワー</div></div>
+    <div class="stat-item"><div class="stat-num">93</div><div class="stat-label">フォロー</div></div>
+  </div>
+
+  <!-- Tags -->
+  <div class="tags-section">
+    <div class="section-heading">興味テーマ</div>
+    <div class="tag-list">
+      <span class="tag">#睡眠改善</span>
+      <span class="tag">#ヨガ</span>
+      <span class="tag">#腸活</span>
+      <span class="tag">#マインドフルネス</span>
+    </div>
+  </div>
+
+  <!-- Achievements -->
+  <div class="achieve-section">
+    <div class="section-heading">アチーブメント</div>
+    <div class="achieve-grid">
+      <div class="achieve-item"><div class="achieve-badge">🔥</div><div class="achieve-name">30日連続</div></div>
+      <div class="achieve-item"><div class="achieve-badge">📚</div><div class="achieve-name">読書家</div></div>
+      <div class="achieve-item"><div class="achieve-badge">💬</div><div class="achieve-name">コメント王</div></div>
+      <div class="achieve-item"><div class="achieve-badge">🧬</div><div class="achieve-name">診断完了</div></div>
+      <div class="achieve-item"><div class="achieve-badge locked">🌙</div><div class="achieve-name">夜更かし</div></div>
+      <div class="achieve-item"><div class="achieve-badge locked">🏆</div><div class="achieve-name">プラチナへ</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="tab-bar">
+    <div class="tab active">アクティビティ</div>
+    <div class="tab">保存済み</div>
+    <div class="tab">統計</div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-item">
+      <div class="act-icon">📖</div>
+      <div class="act-body">
+        <div class="act-title">「睡眠と腸の関係」を読了しました</div>
+        <div class="act-meta">2時間前 · #睡眠改善</div>
+      </div>
+      <div class="act-exp">+10 EXP</div>
+    </div>
+    <div class="activity-item">
+      <div class="act-icon">💬</div>
+      <div class="act-body">
+        <div class="act-title">記事にコメントしました</div>
+        <div class="act-meta">昨日 · #ヨガ</div>
+      </div>
+      <div class="act-exp">+30 EXP</div>
+    </div>
+    <div class="activity-item">
+      <div class="act-icon">🔥</div>
+      <div class="act-body">
+        <div class="act-title">7日連続ログインボーナス！</div>
+        <div class="act-meta">3日前</div>
+      </div>
+      <div class="act-exp" style="color:#f97316">+100 EXP</div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="bnav-item"><span class="bnav-icon">🏠</span><span class="bnav-label">ホーム</span></div>
+    <div class="bnav-item"><span class="bnav-icon">🔍</span><span class="bnav-label">探す</span></div>
+    <div class="bnav-item"><span class="bnav-icon">➕</span><span class="bnav-label">投稿</span></div>
+    <div class="bnav-item"><span class="bnav-icon">🏅</span><span class="bnav-label">ランク</span></div>
+    <div class="bnav-item active"><span class="bnav-icon" style="filter:drop-shadow(0 0 4px #f59e0b)">🌟</span><span class="bnav-label" style="color:var(--gold)">マイページ</span></div>
+  </nav>
+</div>
+
+</body>
+</html>

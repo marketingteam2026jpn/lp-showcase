@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ウェルグラム診断 — Wellulu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #ff6b9d;
+      --pink-dark: #e0557f;
+      --pink-light: #ffabce;
+      --pink-bg: #fff0f5;
+      --purple: #9b51e0;
+      --purple-bg: #faf5ff;
+      --text: #111827;
+      --text-sub: #6b7280;
+      --text-xs: #9ca3af;
+      --white: #fff;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif; color: var(--text); background: var(--white); }
+
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 48px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 18px; font-weight: 800; color: var(--pink); }
+    .nav-cta { background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; font-weight: 700; font-size: 14px; padding: 9px 22px; border-radius: 9999px; border: none; cursor: pointer; }
+
+    /* ===== HERO — Type name as huge display ===== */
+    .hero { background: var(--white); padding: 80px 48px 60px; text-align: center; border-bottom: 1px solid var(--border); }
+    .hero-pre { font-size: 13px; font-weight: 700; color: var(--text-xs); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px; }
+    /* The star of the show */
+    .type-display { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 32px; }
+    .type-emoji { font-size: clamp(60px, 10vw, 96px); margin-bottom: 12px; filter: drop-shadow(0 4px 16px rgba(255,107,157,.3)); }
+    .type-en-giant { font-size: clamp(48px, 9vw, 100px); font-weight: 900; letter-spacing: -4px; line-height: .95; background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .type-ja-med { font-size: clamp(18px, 3vw, 28px); font-weight: 700; color: var(--text-sub); letter-spacing: 2px; margin-top: 8px; }
+    .type-tagline { font-size: clamp(15px, 2vw, 20px); color: var(--text-sub); max-width: 440px; margin: 0 auto 40px; line-height: 1.6; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; font-size: 17px; font-weight: 800; padding: 18px 48px; border-radius: 9999px; cursor: pointer; box-shadow: 0 6px 24px rgba(255,107,157,.4); transition: all .2s; }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,107,157,.45); }
+    .hero-note { font-size: 13px; color: var(--text-xs); margin-top: 14px; }
+
+    /* Type mini carousel */
+    .type-mini-row { display: flex; gap: 10px; overflow-x: auto; padding: 20px 48px; border-bottom: 1px solid var(--border); scrollbar-width: none; }
+    .type-mini-row::-webkit-scrollbar { display: none; }
+    .type-mini { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 14px 12px; border-radius: 14px; border: 2px solid var(--border); min-width: 80px; cursor: pointer; transition: all .2s; }
+    .type-mini:hover { border-color: var(--pink-light); background: var(--pink-bg); transform: translateY(-2px); }
+    .type-mini.active { border-color: var(--pink); background: var(--pink-bg); }
+    .tm-icon { font-size: 26px; }
+    .tm-name { font-size: 10px; font-weight: 700; color: var(--text-sub); }
+
+    /* ===== SHARE SECTION ===== */
+    .share-section { padding: 80px 48px; background: var(--bg); }
+    .share-inner { max-width: 880px; margin: 0 auto; }
+    .sec-label { font-size: 12px; font-weight: 700; color: var(--text-xs); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .sec-h2 { font-size: clamp(28px, 5vw, 56px); font-weight: 900; letter-spacing: -2px; line-height: 1.0; margin-bottom: 48px; color: var(--text); }
+    .share-cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    /* Share card — looks like actual SNS result card */
+    .share-card { background: var(--white); border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,.09); padding: 28px; width: 220px; text-align: center; position: relative; }
+    .sc-watermark { position: absolute; top: 12px; left: 16px; font-size: 11px; font-weight: 800; color: var(--pink); opacity: .7; }
+    .sc-icon { font-size: 52px; margin-bottom: 8px; }
+    .sc-label { font-size: 10px; font-weight: 700; color: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .sc-name { font-size: 20px; font-weight: 900; letter-spacing: -.5px; color: var(--text); margin-bottom: 3px; }
+    .sc-ja { font-size: 13px; color: var(--text-sub); margin-bottom: 12px; }
+    .sc-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+    .sc-tag { font-size: 10px; font-weight: 600; border-radius: 9999px; padding: 3px 8px; }
+    .sc-tag-pink { background: var(--pink-bg); color: var(--pink); }
+    .sc-tag-purple { background: var(--purple-bg); color: var(--purple); }
+    .share-hashtags { text-align: center; margin-top: 32px; }
+    .ht-label { font-size: 14px; color: var(--text-sub); margin-bottom: 12px; }
+    .ht-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .ht { font-size: 16px; font-weight: 700; color: var(--pink); }
+
+    /* Tweet wall */
+    .tweet-wall { padding: 0 48px 80px; background: var(--bg); }
+    .tweet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; max-width: 880px; margin: 0 auto; }
+    .tweet { background: var(--white); border-radius: 16px; padding: 18px 20px; border: 1.5px solid var(--border); }
+    .tweet-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .tweet-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--pink-bg); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .tweet-name { font-size: 14px; font-weight: 700; }
+    .tweet-handle { font-size: 12px; color: var(--text-sub); }
+    .tweet-body { font-size: 14px; color: var(--text); line-height: 1.65; }
+    .tweet-tag { color: var(--pink); font-weight: 600; }
+
+    /* ===== ALL TYPES ===== */
+    .all-types { padding: 80px 48px; background: var(--white); }
+    .types-inner { max-width: 960px; margin: 0 auto; }
+    .types-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+    .type-card { border: 2px solid var(--border); border-radius: 18px; padding: 24px 20px; text-align: center; cursor: default; transition: all .2s; }
+    .type-card:hover { border-color: var(--pink-light); box-shadow: 0 6px 20px rgba(255,107,157,.12); transform: translateY(-3px); background: var(--pink-bg); }
+    .tc-icon { font-size: 40px; margin-bottom: 10px; }
+    .tc-en { font-size: 13px; font-weight: 800; color: var(--pink); letter-spacing: .5px; }
+    .tc-ja { font-size: 15px; font-weight: 800; color: var(--text); margin: 4px 0 8px; }
+    .tc-desc { font-size: 12px; color: var(--text-sub); line-height: 1.6; }
+    .tc-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 10px; }
+    .tc-tag { font-size: 11px; background: var(--pink-bg); color: var(--pink); border-radius: 9999px; padding: 3px 9px; font-weight: 600; }
+
+    /* ===== STEPS ===== */
+    .steps { padding: 80px 48px; background: var(--bg); }
+    .steps-inner { max-width: 780px; margin: 0 auto; }
+    .steps-list { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+    .step-row { display: flex; gap: 24px; align-items: flex-start; }
+    .step-left { display: flex; flex-direction: column; align-items: center; }
+    .step-circle { width: 52px; height: 52px; border-radius: 50%; background: var(--pink); color: white; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(255,107,157,.3); }
+    .step-line { width: 2px; flex: 1; background: var(--border); min-height: 32px; }
+    .step-content { padding-bottom: 32px; flex: 1; padding-top: 10px; }
+    .step-content h4 { font-size: 18px; font-weight: 800; margin-bottom: 6px; letter-spacing: -.3px; }
+    .step-content p { font-size: 14px; color: var(--text-sub); }
+
+    /* ===== CTA ===== */
+    .cta { background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%); padding: 100px 48px; text-align: center; }
+    .cta-h2 { font-size: clamp(40px, 7vw, 88px); font-weight: 900; letter-spacing: -4px; line-height: .9; color: white; margin-bottom: 24px; }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,.75); margin-bottom: 48px; line-height: 1.5; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--pink); font-size: 17px; font-weight: 800; padding: 18px 52px; border-radius: 9999px; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: all .2s; }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,.22); }
+    .cta-note { color: rgba(255,255,255,.5); font-size: 13px; margin-top: 16px; }
+
+    footer { text-align: center; padding: 32px; background: var(--text); color: rgba(255,255,255,.4); font-size: 13px; }
+    .footer-logo { color: white; font-weight: 800; font-size: 18px; margin-bottom: 6px; }
+
+    @media (max-width: 680px) {
+      nav, .hero, .share-section, .tweet-wall, .all-types, .steps, .cta { padding-left: 20px; padding-right: 20px; }
+      .type-mini-row { padding-left: 20px; padding-right: 20px; }
+      .share-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Wellulu</span>
+  <button class="nav-cta">診断する →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pre">Well-Being Style 12タイプ診断 — ウェルグラム</div>
+  <div class="type-display">
+    <div class="type-emoji">🌿</div>
+    <div class="type-en-giant">The Nurturer</div>
+    <div class="type-ja-med">育む人</div>
+  </div>
+  <p class="type-tagline">あなたは12タイプのどれ？<br />友達に教えたくなるウェルビーイング・キャラクターを発見しよう。</p>
+  <a class="hero-btn" href="#">私のタイプを診断する（無料） →</a>
+  <div class="hero-note">シェアOK · 登録不要で診断可 · Wellulu監修 · 5分</div>
+</section>
+
+<!-- Type mini carousel -->
+<div class="type-mini-row">
+  <div class="type-mini active"><span class="tm-icon">🌿</span><span class="tm-name">Nurturer</span></div>
+  <div class="type-mini"><span class="tm-icon">⚡</span><span class="tm-name">Achiever</span></div>
+  <div class="type-mini"><span class="tm-icon">🌊</span><span class="tm-name">Flow-er</span></div>
+  <div class="type-mini"><span class="tm-icon">🧘</span><span class="tm-name">Seeker</span></div>
+  <div class="type-mini"><span class="tm-icon">✨</span><span class="tm-name">Connector</span></div>
+  <div class="type-mini"><span class="tm-icon">🌍</span><span class="tm-name">Grounded</span></div>
+  <div class="type-mini"><span class="tm-icon">🔥</span><span class="tm-name">Pioneer</span></div>
+  <div class="type-mini"><span class="tm-icon">🌙</span><span class="tm-name">Reflector</span></div>
+  <div class="type-mini"><span class="tm-icon">💡</span><span class="tm-name">Innovator</span></div>
+  <div class="type-mini"><span class="tm-icon">🤝</span><span class="tm-name">Harmonizer</span></div>
+  <div class="type-mini"><span class="tm-icon">🏔️</span><span class="tm-name">Builder</span></div>
+  <div class="type-mini"><span class="tm-icon">🌸</span><span class="tm-name">Bloom-er</span></div>
+</div>
+
+<!-- SHARE -->
+<section class="share-section">
+  <div class="share-inner">
+    <div class="sec-label">Share Results</div>
+    <h2 class="sec-h2">シェアして<br />盛り上がろう</h2>
+    <div class="share-cards">
+      <div class="share-card">
+        <div class="sc-watermark">Wellulu</div>
+        <div class="sc-icon">🌿</div>
+        <div class="sc-label">My Wellgram Type</div>
+        <div class="sc-name">The Nurturer</div>
+        <div class="sc-ja">育む人</div>
+        <div class="sc-tags"><span class="sc-tag sc-tag-pink">#ケア</span><span class="sc-tag sc-tag-purple">#共感</span><span class="sc-tag sc-tag-pink">#外向</span></div>
+      </div>
+      <div class="share-card">
+        <div class="sc-watermark">Wellulu</div>
+        <div class="sc-icon">⚡</div>
+        <div class="sc-label">My Wellgram Type</div>
+        <div class="sc-name">The Achiever</div>
+        <div class="sc-ja">達成者</div>
+        <div class="sc-tags"><span class="sc-tag sc-tag-pink">#目標</span><span class="sc-tag sc-tag-purple">#挑戦</span><span class="sc-tag sc-tag-pink">#成長</span></div>
+      </div>
+      <div class="share-card">
+        <div class="sc-watermark">Wellulu</div>
+        <div class="sc-icon">🌸</div>
+        <div class="sc-label">My Wellgram Type</div>
+        <div class="sc-name">The Bloom-er</div>
+        <div class="sc-ja">咲く人</div>
+        <div class="sc-tags"><span class="sc-tag sc-tag-pink">#美</span><span class="sc-tag sc-tag-purple">#感性</span><span class="sc-tag sc-tag-pink">#表現</span></div>
+      </div>
+    </div>
+    <div class="share-hashtags">
+      <div class="ht-label">シェアタグ</div>
+      <div class="ht-tags">
+        <span class="ht">#ウェルグラム</span>
+        <span class="ht">#ウェルビーイング</span>
+        <span class="ht">#私のタイプ</span>
+        <span class="ht">#WellBeingStyle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWEETS -->
+<section class="tweet-wall">
+  <div class="tweet-grid">
+    <div class="tweet">
+      <div class="tweet-header"><div class="tweet-avatar">🌸</div><div><div class="tweet-name">wellness_yuki</div><div class="tweet-handle">@wellness_yuki</div></div></div>
+      <div class="tweet-body">「The Flow-er」って出た！変化好きすぎる私にドンピシャ🌊 <span class="tweet-tag">#ウェルグラム</span> <span class="tweet-tag">#私のタイプ</span></div>
+    </div>
+    <div class="tweet">
+      <div class="tweet-header"><div class="tweet-avatar">🌿</div><div><div class="tweet-name">mindful_hana</div><div class="tweet-handle">@mindful_hana</div></div></div>
+      <div class="tweet-body">診断結果の画像がおしゃれで即ストーリーに上げた。フォロワーから「私も受けたい！」が20件きた ✨ <span class="tweet-tag">#ウェルグラム</span></div>
+    </div>
+    <div class="tweet">
+      <div class="tweet-header"><div class="tweet-avatar">🧘</div><div><div class="tweet-name">zen_kenji</div><div class="tweet-handle">@zen_kenji</div></div></div>
+      <div class="tweet-body">The Nurturer と出た瞬間、なぜか泣きそうになった。認められた感じ 🌿 <span class="tweet-tag">#ウェルビーイング</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL 12 TYPES -->
+<section class="all-types">
+  <div class="types-inner">
+    <div class="sec-label">All 12 Types</div>
+    <h2 class="sec-h2" style="font-size:clamp(28px,4vw,48px)">全12タイプ一覧</h2>
+    <div class="types-grid">
+      <div class="type-card"><div class="tc-icon">🌿</div><div class="tc-en">Nurturer</div><div class="tc-ja">育む人</div><div class="tc-desc">他者のケアと共感が喜びの源</div><div class="tc-tags"><span class="tc-tag">#ケア</span><span class="tc-tag">#共感</span></div></div>
+      <div class="type-card"><div class="tc-icon">⚡</div><div class="tc-en">Achiever</div><div class="tc-ja">達成者</div><div class="tc-desc">目標達成が最大のエネルギー</div><div class="tc-tags"><span class="tc-tag">#目標</span><span class="tc-tag">#挑戦</span></div></div>
+      <div class="type-card"><div class="tc-icon">🌊</div><div class="tc-en">Flow-er</div><div class="tc-ja">流れる人</div><div class="tc-desc">変化と今この瞬間に生きる</div><div class="tc-tags"><span class="tc-tag">#変化</span><span class="tc-tag">#自由</span></div></div>
+      <div class="type-card"><div class="tc-icon">🧘</div><div class="tc-en">Seeker</div><div class="tc-ja">探求者</div><div class="tc-desc">内省と知的探求で輝く</div><div class="tc-tags"><span class="tc-tag">#内省</span><span class="tc-tag">#探求</span></div></div>
+      <div class="type-card"><div class="tc-icon">✨</div><div class="tc-en">Connector</div><div class="tc-ja">つながる人</div><div class="tc-desc">人と絆に幸せを見出す</div><div class="tc-tags"><span class="tc-tag">#人</span><span class="tc-tag">#絆</span></div></div>
+      <div class="type-card"><div class="tc-icon">🌍</div><div class="tc-en">Grounded</div><div class="tc-ja">大地の人</div><div class="tc-desc">自然・規律で心を整える</div><div class="tc-tags"><span class="tc-tag">#自然</span><span class="tc-tag">#習慣</span></div></div>
+      <div class="type-card"><div class="tc-icon">🔥</div><div class="tc-en">Pioneer</div><div class="tc-ja">開拓者</div><div class="tc-desc">前人未到の挑戦に燃える</div><div class="tc-tags"><span class="tc-tag">#先駆</span><span class="tc-tag">#情熱</span></div></div>
+      <div class="type-card"><div class="tc-icon">🌙</div><div class="tc-en">Reflector</div><div class="tc-ja">映す人</div><div class="tc-desc">静けさと深さの中で輝く</div><div class="tc-tags"><span class="tc-tag">#静寂</span><span class="tc-tag">#直感</span></div></div>
+      <div class="type-card"><div class="tc-icon">💡</div><div class="tc-en">Innovator</div><div class="tc-ja">革新者</div><div class="tc-desc">創造と発明からエネルギーを得る</div><div class="tc-tags"><span class="tc-tag">#創造</span><span class="tc-tag">#ビジョン</span></div></div>
+      <div class="type-card"><div class="tc-icon">🤝</div><div class="tc-en">Harmonizer</div><div class="tc-ja">調和の人</div><div class="tc-desc">全体バランスを保つ使命感</div><div class="tc-tags"><span class="tc-tag">#調和</span><span class="tc-tag">#平和</span></div></div>
+      <div class="type-card"><div class="tc-icon">🏔️</div><div class="tc-en">Builder</div><div class="tc-ja">建築者</div><div class="tc-desc">着実な積み上げが喜び</div><div class="tc-tags"><span class="tc-tag">#積み上げ</span><span class="tc-tag">#基盤</span></div></div>
+      <div class="type-card"><div class="tc-icon">🌸</div><div class="tc-en">Bloom-er</div><div class="tc-ja">咲く人</div><div class="tc-desc">美と感性で自分を表現する</div><div class="tc-tags"><span class="tc-tag">#美</span><span class="tc-tag">#感性</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <div class="steps-inner">
+    <div class="sec-label">How to Start</div>
+    <h2 class="sec-h2" style="font-size:clamp(28px,4vw,48px)">診断の流れ</h2>
+    <div class="steps-list">
+      <div class="step-row">
+        <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+        <div class="step-content"><h4>質問に答える（約20問 · 5分）</h4><p>日常のシーンを想像して選ぶだけ。難しくない！</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+        <div class="step-content"><h4>12タイプのうち1つが判定</h4><p>3軸の組み合わせからあなたのタイプが決まります。</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+        <div class="step-content"><h4>結果カードをゲット</h4><p>シェア用ビジュアル付き。そのままX・Instagramへ。</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-left"><div class="step-circle">4</div><div class="step-line" style="display:none"></div></div>
+        <div class="step-content"><h4>詳細レポートを読んで行動に活かす</h4><p>あなたのタイプに最適なウェルビーイング習慣が届きます。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="cta-h2">さあ、<br />診断しよう。</h2>
+  <p class="cta-sub">あなたのウェルビーイング・キャラクターが<br />5分で判明。完全無料。</p>
+  <a class="cta-btn" href="#">診断スタート →</a>
+  <div class="cta-note">シェアOK · 登録不要で診断可 · Wellulu監修 · 5分</div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wellulu</div>
+  <p>© 2026 Wellulu. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

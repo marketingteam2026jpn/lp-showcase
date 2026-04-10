@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF0EA"/>
+      <stop offset="100%" stop-color="#FFE4D6"/>
+    </linearGradient>
+    <linearGradient id="body4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4845F"/>
+      <stop offset="100%" stop-color="#E07A5F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg4)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#F4A080" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="260" rx="64" ry="76" fill="url(#body4)"/>
+  <!-- Apron -->
+  <path d="M158,230 L158,310 Q200,325 242,310 L242,230 Q200,245 158,230Z" fill="#F9B090" opacity="0.6"/>
+  <rect x="188" y="260" width="24" height="20" rx="4" fill="#E07A5F" opacity="0.4"/>
+  <!-- Legs -->
+  <rect x="170" y="320" width="24" height="32" rx="12" fill="#D06A4F"/>
+  <rect x="206" y="320" width="24" height="32" rx="12" fill="#D06A4F"/>
+  <ellipse cx="182" cy="354" rx="16" ry="8" fill="#B85A40"/>
+  <ellipse cx="218" cy="354" rx="16" ry="8" fill="#B85A40"/>
+  <!-- Left arm - hand on hip -->
+  <rect x="126" y="245" width="22" height="50" rx="11" fill="#D06A4F" transform="rotate(-20 137 245)"/>
+  <circle cx="118" cy="280" r="10" fill="#D06A4F"/>
+  <!-- Right arm holding block -->
+  <rect x="254" y="228" width="22" height="50" rx="11" fill="#D06A4F" transform="rotate(10 265 228)"/>
+  <!-- Building blocks stack -->
+  <rect x="96" y="310" width="30" height="22" rx="4" fill="#FFD166" stroke="#E8B830" stroke-width="1"/>
+  <rect x="102" y="290" width="30" height="22" rx="4" fill="#FF8A8A" stroke="#E06060" stroke-width="1"/>
+  <rect x="98" y="270" width="30" height="22" rx="4" fill="#7DD4E8" stroke="#5CB8E6" stroke-width="1"/>
+  <!-- Block in hand -->
+  <rect x="268" y="214" width="26" height="20" rx="4" fill="#A8D5BA" stroke="#6BC06B" stroke-width="1"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#F4845F"/>
+  <circle cx="200" cy="165" r="55" fill="#F69878" opacity="0.4"/>
+  <!-- Eyes - steady, confident -->
+  <circle cx="180" cy="162" r="6" fill="#5A3A2A"/>
+  <circle cx="220" cy="162" r="6" fill="#5A3A2A"/>
+  <circle cx="182" cy="160" r="2" fill="#FFF"/>
+  <circle cx="222" cy="160" r="2" fill="#FFF"/>
+  <!-- Eyebrows - determined -->
+  <path d="M172,152 L188,150" stroke="#5A3A2A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M212,150 L228,152" stroke="#5A3A2A" stroke-width="2" stroke-linecap="round"/>
+  <!-- Mouth - calm, assured smile -->
+  <path d="M190,178 Q200,188 210,178" stroke="#5A3A2A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="168" cy="176" rx="10" ry="6" fill="#E07A5F" opacity="0.35"/>
+  <ellipse cx="232" cy="176" rx="10" ry="6" fill="#E07A5F" opacity="0.35"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#B85A40" opacity="0.6">The Builder</text>
+</svg>

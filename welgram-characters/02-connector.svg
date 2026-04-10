@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F4FD"/>
+      <stop offset="100%" stop-color="#D0ECFB"/>
+    </linearGradient>
+    <linearGradient id="body2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5CB8E6"/>
+      <stop offset="100%" stop-color="#4A9FD4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg2)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#7DD4E8" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="260" rx="62" ry="75" fill="url(#body2)"/>
+  <!-- Scarf / ribbon -->
+  <path d="M160,220 Q200,235 240,220" stroke="#7DD4E8" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <ellipse cx="240" cy="228" rx="12" ry="18" fill="#7DD4E8" transform="rotate(20 240 228)"/>
+  <ellipse cx="248" cy="240" rx="10" ry="15" fill="#9DE4F4" transform="rotate(30 248 240)"/>
+  <!-- Legs -->
+  <rect x="170" y="320" width="24" height="32" rx="12" fill="#4A9FD4"/>
+  <rect x="206" y="320" width="24" height="32" rx="12" fill="#4A9FD4"/>
+  <ellipse cx="182" cy="354" rx="16" ry="8" fill="#3D8ABF"/>
+  <ellipse cx="218" cy="354" rx="16" ry="8" fill="#3D8ABF"/>
+  <!-- Left arm reaching out -->
+  <rect x="120" y="238" width="22" height="55" rx="11" fill="#4A9FD4" transform="rotate(-25 131 238)"/>
+  <!-- Left hand open (welcoming) -->
+  <circle cx="112" cy="228" r="11" fill="#4A9FD4"/>
+  <!-- Right arm holding string phone -->
+  <rect x="258" y="220" width="22" height="50" rx="11" fill="#4A9FD4" transform="rotate(20 269 220)"/>
+  <!-- String phone -->
+  <rect x="278" y="198" width="18" height="26" rx="6" fill="#FFD166" stroke="#E8B830" stroke-width="1.5"/>
+  <rect x="283" y="204" width="8" height="4" rx="2" fill="#E8B830"/>
+  <!-- String -->
+  <path d="M287,224 Q310,250 340,230 Q360,218 370,240" stroke="#E8B830" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#5CB8E6"/>
+  <circle cx="200" cy="165" r="55" fill="#6EC5ED" opacity="0.4"/>
+  <!-- Eyes - friendly crescent -->
+  <path d="M174,158 Q180,168 186,158" stroke="#3D5A80" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M214,158 Q220,168 226,158" stroke="#3D5A80" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Mouth - big warm smile -->
+  <path d="M184,180 Q200,196 216,180" stroke="#3D5A80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="168" cy="176" rx="10" ry="6" fill="#4A9FD4" opacity="0.4"/>
+  <ellipse cx="232" cy="176" rx="10" ry="6" fill="#4A9FD4" opacity="0.4"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#3D8ABF" opacity="0.6">The Connector</text>
+</svg>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ウェルグラム12タイプ キャラクター一覧</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--text:#32373c;--sub:#6b7280;--bg:#f9fafb;--white:#fff;--border:#e5e7eb;--radius:16px}
+    body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif;background:var(--bg);color:var(--text);padding:24px 16px 60px}
+    .page{max-width:1080px;margin:0 auto}
+    h1{font-size:24px;font-weight:900;text-align:center;margin-bottom:6px}
+    .subtitle{text-align:center;font-size:13px;color:var(--sub);margin-bottom:32px}
+    /* Color group headers */
+    .group-header{display:flex;align-items:center;gap:10px;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+    .group-dot{width:14px;height:14px;border-radius:50%}
+    .group-name{font-size:16px;font-weight:800}
+    .group-desc{font-size:12px;color:var(--sub)}
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    /* Card */
+    .card{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;transition:all .25s;cursor:default}
+    .card:hover{border-color:#99f6e4;transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .card-img{width:100%;aspect-ratio:1;display:block}
+    .card-body{padding:14px}
+    .card-num{font-size:11px;font-weight:700;color:var(--sub);margin-bottom:2px}
+    .card-en{font-size:15px;font-weight:800;margin-bottom:2px}
+    .card-jp{font-size:13px;color:var(--sub);margin-bottom:8px}
+    .card-axes{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+    .axis-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:9999px;background:#f3f4f6;color:var(--sub)}
+    .card-item{font-size:12px;color:var(--text)}
+    .card-color{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:middle;border:1px solid rgba(0,0,0,.1)}
+    .card-keywords{font-size:11px;color:#0d9488;margin-top:6px;font-weight:600}
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>ウェルグラム12タイプ キャラクター一覧</h1>
+  <p class="subtitle">Well-Being-Style 12 Types — Character Design v1.0 | 2026-03-23</p>
+
+  <!-- Self Group -->
+  <div class="group-header">
+    <div class="group-dot" style="background:#F5B731"></div>
+    <div class="group-name">Self グループ（自己）</div>
+    <div class="group-desc">暖色系 — 自分の内側を照らす光</div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <img class="card-img" src="01-achiever.svg" alt="The Achiever"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 1 — 外向 × 成長 × 自己</div>
+        <div class="card-en">The Achiever</div>
+        <div class="card-jp">達成者</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">成長</span><span class="axis-tag">自己</span></div>
+        <div class="card-item"><span class="card-color" style="background:#F5B731"></span>やまぶきイエロー | 旗（フラッグ）</div>
+        <div class="card-keywords">#目標 #挑戦 #成長 #自己実現</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="04-builder.svg" alt="The Builder"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 4 — 外向 × 安定 × 自己</div>
+        <div class="card-en">The Builder</div>
+        <div class="card-jp">ビルダー</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">安定</span><span class="axis-tag">自己</span></div>
+        <div class="card-item"><span class="card-color" style="background:#F4845F"></span>コーラルオレンジ | 積み木</div>
+        <div class="card-keywords">#習慣 #ルーティン #積み上げ #堅実</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="07-seeker.svg" alt="The Seeker"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 7 — 内向 × 成長 × 自己</div>
+        <div class="card-en">The Seeker</div>
+        <div class="card-jp">探求者</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">成長</span><span class="axis-tag">自己</span></div>
+        <div class="card-item"><span class="card-color" style="background:#E8B960"></span>アンバーイエロー | 虫眼鏡</div>
+        <div class="card-keywords">#内省 #知的探求 #学び #深まり</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="10-reflector.svg" alt="The Reflector"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 10 — 内向 × 安定 × 自己</div>
+        <div class="card-en">The Reflector</div>
+        <div class="card-jp">思索者</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">安定</span><span class="axis-tag">自己</span></div>
+        <div class="card-item"><span class="card-color" style="background:#F0B8A8"></span>ペールコーラル | 手鏡</div>
+        <div class="card-keywords">#内省 #静寂 #自分と向き合う #マインドフル</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Group -->
+  <div class="group-header">
+    <div class="group-dot" style="background:#5CB8E6"></div>
+    <div class="group-name">Social グループ（他者）</div>
+    <div class="group-desc">寒色系 — 人と人をつなぐ空</div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <img class="card-img" src="02-connector.svg" alt="The Connector"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 2 — 外向 × 成長 × 他者</div>
+        <div class="card-en">The Connector</div>
+        <div class="card-jp">つながる人</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">成長</span><span class="axis-tag">他者</span></div>
+        <div class="card-item"><span class="card-color" style="background:#5CB8E6"></span>スカイブルー | 糸電話</div>
+        <div class="card-keywords">#つながり #コミュニティ #共感 #発信</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="05-nurturer.svg" alt="The Nurturer"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 5 — 外向 × 安定 × 他者</div>
+        <div class="card-en">The Nurturer</div>
+        <div class="card-jp">育む人</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">安定</span><span class="axis-tag">他者</span></div>
+        <div class="card-item"><span class="card-color" style="background:#8FA7D4"></span>ラベンダーブルー | ジョウロ</div>
+        <div class="card-keywords">#ケア #共感 #つながり #支え合い</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="08-innovator.svg" alt="The Innovator"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 8 — 内向 × 成長 × 他者</div>
+        <div class="card-en">The Innovator</div>
+        <div class="card-jp">イノベーター</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">成長</span><span class="axis-tag">他者</span></div>
+        <div class="card-item"><span class="card-color" style="background:#7B8DC6"></span>アメジストブルー | 電球</div>
+        <div class="card-keywords">#創造 #ひらめき #静かな情熱 #革新</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="11-harmonizer.svg" alt="The Harmonizer"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 11 — 内向 × 安定 × 他者</div>
+        <div class="card-en">The Harmonizer</div>
+        <div class="card-jp">調和者</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">安定</span><span class="axis-tag">他者</span></div>
+        <div class="card-item"><span class="card-color" style="background:#B8A9D4"></span>ミストラベンダー | 天秤</div>
+        <div class="card-keywords">#調和 #傾聴 #共感 #バランス</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nature Group -->
+  <div class="group-header">
+    <div class="group-dot" style="background:#6BC06B"></div>
+    <div class="group-name">Nature グループ（自然）</div>
+    <div class="group-desc">アース系 — 自然との調和</div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <img class="card-img" src="03-pioneer.svg" alt="The Pioneer"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 3 — 外向 × 成長 × 自然</div>
+        <div class="card-en">The Pioneer</div>
+        <div class="card-jp">パイオニア</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">成長</span><span class="axis-tag">自然</span></div>
+        <div class="card-item"><span class="card-color" style="background:#6BC06B"></span>リーフグリーン | コンパス</div>
+        <div class="card-keywords">#冒険 #発見 #自然体験 #開拓</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="06-grounded.svg" alt="The Grounded"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 6 — 外向 × 安定 × 自然</div>
+        <div class="card-en">The Grounded</div>
+        <div class="card-jp">大地の人</div>
+        <div class="card-axes"><span class="axis-tag">外向</span><span class="axis-tag">安定</span><span class="axis-tag">自然</span></div>
+        <div class="card-item"><span class="card-color" style="background:#87A96B"></span>セージグリーン | 苗木</div>
+        <div class="card-keywords">#自然 #規律 #ルーティン #大地</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="09-flower.svg" alt="The Flow-er"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 9 — 内向 × 成長 × 自然</div>
+        <div class="card-en">The Flow-er</div>
+        <div class="card-jp">流れる人</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">成長</span><span class="axis-tag">自然</span></div>
+        <div class="card-item"><span class="card-color" style="background:#4DB6AC"></span>ティールグリーン | 葉っぱの舟</div>
+        <div class="card-keywords">#フロー #没頭 #今ここ #変化を楽しむ</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="12-bloomer.svg" alt="The Bloom-er"/>
+      <div class="card-body">
+        <div class="card-num">TYPE 12 — 内向 × 安定 × 自然</div>
+        <div class="card-en">The Bloom-er</div>
+        <div class="card-jp">花開く人</div>
+        <div class="card-axes"><span class="axis-tag">内向</span><span class="axis-tag">安定</span><span class="axis-tag">自然</span></div>
+        <div class="card-item"><span class="card-color" style="background:#A8D5BA"></span>ミストグリーン | 開きかけの花</div>
+        <div class="card-keywords">#自然体 #マイペース #開花 #安らぎ</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

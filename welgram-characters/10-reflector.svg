@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg10" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF2EE"/>
+      <stop offset="100%" stop-color="#FFE8E0"/>
+    </linearGradient>
+    <linearGradient id="body10" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0B8A8"/>
+      <stop offset="100%" stop-color="#E8A898"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg10)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#F0C8B8" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="262" rx="60" ry="74" fill="url(#body10)"/>
+  <!-- Hood/robe -->
+  <path d="M150,200 Q150,130 200,118 Q250,130 250,200" fill="#E8A898" opacity="0.5"/>
+  <path d="M155,200 Q155,138 200,126 Q245,138 245,200" fill="#F0B8A8" opacity="0.3"/>
+  <!-- Legs - sitting cross-legged suggestion (standing version) -->
+  <rect x="172" y="320" width="22" height="30" rx="11" fill="#E8A898"/>
+  <rect x="206" y="320" width="22" height="30" rx="11" fill="#E8A898"/>
+  <ellipse cx="183" cy="352" rx="15" ry="8" fill="#D89888"/>
+  <ellipse cx="217" cy="352" rx="15" ry="8" fill="#D89888"/>
+  <!-- Arms holding mirror at chest -->
+  <rect x="140" y="242" width="20" height="42" rx="10" fill="#E8A898" transform="rotate(-12 150 242)"/>
+  <rect x="240" y="242" width="20" height="42" rx="10" fill="#E8A898" transform="rotate(12 250 242)"/>
+  <!-- Hand mirror -->
+  <ellipse cx="200" cy="265" rx="24" ry="28" fill="#E0E4F4" stroke="#C0A890" stroke-width="2.5"/>
+  <ellipse cx="200" cy="265" rx="19" ry="23" fill="#F0F2FA"/>
+  <!-- Mirror reflection - soft face silhouette -->
+  <circle cx="200" cy="260" r="10" fill="#F0B8A8" opacity="0.3"/>
+  <circle cx="196" cy="258" r="2" fill="#D89888" opacity="0.3"/>
+  <circle cx="204" cy="258" r="2" fill="#D89888" opacity="0.3"/>
+  <!-- Mirror handle -->
+  <rect x="196" y="290" width="8" height="22" rx="3" fill="#C0A890"/>
+  <circle cx="200" cy="314" r="6" fill="#C0A890"/>
+  <!-- Mirror shine -->
+  <path d="M188,252 Q192,246 198,250" stroke="#FFF" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <!-- Head -->
+  <circle cx="200" cy="168" r="62" fill="#F0B8A8"/>
+  <circle cx="200" cy="163" r="55" fill="#F4C4B4" opacity="0.4"/>
+  <!-- Eyes - gently closed (meditative) -->
+  <path d="M174,164 Q180,168 186,164" stroke="#6A4A3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M214,164 Q220,168 226,164" stroke="#6A4A3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Eyelashes -->
+  <line x1="174" y1="164" x2="172" y2="160" stroke="#6A4A3A" stroke-width="1" stroke-linecap="round"/>
+  <line x1="226" y1="164" x2="228" y2="160" stroke="#6A4A3A" stroke-width="1" stroke-linecap="round"/>
+  <!-- Mouth - serene, minimal -->
+  <path d="M194,182 Q200,186 206,182" stroke="#6A4A3A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks - soft blush -->
+  <ellipse cx="168" cy="176" rx="10" ry="6" fill="#E8A898" opacity="0.4"/>
+  <ellipse cx="232" cy="176" rx="10" ry="6" fill="#E8A898" opacity="0.4"/>
+  <!-- Subtle glow around head -->
+  <circle cx="200" cy="168" r="70" fill="none" stroke="#F0C8B8" stroke-width="1" opacity="0.3"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#C48878" opacity="0.6">The Reflector</text>
+</svg>

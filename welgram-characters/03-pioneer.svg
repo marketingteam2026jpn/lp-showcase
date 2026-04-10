@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F8E8"/>
+      <stop offset="100%" stop-color="#D0F0D0"/>
+    </linearGradient>
+    <linearGradient id="body3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6BC06B"/>
+      <stop offset="100%" stop-color="#4DAD4D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg3)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#8AD68A" opacity="0.3"/>
+  <!-- Small plants at feet -->
+  <path d="M130,355 Q133,342 140,350" stroke="#8AD68A" stroke-width="2" fill="none"/>
+  <path d="M136,355 Q140,340 146,350" stroke="#6BC06B" stroke-width="2" fill="none"/>
+  <path d="M260,355 Q265,340 270,352" stroke="#8AD68A" stroke-width="2" fill="none"/>
+  <!-- Body - slightly forward leaning -->
+  <ellipse cx="200" cy="260" rx="60" ry="73" fill="url(#body3)"/>
+  <!-- Backpack -->
+  <rect x="228" y="225" width="30" height="38" rx="8" fill="#4DAD4D"/>
+  <rect x="232" y="230" width="22" height="10" rx="4" fill="#3DAD8F"/>
+  <path d="M238,225 Q243,218 248,225" stroke="#3D8D3D" stroke-width="2.5" fill="none"/>
+  <!-- Legs - one stepping forward -->
+  <rect x="166" y="318" width="24" height="34" rx="12" fill="#4DAD4D"/>
+  <rect x="210" y="312" width="24" height="34" rx="12" fill="#4DAD4D" transform="rotate(8 222 312)"/>
+  <ellipse cx="178" cy="354" rx="16" ry="8" fill="#3D8D3D"/>
+  <ellipse cx="226" cy="350" rx="16" ry="8" fill="#3D8D3D"/>
+  <!-- Left arm -->
+  <rect x="128" y="238" width="22" height="50" rx="11" fill="#4DAD4D" transform="rotate(-10 139 238)"/>
+  <!-- Right arm raised with compass -->
+  <rect x="250" y="200" width="22" height="55" rx="11" fill="#4DAD4D" transform="rotate(25 261 200)"/>
+  <!-- Compass -->
+  <circle cx="282" cy="185" r="16" fill="#FFF" stroke="#8B6914" stroke-width="2"/>
+  <circle cx="282" cy="185" r="12" fill="#FFF8E7"/>
+  <!-- Compass needle -->
+  <polygon points="282,174 284,185 282,188 280,185" fill="#FF6B6B"/>
+  <polygon points="282,196 284,185 282,182 280,185" fill="#AAA"/>
+  <circle cx="282" cy="185" r="2" fill="#8B6914"/>
+  <!-- N mark -->
+  <text x="282" y="176" text-anchor="middle" font-family="sans-serif" font-size="5" font-weight="700" fill="#FF6B6B">N</text>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#6BC06B"/>
+  <circle cx="200" cy="165" r="55" fill="#7ED07E" opacity="0.4"/>
+  <!-- Explorer hat -->
+  <ellipse cx="200" cy="128" rx="50" ry="10" fill="#4DAD4D"/>
+  <path d="M160,128 Q200,96 240,128" fill="#5DBD5D"/>
+  <rect x="190" y="125" width="20" height="4" rx="2" fill="#3DAD8F"/>
+  <!-- Eyes - wide, excited -->
+  <circle cx="180" cy="162" r="8" fill="#2D4A2D"/>
+  <circle cx="220" cy="162" r="8" fill="#2D4A2D"/>
+  <circle cx="183" cy="159" r="3" fill="#FFF"/>
+  <circle cx="223" cy="159" r="3" fill="#FFF"/>
+  <circle cx="178" cy="164" r="1.5" fill="#FFF" opacity="0.5"/>
+  <circle cx="218" cy="164" r="1.5" fill="#FFF" opacity="0.5"/>
+  <!-- Mouth - excited open -->
+  <ellipse cx="200" cy="182" rx="10" ry="7" fill="#2D4A2D"/>
+  <ellipse cx="200" cy="180" rx="7" ry="4" fill="#4D6A4D"/>
+  <!-- Cheeks -->
+  <ellipse cx="166" cy="176" rx="10" ry="6" fill="#4DAD4D" opacity="0.4"/>
+  <ellipse cx="234" cy="176" rx="10" ry="6" fill="#4DAD4D" opacity="0.4"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#3D8D3D" opacity="0.6">The Pioneer</text>
+</svg>

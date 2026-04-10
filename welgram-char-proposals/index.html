@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ウェルグラム キャラクターデザイン 5パターン提案</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;background:#f8fafc;color:#1e293b;padding:24px 16px 80px}
+.page{max-width:1100px;margin:0 auto}
+h1{font-size:24px;font-weight:900;text-align:center;margin-bottom:4px}
+.subtitle{text-align:center;font-size:13px;color:#64748b;margin-bottom:40px}
+
+.pattern{margin-bottom:56px;border:2px solid #e2e8f0;border-radius:20px;overflow:hidden;background:#fff}
+.pattern-header{padding:24px 28px;border-bottom:1px solid #e2e8f0}
+.pattern-label{font-size:11px;font-weight:700;color:#0d9488;letter-spacing:1px;margin-bottom:4px}
+.pattern-name{font-size:22px;font-weight:900;margin-bottom:8px}
+.pattern-desc{font-size:14px;color:#64748b;line-height:1.7}
+.pattern-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.ptag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;background:#f0fdfa;color:#0d9488}
+
+.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0}
+.sample{padding:24px;text-align:center;border-right:1px solid #e2e8f0}
+.sample:last-child{border-right:none}
+.sample svg{width:100%;max-width:260px;height:auto;margin-bottom:8px}
+.sample-name{font-size:13px;font-weight:700}
+.sample-sub{font-size:11px;color:#94a3b8}
+
+.spec-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0 28px 20px;font-size:12px;color:#64748b}
+.spec-item{padding:8px 0}
+.spec-item strong{color:#1e293b;display:block;margin-bottom:2px}
+
+@media(max-width:700px){.samples{grid-template-columns:1fr}.sample{border-right:none;border-bottom:1px solid #e2e8f0}}
+</style>
+</head>
+<body>
+<div class="page">
+<h1>ウェルグラム12タイプ キャラクター提案</h1>
+<p class="subtitle">5パターン比較 | 2026-03-23 | 各パターン3体サンプル</p>
+
+<!-- ===== PATTERN A: ローポリ・ペーパークラフト風 (参考資料準拠) ===== -->
+<div class="pattern">
+<div class="pattern-header">
+  <div class="pattern-label">PATTERN A — 参考資料準拠</div>
+  <div class="pattern-name">ローポリ・ペーパークラフト風</div>
+  <div class="pattern-desc">参考のエニアグラムキャラクターに最も近いスタイル。幾何学的な面の構成で立体感を出しつつ、パステルカラーで温かみを保持。折り紙やペーパークラフトのような質感が特徴。</div>
+  <div class="pattern-tags"><span class="ptag">幾何学的</span><span class="ptag">立体感</span><span class="ptag">ペーパークラフト</span><span class="ptag">参考資料寄り</span></div>
+</div>
+<div class="samples">
+  <!-- Achiever - Low Poly -->
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#FFF8E7"/>
+      <ellipse cx="130" cy="275" rx="45" ry="8" fill="#F0D88A" opacity="0.3"/>
+      <!-- Body - faceted -->
+      <polygon points="130,140 170,170 168,245 92,245 90,170" fill="#F5B731"/>
+      <polygon points="130,140 170,170 150,170" fill="#E8A020" opacity="0.5"/>
+      <polygon points="90,170 130,140 110,170" fill="#F8C84A" opacity="0.3"/>
+      <!-- Legs -->
+      <polygon points="100,245 108,245 112,272 96,272" fill="#E8A020"/>
+      <polygon points="148,245 156,245 160,272 144,272" fill="#E8A020"/>
+      <polygon points="96,272 116,272 114,278 94,278" fill="#D4880A"/>
+      <polygon points="144,272 164,272 162,278 142,278" fill="#D4880A"/>
+      <!-- Left arm -->
+      <polygon points="90,170 72,185 76,225 90,218" fill="#E8A020"/>
+      <!-- Right arm raised -->
+      <polygon points="170,170 188,155 192,125 178,128" fill="#E8A020"/>
+      <!-- Flag pole -->
+      <rect x="185" y="75" width="3" height="60" fill="#8B6914"/>
+      <polygon points="188,75 220,88 188,102" fill="#FF6B6B"/>
+      <polygon points="188,80 215,90 188,100" fill="#FF8A8A" opacity="0.5"/>
+      <!-- Head - faceted -->
+      <polygon points="130,48 165,70 165,115 130,130 95,115 95,70" fill="#F5B731"/>
+      <polygon points="130,48 165,70 165,90 130,78" fill="#F8C84A" opacity="0.4"/>
+      <polygon points="130,48 95,70 95,90 130,78" fill="#E8A020" opacity="0.2"/>
+      <!-- Eyes -->
+      <circle cx="115" cy="92" r="5" fill="#5D4E37"/>
+      <circle cx="145" cy="92" r="5" fill="#5D4E37"/>
+      <circle cx="117" cy="90" r="2" fill="#FFF"/>
+      <circle cx="147" cy="90" r="2" fill="#FFF"/>
+      <!-- Mouth -->
+      <path d="M120,106 Q130,114 140,106" stroke="#5D4E37" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Blush -->
+      <polygon points="100,100 108,97 106,104" fill="#F0943D" opacity="0.3"/>
+      <polygon points="152,100 160,97 158,104" fill="#F0943D" opacity="0.3"/>
+    </svg>
+    <div class="sample-name">冒険者 / The Achiever</div>
+    <div class="sample-sub">外向 × 成長 × 自己</div>
+  </div>
+  <!-- Nurturer - Low Poly -->
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#EEF0FA"/>
+      <ellipse cx="130" cy="275" rx="45" ry="8" fill="#A8B8E0" opacity="0.3"/>
+      <polygon points="130,140 172,170 170,245 90,245 88,170" fill="#8FA7D4"/>
+      <polygon points="130,140 172,170 152,170" fill="#7B94C4" opacity="0.5"/>
+      <polygon points="88,170 130,140 108,170" fill="#9DB5DC" opacity="0.3"/>
+      <!-- Cardigan facets -->
+      <polygon points="88,170 80,180 84,240 90,245 90,200" fill="#A8B8E0" opacity="0.4"/>
+      <polygon points="172,170 180,180 176,240 170,245 170,200" fill="#A8B8E0" opacity="0.4"/>
+      <polygon points="100,245 108,245 112,272 96,272" fill="#7B94C4"/>
+      <polygon points="148,245 156,245 160,272 144,272" fill="#7B94C4"/>
+      <polygon points="96,272 116,272 114,278 94,278" fill="#6A82B2"/>
+      <polygon points="144,272 164,272 162,278 142,278" fill="#6A82B2"/>
+      <!-- Arms holding watering can -->
+      <polygon points="88,170 70,190 74,225 88,220" fill="#7B94C4"/>
+      <polygon points="172,170 190,190 186,225 172,220" fill="#7B94C4"/>
+      <!-- Watering can -->
+      <polygon points="105,218 100,240 160,240 155,218" fill="#A8D5BA"/>
+      <polygon points="160,218 180,208 178,214 160,224" fill="#8CC0A0"/>
+      <path d="M115,215 Q130,205 145,215" stroke="#8CC0A0" stroke-width="3" fill="none"/>
+      <!-- Water drops -->
+      <circle cx="180" cy="206" r="2" fill="#7DD4E8" opacity="0.6"/>
+      <circle cx="184" cy="210" r="1.5" fill="#7DD4E8" opacity="0.5"/>
+      <!-- Head -->
+      <polygon points="130,48 165,70 165,115 130,130 95,115 95,70" fill="#8FA7D4"/>
+      <polygon points="130,48 165,70 165,90 130,78" fill="#9DB5DC" opacity="0.4"/>
+      <polygon points="130,48 95,70 95,90 130,78" fill="#7B94C4" opacity="0.2"/>
+      <circle cx="115" cy="92" r="4.5" fill="#3D5068"/>
+      <circle cx="145" cy="92" r="4.5" fill="#3D5068"/>
+      <circle cx="117" cy="90" r="1.5" fill="#FFF"/>
+      <circle cx="147" cy="90" r="1.5" fill="#FFF"/>
+      <path d="M120,106 Q130,114 140,106" stroke="#3D5068" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <polygon points="100,100 108,97 106,104" fill="#A8B8E0" opacity="0.4"/>
+      <polygon points="152,100 160,97 158,104" fill="#A8B8E0" opacity="0.4"/>
+    </svg>
+    <div class="sample-name">調和者 / The Nurturer</div>
+    <div class="sample-sub">外向 × 安定 × 他者</div>
+  </div>
+  <!-- Bloomer - Low Poly -->
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#ECF7F0"/>
+      <ellipse cx="130" cy="275" rx="45" ry="8" fill="#B8DFC8" opacity="0.3"/>
+      <polygon points="130,140 170,170 168,245 92,245 90,170" fill="#A8D5BA"/>
+      <polygon points="130,140 170,170 150,170" fill="#9ECFAE" opacity="0.5"/>
+      <polygon points="90,170 130,140 110,170" fill="#B8DFC8" opacity="0.3"/>
+      <polygon points="100,245 108,245 112,272 96,272" fill="#9ECFAE"/>
+      <polygon points="148,245 156,245 160,272 144,272" fill="#9ECFAE"/>
+      <polygon points="96,272 116,272 114,278 94,278" fill="#8EBF9E"/>
+      <polygon points="144,272 164,272 162,278 142,278" fill="#8EBF9E"/>
+      <polygon points="90,170 72,192 76,220 90,215" fill="#9ECFAE"/>
+      <polygon points="170,170 188,192 184,220 170,215" fill="#9ECFAE"/>
+      <!-- Flower in hands -->
+      <line x1="130" y1="230" x2="130" y2="198" stroke="#6BC06B" stroke-width="2.5"/>
+      <polygon points="120,198 130,186 140,198 135,200 130,194 125,200" fill="#FFB8D0"/>
+      <polygon points="124,204 130,192 136,204" fill="#FFC8D8"/>
+      <circle cx="130" cy="196" r="4" fill="#FFD166"/>
+      <!-- Flower on head -->
+      <circle cx="150" cy="60" r="6" fill="#FFB8D0"/>
+      <circle cx="150" cy="60" r="3" fill="#FFD166"/>
+      <!-- Head -->
+      <polygon points="130,48 165,70 165,115 130,130 95,115 95,70" fill="#A8D5BA"/>
+      <polygon points="130,48 165,70 165,90 130,78" fill="#B8DFC8" opacity="0.4"/>
+      <polygon points="130,48 95,70 95,90 130,78" fill="#9ECFAE" opacity="0.2"/>
+      <!-- Closed happy eyes -->
+      <path d="M108,92 Q115,98 122,92" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M138,92 Q145,98 152,92" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M122,108 Q130,116 138,108" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <polygon points="98,100 106,97 104,104" fill="#FFB8D0" opacity="0.3"/>
+      <polygon points="154,100 162,97 160,104" fill="#FFB8D0" opacity="0.3"/>
+    </svg>
+    <div class="sample-name">共生者 / The Bloom-er</div>
+    <div class="sample-sub">内向 × 安定 × 自然</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PATTERN B: ぷにっとマシュマロ風 ===== -->
+<div class="pattern">
+<div class="pattern-header">
+  <div class="pattern-label">PATTERN B — オリジナル</div>
+  <div class="pattern-name">ぷにっとマシュマロ風</div>
+  <div class="pattern-desc">極端に丸みを帯びた「もちもち」フォルム。全ての角を排除し、マシュマロのようなやわらかさを追求。顔はミニマルなドット目＋小さな口のみ。触りたくなる質感で、親しみやすさと自己投影しやすさを最大化。</div>
+  <div class="pattern-tags"><span class="ptag">もちもち</span><span class="ptag">ミニマル</span><span class="ptag">パステルグラデ</span><span class="ptag">超やわらか</span></div>
+</div>
+<div class="samples">
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FADA7A"/><stop offset="100%" stop-color="#F5B731"/></linearGradient></defs>
+      <rect width="260" height="300" rx="16" fill="#FFF8E7"/>
+      <ellipse cx="130" cy="275" rx="40" ry="8" fill="#F0D88A" opacity="0.3"/>
+      <!-- Body - blob -->
+      <ellipse cx="130" cy="210" rx="55" ry="62" fill="url(#mb1)"/>
+      <!-- Feet -->
+      <ellipse cx="110" cy="268" rx="18" ry="10" fill="#E8A020"/>
+      <ellipse cx="150" cy="268" rx="18" ry="10" fill="#E8A020"/>
+      <!-- Arms - tiny blob -->
+      <ellipse cx="78" cy="200" rx="14" ry="18" fill="#E8A020" transform="rotate(-15 78 200)"/>
+      <ellipse cx="182" cy="190" rx="14" ry="18" fill="#E8A020" transform="rotate(15 182 190)"/>
+      <!-- Flag -->
+      <rect x="186" y="130" width="3" height="55" rx="1.5" fill="#8B6914"/>
+      <path d="M189,130 L215,142 L189,155Z" fill="#FF6B6B"/>
+      <!-- Head - big round marshmallow -->
+      <circle cx="130" cy="120" r="58" fill="url(#mb1)"/>
+      <!-- Highlight -->
+      <ellipse cx="118" cy="100" rx="28" ry="18" fill="#FFF" opacity="0.15"/>
+      <!-- Eyes - simple dots -->
+      <circle cx="115" cy="118" r="4" fill="#5D4E37"/>
+      <circle cx="145" cy="118" r="4" fill="#5D4E37"/>
+      <!-- Mouth -->
+      <path d="M124,132 Q130,137 136,132" stroke="#5D4E37" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Blush -->
+      <ellipse cx="102" cy="128" rx="8" ry="5" fill="#F0943D" opacity="0.25"/>
+      <ellipse cx="158" cy="128" rx="8" ry="5" fill="#F0943D" opacity="0.25"/>
+    </svg>
+    <div class="sample-name">冒険者</div>
+    <div class="sample-sub">やまぶきイエロー</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#A4C0E0"/><stop offset="100%" stop-color="#8FA7D4"/></linearGradient></defs>
+      <rect width="260" height="300" rx="16" fill="#EEF0FA"/>
+      <ellipse cx="130" cy="275" rx="40" ry="8" fill="#A8B8E0" opacity="0.3"/>
+      <ellipse cx="130" cy="210" rx="55" ry="62" fill="url(#mb2)"/>
+      <ellipse cx="110" cy="268" rx="18" ry="10" fill="#7B94C4"/>
+      <ellipse cx="150" cy="268" rx="18" ry="10" fill="#7B94C4"/>
+      <ellipse cx="78" cy="205" rx="14" ry="18" fill="#7B94C4" transform="rotate(-10 78 205)"/>
+      <ellipse cx="182" cy="205" rx="14" ry="18" fill="#7B94C4" transform="rotate(10 182 205)"/>
+      <!-- Watering can (simplified blob) -->
+      <ellipse cx="130" cy="228" rx="20" ry="12" fill="#A8D5BA"/>
+      <path d="M150,222 L168,214" stroke="#8CC0A0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="170" cy="212" r="3" fill="#8CC0A0"/>
+      <circle cx="172" cy="208" r="1.5" fill="#7DD4E8" opacity="0.5"/>
+      <circle cx="168" cy="206" r="1.5" fill="#7DD4E8" opacity="0.5"/>
+      <circle cx="130" cy="120" r="58" fill="url(#mb2)"/>
+      <ellipse cx="118" cy="100" rx="28" ry="18" fill="#FFF" opacity="0.15"/>
+      <circle cx="115" cy="118" r="4" fill="#3D5068"/>
+      <circle cx="145" cy="118" r="4" fill="#3D5068"/>
+      <path d="M124,132 Q130,137 136,132" stroke="#3D5068" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="102" cy="128" rx="8" ry="5" fill="#A8B8E0" opacity="0.3"/>
+      <ellipse cx="158" cy="128" rx="8" ry="5" fill="#A8B8E0" opacity="0.3"/>
+    </svg>
+    <div class="sample-name">調和者</div>
+    <div class="sample-sub">ラベンダーブルー</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mb3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8E8C8"/><stop offset="100%" stop-color="#A8D5BA"/></linearGradient></defs>
+      <rect width="260" height="300" rx="16" fill="#ECF7F0"/>
+      <ellipse cx="130" cy="275" rx="40" ry="8" fill="#B8DFC8" opacity="0.3"/>
+      <ellipse cx="130" cy="210" rx="55" ry="62" fill="url(#mb3)"/>
+      <ellipse cx="110" cy="268" rx="18" ry="10" fill="#9ECFAE"/>
+      <ellipse cx="150" cy="268" rx="18" ry="10" fill="#9ECFAE"/>
+      <ellipse cx="78" cy="205" rx="14" ry="18" fill="#9ECFAE" transform="rotate(-8 78 205)"/>
+      <ellipse cx="182" cy="205" rx="14" ry="18" fill="#9ECFAE" transform="rotate(8 182 205)"/>
+      <!-- Flower -->
+      <circle cx="130" cy="195" r="14" fill="#FFB8D0"/>
+      <circle cx="130" cy="195" r="7" fill="#FFD166"/>
+      <circle cx="148" cy="80" r="5" fill="#FFB8D0" opacity="0.6"/>
+      <circle cx="148" cy="80" r="2.5" fill="#FFD166"/>
+      <circle cx="130" cy="120" r="58" fill="url(#mb3)"/>
+      <ellipse cx="118" cy="100" rx="28" ry="18" fill="#FFF" opacity="0.15"/>
+      <!-- Closed eyes -->
+      <path d="M108,118 Q115,124 122,118" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M138,118 Q145,124 152,118" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M124,132 Q130,137 136,132" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="102" cy="128" rx="8" ry="5" fill="#FFB8D0" opacity="0.25"/>
+      <ellipse cx="158" cy="128" rx="8" ry="5" fill="#FFB8D0" opacity="0.25"/>
+    </svg>
+    <div class="sample-name">共生者</div>
+    <div class="sample-sub">ミストグリーン</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PATTERN C: ボタニカル・シルエット風 ===== -->
+<div class="pattern">
+<div class="pattern-header">
+  <div class="pattern-label">PATTERN C — オリジナル</div>
+  <div class="pattern-name">ボタニカル・シルエット風</div>
+  <div class="pattern-desc">キャラクターの体が植物や自然のモチーフと融合したデザイン。髪や体の輪郭に葉・蔓・花が自然に溶け込む。「ウェルビーイング＝自然との調和」を視覚的に表現した、アート性の高いスタイル。</div>
+  <div class="pattern-tags"><span class="ptag">自然融合</span><span class="ptag">アート寄り</span><span class="ptag">アースカラー</span><span class="ptag">有機的</span></div>
+</div>
+<div class="samples">
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#FFF8E7"/>
+      <ellipse cx="130" cy="278" rx="40" ry="6" fill="#F0D88A" opacity="0.2"/>
+      <!-- Body -->
+      <ellipse cx="130" cy="215" rx="42" ry="58" fill="#F5B731"/>
+      <!-- Leaf patterns on body -->
+      <path d="M108,195 Q100,180 110,175 Q115,185 108,195Z" fill="#E8A020" opacity="0.4"/>
+      <path d="M152,200 Q160,185 150,180 Q145,190 152,200Z" fill="#E8A020" opacity="0.4"/>
+      <path d="M120,235 Q115,222 125,218 Q128,228 120,235Z" fill="#E8A020" opacity="0.3"/>
+      <!-- Vine growing from body -->
+      <path d="M88,210 Q75,195 80,175 Q85,160 78,145" stroke="#6BC06B" stroke-width="2" fill="none"/>
+      <ellipse cx="78" cy="145" rx="6" ry="4" fill="#8AD68A" transform="rotate(-30 78 145)"/>
+      <ellipse cx="82" cy="165" rx="5" ry="3.5" fill="#6BC06B" transform="rotate(20 82 165)"/>
+      <path d="M172,205 Q185,190 182,172 Q178,155 185,140" stroke="#6BC06B" stroke-width="2" fill="none"/>
+      <ellipse cx="185" cy="140" rx="6" ry="4" fill="#8AD68A" transform="rotate(30 185 140)"/>
+      <ellipse cx="180" cy="160" rx="5" ry="3.5" fill="#6BC06B" transform="rotate(-20 180 160)"/>
+      <!-- Feet -->
+      <ellipse cx="115" cy="270" rx="14" ry="8" fill="#E8A020"/>
+      <ellipse cx="145" cy="270" rx="14" ry="8" fill="#E8A020"/>
+      <!-- Small roots -->
+      <path d="M105,274 Q98,282 100,290" stroke="#8B6914" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M155,274 Q162,282 160,290" stroke="#8B6914" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <!-- Head -->
+      <circle cx="130" cy="128" r="48" fill="#F5B731"/>
+      <!-- Leaf crown -->
+      <ellipse cx="105" cy="90" rx="12" ry="6" fill="#8AD68A" transform="rotate(-40 105 90)"/>
+      <ellipse cx="130" cy="82" rx="10" ry="5" fill="#6BC06B" transform="rotate(0 130 82)"/>
+      <ellipse cx="155" cy="90" rx="12" ry="6" fill="#8AD68A" transform="rotate(40 155 90)"/>
+      <ellipse cx="115" cy="84" rx="8" ry="4" fill="#A8D5BA" transform="rotate(-20 115 84)"/>
+      <ellipse cx="145" cy="84" rx="8" ry="4" fill="#A8D5BA" transform="rotate(20 145 84)"/>
+      <!-- Face -->
+      <circle cx="118" cy="125" r="4" fill="#5D4E37"/>
+      <circle cx="142" cy="125" r="4" fill="#5D4E37"/>
+      <path d="M124,140 Q130,147 136,140" stroke="#5D4E37" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="106" cy="135" rx="7" ry="4" fill="#F0943D" opacity="0.25"/>
+      <ellipse cx="154" cy="135" rx="7" ry="4" fill="#F0943D" opacity="0.25"/>
+      <!-- Flag growing from vine -->
+      <rect x="181" y="100" width="2.5" height="40" fill="#8B6914"/>
+      <polygon points="183.5,100 208,110 183.5,122" fill="#FF6B6B"/>
+    </svg>
+    <div class="sample-name">冒険者</div>
+    <div class="sample-sub">植物×旗</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#EEF0FA"/>
+      <ellipse cx="130" cy="278" rx="40" ry="6" fill="#A8B8E0" opacity="0.2"/>
+      <ellipse cx="130" cy="215" rx="42" ry="58" fill="#8FA7D4"/>
+      <path d="M108,195 Q100,180 110,175 Q115,185 108,195Z" fill="#7B94C4" opacity="0.4"/>
+      <path d="M152,200 Q160,185 150,180 Q145,190 152,200Z" fill="#7B94C4" opacity="0.4"/>
+      <!-- Flowering vines -->
+      <path d="M88,210 Q70,195 72,170" stroke="#8FA7D4" stroke-width="2" fill="none"/>
+      <circle cx="72" cy="168" r="5" fill="#FFB8D0"/>
+      <circle cx="72" cy="168" r="2.5" fill="#FFD166"/>
+      <circle cx="78" cy="185" r="4" fill="#C4B6DE"/>
+      <circle cx="78" cy="185" r="2" fill="#FFD166"/>
+      <path d="M172,208 Q188,192 186,170" stroke="#8FA7D4" stroke-width="2" fill="none"/>
+      <circle cx="186" cy="168" r="5" fill="#FFB8D0"/>
+      <circle cx="186" cy="168" r="2.5" fill="#FFD166"/>
+      <ellipse cx="115" cy="270" rx="14" ry="8" fill="#7B94C4"/>
+      <ellipse cx="145" cy="270" rx="14" ry="8" fill="#7B94C4"/>
+      <!-- Head -->
+      <circle cx="130" cy="128" r="48" fill="#8FA7D4"/>
+      <!-- Flower crown -->
+      <circle cx="108" cy="88" r="6" fill="#FFB8D0"/>
+      <circle cx="108" cy="88" r="3" fill="#FFD166"/>
+      <circle cx="130" cy="82" r="7" fill="#C4B6DE"/>
+      <circle cx="130" cy="82" r="3.5" fill="#FFD166"/>
+      <circle cx="152" cy="88" r="6" fill="#FFB8D0"/>
+      <circle cx="152" cy="88" r="3" fill="#FFD166"/>
+      <ellipse cx="120" cy="85" rx="6" ry="3" fill="#8AD68A" transform="rotate(-10 120 85)"/>
+      <ellipse cx="140" cy="85" rx="6" ry="3" fill="#8AD68A" transform="rotate(10 140 85)"/>
+      <circle cx="118" cy="125" r="4" fill="#3D5068"/>
+      <circle cx="142" cy="125" r="4" fill="#3D5068"/>
+      <path d="M124,140 Q130,147 136,140" stroke="#3D5068" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="106" cy="135" rx="7" ry="4" fill="#A8B8E0" opacity="0.3"/>
+      <ellipse cx="154" cy="135" rx="7" ry="4" fill="#A8B8E0" opacity="0.3"/>
+    </svg>
+    <div class="sample-name">調和者</div>
+    <div class="sample-sub">花冠×ジョウロ</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#ECF7F0"/>
+      <ellipse cx="130" cy="278" rx="40" ry="6" fill="#B8DFC8" opacity="0.2"/>
+      <ellipse cx="130" cy="215" rx="42" ry="58" fill="#A8D5BA"/>
+      <!-- Body becomes tree trunk -->
+      <path d="M118,245 Q115,260 110,275" stroke="#8B7355" stroke-width="3" fill="none" opacity="0.3"/>
+      <path d="M142,245 Q145,260 150,275" stroke="#8B7355" stroke-width="3" fill="none" opacity="0.3"/>
+      <!-- Many leaves -->
+      <path d="M85,200 Q72,185 80,172" stroke="#6BC06B" stroke-width="1.5" fill="none"/>
+      <ellipse cx="80" cy="170" rx="7" ry="4" fill="#8AD68A" transform="rotate(-30 80 170)"/>
+      <ellipse cx="88" cy="182" rx="6" ry="3.5" fill="#6BC06B" transform="rotate(15 88 182)"/>
+      <ellipse cx="76" cy="192" rx="5" ry="3" fill="#A8D5BA" transform="rotate(-20 76 192)"/>
+      <path d="M175,198 Q188,183 184,168" stroke="#6BC06B" stroke-width="1.5" fill="none"/>
+      <ellipse cx="184" cy="166" rx="7" ry="4" fill="#8AD68A" transform="rotate(30 184 166)"/>
+      <ellipse cx="178" cy="178" rx="6" ry="3.5" fill="#6BC06B" transform="rotate(-15 178 178)"/>
+      <!-- Big flower blooming from body -->
+      <circle cx="130" cy="180" r="18" fill="#FFB8D0" opacity="0.8"/>
+      <circle cx="130" cy="180" r="10" fill="#FFD0E0"/>
+      <circle cx="130" cy="180" r="5" fill="#FFD166"/>
+      <ellipse cx="118" cy="175" rx="8" ry="12" fill="#FFC8D8" opacity="0.6" transform="rotate(-20 118 175)"/>
+      <ellipse cx="142" cy="175" rx="8" ry="12" fill="#FFC8D8" opacity="0.6" transform="rotate(20 142 175)"/>
+      <ellipse cx="115" cy="270" rx="14" ry="8" fill="#9ECFAE"/>
+      <ellipse cx="145" cy="270" rx="14" ry="8" fill="#9ECFAE"/>
+      <!-- Head -->
+      <circle cx="130" cy="128" r="48" fill="#A8D5BA"/>
+      <ellipse cx="108" cy="88" rx="10" ry="5" fill="#8AD68A" transform="rotate(-30 108 88)"/>
+      <ellipse cx="130" cy="82" rx="8" ry="4.5" fill="#6BC06B"/>
+      <ellipse cx="152" cy="88" rx="10" ry="5" fill="#8AD68A" transform="rotate(30 152 88)"/>
+      <circle cx="150" cy="84" r="4" fill="#FFB8D0" opacity="0.5"/>
+      <path d="M110,124 Q118,132 126,124" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M134,124 Q142,132 150,124" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M124,142 Q130,148 136,142" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="106" cy="135" rx="7" ry="4" fill="#FFB8D0" opacity="0.2"/>
+      <ellipse cx="154" cy="135" rx="7" ry="4" fill="#FFB8D0" opacity="0.2"/>
+    </svg>
+    <div class="sample-name">共生者</div>
+    <div class="sample-sub">花×樹木融合</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PATTERN D: フラットアイコン・バッジ風 ===== -->
+<div class="pattern">
+<div class="pattern-header">
+  <div class="pattern-label">PATTERN D — オリジナル</div>
+  <div class="pattern-name">フラットアイコン・バッジ風</div>
+  <div class="pattern-desc">円形バッジの中にキャラクターを収めたアイコン型。アプリのアバターやSNSのプロフ画像として使いやすい。大胆なフラットカラーとシンプルなシルエットで、小さいサイズでも視認性が高い。</div>
+  <div class="pattern-tags"><span class="ptag">アイコン型</span><span class="ptag">バッジ</span><span class="ptag">フラットカラー</span><span class="ptag">SNS向き</span></div>
+</div>
+<div class="samples">
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#FFF8E7"/>
+      <!-- Badge circle -->
+      <circle cx="130" cy="145" r="110" fill="#F5B731"/>
+      <circle cx="130" cy="145" r="102" fill="#F8C84A"/>
+      <circle cx="130" cy="145" r="96" fill="#FFF8E7"/>
+      <!-- Character inside badge -->
+      <!-- Body -->
+      <ellipse cx="130" cy="195" rx="35" ry="42" fill="#F5B731"/>
+      <!-- Head -->
+      <circle cx="130" cy="130" r="38" fill="#F5B731"/>
+      <circle cx="130" cy="127" r="33" fill="#F8C84A" opacity="0.3"/>
+      <!-- Eyes -->
+      <circle cx="118" cy="128" r="3.5" fill="#5D4E37"/>
+      <circle cx="142" cy="128" r="3.5" fill="#5D4E37"/>
+      <circle cx="119.5" cy="126.5" r="1.2" fill="#FFF"/>
+      <circle cx="143.5" cy="126.5" r="1.2" fill="#FFF"/>
+      <!-- Mouth -->
+      <path d="M124,138 Q130,143 136,138" stroke="#5D4E37" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <!-- Blush -->
+      <ellipse cx="108" cy="135" rx="6" ry="4" fill="#F0943D" opacity="0.3"/>
+      <ellipse cx="152" cy="135" rx="6" ry="4" fill="#F0943D" opacity="0.3"/>
+      <!-- Flag icon simplified -->
+      <rect x="155" y="100" width="2.5" height="35" rx="1" fill="#8B6914"/>
+      <polygon points="157.5,100 175,108 157.5,117" fill="#FF6B6B"/>
+      <!-- Badge ring -->
+      <circle cx="130" cy="145" r="110" fill="none" stroke="#F5B731" stroke-width="5"/>
+      <!-- Label bar -->
+      <rect x="55" y="248" width="150" height="28" rx="14" fill="#F5B731"/>
+      <text x="130" y="267" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFF">冒険者</text>
+    </svg>
+    <div class="sample-name">冒険者</div>
+    <div class="sample-sub">バッジ型アイコン</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#EEF0FA"/>
+      <circle cx="130" cy="145" r="110" fill="#8FA7D4"/>
+      <circle cx="130" cy="145" r="102" fill="#9DB5DC"/>
+      <circle cx="130" cy="145" r="96" fill="#EEF0FA"/>
+      <ellipse cx="130" cy="195" rx="35" ry="42" fill="#8FA7D4"/>
+      <circle cx="130" cy="130" r="38" fill="#8FA7D4"/>
+      <circle cx="130" cy="127" r="33" fill="#9DB5DC" opacity="0.3"/>
+      <circle cx="118" cy="128" r="3.5" fill="#3D5068"/>
+      <circle cx="142" cy="128" r="3.5" fill="#3D5068"/>
+      <circle cx="119.5" cy="126.5" r="1.2" fill="#FFF"/>
+      <circle cx="143.5" cy="126.5" r="1.2" fill="#FFF"/>
+      <path d="M124,138 Q130,143 136,138" stroke="#3D5068" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="108" cy="135" rx="6" ry="4" fill="#A8B8E0" opacity="0.3"/>
+      <ellipse cx="152" cy="135" rx="6" ry="4" fill="#A8B8E0" opacity="0.3"/>
+      <!-- Watering can icon -->
+      <ellipse cx="155" cy="170" rx="10" ry="7" fill="#A8D5BA"/>
+      <path d="M165,166 L175,160" stroke="#8CC0A0" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="130" cy="145" r="110" fill="none" stroke="#8FA7D4" stroke-width="5"/>
+      <rect x="55" y="248" width="150" height="28" rx="14" fill="#8FA7D4"/>
+      <text x="130" y="267" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFF">調和者</text>
+    </svg>
+    <div class="sample-name">調和者</div>
+    <div class="sample-sub">バッジ型アイコン</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="260" height="300" rx="16" fill="#ECF7F0"/>
+      <circle cx="130" cy="145" r="110" fill="#A8D5BA"/>
+      <circle cx="130" cy="145" r="102" fill="#B8DFC8"/>
+      <circle cx="130" cy="145" r="96" fill="#ECF7F0"/>
+      <ellipse cx="130" cy="195" rx="35" ry="42" fill="#A8D5BA"/>
+      <circle cx="130" cy="130" r="38" fill="#A8D5BA"/>
+      <circle cx="130" cy="127" r="33" fill="#B8DFC8" opacity="0.3"/>
+      <path d="M112,127 Q118,134 124,127" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M136,127 Q142,134 148,127" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M124,140 Q130,145 136,140" stroke="#2D5A3D" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="108" cy="135" rx="6" ry="4" fill="#FFB8D0" opacity="0.25"/>
+      <ellipse cx="152" cy="135" rx="6" ry="4" fill="#FFB8D0" opacity="0.25"/>
+      <!-- Flower -->
+      <circle cx="152" cy="108" r="5" fill="#FFB8D0"/>
+      <circle cx="152" cy="108" r="2.5" fill="#FFD166"/>
+      <circle cx="130" cy="145" r="110" fill="none" stroke="#A8D5BA" stroke-width="5"/>
+      <rect x="55" y="248" width="150" height="28" rx="14" fill="#A8D5BA"/>
+      <text x="130" y="267" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFF">共生者</text>
+    </svg>
+    <div class="sample-name">共生者</div>
+    <div class="sample-sub">バッジ型アイコン</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PATTERN E: 透明水彩・にじみ風 ===== -->
+<div class="pattern">
+<div class="pattern-header">
+  <div class="pattern-label">PATTERN E — オリジナル</div>
+  <div class="pattern-name">透明水彩・にじみ風</div>
+  <div class="pattern-desc">水彩画のようなにじみ・ぼかしを活かした柔らかいタッチ。輪郭線を極力排除し、色の重なりでフォルムを表現。ウェルビーイングの「曖昧で美しい」本質を視覚化。12タイプの中で最もアート性が高く、大人向け。</div>
+  <div class="pattern-tags"><span class="ptag">水彩タッチ</span><span class="ptag">にじみ</span><span class="ptag">線なし</span><span class="ptag">大人向け</span></div>
+</div>
+<div class="samples">
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="wc1"><feGaussianBlur stdDeviation="3"/></filter>
+        <filter id="wc1s"><feGaussianBlur stdDeviation="1.5"/></filter>
+      </defs>
+      <rect width="260" height="300" rx="16" fill="#FFFCF0"/>
+      <!-- Watercolor splashes bg -->
+      <circle cx="80" cy="60" r="30" fill="#F5B731" opacity="0.06" filter="url(#wc1)"/>
+      <circle cx="200" cy="250" r="25" fill="#F0943D" opacity="0.05" filter="url(#wc1)"/>
+      <!-- Body - soft blurred layers -->
+      <ellipse cx="130" cy="210" rx="44" ry="56" fill="#F5B731" opacity="0.7" filter="url(#wc1s)"/>
+      <ellipse cx="130" cy="208" rx="38" ry="50" fill="#F8C84A" opacity="0.5" filter="url(#wc1s)"/>
+      <ellipse cx="135" cy="215" rx="30" ry="42" fill="#FADA7A" opacity="0.3" filter="url(#wc1s)"/>
+      <!-- Feet hints -->
+      <ellipse cx="112" cy="264" rx="14" ry="8" fill="#E8A020" opacity="0.6" filter="url(#wc1s)"/>
+      <ellipse cx="148" cy="264" rx="14" ry="8" fill="#E8A020" opacity="0.6" filter="url(#wc1s)"/>
+      <!-- Arms -->
+      <ellipse cx="82" cy="200" rx="12" ry="20" fill="#E8A020" opacity="0.5" filter="url(#wc1s)"/>
+      <ellipse cx="178" cy="190" rx="12" ry="20" fill="#E8A020" opacity="0.5" filter="url(#wc1s)"/>
+      <!-- Flag - watercolor style -->
+      <rect x="180" y="120" width="2" height="50" fill="#8B6914" opacity="0.6"/>
+      <polygon points="182,120 210,132 182,145" fill="#FF6B6B" opacity="0.6" filter="url(#wc1s)"/>
+      <!-- Head -->
+      <circle cx="130" cy="122" r="48" fill="#F5B731" opacity="0.7" filter="url(#wc1s)"/>
+      <circle cx="130" cy="120" r="42" fill="#F8C84A" opacity="0.5" filter="url(#wc1s)"/>
+      <circle cx="128" cy="118" r="34" fill="#FADA7A" opacity="0.3" filter="url(#wc1s)"/>
+      <!-- Eyes - crisp dots -->
+      <circle cx="117" cy="120" r="3.5" fill="#5D4E37" opacity="0.8"/>
+      <circle cx="143" cy="120" r="3.5" fill="#5D4E37" opacity="0.8"/>
+      <circle cx="118.5" cy="118.5" r="1" fill="#FFF" opacity="0.7"/>
+      <circle cx="144.5" cy="118.5" r="1" fill="#FFF" opacity="0.7"/>
+      <!-- Mouth -->
+      <path d="M124,133 Q130,138 136,133" stroke="#5D4E37" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <!-- Cheek wash -->
+      <ellipse cx="106" cy="128" rx="9" ry="5" fill="#F0943D" opacity="0.15" filter="url(#wc1)"/>
+      <ellipse cx="154" cy="128" rx="9" ry="5" fill="#F0943D" opacity="0.15" filter="url(#wc1)"/>
+    </svg>
+    <div class="sample-name">冒険者</div>
+    <div class="sample-sub">透明水彩にじみ</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="wc2"><feGaussianBlur stdDeviation="3"/></filter>
+        <filter id="wc2s"><feGaussianBlur stdDeviation="1.5"/></filter>
+      </defs>
+      <rect width="260" height="300" rx="16" fill="#F4F2FA"/>
+      <circle cx="70" cy="70" r="25" fill="#8FA7D4" opacity="0.06" filter="url(#wc2)"/>
+      <circle cx="210" cy="260" r="20" fill="#A8B8E0" opacity="0.05" filter="url(#wc2)"/>
+      <ellipse cx="130" cy="210" rx="44" ry="56" fill="#8FA7D4" opacity="0.7" filter="url(#wc2s)"/>
+      <ellipse cx="130" cy="208" rx="38" ry="50" fill="#9DB5DC" opacity="0.5" filter="url(#wc2s)"/>
+      <ellipse cx="135" cy="215" rx="30" ry="42" fill="#A8C0E8" opacity="0.3" filter="url(#wc2s)"/>
+      <ellipse cx="112" cy="264" rx="14" ry="8" fill="#7B94C4" opacity="0.5" filter="url(#wc2s)"/>
+      <ellipse cx="148" cy="264" rx="14" ry="8" fill="#7B94C4" opacity="0.5" filter="url(#wc2s)"/>
+      <ellipse cx="82" cy="205" rx="12" ry="18" fill="#7B94C4" opacity="0.5" filter="url(#wc2s)"/>
+      <ellipse cx="178" cy="205" rx="12" ry="18" fill="#7B94C4" opacity="0.5" filter="url(#wc2s)"/>
+      <!-- Watering can watercolor -->
+      <ellipse cx="130" cy="225" rx="16" ry="10" fill="#A8D5BA" opacity="0.6" filter="url(#wc2s)"/>
+      <circle cx="130" cy="122" r="48" fill="#8FA7D4" opacity="0.7" filter="url(#wc2s)"/>
+      <circle cx="130" cy="120" r="42" fill="#9DB5DC" opacity="0.5" filter="url(#wc2s)"/>
+      <circle cx="128" cy="118" r="34" fill="#A8C0E8" opacity="0.3" filter="url(#wc2s)"/>
+      <circle cx="117" cy="120" r="3.5" fill="#3D5068" opacity="0.8"/>
+      <circle cx="143" cy="120" r="3.5" fill="#3D5068" opacity="0.8"/>
+      <circle cx="118.5" cy="118.5" r="1" fill="#FFF" opacity="0.7"/>
+      <circle cx="144.5" cy="118.5" r="1" fill="#FFF" opacity="0.7"/>
+      <path d="M124,133 Q130,138 136,133" stroke="#3D5068" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="106" cy="128" rx="9" ry="5" fill="#C4B6DE" opacity="0.15" filter="url(#wc2)"/>
+      <ellipse cx="154" cy="128" rx="9" ry="5" fill="#C4B6DE" opacity="0.15" filter="url(#wc2)"/>
+    </svg>
+    <div class="sample-name">調和者</div>
+    <div class="sample-sub">透明水彩にじみ</div>
+  </div>
+  <div class="sample">
+    <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="wc3"><feGaussianBlur stdDeviation="3"/></filter>
+        <filter id="wc3s"><feGaussianBlur stdDeviation="1.5"/></filter>
+      </defs>
+      <rect width="260" height="300" rx="16" fill="#F0F8F2"/>
+      <circle cx="80" cy="50" r="20" fill="#A8D5BA" opacity="0.06" filter="url(#wc3)"/>
+      <circle cx="200" cy="270" r="28" fill="#8AD68A" opacity="0.05" filter="url(#wc3)"/>
+      <ellipse cx="130" cy="210" rx="44" ry="56" fill="#A8D5BA" opacity="0.7" filter="url(#wc3s)"/>
+      <ellipse cx="130" cy="208" rx="38" ry="50" fill="#B8DFC8" opacity="0.5" filter="url(#wc3s)"/>
+      <ellipse cx="135" cy="215" rx="30" ry="42" fill="#C8ECD8" opacity="0.3" filter="url(#wc3s)"/>
+      <ellipse cx="112" cy="264" rx="14" ry="8" fill="#9ECFAE" opacity="0.5" filter="url(#wc3s)"/>
+      <ellipse cx="148" cy="264" rx="14" ry="8" fill="#9ECFAE" opacity="0.5" filter="url(#wc3s)"/>
+      <ellipse cx="82" cy="205" rx="12" ry="18" fill="#9ECFAE" opacity="0.5" filter="url(#wc3s)"/>
+      <ellipse cx="178" cy="205" rx="12" ry="18" fill="#9ECFAE" opacity="0.5" filter="url(#wc3s)"/>
+      <!-- Flower watercolor -->
+      <circle cx="135" cy="190" r="12" fill="#FFB8D0" opacity="0.5" filter="url(#wc3s)"/>
+      <circle cx="135" cy="190" r="6" fill="#FFD166" opacity="0.5"/>
+      <circle cx="130" cy="122" r="48" fill="#A8D5BA" opacity="0.7" filter="url(#wc3s)"/>
+      <circle cx="130" cy="120" r="42" fill="#B8DFC8" opacity="0.5" filter="url(#wc3s)"/>
+      <circle cx="128" cy="118" r="34" fill="#C8ECD8" opacity="0.3" filter="url(#wc3s)"/>
+      <!-- Flower in hair -->
+      <circle cx="152" cy="88" r="6" fill="#FFB8D0" opacity="0.5" filter="url(#wc3s)"/>
+      <circle cx="152" cy="88" r="3" fill="#FFD166" opacity="0.5"/>
+      <path d="M112,120 Q118,127 124,120" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M136,120 Q142,127 148,120" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M124,135 Q130,140 136,135" stroke="#2D5A3D" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="106" cy="128" rx="9" ry="5" fill="#FFB8D0" opacity="0.1" filter="url(#wc3)"/>
+      <ellipse cx="154" cy="128" rx="9" ry="5" fill="#FFB8D0" opacity="0.1" filter="url(#wc3)"/>
+    </svg>
+    <div class="sample-name">共生者</div>
+    <div class="sample-sub">透明水彩にじみ</div>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

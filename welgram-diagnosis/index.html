@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ウェルグラム — Well-Being-Style 12タイプ診断</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#0d9488;--teal-l:#99f6e4;--teal-bg:#f0fdfa;--sky:#5CB8E6;--green:#6BC06B;--yellow:#F5B731;--coral:#F4845F;--lavender:#B8A9D4;--pink:#FFB8D0;--text:#1e293b;--sub:#64748b;--xs:#94a3b8;--white:#fff;--bg:#f8fafc;--border:#e2e8f0;--r:16px}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.nav-logo{font-size:20px;font-weight:900;color:var(--teal)}
+.nav-sub{font-size:11px;color:var(--sub);font-weight:600}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#f0fdfa 0%,#e0f2fe 50%,#f5f3ff 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(13,148,136,.06) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(139,92,246,.04) 0%,transparent 50%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);border-radius:9999px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--sub);margin-bottom:20px}
+.hero-badge svg{width:14px;height:14px;fill:var(--yellow)}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.3;margin-bottom:8px}
+.hero h1 span{color:var(--teal)}
+.hero-sub{font-size:15px;color:var(--sub);margin-bottom:6px;font-weight:600;letter-spacing:.5px}
+.hero-copy{font-size:clamp(16px,3vw,20px);color:var(--text);margin-bottom:32px;font-weight:700;line-height:1.6}
+
+/* Carousel */
+.carousel{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;padding:0 16px}
+.c-card{width:80px;height:100px;border-radius:12px;background:var(--white);border:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .3s;cursor:default}
+.c-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.c-card img{width:56px;height:56px;object-fit:contain}
+.c-card span{font-size:9px;font-weight:700;color:var(--sub);margin-top:2px}
+
+/* CTA */
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;border:none;border-radius:9999px;padding:16px 40px;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.cta-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.3)}
+.cta-time{font-size:12px;color:var(--sub);margin-top:8px}
+
+/* Sections */
+.section{padding:64px 24px;max-width:900px;margin:0 auto}
+.section-tag{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase}
+.section h2{font-size:clamp(22px,4vw,30px);font-weight:900;line-height:1.4;margin-bottom:24px}
+.section h2 span{color:var(--teal)}
+
+/* 3 Axes */
+.axes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:32px}
+.axis-card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:24px;transition:border-color .2s}
+.axis-card:hover{border-color:var(--teal-l)}
+.axis-icon{font-size:28px;margin-bottom:10px}
+.axis-label{font-size:14px;font-weight:800;color:var(--teal);margin-bottom:4px}
+.axis-name{font-size:18px;font-weight:800;margin-bottom:8px}
+.axis-desc{font-size:13px;color:var(--sub);line-height:1.7}
+
+/* What you learn */
+.learn-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.learn-item{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:12px;padding:16px 20px;border:1.5px solid var(--border)}
+.learn-check{width:24px;height:24px;border-radius:50%;background:var(--teal-bg);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:14px;font-weight:800;flex-shrink:0}
+.learn-text{font-size:15px;font-weight:600}
+
+/* 12 Types grid */
+.types-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:32px}
+.type-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:14px 10px;text-align:center;transition:all .25s}
+.type-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.type-card img{width:72px;height:72px;object-fit:contain;margin-bottom:6px}
+.type-en{font-size:11px;font-weight:800;color:var(--teal)}
+.type-jp{font-size:13px;font-weight:700}
+
+/* Group labels */
+.group-row{display:flex;align-items:center;gap:8px;margin:24px 0 12px}
+.group-dot{width:10px;height:10px;border-radius:50%}
+.group-label{font-size:13px;font-weight:700;color:var(--sub)}
+
+/* Reviews */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:32px}
+.review{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:20px}
+.review-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.review-name{font-size:13px;font-weight:700}
+.review-meta{font-size:11px;color:var(--xs)}
+.review-text{font-size:13px;line-height:1.7;color:var(--sub)}
+.review-stars{color:var(--yellow);font-size:13px;margin-bottom:6px}
+
+/* Science section */
+.science-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:32px}
+.science-card{background:var(--white);border-radius:12px;border:1.5px solid var(--border);padding:20px;text-align:center}
+.science-icon{font-size:32px;margin-bottom:8px}
+.science-name{font-size:14px;font-weight:800;margin-bottom:4px}
+.science-desc{font-size:12px;color:var(--sub);line-height:1.5}
+
+/* Footer CTA */
+.footer-cta{background:linear-gradient(135deg,var(--teal) 0%,#0284c7 100%);padding:60px 24px;text-align:center;color:#fff}
+.footer-cta h2{font-size:clamp(20px,4vw,28px);font-weight:900;margin-bottom:8px;color:#fff}
+.footer-cta p{font-size:14px;opacity:.85;margin-bottom:24px}
+.cta-btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--teal);border:none;border-radius:9999px;padding:16px 40px;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.cta-btn-white:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.2)}
+
+.footer{text-align:center;padding:20px;font-size:11px;color:var(--xs)}
+@media(max-width:600px){.carousel{gap:8px}.c-card{width:60px;height:76px}.c-card img{width:40px;height:40px}.c-card span{font-size:7px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">Wellulu</div>
+  <div class="nav-sub">ウェルグラム診断</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    累計100万人利用 ウェルビーイングメディア Wellulu 監修
+  </div>
+  <div class="hero-sub">ウェルグラム — Well-Being-Style 12タイプ診断</div>
+  <h1>あなたに合う<br>"<span>ウェルビーイングの作り方</span>"が、<br>5分でわかる。</h1>
+  <p class="hero-copy">心理学 × 幸福学が導く、12のウェルビーイング・スタイル</p>
+
+  <div class="carousel" id="carousel">
+    <div class="c-card"><img src="../welgram-characters/01-achiever.svg" alt=""/><span>達成者</span></div>
+    <div class="c-card"><img src="../welgram-characters/02-connector.svg" alt=""/><span>つながる人</span></div>
+    <div class="c-card"><img src="../welgram-characters/03-pioneer.svg" alt=""/><span>パイオニア</span></div>
+    <div class="c-card"><img src="../welgram-characters/04-builder.svg" alt=""/><span>ビルダー</span></div>
+    <div class="c-card"><img src="../welgram-characters/05-nurturer.svg" alt=""/><span>育む人</span></div>
+    <div class="c-card"><img src="../welgram-characters/06-grounded.svg" alt=""/><span>大地の人</span></div>
+    <div class="c-card"><img src="../welgram-characters/07-seeker.svg" alt=""/><span>探求者</span></div>
+    <div class="c-card"><img src="../welgram-characters/08-innovator.svg" alt=""/><span>イノベーター</span></div>
+    <div class="c-card"><img src="../welgram-characters/09-flower.svg" alt=""/><span>流れる人</span></div>
+    <div class="c-card"><img src="../welgram-characters/10-reflector.svg" alt=""/><span>思索者</span></div>
+    <div class="c-card"><img src="../welgram-characters/11-harmonizer.svg" alt=""/><span>調和者</span></div>
+    <div class="c-card"><img src="../welgram-characters/12-bloomer.svg" alt=""/><span>花開く人</span></div>
+  </div>
+
+  <a href="quiz.html"><button class="cta-btn">ウェルグラムを始める →</button></a>
+  <div class="cta-time">回答目安時間：5分 ・ 全41問</div>
+</section>
+
+<!-- BODY1: 3 axes -->
+<section class="section">
+  <div class="section-tag">About</div>
+  <h2>ウェルグラム12タイプは、<br><span>心理学 × 幸福学</span>から生まれた<br>新しい自己分析ツール</h2>
+  <p style="font-size:14px;color:var(--sub);line-height:1.8;margin-bottom:32px">
+    現在をよりよく生きるために大切な、"持続的幸福"と呼ばれるウェルビーイング。<br>
+    ウェルビーイングの軸となるPERMA理論や、独自開発したウェルビーイング21因子。<br>
+    それに心理学で権威のあるビッグ5診断の要素を合わせた、"あなたの幸せのカタチ"を分析する診断です。
+  </p>
+
+  <h3 style="font-size:18px;font-weight:800;margin-bottom:16px">ウェルグラムで分かる、3つの幸福軸</h3>
+  <div class="axes-grid">
+    <div class="axis-card">
+      <div class="axis-icon">⚡</div>
+      <div class="axis-label">軸A：エネルギーの向き</div>
+      <div class="axis-name">外向 ↔ 内向</div>
+      <div class="axis-desc">あなたは外部と関わる中で幸福を感じやすいのか、自分の内部と向き合う中で幸福を感じやすいのか。</div>
+    </div>
+    <div class="axis-card">
+      <div class="axis-icon">🌱</div>
+      <div class="axis-label">軸B：エネルギーの性質</div>
+      <div class="axis-name">成長 ↔ 安定</div>
+      <div class="axis-desc">あなたは変化・向上の中で幸福を感じやすいのか、安定・安心で幸福を感じやすいのか。</div>
+    </div>
+    <div class="axis-card">
+      <div class="axis-icon">🧭</div>
+      <div class="axis-label">軸C：幸せの方向性</div>
+      <div class="axis-name">自己 ↔ 他者 ↔ 自然</div>
+      <div class="axis-desc">自分の中の調和・他者や社会への働きかけ・自然との調和、どの方向で幸せを感じるのか。</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-bottom:16px">
+    <a href="quiz.html"><button class="cta-btn">ウェルグラムを始める →</button></a>
+    <div class="cta-time">回答目安時間：5分</div>
+  </div>
+</section>
+
+<!-- What you learn -->
+<section class="section" style="padding-top:0">
+  <h3 style="font-size:18px;font-weight:800;margin-bottom:16px">ウェルグラム診断で分かること</h3>
+  <div class="learn-list">
+    <div class="learn-item"><div class="learn-check">1</div><div class="learn-text">あなたが求める幸せのカタチ（12タイプ）</div></div>
+    <div class="learn-item"><div class="learn-check">2</div><div class="learn-text">あなたが関心をもつウェルビーイングトピック TOP5（21因子）</div></div>
+    <div class="learn-item"><div class="learn-check">3</div><div class="learn-text">あなたの強み・気をつけたいポイント</div></div>
+    <div class="learn-item"><div class="learn-check">4</div><div class="learn-text">オススメのウェルビーイング習慣</div></div>
+    <div class="learn-item"><div class="learn-check">5</div><div class="learn-text">相性の良いタイプ・著名人タイプ</div></div>
+  </div>
+</section>
+
+<!-- 12 Types -->
+<section class="section" style="padding-top:0">
+  <div class="section-tag">12 Types</div>
+  <h2><span>ウェルグラム</span> 12タイプ</h2>
+  <p style="font-size:14px;color:var(--sub);line-height:1.8;margin-bottom:24px">あなたのウェルビーイングスタイルを3つの軸で分析し、12個のタイプのいずれに近いかを分析します。</p>
+
+  <div class="group-row"><div class="group-dot" style="background:#F5B731"></div><div class="group-label">Self グループ — 自己の幸福</div></div>
+  <div class="types-grid">
+    <div class="type-card"><img src="../welgram-characters/01-achiever.svg"/><div class="type-en">The Achiever</div><div class="type-jp">冒険者</div></div>
+    <div class="type-card"><img src="../welgram-characters/04-builder.svg"/><div class="type-en">The Builder</div><div class="type-jp">統合者</div></div>
+    <div class="type-card"><img src="../welgram-characters/07-seeker.svg"/><div class="type-en">The Seeker</div><div class="type-jp">求道者</div></div>
+    <div class="type-card"><img src="../welgram-characters/10-reflector.svg"/><div class="type-en">The Reflector</div><div class="type-jp">内省者</div></div>
+  </div>
+
+  <div class="group-row"><div class="group-dot" style="background:#5CB8E6"></div><div class="group-label">Social グループ — 他者との幸福</div></div>
+  <div class="types-grid">
+    <div class="type-card"><img src="../welgram-characters/02-connector.svg"/><div class="type-en">The Connector</div><div class="type-jp">先導者</div></div>
+    <div class="type-card"><img src="../welgram-characters/05-nurturer.svg"/><div class="type-en">The Nurturer</div><div class="type-jp">調和者</div></div>
+    <div class="type-card"><img src="../welgram-characters/08-innovator.svg"/><div class="type-en">The Innovator</div><div class="type-jp">設計者</div></div>
+    <div class="type-card"><img src="../welgram-characters/11-harmonizer.svg"/><div class="type-en">The Harmonizer</div><div class="type-jp">支援者</div></div>
+  </div>
+
+  <div class="group-row"><div class="group-dot" style="background:#6BC06B"></div><div class="group-label">Nature グループ — 自然との幸福</div></div>
+  <div class="types-grid">
+    <div class="type-card"><img src="../welgram-characters/03-pioneer.svg"/><div class="type-en">The Pioneer</div><div class="type-jp">探検者</div></div>
+    <div class="type-card"><img src="../welgram-characters/06-grounded.svg"/><div class="type-en">The Grounded</div><div class="type-jp">健行者</div></div>
+    <div class="type-card"><img src="../welgram-characters/09-flower.svg"/><div class="type-en">The Flow-er</div><div class="type-jp">鍛錬者</div></div>
+    <div class="type-card"><img src="../welgram-characters/12-bloomer.svg"/><div class="type-en">The Bloom-er</div><div class="type-jp">共生者</div></div>
+  </div>
+
+  <div style="text-align:center">
+    <a href="quiz.html"><button class="cta-btn">ウェルグラムを始める →</button></a>
+    <div class="cta-time">回答目安時間：5分</div>
+  </div>
+</section>
+
+<!-- Science -->
+<section class="section" style="padding-top:0">
+  <div class="section-tag">Science</div>
+  <h2><span>科学的根拠</span>に基づく診断</h2>
+  <div class="science-grid">
+    <div class="science-card">
+      <div class="science-icon">🧬</div>
+      <div class="science-name">PERMA理論</div>
+      <div class="science-desc">ポジティブ心理学の父セリグマンが提唱する幸福の5要素モデル</div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">🔬</div>
+      <div class="science-name">ビッグ5性格特性</div>
+      <div class="science-desc">心理学で最も権威のある性格特性モデルの要素を統合</div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">🌿</div>
+      <div class="science-name">ウェルビーイング21因子</div>
+      <div class="science-desc">Wellulu独自開発の持続的幸福を構成する21の要素</div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section" style="padding-top:0">
+  <div class="section-tag">Reviews</div>
+  <h2>体験者の声</h2>
+  <div class="reviews">
+    <div class="review">
+      <div class="review-top">
+        <div class="review-avatar" style="background:#fff0f5">🌸</div>
+        <div><div class="review-name">Yuki / 28歳 / 会社員</div><div class="review-meta">タイプ：育む人（The Nurturer）</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">自分が「人のケアで幸せを感じる」タイプだとわかって腑に落ちました。無理に自己成長を追わなくていいんだ、と安心できた診断でした。</div>
+    </div>
+    <div class="review">
+      <div class="review-top">
+        <div class="review-avatar" style="background:#f0fdfa">🏃</div>
+        <div><div class="review-name">Kenji / 35歳 / エンジニア</div><div class="review-meta">タイプ：冒険者（The Achiever）</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">MBTIとは違う視点で自分を知れた。「挑戦が幸福の源」という結果にすごく納得。21因子のTOP5も面白かった。</div>
+    </div>
+    <div class="review">
+      <div class="review-top">
+        <div class="review-avatar" style="background:#f5f3ff">🧘</div>
+        <div><div class="review-name">Miki / 31歳 / フリーランス</div><div class="review-meta">タイプ：内省者（The Reflector）</div></div>
+      </div>
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-text">質問が日常的で答えやすかった。結果もただの性格診断じゃなくて「幸せのカタチ」として提案してくれるのが新鮮。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer CTA -->
+<section class="footer-cta">
+  <h2>あなたの"幸せのカタチ"を見つけよう</h2>
+  <p>全41問 ・ 約5分で完了 ・ 無料</p>
+  <a href="quiz.html"><button class="cta-btn-white">ウェルグラムを始める →</button></a>
+</section>
+
+<footer class="footer">&copy; 2026 Wellulu — Well-Being-Style 12タイプ診断</footer>
+
+</body>
+</html>

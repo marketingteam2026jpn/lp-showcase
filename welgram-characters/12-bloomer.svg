@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg12" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECF7F0"/>
+      <stop offset="100%" stop-color="#DEF0E4"/>
+    </linearGradient>
+    <linearGradient id="body12" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8D5BA"/>
+      <stop offset="100%" stop-color="#9ECFAE"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg12)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#B8DFC8" opacity="0.3"/>
+  <!-- Small flowers around feet -->
+  <circle cx="130" cy="348" r="4" fill="#FFB8D0" opacity="0.5"/>
+  <circle cx="130" cy="348" r="2" fill="#FFD166" opacity="0.5"/>
+  <circle cx="270" cy="344" r="4" fill="#C4B6DE" opacity="0.5"/>
+  <circle cx="270" cy="344" r="2" fill="#FFD166" opacity="0.5"/>
+  <circle cx="150" cy="356" r="3" fill="#7DD4E8" opacity="0.4"/>
+  <circle cx="252" cy="354" r="3" fill="#FFB8D0" opacity="0.4"/>
+  <!-- Small stems -->
+  <line x1="130" y1="348" x2="130" y2="358" stroke="#8AD68A" stroke-width="1.5" opacity="0.4"/>
+  <line x1="270" y1="344" x2="270" y2="356" stroke="#8AD68A" stroke-width="1.5" opacity="0.4"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="262" rx="60" ry="74" fill="url(#body12)"/>
+  <!-- Petal-like fabric edges -->
+  <path d="M148,290 Q144,310 150,320" stroke="#B8DFC8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M252,290 Q256,310 250,320" stroke="#B8DFC8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- Legs -->
+  <rect x="172" y="320" width="22" height="28" rx="11" fill="#9ECFAE"/>
+  <rect x="206" y="320" width="22" height="28" rx="11" fill="#9ECFAE"/>
+  <ellipse cx="183" cy="350" rx="15" ry="8" fill="#8EBF9E"/>
+  <ellipse cx="217" cy="350" rx="15" ry="8" fill="#8EBF9E"/>
+  <!-- Arms -->
+  <rect x="134" y="242" width="20" height="42" rx="10" fill="#9ECFAE" transform="rotate(-5 144 242)"/>
+  <rect x="246" y="242" width="20" height="42" rx="10" fill="#9ECFAE" transform="rotate(5 256 242)"/>
+  <!-- Hands cupped -->
+  <ellipse cx="128" cy="278" rx="10" ry="8" fill="#9ECFAE"/>
+  <ellipse cx="272" cy="278" rx="10" ry="8" fill="#9ECFAE"/>
+  <!-- Flower in palm (opening bud) -->
+  <!-- Stem -->
+  <line x1="200" y1="290" x2="200" y2="260" stroke="#6BC06B" stroke-width="2.5"/>
+  <!-- Leaves -->
+  <ellipse cx="190" cy="280" rx="8" ry="5" fill="#8AD68A" transform="rotate(-30 190 280)"/>
+  <ellipse cx="210" cy="275" rx="8" ry="5" fill="#8AD68A" transform="rotate(30 210 275)"/>
+  <!-- Opening flower bud -->
+  <ellipse cx="192" cy="254" rx="10" ry="14" fill="#FFB8D0" transform="rotate(-15 192 254)"/>
+  <ellipse cx="208" cy="254" rx="10" ry="14" fill="#FFC8D8" transform="rotate(15 208 254)"/>
+  <ellipse cx="200" cy="250" rx="8" ry="13" fill="#FFD0E0" transform="rotate(0 200 250)"/>
+  <!-- Center -->
+  <circle cx="200" cy="248" r="5" fill="#FFD166"/>
+  <!-- Sparkles around flower -->
+  <circle cx="182" cy="240" r="2" fill="#FFD166" opacity="0.5"/>
+  <circle cx="218" cy="238" r="1.5" fill="#FFD166" opacity="0.4"/>
+  <circle cx="200" cy="234" r="1.5" fill="#FFD166" opacity="0.6"/>
+  <!-- Head -->
+  <circle cx="200" cy="168" r="62" fill="#A8D5BA"/>
+  <circle cx="200" cy="163" r="55" fill="#B8DFC8" opacity="0.4"/>
+  <!-- Small flower on head -->
+  <circle cx="225" cy="125" r="7" fill="#FFB8D0"/>
+  <circle cx="225" cy="125" r="3.5" fill="#FFD166"/>
+  <circle cx="220" cy="120" r="5" fill="#FFC8D8"/>
+  <circle cx="230" cy="120" r="5" fill="#FFC8D8"/>
+  <!-- Eyes - relaxed, peaceful -->
+  <path d="M174,164 Q180,170 186,164" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M214,164 Q220,170 226,164" stroke="#2D5A3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth - most relaxed smile -->
+  <path d="M192,182 Q200,190 208,182" stroke="#2D5A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks - rosy -->
+  <ellipse cx="168" cy="178" rx="11" ry="7" fill="#FFB8D0" opacity="0.3"/>
+  <ellipse cx="232" cy="178" rx="11" ry="7" fill="#FFB8D0" opacity="0.3"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#6EAF80" opacity="0.6">The Bloom-er</text>
+</svg>

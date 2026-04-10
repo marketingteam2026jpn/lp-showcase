@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg11" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0ECF6"/>
+      <stop offset="100%" stop-color="#E4DEF0"/>
+    </linearGradient>
+    <linearGradient id="body11" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8A9D4"/>
+      <stop offset="100%" stop-color="#A89AC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg11)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#C4B6DE" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="262" rx="60" ry="74" fill="url(#body11)"/>
+  <!-- Layered clothing -->
+  <path d="M155,240 Q200,250 245,240 Q248,280 245,310 Q200,320 155,310 Q152,280 155,240Z" fill="#C4B6DE" opacity="0.4"/>
+  <path d="M162,245 Q200,253 238,245" stroke="#A89AC8" stroke-width="1" fill="none" opacity="0.5"/>
+  <!-- Legs -->
+  <rect x="172" y="320" width="22" height="30" rx="11" fill="#A89AC8"/>
+  <rect x="206" y="320" width="22" height="30" rx="11" fill="#A89AC8"/>
+  <ellipse cx="183" cy="352" rx="15" ry="8" fill="#988ABE"/>
+  <ellipse cx="217" cy="352" rx="15" ry="8" fill="#988ABE"/>
+  <!-- Arms holding balance scale -->
+  <rect x="134" y="238" width="20" height="48" rx="10" fill="#A89AC8" transform="rotate(-8 144 238)"/>
+  <rect x="246" y="238" width="20" height="48" rx="10" fill="#A89AC8" transform="rotate(8 256 238)"/>
+  <!-- Balance scale -->
+  <!-- Center pole -->
+  <rect x="198" y="222" width="4" height="50" rx="2" fill="#D4A574"/>
+  <!-- Top bar -->
+  <rect x="162" y="220" width="76" height="4" rx="2" fill="#D4A574"/>
+  <!-- Left dish -->
+  <path d="M162,224 L154,240 Q168,244 182,240 L174,224" fill="#E8D8C8" stroke="#D4A574" stroke-width="1"/>
+  <!-- Right dish -->
+  <path d="M226,224 L218,240 Q232,244 246,240 L238,224" fill="#E8D8C8" stroke="#D4A574" stroke-width="1"/>
+  <!-- Chains -->
+  <line x1="162" y1="222" x2="154" y2="238" stroke="#D4A574" stroke-width="1.5"/>
+  <line x1="174" y1="222" x2="182" y2="238" stroke="#D4A574" stroke-width="1.5"/>
+  <line x1="226" y1="222" x2="218" y2="238" stroke="#D4A574" stroke-width="1.5"/>
+  <line x1="238" y1="222" x2="246" y2="238" stroke="#D4A574" stroke-width="1.5"/>
+  <!-- Objects in dishes -->
+  <circle cx="168" cy="236" r="5" fill="#FFD166" opacity="0.6"/>
+  <circle cx="232" cy="236" r="5" fill="#7DD4E8" opacity="0.6"/>
+  <!-- Balance fulcrum -->
+  <polygon points="194,272 200,262 206,272" fill="#C0A890"/>
+  <!-- Head -->
+  <circle cx="200" cy="168" r="62" fill="#B8A9D4"/>
+  <circle cx="200" cy="163" r="55" fill="#C4B6DE" opacity="0.4"/>
+  <!-- Eyes - soft, listening -->
+  <circle cx="182" cy="164" r="5.5" fill="#3D2D5A"/>
+  <circle cx="218" cy="164" r="5.5" fill="#3D2D5A"/>
+  <circle cx="184" cy="162" r="2" fill="#FFF"/>
+  <circle cx="220" cy="162" r="2" fill="#FFF"/>
+  <!-- Head tilt - slight -->
+  <!-- Mouth - gentle understanding smile -->
+  <path d="M190,182 Q200,189 210,182" stroke="#3D2D5A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="168" cy="178" rx="10" ry="6" fill="#A89AC8" opacity="0.4"/>
+  <ellipse cx="232" cy="178" rx="10" ry="6" fill="#A89AC8" opacity="0.4"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#8878A8" opacity="0.6">The Harmonizer</text>
+</svg>

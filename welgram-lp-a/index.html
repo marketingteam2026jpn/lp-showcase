@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ウェルグラム診断 — Wellulu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #059669;
+      --green-light: #a7f3d0;
+      --green-bg: #ecfdf5;
+      --pink: #ff6b9d;
+      --pink-light: #ffabce;
+      --text: #111827;
+      --text-sub: #6b7280;
+      --text-xs: #9ca3af;
+      --white: #fff;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 48px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 18px; font-weight: 800; color: var(--pink); }
+    .nav-cta { background: var(--green); color: white; font-weight: 700; font-size: 14px; padding: 9px 22px; border-radius: 9999px; border: none; cursor: pointer; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ===== HERO ===== */
+    .hero { background: var(--white); padding: 100px 48px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
+    .hero-h1 { font-size: clamp(52px, 9vw, 96px); font-weight: 900; line-height: 1.0; letter-spacing: -4px; color: var(--text); margin-bottom: 24px; }
+    .hero-h1 em { font-style: normal; color: var(--green); }
+    .hero-sub { font-size: clamp(16px, 2.5vw, 22px); color: var(--text-sub); max-width: 520px; margin: 0 auto 48px; line-height: 1.6; font-weight: 400; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: white; font-size: 17px; font-weight: 800; padding: 18px 48px; border-radius: 9999px; cursor: pointer; transition: all .2s; box-shadow: 0 4px 20px rgba(5,150,105,.3); }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(5,150,105,.4); }
+    .hero-note { font-size: 13px; color: var(--text-xs); margin-top: 14px; }
+
+    /* Trust */
+    .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 48px; display: flex; justify-content: center; gap: 48px; background: var(--bg); }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-sub); }
+    .trust-item strong { color: var(--text); }
+
+    /* ===== TYPE RESULT SAMPLE ===== */
+    .result-section { padding: 80px 48px; background: var(--white); }
+    .result-inner { max-width: 900px; margin: 0 auto; }
+    .label-sm { font-size: 12px; font-weight: 700; color: var(--text-xs); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+    .result-h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 48px; line-height: 1.1; }
+    .result-card { background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); border: 2px solid var(--green-light); border-radius: 24px; padding: 40px; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
+    .type-icon-xl { font-size: 80px; line-height: 1; }
+    .result-body {}
+    .result-type-en { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .result-type-name { font-size: clamp(36px, 5vw, 56px); font-weight: 900; letter-spacing: -2px; color: var(--text); margin-bottom: 8px; line-height: 1; }
+    .result-type-ja { font-size: 20px; color: var(--text-sub); margin-bottom: 20px; }
+    .result-desc { font-size: 16px; color: var(--text-sub); line-height: 1.8; max-width: 480px; margin-bottom: 24px; }
+    .result-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .result-tag { background: var(--green); color: white; border-radius: 9999px; padding: 6px 16px; font-size: 13px; font-weight: 700; }
+
+    /* Axes */
+    .axis-section { background: var(--bg); padding: 80px 48px; }
+    .axis-inner { max-width: 700px; margin: 0 auto; }
+    .axis-list { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+    .axis-item { background: var(--white); border-radius: 16px; padding: 24px 28px; }
+    .axis-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .axis-name { font-size: 14px; font-weight: 800; color: var(--text); }
+    .axis-num { font-size: 12px; color: var(--text-xs); background: var(--bg); border-radius: 9999px; padding: 4px 12px; font-weight: 600; }
+    .axis-bar { height: 10px; border-radius: 9999px; margin-bottom: 8px; }
+    .axis-bar-1 { background: linear-gradient(90deg, #fca5a5, #c7d2fe); }
+    .axis-bar-2 { background: linear-gradient(90deg, #6ee7b7, #a5b4fc); }
+    .axis-bar-3 { background: linear-gradient(90deg, #fbbf24, #6ee7b7); }
+    .axis-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-xs); }
+
+    /* 12 types grid */
+    .types-section { padding: 80px 48px; background: var(--white); }
+    .types-inner { max-width: 960px; margin: 0 auto; }
+    .types-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-top: 40px; }
+    .type-tile { border: 2px solid var(--border); border-radius: 16px; padding: 22px 18px; text-align: center; cursor: default; transition: all .2s; }
+    .type-tile:hover { border-color: var(--green-light); background: var(--green-bg); transform: translateY(-3px); }
+    .tile-icon { font-size: 38px; margin-bottom: 10px; }
+    .tile-en { font-size: 12px; font-weight: 800; color: var(--green); letter-spacing: .5px; }
+    .tile-ja { font-size: 14px; font-weight: 700; color: var(--text); margin: 3px 0 6px; }
+    .tile-desc { font-size: 11px; color: var(--text-sub); line-height: 1.55; }
+
+    /* Steps */
+    .steps-section { background: var(--bg); padding: 80px 48px; }
+    .steps-inner { max-width: 800px; margin: 0 auto; }
+    .steps-row { display: flex; gap: 0; margin-top: 48px; }
+    .step { flex: 1; position: relative; text-align: center; padding: 0 20px; }
+    .step:not(:last-child)::after { content: ''; position: absolute; top: 28px; right: -1px; width: 2px; height: 20px; background: var(--border); }
+    .step-circle { width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: white; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .step h4 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--text-sub); }
+
+    /* CTA */
+    .cta { background: var(--green); padding: 80px 48px; text-align: center; }
+    .cta h2 { font-size: clamp(28px, 5vw, 52px); font-weight: 900; color: white; letter-spacing: -2px; margin-bottom: 16px; line-height: 1.1; }
+    .cta p { color: rgba(255,255,255,.75); font-size: 17px; margin-bottom: 40px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--green); font-size: 17px; font-weight: 800; padding: 18px 52px; border-radius: 9999px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,.15); transition: all .2s; }
+    .cta-btn:hover { transform: translateY(-2px); }
+    .cta-note { color: rgba(255,255,255,.55); font-size: 13px; margin-top: 14px; }
+
+    footer { text-align: center; padding: 32px; background: var(--text); color: rgba(255,255,255,.4); font-size: 13px; }
+    .footer-logo { color: white; font-weight: 800; font-size: 18px; margin-bottom: 6px; }
+
+    @media (max-width: 680px) {
+      nav, .hero, .result-section, .axis-section, .types-section, .steps-section, .cta { padding-left: 20px; padding-right: 20px; }
+      .trust-bar { gap: 20px; flex-wrap: wrap; }
+      .result-card { grid-template-columns: 1fr; }
+      .steps-row { flex-direction: column; gap: 24px; }
+      .step:not(:last-child)::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Wellulu</span>
+  <button class="nav-cta">無料で診断する →</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">Well-Being Style 12 Types</div>
+  <h1 class="hero-h1">あなたは<br /><em>どのタイプ？</em></h1>
+  <p class="hero-sub">5分で判明。心理学ベースのウェルビーイング診断があなたに最も合う生き方を教えます。</p>
+  <a class="hero-btn" href="#">今すぐ無料で診断する →</a>
+  <div class="hero-note">登録不要 · 5分 · Wellulu監修 · 累計100万ユーザー</div>
+</section>
+
+<!-- Trust -->
+<div class="trust-bar">
+  <div class="trust-item">🔬 <span><strong>PERM理論</strong> 準拠</span></div>
+  <div class="trust-item">📊 <span><strong>ビッグ5</strong> ベース</span></div>
+  <div class="trust-item">🎓 <span>幸福学 <strong>21因子</strong></span></div>
+  <div class="trust-item">👥 <span>累計 <strong>100万人</strong></span></div>
+</div>
+
+<!-- Result sample -->
+<section class="result-section">
+  <div class="result-inner">
+    <div class="label-sm">診断結果 サンプル</div>
+    <h2 class="result-h2">こんな結果が<br />届きます</h2>
+    <div class="result-card">
+      <div class="type-icon-xl">🌿</div>
+      <div class="result-body">
+        <div class="result-type-en">Type 01 / 12</div>
+        <div class="result-type-name">The Nurturer</div>
+        <div class="result-type-ja">育む人</div>
+        <div class="result-desc">他者のケアと共感から深い喜びを得るタイプ。人を支えることが自分のウェルビーイングに直結しています。コミュニティの中で安心感を育む存在。</div>
+        <div class="result-tags">
+          <span class="result-tag">#ケア</span>
+          <span class="result-tag">#共感</span>
+          <span class="result-tag">#つながり</span>
+          <span class="result-tag">外向 · 安定 · 他者</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3-axis -->
+<section class="axis-section">
+  <div class="axis-inner">
+    <div class="label-sm">診断の仕組み</div>
+    <h2 class="result-h2" style="font-size:clamp(28px,4vw,40px)">3軸 × 12タイプで<br />あなたを特定する</h2>
+    <div class="axis-list">
+      <div class="axis-item">
+        <div class="axis-row"><span class="axis-name">軸1 — エネルギーの向き</span><span class="axis-num">外向 ↔ 内向</span></div>
+        <div class="axis-bar axis-bar-1"></div>
+        <div class="axis-ends"><span>外向 · 対話で充電</span><span>内向 · 一人で回復</span></div>
+      </div>
+      <div class="axis-item">
+        <div class="axis-row"><span class="axis-name">軸2 — 成長のスタイル</span><span class="axis-num">成長 ↔ 安定</span></div>
+        <div class="axis-bar axis-bar-2"></div>
+        <div class="axis-ends"><span>成長 · チャレンジが好き</span><span>安定 · 安心感を大切に</span></div>
+      </div>
+      <div class="axis-item">
+        <div class="axis-row"><span class="axis-name">軸3 — つながりの重心</span><span class="axis-num">自己 ↔ 自然</span></div>
+        <div class="axis-bar axis-bar-3"></div>
+        <div class="axis-ends"><span>自己 · 自分軸</span><span>自然 · 環境との調和</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 types -->
+<section class="types-section">
+  <div class="types-inner">
+    <div class="label-sm">12 Types</div>
+    <h2 class="result-h2" style="font-size:clamp(28px,4vw,40px)">全12タイプ</h2>
+    <div class="types-grid">
+      <div class="type-tile"><div class="tile-icon">🌿</div><div class="tile-en">Nurturer</div><div class="tile-ja">育む人</div><div class="tile-desc">共感と他者ケアに幸せを感じる</div></div>
+      <div class="type-tile"><div class="tile-icon">⚡</div><div class="tile-en">Achiever</div><div class="tile-ja">達成者</div><div class="tile-desc">目標達成が原動力</div></div>
+      <div class="type-tile"><div class="tile-icon">🌊</div><div class="tile-en">Flow-er</div><div class="tile-ja">流れる人</div><div class="tile-desc">変化と瞬間を全力で楽しむ</div></div>
+      <div class="type-tile"><div class="tile-icon">🧘</div><div class="tile-en">Seeker</div><div class="tile-ja">探求者</div><div class="tile-desc">内省と知的探求が源泉</div></div>
+      <div class="type-tile"><div class="tile-icon">✨</div><div class="tile-en">Connector</div><div class="tile-ja">つながる人</div><div class="tile-desc">人間関係に喜びを見出す</div></div>
+      <div class="type-tile"><div class="tile-icon">🌍</div><div class="tile-en">Grounded</div><div class="tile-ja">大地の人</div><div class="tile-desc">自然と規律で心を整える</div></div>
+      <div class="type-tile"><div class="tile-icon">🔥</div><div class="tile-en">Pioneer</div><div class="tile-ja">開拓者</div><div class="tile-desc">未踏の挑戦に燃える</div></div>
+      <div class="type-tile"><div class="tile-icon">🌙</div><div class="tile-en">Reflector</div><div class="tile-ja">映す人</div><div class="tile-desc">深い内省と静けさが力</div></div>
+      <div class="type-tile"><div class="tile-icon">💡</div><div class="tile-en">Innovator</div><div class="tile-ja">革新者</div><div class="tile-desc">創造と発明でエネルギーを得る</div></div>
+      <div class="type-tile"><div class="tile-icon">🤝</div><div class="tile-en">Harmonizer</div><div class="tile-ja">調和の人</div><div class="tile-desc">全体バランスを保つ使命感</div></div>
+      <div class="type-tile"><div class="tile-icon">🏔️</div><div class="tile-en">Builder</div><div class="tile-ja">建築者</div><div class="tile-desc">着実な積み上げが喜び</div></div>
+      <div class="type-tile"><div class="tile-icon">🌸</div><div class="tile-en">Bloom-er</div><div class="tile-ja">咲く人</div><div class="tile-desc">美と感性で自分を表現する</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps-section">
+  <div class="steps-inner">
+    <div class="label-sm">How it works</div>
+    <h2 class="result-h2" style="font-size:clamp(28px,4vw,40px)">診断の流れ</h2>
+    <div class="steps-row">
+      <div class="step"><div class="step-circle">1</div><h4>質問に答える</h4><p>約20問 · 5分</p></div>
+      <div class="step"><div class="step-circle">2</div><h4>タイプ判定</h4><p>12タイプから1つ</p></div>
+      <div class="step"><div class="step-circle">3</div><h4>詳細レポート</h4><p>強みと習慣を把握</p></div>
+      <div class="step"><div class="step-circle">4</div><h4>コンテンツ活用</h4><p>最適記事が届く</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>まず、自分のタイプを<br />知ることから。</h2>
+  <p>ウェルグラム診断 — 完全無料 · 5分</p>
+  <a class="cta-btn" href="#">診断スタート →</a>
+  <div class="cta-note">登録不要で診断可 · 結果保存は要登録 · Wellulu監修</div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wellulu</div>
+  <p>© 2026 Wellulu. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ウェルグラム診断 — 質問</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#0d9488;--teal-l:#99f6e4;--teal-bg:#f0fdfa;--text:#1e293b;--sub:#64748b;--xs:#94a3b8;--white:#fff;--bg:#f8fafc;--border:#e2e8f0;--r:14px}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.nav-logo{font-size:18px;font-weight:900;color:var(--teal)}
+.nav-q{font-size:12px;color:var(--sub);font-weight:600}
+
+/* Progress */
+.progress-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:10px 24px}
+.progress-bar-bg{height:6px;background:var(--border);border-radius:9999px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--teal-l),var(--teal));border-radius:9999px;transition:width .4s cubic-bezier(.25,.46,.45,.94);width:0}
+.progress-text{font-size:11px;color:var(--xs);margin-top:4px;text-align:right}
+
+/* Quiz container */
+.quiz-shell{max-width:640px;margin:0 auto;padding:32px 20px 80px}
+.q-card{display:none;animation:fadeIn .35s ease}
+.q-card.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.q-section{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1px;margin-bottom:6px}
+.q-num{font-size:13px;color:var(--sub);font-weight:600;margin-bottom:8px}
+.q-text{font-size:18px;font-weight:800;line-height:1.6;margin-bottom:24px}
+
+/* Options */
+.options{display:flex;flex-direction:column;gap:10px}
+
+/* Scale options (1-5) for Q1-Q14 */
+.scale-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--xs);margin-bottom:8px;padding:0 4px}
+.scale-options{display:flex;gap:8px;justify-content:center;margin-bottom:8px}
+.scale-btn{width:56px;height:56px;border-radius:50%;border:2px solid var(--border);background:var(--white);font-size:18px;font-weight:800;color:var(--sub);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.scale-btn:hover{border-color:var(--teal-l);background:var(--teal-bg)}
+.scale-btn.selected{border-color:var(--teal);background:var(--teal);color:#fff}
+
+/* Choice options (3 choices) for Q15-Q41 */
+.choice-btn{display:flex;align-items:center;gap:12px;padding:16px 20px;border:2px solid var(--border);border-radius:var(--r);background:var(--white);cursor:pointer;transition:all .2s;font-size:15px;font-weight:600;text-align:left;width:100%}
+.choice-btn:hover{border-color:var(--teal-l);background:var(--teal-bg)}
+.choice-btn.selected{border-color:var(--teal);background:var(--teal-bg)}
+.choice-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.choice-btn.selected .choice-dot{border-color:var(--teal);background:var(--teal)}
+.choice-btn.selected .choice-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+
+/* Nav buttons */
+.q-nav{display:flex;gap:12px;margin-top:28px}
+.q-nav-btn{flex:1;padding:14px;border-radius:9999px;font-size:15px;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
+.btn-back{background:var(--white);color:var(--sub);border:1.5px solid var(--border)}
+.btn-back:hover{background:var(--bg)}
+.btn-next{background:var(--teal);color:#fff}
+.btn-next:hover{opacity:.9}
+.btn-next:disabled{opacity:.4;cursor:not-allowed}
+
+/* Loading */
+.loading-screen{display:none;text-align:center;padding:80px 20px}
+.loading-screen.active{display:block;animation:fadeIn .5s}
+.loading-spinner{width:48px;height:48px;border:4px solid var(--border);border-top:4px solid var(--teal);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 24px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:16px;font-weight:700;color:var(--sub)}
+.loading-sub{font-size:13px;color:var(--xs);margin-top:8px}
+
+/* ======== RESULT PAGE ======== */
+.result-page{display:none;max-width:640px;margin:0 auto;padding:32px 20px 80px}
+.result-page.active{display:block;animation:fadeIn .5s}
+
+.result-header{text-align:center;margin-bottom:32px}
+.result-label{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:1px;margin-bottom:8px}
+.result-type-en{font-size:14px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.result-type-jp{font-size:32px;font-weight:900;margin-bottom:8px}
+.result-img{width:180px;height:180px;margin:0 auto 16px}
+.result-img img{width:100%;height:100%}
+.result-motto{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:16px;font-style:italic}
+
+/* Axis bars */
+.axis-bars{margin-bottom:32px}
+.ab-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ab-label{font-size:12px;font-weight:700;width:40px;text-align:right;flex-shrink:0}
+.ab-bar-bg{flex:1;height:10px;background:var(--border);border-radius:9999px;overflow:hidden;position:relative}
+.ab-bar{height:100%;border-radius:9999px;transition:width 1s cubic-bezier(.25,.46,.45,.94)}
+.ab-pct{font-size:12px;font-weight:700;width:40px;flex-shrink:0;color:var(--sub)}
+
+/* Result card */
+.r-card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:20px;margin-bottom:16px}
+.r-card-title{font-size:14px;font-weight:800;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.r-card-title .r-icon{font-size:18px}
+.r-card p,.r-card li{font-size:14px;line-height:1.8;color:var(--sub)}
+.r-card ul{padding-left:20px;margin-top:8px}
+.r-card li{margin-bottom:4px}
+
+/* Factor top5 */
+.factor-list{display:flex;flex-direction:column;gap:10px}
+.factor-row{display:flex;align-items:center;gap:12px}
+.factor-rank{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.factor-rank.r2{background:#3b82f6}
+.factor-rank.r3{background:#8b5cf6}
+.factor-rank.r4{background:#f59e0b}
+.factor-rank.r5{background:#94a3b8}
+.factor-name{font-size:14px;font-weight:700;flex-shrink:0;width:110px}
+.factor-bar-bg{flex:1;height:8px;background:var(--border);border-radius:9999px;overflow:hidden}
+.factor-bar{height:100%;border-radius:9999px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+.factor-score{font-size:12px;font-weight:700;color:var(--sub);width:24px;text-align:right}
+
+/* Top1 factor detail */
+.top1-card{background:linear-gradient(135deg,var(--teal-bg),#e0f2fe);border:1.5px solid var(--teal-l);border-radius:var(--r);padding:24px;margin-bottom:16px}
+.top1-label{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1px;margin-bottom:4px}
+.top1-name{font-size:22px;font-weight:900;margin-bottom:12px}
+.top1-desc{font-size:14px;line-height:1.8;color:var(--sub);margin-bottom:16px}
+.top1-actions{font-size:13px;line-height:1.8;color:var(--text)}
+
+/* Compat */
+.compat-row{display:flex;gap:12px;margin-top:12px}
+.compat-card{flex:1;background:var(--bg);border-radius:12px;padding:14px;text-align:center}
+.compat-card img{width:60px;height:60px;margin-bottom:6px}
+.compat-type{font-size:12px;font-weight:700}
+.compat-rel{font-size:10px;color:var(--xs)}
+
+/* Share */
+.share-section{text-align:center;margin-top:32px;padding:24px;background:var(--white);border-radius:var(--r);border:1.5px solid var(--border)}
+.share-title{font-size:16px;font-weight:800;margin-bottom:16px}
+.share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:10px 20px;border-radius:9999px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s}
+.share-btn:hover{background:var(--teal-bg);border-color:var(--teal-l)}
+.retry-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 28px;border-radius:9999px;background:var(--teal);color:#fff;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Wellulu</a>
+  <div class="nav-q" id="navQ">Q1 / 41</div>
+</nav>
+
+<div class="progress-wrap">
+  <div class="progress-bar-bg"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-text" id="progressText">0%</div>
+</div>
+
+<div class="quiz-shell" id="quizShell"></div>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">あなたの診断結果を分析中...</div>
+  <div class="loading-sub">3つの軸と21因子からタイプを判定しています</div>
+</div>
+
+<div class="result-page" id="resultPage"></div>
+
+<script>
+// ===== DATA =====
+var QUESTIONS = [
+  // === Q1-Q7: 軸A (外向↔内向) — 5段階スケール ===
+  {id:1,section:"軸A：エネルギーの向き",text:"嬉しい出来事があったとき、最初にしたいのは？",type:"scale",left:"誰かに話す",right:"一人で味わう",axis:"A"},
+  {id:2,section:"軸A：エネルギーの向き",text:"休日が丸一日空いたら？",type:"scale",left:"人と会う予定を入れる",right:"一人の時間を楽しむ",axis:"A"},
+  {id:3,section:"軸A：エネルギーの向き",text:"初対面の人が多い場では？",type:"scale",left:"ワクワクする",right:"少し疲れる",axis:"A"},
+  {id:4,section:"軸A：エネルギーの向き",text:"アイデアが浮かびやすいのは？",type:"scale",left:"人と話している時",right:"一人で考えている時",axis:"A"},
+  {id:5,section:"軸A：エネルギーの向き",text:"集まりのあと、どちらを感じやすい？",type:"scale",left:"元気が出る",right:"少し疲れる",axis:"A"},
+  {id:6,section:"軸A：エネルギーの向き",text:"意見が対立した場面では？",type:"scale",left:"その場で話し合いたい",right:"一度持ち帰って考えたい",axis:"A"},
+  {id:7,section:"軸A：エネルギーの向き",text:"作業するならどちらが心地よい？",type:"scale",left:"にぎやかな場所",right:"静かな場所",axis:"A"},
+  // === Q8-Q14: 軸B (成長↔安定) — 5段階スケール ===
+  {id:8,section:"軸B：エネルギーの性質",text:"最近うれしかった出来事は？",type:"scale",left:"新しい発見があった",right:"穏やかに過ごせた",axis:"B"},
+  {id:9,section:"軸B：エネルギーの性質",text:"多少の不安があっても？",type:"scale",left:"挑戦したい",right:"安心を優先したい",axis:"B"},
+  {id:10,section:"軸B：エネルギーの性質",text:"生活で優先したいのは？",type:"scale",left:"成長の機会",right:"安定した日常",axis:"B"},
+  {id:11,section:"軸B：エネルギーの性質",text:"調子を崩したときは？",type:"scale",left:"何か行動して気分を変える",right:"じっくり休んで回復する",axis:"B"},
+  {id:12,section:"軸B：エネルギーの性質",text:"モチベーションが上がるのは？",type:"scale",left:"新しい目標ができたとき",right:"今あるものに感謝できたとき",axis:"B"},
+  {id:13,section:"軸B：エネルギーの性質",text:"理想の休日に近いのは？",type:"scale",left:"刺激的で新しい体験",right:"いつもの安心できる過ごし方",axis:"B"},
+  {id:14,section:"軸B：エネルギーの性質",text:"どちらの日々を求めていますか？",type:"scale",left:"変化に富んだ毎日",right:"穏やかな毎日",axis:"B"},
+  // === Q15-Q19: 軸C (自己/他者/自然) — 3択 ===
+  {id:15,section:"軸C：幸せの方向性",text:"疲れを感じたとき、回復につながりやすいのは？",type:"choice3",options:["一人で考えや気持ちを整理する","誰かと話して気分を切り替える","外に出て自然光や風を感じる"],mapping:["自己","他者","自然"],axis:"C"},
+  {id:16,section:"軸C：幸せの方向性",text:"「自分らしくいられる」と感じやすいのはどんなとき？",type:"choice3",options:["一人で過ごしているとき","人と関わり合うとき","自然の中や屋外で過ごしているとき"],mapping:["自己","他者","自然"],axis:"C"},
+  {id:17,section:"軸C：幸せの方向性",text:"生活の中で、意外と影響が大きいのは？",type:"choice3",options:["自分の考え方や気持ちの状態","周囲の人間関係や雰囲気","日当たり・空気・緑などの環境"],mapping:["自己","他者","自然"],axis:"C"},
+  {id:18,section:"軸C：幸せの方向性",text:"もし今すぐ1つだけ増やせるとしたら？",type:"choice3",options:["自分のための静かな時間","人と関われる機会","自然を感じられる環境や習慣"],mapping:["自己","他者","自然"],axis:"C"},
+  {id:19,section:"軸C：幸せの方向性",text:"無意識に「これは避けたい」と感じやすいのは？",type:"choice3",options:["自分の考えやペースを乱される状況","人間関係がぎくしゃくする状況","騒音・人工的すぎる環境に長くいること"],mapping:["自己","他者","自然"],axis:"C"},
+  // === Q20-Q40: 21因子 — 3択 ===
+  {id:20,section:"ウェルビーイング因子",text:"最近「今日は調子いいな」と感じる瞬間に近いのは？",type:"choice3",options:["ぐっすり眠れた朝","気を使わず話せる人といた時間","「へえ」と思うことに出会った瞬間"],mapping:["良質な睡眠","仲間との時間","新しい発見"]},
+  {id:21,section:"ウェルビーイング因子",text:"予定が急にキャンセルになりました。まず何をしますか？",type:"choice3",options:["少し体を動かす","何もせず休む","誰かに連絡する"],mapping:["適度な運動","休養時間","積極的な参加"]},
+  {id:22,section:"ウェルビーイング因子",text:"「悪くない一日だったな」と思えるのは、どんな日？",type:"choice3",options:["食事のバランスが整っていた日","イライラせず過ごせた日","時間を有効に使えた日"],mapping:["バランス良い食事","ストレスフリー","有意義な時間"]},
+  {id:23,section:"ウェルビーイング因子",text:"理想的な休日に、一番近いのは？",type:"choice3",options:["自然の中でのんびり","学びや刺激がある時間","家族が安心して笑っている"],mapping:["自然との触れ合い","生涯の学び","家族の成長・安心"]},
+  {id:24,section:"ウェルビーイング因子",text:"最近、満足感が高かったのはどれ？",type:"choice3",options:["新しい挑戦をしたこと","新しい人と出会えたこと","心が落ち着いていたこと"],mapping:["挑戦できる環境","人との出会い","感謝・賞賛"]},
+  {id:25,section:"ウェルビーイング因子",text:"時間とエネルギーを使うなら、どれに使いたい？",type:"choice3",options:["身だしなみや見た目を整える","誰かの役に立つ行動","自分の成長につながること"],mapping:["外見のきれいさ","社会貢献","生涯の学び"]},
+  {id:26,section:"ウェルビーイング因子",text:"「今日はよく頑張った」と思った日のご褒美は？",type:"choice3",options:["おいしいものを食べる","居心地のいい場所で過ごす","感謝された・認められた実感を味わう"],mapping:["おいしい食事","心地よい空間","感謝・賞賛"]},
+  {id:27,section:"ウェルビーイング因子",text:"最近「足りていないかも」と感じるのは？",type:"choice3",options:["しっかり休む時間","助け合える関係","新しい刺激"],mapping:["休養時間","相互協力","挑戦できる環境"]},
+  {id:28,section:"ウェルビーイング因子",text:"ふっと力が抜けるのは、どんなとき？",type:"choice3",options:["自然の中にいるとき","仲間と一緒に何かしているとき","安心できる人といるとき"],mapping:["自然との触れ合い","積極的な参加","信用・信頼"]},
+  {id:29,section:"ウェルビーイング因子",text:"今の生活で、軸にしたいのは？",type:"choice3",options:["睡眠や生活リズム","意味のある時間の使い方","人とのつながり"],mapping:["良質な睡眠","有意義な時間","人との出会い"]},
+  {id:30,section:"ウェルビーイング因子",text:"気分を切り替えたいとき、選ぶのは？",type:"choice3",options:["体を動かす","おいしいものを食べる","感謝を伝える・受け取る"],mapping:["適度な運動","おいしい食事","感謝・賞賛"]},
+  {id:31,section:"ウェルビーイング因子",text:"「これがあると安心する」と思うのは？",type:"choice3",options:["落ち着ける空間","協力し合える関係","家族の安定"],mapping:["心地よい空間","相互協力","家族の成長・安心"]},
+  {id:32,section:"ウェルビーイング因子",text:"満足度が上がりやすいのは？",type:"choice3",options:["体にやさしい食事","社会とつながっている感覚","時間を大切にできた感覚"],mapping:["バランス良い食事","社会貢献","有意義な時間"]},
+  {id:33,section:"ウェルビーイング因子",text:"最近、前向きになれたきっかけは？",type:"choice3",options:["挑戦する機会があった","仲間と協力できた","気持ちが穏やかだった"],mapping:["挑戦できる環境","相互協力","ストレスフリー"]},
+  {id:34,section:"ウェルビーイング因子",text:"これからも大切にしたい習慣は？",type:"choice3",options:["適度に体を動かす","しっかり睡眠をとる","自然に触れる時間を作る"],mapping:["適度な運動","良質な睡眠","自然との触れ合い"]},
+  {id:35,section:"ウェルビーイング因子",text:"今の自分に一番必要だと思うのは？",type:"choice3",options:["見た目を整える自信","信頼できる人間関係","新しい出会いや刺激"],mapping:["外見のきれいさ","信用・信頼","人との出会い"]},
+  {id:36,section:"ウェルビーイング因子",text:"充実していると感じるのは？",type:"choice3",options:["心地よい空間にいるとき","誰かと協力しているとき","家族と穏やかに過ごしているとき"],mapping:["心地よい空間","積極的な参加","家族の成長・安心"]},
+  {id:37,section:"ウェルビーイング因子",text:"最近「ちょっとうれしかった」のは？",type:"choice3",options:["おいしいものに出会えた","感謝の言葉をもらった","ストレスなく過ごせた"],mapping:["おいしい食事","感謝・賞賛","ストレスフリー"]},
+  {id:38,section:"ウェルビーイング因子",text:"時間を使って取り組むなら、どれ？",type:"choice3",options:["学び続ける","人との関わりを深める","生活環境を整える"],mapping:["生涯の学び","仲間との時間","心地よい空間"]},
+  {id:39,section:"ウェルビーイング因子",text:"今のあなたを支えているのは？",type:"choice3",options:["挑戦しているとき","人とのつながりを感じたとき","自然の中にいるとき"],mapping:["挑戦できる環境","信用・信頼","自然との触れ合い"]},
+  {id:40,section:"ウェルビーイング因子",text:"今、整えたいと思っているのは？",type:"choice3",options:["体調管理・改善","前向きに関われる場","時間の余裕"],mapping:["バランス良い食事","社会貢献","休養時間"]}
+];
+
+// Type master data (from spreadsheet)
+var TYPE_MAP = {
+  "外向|成長|自己":{no:1,name1:"冒険者",name2:"チャレンジャー",img:"01-achiever.svg",motto:"動くほど、自分が見えてくる",
+    overview:"冒険者タイプは、「未知に飛び込む→体験で学ぶ→次の挑戦に更新する」で自己像を磨く人です。新しい場所・人・仕事・遊びに身を置くほどエネルギーが湧き、停滞よりも変化の中で本来の力を発揮します。",
+    strength:"変化を恐れずまず試せる行動力、失敗も含めて経験から学習する回復力が強みです。周囲が躊躇する局面でも一歩目を出せるため、チームに「前に進む空気」を作れます。",
+    caution:"刺激を求め続けるあまり、休息や内省を後回しにしやすい点に注意。次々と動くことで\"何が大事か\"が曖昧になり、疲れが溜まった状態で判断が雑になることがあります。",
+    action:"挑戦の後に必ず「振り返り」をセットにしましょう。週1回は\"刺激の少ない日\"を作り、体力・睡眠・食事を整えて次の冒険の土台を作ると伸びが加速します。",
+    celebrities:"ローラ / トムクルーズ / GACKT / 羽生結弦",bestMatch:"求道者",nextMatch:"内省者"},
+  "外向|成長|自然":{no:2,name1:"探検者",name2:"ネイチャーエクスプローラー",img:"03-pioneer.svg",motto:"外に出れば、答えがある",
+    overview:"探検者タイプは、自然や屋外の刺激を受け取ることで思考と感情が前向きに回り始める人です。歩く・外気に触れる・景色を見ると発想が解放されます。",
+    strength:"環境から得た刺激を素早く行動に変えられる点が強みです。移動や外遊びで視野が広がり、停滞した状況でも突破口を見つけやすい。",
+    caution:"屋外に出られない状況が続くとストレスが溜まりやすい。天候や季節に気分が左右されやすいので、室内でも自然を取り入れる工夫を。",
+    action:"毎日15分以上の外歩きを習慣にしましょう。観葉植物や自然音を生活に取り入れ、週末は未踏の場所へのお出かけを計画すると充電できます。",
+    celebrities:"さかなクン / ベア・グリルス / 伊能忠敬 / 植村直己",bestMatch:"鍛錬者",nextMatch:"共生者"},
+  "外向|成長|他者":{no:3,name1:"先導者",name2:"リーダー",img:"02-connector.svg",motto:"誰かと進めば、もっと遠くへ",
+    overview:"先導者タイプは、人を巻き込みながら新しい場を作り出す力のある人です。周囲の成長が自分の成長と直結するタイプで、組織やコミュニティのエネルギー源になれます。",
+    strength:"人を引きつけるカリスマ性と、変化を恐れないリーダーシップが強みです。新しい企画やチームの立ち上げで力を発揮します。",
+    caution:"人に頼られすぎて自分のケアを後回しにしがち。「自分が引っ張らなければ」という責任感が過剰になると燃え尽きリスクが上がります。",
+    action:"週に1回は「誰にも会わない時間」を確保しましょう。信頼できる人に弱さを見せる練習をすると、関係がより深まります。",
+    celebrities:"孫正義 / オプラ・ウィンフリー / 本田圭佑 / 渡辺直美",bestMatch:"設計者",nextMatch:"支援者"},
+  "外向|安定|自己":{no:4,name1:"統合者",name2:"インテグレーター",img:"04-builder.svg",motto:"ぶれない軸が、まわりを安定させる",
+    overview:"統合者タイプは、自分の中にしっかりした軸を持ち、その安定感で周囲にも安心を与える人です。ルーティンと習慣を大切にし、着実に積み上げます。",
+    strength:"ブレない安定感と、コツコツ積み上げる忍耐力が強みです。周囲が混乱する状況でも冷静に対応でき、信頼を得やすい。",
+    caution:"変化に対する抵抗感が出やすい点に注意。「今のままでいい」という安定志向が、必要な変化まで遠ざけてしまうことがあります。",
+    action:"月に1回は「普段しないこと」を意識的に取り入れましょう。小さな冒険が、安定の上に新しい発見を重ねてくれます。",
+    celebrities:"イチロー / 大谷翔平 / 吉田沙保里 / 羽生善治",bestMatch:"内省者",nextMatch:"求道者"},
+  "外向|安定|自然":{no:5,name1:"健行者",name2:"ウォーカー",img:"06-grounded.svg",motto:"一歩ずつ歩けば、景色が変わる",
+    overview:"健行者タイプは、自然のリズムに寄り添いながら、堅実に日々を歩む人です。派手さはなくとも、着実な歩みが周囲に安心感と穏やかなエネルギーを与えます。",
+    strength:"地に足がついた判断力と、自然体でいられる安定感が強みです。無理せず長く続ける力があり、持続可能な生活設計が得意。",
+    caution:"変化の少ない生活に慣れすぎると、新しい刺激が入りにくくなります。意識的に視野を広げる機会を作りましょう。",
+    action:"毎日の散歩を日課にし、季節の変化を味わいましょう。月に1回は新しい自然スポットを訪れると、安定の中に新鮮さが生まれます。",
+    celebrities:"ムツゴロウ / ターシャ・テューダー / 宮崎駿 / 星野道夫",bestMatch:"共生者",nextMatch:"鍛錬者"},
+  "外向|安定|他者":{no:6,name1:"調和者",name2:"ハーモナイザー",img:"05-nurturer.svg",motto:"みんなが笑えば、私もうれしい",
+    overview:"調和者タイプは、人と人をつなぎ、場の空気を整えることに幸福を感じる人です。争いよりも協調を選び、周囲の笑顔が自分のエネルギー源になります。",
+    strength:"高い共感力と、場の空気を読んで調整する力が強みです。チームのムードメーカーであり、安心感を与える存在。",
+    caution:"他者を優先しすぎて自分の本音を抑えがち。「いい人」を演じ続けると疲弊するので、自分の気持ちにも正直になる練習を。",
+    action:"週に1回は「自分がやりたいこと」だけをする時間を確保しましょう。断る練習も少しずつ始めると、関係がより健全になります。",
+    celebrities:"黒柳徹子 / マザー・テレサ / 明石家さんま / 天海祐希",bestMatch:"支援者",nextMatch:"設計者"},
+  "内向|成長|自己":{no:7,name1:"求道者",name2:"マスター",img:"07-seeker.svg",motto:"深く潜るほど、光が見える",
+    overview:"求道者タイプは、自分の内面を深く掘り下げることで成長を実感する人です。知的好奇心が強く、本質を追求する姿勢が周囲にも影響を与えます。",
+    strength:"深い思考力と、物事の本質を見抜く洞察力が強みです。専門性を極める力があり、質の高いアウトプットを出せます。",
+    caution:"考えすぎて行動に移せないことがある点に注意。完璧を求めすぎず、「まず試す」姿勢も時には大切です。",
+    action:"学んだことを誰かに話す・書く習慣をつけましょう。アウトプットが内省の質をさらに高めてくれます。",
+    celebrities:"宮崎駿 / スティーブ・ジョブズ / 村上春樹 / 落合陽一",bestMatch:"冒険者",nextMatch:"統合者"},
+  "内向|成長|自然":{no:8,name1:"鍛錬者",name2:"プラクティショナー",img:"09-flower.svg",motto:"今ここに集中すれば、道は開ける",
+    overview:"鍛錬者タイプは、自然のリズムの中で自分を磨き続ける人です。マインドフルネスや身体的な鍛錬を通じて、内側からの成長を追求します。",
+    strength:"高い集中力と、コツコツと自分を磨く粘り強さが強みです。フロー状態に入りやすく、没頭する力があります。",
+    caution:"孤独な鍛錬に偏りすぎると、社会とのつながりが希薄になりがち。時には仲間と一緒に取り組む場を設けましょう。",
+    action:"毎朝の瞑想や呼吸法を取り入れましょう。自然の中での運動や散歩が、鍛錬の質をさらに高めてくれます。",
+    celebrities:"大谷翔平 / 宮本武蔵 / 羽生結弦 / 稲盛和夫",bestMatch:"探検者",nextMatch:"健行者"},
+  "内向|成長|他者":{no:9,name1:"設計者",name2:"アーキテクト",img:"08-innovator.svg",motto:"静かに考え、大きく変える",
+    overview:"設計者タイプは、内省的な思考から社会的なインパクトを生み出す人です。一人で深く考える時間が、他者のためのイノベーションにつながります。",
+    strength:"論理的思考力と、複雑な問題を構造化する力が強みです。裏方として大きな変化を生み出せる力があります。",
+    caution:"考えが先行して行動が遅れがち。また、自分のアイデアに固執して他者の意見を取り入れにくくなることも。",
+    action:"アイデアを早い段階で他者にシェアする習慣をつけましょう。フィードバックが設計の質を格段に高めてくれます。",
+    celebrities:"イーロン・マスク / 宮崎駿 / 庵野秀明 / 落合陽一",bestMatch:"先導者",nextMatch:"調和者"},
+  "内向|安定|自己":{no:10,name1:"内省者",name2:"リフレクター",img:"10-reflector.svg",motto:"静けさの中に、答えがある",
+    overview:"内省者タイプは、静かな時間の中で自分自身と深く向き合うことで幸福を見出す人です。日記や瞑想、一人の時間が心の安定と成長の源になります。",
+    strength:"深い自己理解と、ブレない内なる軸が強みです。感情に流されず冷静な判断ができ、周囲に安定感を与えます。",
+    caution:"内にこもりすぎて孤立感を感じやすい点に注意。信頼できる少数の人との交流を大切にしましょう。",
+    action:"毎日5分の振り返り日記を書きましょう。週に1回は信頼できる人と深い対話をする時間を設けると、内省がさらに豊かになります。",
+    celebrities:"村上春樹 / オードリー・ヘプバーン / 松下幸之助 / 樹木希林",bestMatch:"統合者",nextMatch:"冒険者"},
+  "内向|安定|自然":{no:11,name1:"共生者",name2:"シンビオント",img:"12-bloomer.svg",motto:"自然のペースで、花を咲かせる",
+    overview:"共生者タイプは、自然と共に生きるリズムの中で安らぎと幸福を見出す人です。急がず焦らず、自分のペースで花を咲かせることを大切にします。",
+    strength:"自然体でいられる穏やかさと、周囲にリラックスした空気を作れる力が強みです。持続可能な幸福を体現できます。",
+    caution:"マイペースすぎて、社会的な要請に対応しきれないことも。必要な時には少し早いペースで動く柔軟性も持ちましょう。",
+    action:"毎日自然に触れる時間を確保しましょう。ガーデニングや季節の食材を使った料理など、自然と共にある生活習慣がおすすめです。",
+    celebrities:"ターシャ・テューダー / 宮沢賢治 / 樹木希林 / ムーミンパパ",bestMatch:"健行者",nextMatch:"探検者"},
+  "内向|安定|他者":{no:12,name1:"支援者",name2:"サポーター",img:"11-harmonizer.svg",motto:"そっと寄り添い、支える力",
+    overview:"支援者タイプは、静かに人の話を聴き、そっと寄り添うことで周囲に安心感を与える人です。控えめながらも深い共感力で、かけがえのない存在になります。",
+    strength:"傾聴力と深い共感力が強みです。争いを好まず、人と人の間の架け橋になれる穏やかなリーダーシップを持っています。",
+    caution:"他者の感情を引き受けすぎて消耗しやすい点に注意。自分と他者の境界線を意識し、セルフケアを優先する時間も必要です。",
+    action:"「人のためにする」と「自分のためにする」の時間を半々にしましょう。信頼できる人に自分の気持ちを話す練習が大切です。",
+    celebrities:"マザー・テレサ / 皇后雅子 / 山口百恵 / 樹木希林",bestMatch:"調和者",nextMatch:"先導者"}
+};
+
+// 21 factor details
+var FACTOR_DATA = {
+  "適度な運動":{desc:"あなたにとって身体を動かすことは、単なる健康維持ではなく\"心のリセットボタン\"かもしれません。",actions:"朝10分の散歩を習慣化 / 週2回の軽い有酸素運動 / 仕事合間のストレッチ"},
+  "休養時間":{desc:"あなたは「頑張る力」よりも「緩める力」が幸福の鍵になるタイプかもしれません。休むことは後退ではなく戦略です。",actions:"予定に\"何もしない時間\"を入れる / 夜30分デジタルオフ / 週1回の完全オフ日"},
+  "バランス良い食事":{desc:"あなたは食事の質がそのまま集中力や気分に影響するタイプかもしれません。身体の安定が心の安定につながります。",actions:"毎食タンパク質を意識 / 野菜を1品追加 / 加工食品を減らす"},
+  "自然との触れ合い":{desc:"あなたは自然環境に触れることで、無意識に整うタイプかもしれません。緑や空、風に触れることで本来のリズムに戻りやすい傾向があります。",actions:"週1回公園散歩 / 自然音を取り入れる / 観葉植物を置く"},
+  "外見のきれいさ":{desc:"あなたは見た目を整えることが自己肯定感に直結するタイプかもしれません。外見が整うと内面の安定にもつながります。",actions:"毎朝の身だしなみ時間確保 / 定期的なセルフケア / 好きな服を着る"},
+  "ストレスフリー":{desc:"あなたは刺激過多や緊張状態が続くと力を発揮しにくいタイプかもしれません。安心できる環境で本来の能力が出やすい傾向があります。",actions:"ToDoを減らす / SNS時間制限 / 境界線を引く練習"},
+  "良質な睡眠":{desc:"あなたは睡眠の質が幸福の基盤因子になりやすいタイプかもしれません。眠りが乱れると気分・集中力すべてに影響が出やすい傾向があります。",actions:"就寝時間固定 / 寝室環境改善 / カフェイン管理"},
+  "人との出会い":{desc:"新しい人との接触があなたの世界を広げるエネルギー源かもしれません。多様な価値観に触れることで視野が広がり、刺激が生まれやすいタイプです。",actions:"月1回新しいコミュニティ参加 / イベント参加 / 異業種交流"},
+  "新しい発見":{desc:"あなたは未知との遭遇で脳が活性化するタイプかもしれません。新鮮さや驚きがあるとモチベーションが上がりやすい傾向があります。",actions:"未体験の店に行く / 新ジャンル読書 / 新しい習慣を試す"},
+  "生涯の学び":{desc:"学び続けることが自己肯定感につながるタイプかもしれません。知識や理解が深まるほど安心感が増す傾向があります。",actions:"オンライン講座受講 / 読書習慣 / 月1テーマ研究"},
+  "おいしい食事":{desc:"味覚体験そのものが幸福度を高めるタイプかもしれません。五感の満足が心の満足に直結する傾向があります。",actions:"週1ご褒美外食 / 丁寧な食事時間 / 新しい料理挑戦"},
+  "有意義な時間":{desc:"\"意味\"を感じられる時間が幸福の中心になりやすいタイプかもしれません。忙しさより納得感を重視する傾向があります。",actions:"目的ある予定設計 / 振り返る時間の確保 / やれていない重要なことの実行"},
+  "挑戦できる環境":{desc:"適度な負荷がある環境で最も活きるタイプかもしれません。退屈より成長機会を求める傾向があります。",actions:"新しいプロジェクトの開始 / 初挑戦をする / スキルを磨く"},
+  "心地よい空間":{desc:"環境の快適さが精神安定に直結するタイプかもしれません。空間が乱れると気持ちも乱れやすい可能性があります。",actions:"部屋の整理 / 照明調整 / リラックスできる香りを用意"},
+  "社会貢献":{desc:"誰かの役に立つ実感が幸福の中心になりやすいタイプかもしれません。利他的行動が自己価値感につながります。",actions:"ボランティア参加 / 寄付・知識共有 / 地域活動"},
+  "相互協力":{desc:"助け合いの関係性の中で安心を感じるタイプかもしれません。孤立より協働を選ぶ傾向があります。",actions:"チーム作業参加 / サポート行動 / 協力を申し出る"},
+  "信用・信頼":{desc:"信頼関係が心の基盤になるタイプかもしれません。約束や誠実さが幸福度に影響しやすい傾向があります。",actions:"約束を守る / 率直な対話 / 信頼を積み上げる"},
+  "積極的な参加":{desc:"傍観より参加することで充実を感じるタイプかもしれません。関わることで自己効力感が高まります。",actions:"会議で発言 / イベント運営参加 / 主体的な提案"},
+  "仲間との時間":{desc:"仲間との共有体験が幸福の源かもしれません。共に過ごす時間が安心感を生みます。",actions:"定期的な集まり / 共同プロジェクト / 友人との時間確保"},
+  "家族の成長・安心":{desc:"家族の安定があなたの安心の土台かもしれません。近しい人の幸福が自分の幸福と直結する傾向があります。",actions:"家族時間確保 / 対話時間 / 家族の成長を支える"},
+  "感謝・賞賛":{desc:"感謝の循環が幸福を増幅するタイプかもしれません。感謝を感じる・伝えることが心を温めます。",actions:"1日1つの感謝メモ / 賞賛を言語化 / 目を見てありがとうを伝える"}
+};
+
+// ===== ENGINE =====
+var answers = {};
+var currentQ = 0;
+var totalQ = QUESTIONS.length;
+
+function init(){
+  var shell = document.getElementById('quizShell');
+  var html = '';
+  QUESTIONS.forEach(function(q, i){
+    html += '<div class="q-card" id="q'+i+'" '+(i===0?'style="display:block"':'')+'>';
+    html += '<div class="q-section">'+q.section+'</div>';
+    html += '<div class="q-num">Q'+(i+1)+' / '+totalQ+'</div>';
+    html += '<div class="q-text">'+q.text+'</div>';
+    if(q.type==='scale'){
+      html += '<div class="scale-labels"><span>'+q.left+'</span><span>'+q.right+'</span></div>';
+      html += '<div class="scale-options">';
+      for(var s=1;s<=5;s++){
+        html += '<button class="scale-btn" data-q="'+i+'" data-v="'+s+'">'+s+'</button>';
+      }
+      html += '</div>';
+    } else {
+      html += '<div class="options">';
+      q.options.forEach(function(opt, oi){
+        html += '<button class="choice-btn" data-q="'+i+'" data-v="'+oi+'"><div class="choice-dot"></div>'+opt+'</button>';
+      });
+      html += '</div>';
+    }
+    html += '<div class="q-nav">';
+    if(i>0) html += '<button class="q-nav-btn btn-back" onclick="goQ('+(i-1)+')">戻る</button>';
+    if(i<totalQ-1) html += '<button class="q-nav-btn btn-next" id="next'+i+'" onclick="goQ('+(i+1)+')" disabled>次へ</button>';
+    else html += '<button class="q-nav-btn btn-next" id="next'+i+'" onclick="submitQuiz()" disabled>診断結果を見る</button>';
+    html += '</div></div>';
+  });
+  shell.innerHTML = html;
+
+  // Bind click events
+  document.querySelectorAll('.scale-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qi = parseInt(b.dataset.q);
+      var v = parseInt(b.dataset.v);
+      answers[qi] = v;
+      b.parentElement.querySelectorAll('.scale-btn').forEach(function(s){s.classList.remove('selected')});
+      b.classList.add('selected');
+      document.getElementById('next'+qi).disabled = false;
+      // Auto-advance after short delay
+      setTimeout(function(){if(qi<totalQ-1)goQ(qi+1)},350);
+    });
+  });
+  document.querySelectorAll('.choice-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qi = parseInt(b.dataset.q);
+      var v = parseInt(b.dataset.v);
+      answers[qi] = v;
+      b.parentElement.querySelectorAll('.choice-btn').forEach(function(s){s.classList.remove('selected')});
+      b.classList.add('selected');
+      document.getElementById('next'+qi).disabled = false;
+      setTimeout(function(){if(qi<totalQ-1)goQ(qi+1)},350);
+    });
+  });
+  updateProgress();
+}
+
+function goQ(idx){
+  document.querySelectorAll('.q-card').forEach(function(c){c.style.display='none';c.classList.remove('active')});
+  var el = document.getElementById('q'+idx);
+  el.style.display='block';
+  setTimeout(function(){el.classList.add('active')},10);
+  currentQ = idx;
+  updateProgress();
+  // Restore selection
+  if(answers[idx]!==undefined){
+    document.getElementById('next'+idx).disabled=false;
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(){
+  var answered = Object.keys(answers).length;
+  var pct = Math.round((answered/totalQ)*100);
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressText').textContent = answered+'/'+totalQ+' ('+pct+'%)';
+  document.getElementById('navQ').textContent = 'Q'+(currentQ+1)+' / '+totalQ;
+}
+
+function submitQuiz(){
+  // Show loading
+  document.getElementById('quizShell').style.display='none';
+  document.querySelector('.progress-wrap').style.display='none';
+  var ls = document.getElementById('loadingScreen');
+  ls.classList.add('active');
+
+  setTimeout(function(){
+    var result = calculate();
+    ls.classList.remove('active');
+    ls.style.display='none';
+    showResult(result);
+  }, 2500);
+}
+
+// ===== ALGORITHM =====
+function calculate(){
+  // STEP1: Axis A (Q0-Q6, values 1-5) — sum > 14 = 内向
+  var sumA = 0;
+  for(var i=0;i<7;i++) sumA += (answers[i]||3);
+  var axisA = sumA > 14 ? "内向" : "外向";
+  var pctA_in = Math.round((sumA/35)*100);
+  var pctA_ex = 100 - pctA_in;
+
+  // STEP2: Axis B (Q7-Q13, values 1-5) — sum > 14 = 安定
+  var sumB = 0;
+  for(var i=7;i<14;i++) sumB += (answers[i]||3);
+  var axisB = sumB > 14 ? "安定" : "成長";
+  var pctB_st = Math.round((sumB/35)*100);
+  var pctB_gr = 100 - pctB_st;
+
+  // STEP3: Axis C (Q14-Q18, choice index 0=自己,1=他者,2=自然)
+  var cCounts = {"自己":0,"他者":0,"自然":0};
+  for(var i=14;i<19;i++){
+    var v = answers[i];
+    if(v!==undefined){
+      var m = QUESTIONS[i].mapping[v];
+      cCounts[m]++;
+    }
+  }
+  var axisC;
+  if(cCounts["自己"]>=3) axisC = "自己";
+  else if(cCounts["他者"]>=3) axisC = "他者";
+  else if(cCounts["自然"]>=2) axisC = "自然";
+  else axisC = "自己";
+
+  // STEP4: Type lookup
+  var key = axisA+"|"+axisB+"|"+axisC;
+  var typeData = TYPE_MAP[key];
+
+  // STEP5: 21 factors (Q19-Q39)
+  var factors = {};
+  for(var i=19;i<QUESTIONS.length;i++){
+    var v = answers[i];
+    if(v!==undefined){
+      var factorName = QUESTIONS[i].mapping[v];
+      factors[factorName] = (factors[factorName]||0) + 1;
+    }
+  }
+  // Add tiny random for tie-breaking
+  var factorArr = [];
+  var allFactors = Object.keys(FACTOR_DATA);
+  allFactors.forEach(function(f){
+    factorArr.push({name:f, score:(factors[f]||0) + Math.random()*0.01});
+  });
+  factorArr.sort(function(a,b){return b.score - a.score});
+  var top5 = factorArr.slice(0,5).map(function(f){return {name:f.name, score:Math.floor(f.score)}});
+
+  return {
+    axisA:axisA, axisB:axisB, axisC:axisC,
+    pctA_in:pctA_in, pctA_ex:pctA_ex,
+    pctB_st:pctB_st, pctB_gr:pctB_gr,
+    cCounts:cCounts, type:typeData, top5:top5
+  };
+}
+
+// ===== RESULT RENDER =====
+function showResult(r){
+  var t = r.type;
+  var imgMap = {"冒険者":"01-achiever","探検者":"03-pioneer","先導者":"02-connector","統合者":"04-builder","健行者":"06-grounded","調和者":"05-nurturer","求道者":"07-seeker","鍛錬者":"09-flower","設計者":"08-innovator","内省者":"10-reflector","共生者":"12-bloomer","支援者":"11-harmonizer"};
+  var bestImg = "", nextImg = "";
+  Object.keys(TYPE_MAP).forEach(function(k){
+    if(TYPE_MAP[k].name1===t.bestMatch) bestImg = TYPE_MAP[k].img;
+    if(TYPE_MAP[k].name1===t.nextMatch) nextImg = TYPE_MAP[k].img;
+  });
+
+  var colors = {"01":"#F5B731","02":"#5CB8E6","03":"#6BC06B","04":"#F4845F","05":"#8FA7D4","06":"#87A96B","07":"#E8B960","08":"#7B8DC6","09":"#4DB6AC","10":"#F0B8A8","11":"#B8A9D4","12":"#A8D5BA"};
+  var typeColor = colors[t.img.substring(0,2)] || "#0d9488";
+
+  var html = '';
+  html += '<div class="result-header">';
+  html += '<div class="result-label">あなたのウェルビーイングタイプは...</div>';
+  html += '<div class="result-img"><img src="../welgram-characters/'+t.img+'"/></div>';
+  html += '<div class="result-type-en">TYPE '+t.no+' — '+t.name2+'</div>';
+  html += '<div class="result-type-jp" style="color:'+typeColor+'">'+t.name1+'</div>';
+  html += '<div class="result-motto">「'+t.motto+'」</div>';
+  html += '</div>';
+
+  // Axis bars
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">📊</span>あなたの3つの軸</div>';
+  html += '<div class="axis-bars">';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#0d9488">外向</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+r.pctA_ex+'" style="background:linear-gradient(90deg,#99f6e4,#0d9488)"></div></div><div class="ab-pct">'+r.pctA_ex+'%</div></div>';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#8b5cf6">内向</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+r.pctA_in+'" style="background:linear-gradient(90deg,#c4b5fd,#8b5cf6)"></div></div><div class="ab-pct">'+r.pctA_in+'%</div></div>';
+  html += '<div style="height:8px"></div>';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#f59e0b">成長</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+r.pctB_gr+'" style="background:linear-gradient(90deg,#fcd34d,#f59e0b)"></div></div><div class="ab-pct">'+r.pctB_gr+'%</div></div>';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#3b82f6">安定</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+r.pctB_st+'" style="background:linear-gradient(90deg,#93c5fd,#3b82f6)"></div></div><div class="ab-pct">'+r.pctB_st+'%</div></div>';
+  html += '<div style="height:8px"></div>';
+  var cTotal = r.cCounts["自己"]+r.cCounts["他者"]+r.cCounts["自然"];
+  var cPcts = {self:Math.round(r.cCounts["自己"]/5*100),others:Math.round(r.cCounts["他者"]/5*100),nature:Math.round(r.cCounts["自然"]/5*100)};
+  html += '<div class="ab-row"><div class="ab-label" style="color:#F4845F">自己</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+cPcts.self+'" style="background:linear-gradient(90deg,#fecaca,#F4845F)"></div></div><div class="ab-pct">'+cPcts.self+'%</div></div>';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#5CB8E6">他者</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+cPcts.others+'" style="background:linear-gradient(90deg,#bae6fd,#5CB8E6)"></div></div><div class="ab-pct">'+cPcts.others+'%</div></div>';
+  html += '<div class="ab-row"><div class="ab-label" style="color:#6BC06B">自然</div><div class="ab-bar-bg"><div class="ab-bar" data-w="'+cPcts.nature+'" style="background:linear-gradient(90deg,#bbf7d0,#6BC06B)"></div></div><div class="ab-pct">'+cPcts.nature+'%</div></div>';
+  html += '</div></div>';
+
+  // Overview
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">🔍</span>あなたのタイプの概要</div><p>'+t.overview+'</p></div>';
+
+  // Strengths
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">💪</span>あなたの強み</div><p>'+t.strength+'</p></div>';
+
+  // Caution
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">⚠️</span>気をつけたいポイント</div><p>'+t.caution+'</p></div>';
+
+  // Action
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">🌿</span>オススメのウェルビーイング方法</div><p>'+t.action+'</p></div>';
+
+  // Celebrities
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">⭐</span>同じタイプの著名人</div><p>'+t.celebrities+'</p></div>';
+
+  // Compatibility
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">🤝</span>相性の良いタイプ</div>';
+  html += '<div class="compat-row">';
+  html += '<div class="compat-card"><img src="../welgram-characters/'+(bestImg||t.img)+'"/><div class="compat-type">'+t.bestMatch+'</div><div class="compat-rel">最も相性が良い</div></div>';
+  html += '<div class="compat-card"><img src="../welgram-characters/'+(nextImg||t.img)+'"/><div class="compat-type">'+t.nextMatch+'</div><div class="compat-rel">次に相性が良い</div></div>';
+  html += '</div></div>';
+
+  // Top 5 Factors
+  html += '<div class="r-card"><div class="r-card-title"><span class="r-icon">📊</span>あなたのウェルビーイング因子 TOP5</div>';
+  html += '<div class="factor-list">';
+  var fColors = ["#0d9488","#3b82f6","#8b5cf6","#f59e0b","#94a3b8"];
+  var fClasses = ["","r2","r3","r4","r5"];
+  r.top5.forEach(function(f,i){
+    html += '<div class="factor-row">';
+    html += '<div class="factor-rank '+fClasses[i]+'">'+(i+1)+'</div>';
+    html += '<div class="factor-name">'+f.name+'</div>';
+    html += '<div class="factor-bar-bg"><div class="factor-bar" data-w="'+Math.min(f.score*33,100)+'" style="background:'+fColors[i]+'"></div></div>';
+    html += '<div class="factor-score">'+f.score+'</div>';
+    html += '</div>';
+  });
+  html += '</div></div>';
+
+  // Top1 factor detail
+  var top1 = r.top5[0];
+  var top1Data = FACTOR_DATA[top1.name] || {desc:"",actions:""};
+  html += '<div class="top1-card">';
+  html += '<div class="top1-label">あなたのTOP1因子</div>';
+  html += '<div class="top1-name">'+top1.name+'</div>';
+  html += '<div class="top1-desc">'+top1Data.desc+'</div>';
+  html += '<div class="top1-actions"><strong>おすすめアクション：</strong><br>'+top1Data.actions+'</div>';
+  html += '</div>';
+
+  // Share
+  html += '<div class="share-section">';
+  html += '<div class="share-title">結果をシェアしよう</div>';
+  html += '<div class="share-btns">';
+  html += '<button class="share-btn" onclick="shareResult(\'x\')">X (Twitter)</button>';
+  html += '<button class="share-btn" onclick="shareResult(\'line\')">LINE</button>';
+  html += '<button class="share-btn" onclick="shareResult(\'copy\')">リンクをコピー</button>';
+  html += '</div>';
+  html += '<button class="retry-btn" onclick="location.reload()">もう一度診断する</button>';
+  html += '</div>';
+
+  var rp = document.getElementById('resultPage');
+  rp.innerHTML = html;
+  rp.classList.add('active');
+
+  // Animate bars
+  setTimeout(function(){
+    document.querySelectorAll('[data-w]').forEach(function(bar){
+      bar.style.width = bar.dataset.w + '%';
+    });
+  }, 300);
+
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function shareResult(platform){
+  var text = "ウェルグラム12タイプ診断を受けました！あなたも自分の\"幸せのカタチ\"を見つけてみませんか？";
+  var url = window.location.href.replace('quiz.html','index.html');
+  if(platform==='x'){
+    window.open('https://x.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url),'_blank');
+  } else if(platform==='line'){
+    window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text),'_blank');
+  } else {
+    navigator.clipboard.writeText(url).then(function(){alert('リンクをコピーしました！')});
+  }
+}
+
+// Init
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EDF4E8"/>
+      <stop offset="100%" stop-color="#DCE8D4"/>
+    </linearGradient>
+    <linearGradient id="body6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87A96B"/>
+      <stop offset="100%" stop-color="#7A9C60"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg6)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#9CAF7C" opacity="0.3"/>
+  <!-- Ground detail -->
+  <path d="M80,358 Q140,352 200,358 Q260,364 320,356" stroke="#9CAF7C" stroke-width="2" fill="none" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="260" rx="62" ry="75" fill="url(#body6)"/>
+  <!-- Linen texture lines -->
+  <path d="M158,250 L242,250" stroke="#9CAF7C" stroke-width="0.8" opacity="0.3"/>
+  <path d="M155,265 L245,265" stroke="#9CAF7C" stroke-width="0.8" opacity="0.3"/>
+  <path d="M158,280 L242,280" stroke="#9CAF7C" stroke-width="0.8" opacity="0.3"/>
+  <!-- Bare feet (grounded) -->
+  <ellipse cx="180" cy="348" rx="18" ry="10" fill="#7A9C60"/>
+  <ellipse cx="220" cy="348" rx="18" ry="10" fill="#7A9C60"/>
+  <!-- Toes hint -->
+  <circle cx="170" cy="344" r="3" fill="#6D8F55" opacity="0.3"/>
+  <circle cx="176" cy="342" r="3" fill="#6D8F55" opacity="0.3"/>
+  <circle cx="230" cy="344" r="3" fill="#6D8F55" opacity="0.3"/>
+  <circle cx="224" cy="342" r="3" fill="#6D8F55" opacity="0.3"/>
+  <!-- Legs -->
+  <rect x="168" y="318" width="24" height="28" rx="12" fill="#7A9C60"/>
+  <rect x="208" y="318" width="24" height="28" rx="12" fill="#7A9C60"/>
+  <!-- Arms holding seedling pot -->
+  <rect x="132" y="238" width="22" height="48" rx="11" fill="#7A9C60" transform="rotate(-8 143 238)"/>
+  <rect x="246" y="238" width="22" height="48" rx="11" fill="#7A9C60" transform="rotate(8 257 238)"/>
+  <!-- Seedling pot -->
+  <path d="M172,278 L168,302 L232,302 L228,278Z" fill="#D4A574" stroke="#B8895A" stroke-width="1.5"/>
+  <rect x="172" y="274" width="56" height="8" rx="3" fill="#C49664"/>
+  <!-- Soil -->
+  <ellipse cx="200" cy="282" rx="26" ry="6" fill="#8B6914" opacity="0.3"/>
+  <!-- Seedling -->
+  <path d="M200,278 L200,252" stroke="#6BC06B" stroke-width="3"/>
+  <ellipse cx="192" cy="252" rx="10" ry="7" fill="#8AD68A" transform="rotate(-20 192 252)"/>
+  <ellipse cx="208" cy="246" rx="10" ry="7" fill="#6BC06B" transform="rotate(20 208 246)"/>
+  <ellipse cx="196" cy="242" rx="8" ry="6" fill="#A8D5BA" transform="rotate(-10 196 242)"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#87A96B"/>
+  <circle cx="200" cy="165" r="55" fill="#95B87A" opacity="0.4"/>
+  <!-- Eyes - calm, steady -->
+  <circle cx="180" cy="164" r="6" fill="#3A4D2A"/>
+  <circle cx="220" cy="164" r="6" fill="#3A4D2A"/>
+  <circle cx="182" cy="162" r="2" fill="#FFF"/>
+  <circle cx="222" cy="162" r="2" fill="#FFF"/>
+  <!-- Mouth - natural, content smile -->
+  <path d="M190,180 Q200,188 210,180" stroke="#3A4D2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="166" cy="178" rx="10" ry="6" fill="#7A9C60" opacity="0.4"/>
+  <ellipse cx="234" cy="178" rx="10" ry="6" fill="#7A9C60" opacity="0.4"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#6D8F55" opacity="0.6">The Grounded</text>
+</svg>

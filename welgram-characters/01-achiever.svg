@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFF3D0"/>
+    </linearGradient>
+    <linearGradient id="body1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5B731"/>
+      <stop offset="100%" stop-color="#F0943D"/>
+    </linearGradient>
+  </defs>
+  <!-- BG -->
+  <rect width="400" height="400" rx="40" fill="url(#bg1)"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#F0D88A" opacity="0.4"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="260" rx="62" ry="75" fill="url(#body1)"/>
+  <!-- Legs -->
+  <rect x="170" y="320" width="24" height="32" rx="12" fill="#E8A020"/>
+  <rect x="206" y="320" width="24" height="32" rx="12" fill="#E8A020"/>
+  <!-- Shoes -->
+  <ellipse cx="182" cy="354" rx="16" ry="8" fill="#D4880A"/>
+  <ellipse cx="218" cy="354" rx="16" ry="8" fill="#D4880A"/>
+  <!-- Arms -->
+  <rect x="126" y="240" width="22" height="55" rx="11" fill="#E8A020" transform="rotate(-15 137 240)"/>
+  <!-- Right arm raised holding flag -->
+  <rect x="252" y="190" width="22" height="60" rx="11" fill="#E8A020" transform="rotate(15 263 190)"/>
+  <!-- Flag pole -->
+  <rect x="270" y="120" width="4" height="100" rx="2" fill="#8B6914"/>
+  <!-- Flag -->
+  <polygon points="276,120 330,138 276,158" fill="#FF6B6B"/>
+  <polygon points="276,125 322,140 276,155" fill="#FF8A8A"/>
+  <!-- Star on flag -->
+  <polygon points="298,139 302,130 306,139 298,133 306,133" fill="#FFF" opacity="0.8"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#F5B731"/>
+  <!-- Face highlight -->
+  <circle cx="200" cy="165" r="55" fill="#F8C84A" opacity="0.4"/>
+  <!-- Eyes - sparkle style -->
+  <circle cx="180" cy="162" r="7" fill="#5D4E37"/>
+  <circle cx="220" cy="162" r="7" fill="#5D4E37"/>
+  <circle cx="183" cy="159" r="2.5" fill="#FFF"/>
+  <circle cx="223" cy="159" r="2.5" fill="#FFF"/>
+  <!-- Star highlights in eyes -->
+  <polygon points="178,157 179.5,154 181,157 177.5,155.5 181.5,155.5" fill="#FFF" opacity="0.6"/>
+  <polygon points="218,157 219.5,154 221,157 217.5,155.5 221.5,155.5" fill="#FFF" opacity="0.6"/>
+  <!-- Mouth - confident smile -->
+  <path d="M188,178 Q200,192 212,178" stroke="#5D4E37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheek blush -->
+  <ellipse cx="168" cy="178" rx="10" ry="6" fill="#F0943D" opacity="0.35"/>
+  <ellipse cx="232" cy="178" rx="10" ry="6" fill="#F0943D" opacity="0.35"/>
+  <!-- Sneaker detail -->
+  <path d="M168,350 Q182,346 196,350" stroke="#FFF" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M204,350 Q218,346 232,350" stroke="#FFF" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Label -->
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#B8860B" opacity="0.6">The Achiever</text>
+</svg>

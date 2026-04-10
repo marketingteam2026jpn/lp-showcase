@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マイページ — Wellulu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #ff6b9d;
+      --pink-light: #ffabce;
+      --pink-bg: #fff0f5;
+      --text: #32373c;
+      --text-sub: #6b7280;
+      --text-xs: #9ca3af;
+      --white: #fff;
+      --bg: #f3f4f6;
+      --border: #e5e7eb;
+      --radius: 12px;
+    }
+    body { font-family: 'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* App shell */
+    .app-shell { max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--white); position: relative; box-shadow: 0 0 60px rgba(0,0,0,0.12); }
+
+    /* Top nav */
+    .top-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav-logo { font-size: 18px; font-weight: 800; color: var(--pink); }
+    .nav-icons { display: flex; gap: 14px; }
+    .nav-icon { font-size: 20px; cursor: pointer; }
+
+    /* Cover */
+    .cover { height: 130px; background: linear-gradient(135deg, #ffabce 0%, #c7d2fe 50%, #99f6e4 100%); position: relative; }
+    .cover-edit { position: absolute; right: 12px; bottom: 10px; background: rgba(0,0,0,0.4); border-radius: 9999px; padding: 5px 12px; font-size: 12px; color: white; cursor: pointer; }
+
+    /* Profile block */
+    .profile-block { padding: 0 16px 0; position: relative; }
+    .avatar-wrap { position: absolute; top: -36px; left: 16px; }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--white); background: linear-gradient(135deg, var(--pink), #818cf8); display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .edit-btn { position: absolute; top: 8px; right: 0; border: 1.5px solid var(--border); border-radius: 9999px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: var(--text); background: var(--white); cursor: pointer; }
+
+    .profile-name-row { padding-top: 48px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .display-name { font-size: 19px; font-weight: 800; color: var(--text); }
+    .username { font-size: 13px; color: var(--text-sub); }
+    .rank-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #fef9c3, #fde68a); color: #92400e; border-radius: 9999px; padding: 4px 12px; font-size: 12px; font-weight: 700; width: fit-content; margin-top: 2px; }
+
+    /* Stats row */
+    .stats-row { display: flex; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 14px 0; }
+    .stat-item { flex: 1; text-align: center; padding: 12px 6px; cursor: pointer; }
+    .stat-item:not(:last-child) { border-right: 1px solid var(--border); }
+    .stat-item:active { background: var(--bg); }
+    .stat-num { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--text-sub); margin-top: 3px; }
+
+    /* EXP section */
+    .exp-section { padding: 0 16px 14px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .exp-title { font-size: 13px; font-weight: 700; color: var(--text-sub); }
+    .exp-lv { font-size: 13px; font-weight: 800; color: var(--pink); }
+    .exp-bar-bg { background: var(--bg); border-radius: 9999px; height: 8px; overflow: hidden; }
+    .exp-bar-fill { height: 100%; width: 68%; background: linear-gradient(90deg, var(--pink-light), var(--pink)); border-radius: 9999px; transition: width 1s; }
+    .exp-note { font-size: 11px; color: var(--text-xs); margin-top: 5px; text-align: right; }
+
+    /* Bio */
+    .bio-section { padding: 0 16px 14px; }
+    .bio-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+    .bio-link { color: var(--pink); font-size: 13px; display: block; margin-top: 4px; }
+
+    /* Interests */
+    .interests-section { padding: 0 16px 14px; }
+    .section-heading { font-size: 13px; font-weight: 700; color: var(--text-sub); margin-bottom: 9px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { font-size: 13px; font-weight: 600; background: var(--pink-bg); color: var(--pink); border-radius: 9999px; padding: 5px 13px; }
+
+    /* Divider */
+    .divider { height: 8px; background: var(--bg); }
+
+    /* Tab bar */
+    .tab-bar { display: flex; border-bottom: 1px solid var(--border); background: var(--white); }
+    .tab { flex: 1; text-align: center; padding: 13px 0; font-size: 13px; font-weight: 600; color: var(--text-sub); cursor: pointer; position: relative; }
+    .tab.active { color: var(--pink); }
+    .tab.active::after { content: ''; position: absolute; bottom: 0; left: 15%; right: 15%; height: 2.5px; background: var(--pink); border-radius: 2px; }
+
+    /* Activity feed */
+    .feed { padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; }
+    .feed-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: box-shadow .15s; }
+    .feed-card:active { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .feed-img { width: 100%; height: 100px; object-fit: cover; background: linear-gradient(135deg, #fce7f3, #e0e7ff); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .feed-body { padding: 12px; }
+    .feed-tag { font-size: 11px; color: var(--pink); font-weight: 700; margin-bottom: 4px; }
+    .feed-title { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+    .feed-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-xs); }
+
+    /* Wellgram type teaser */
+    .type-teaser { margin: 0 16px 16px; background: linear-gradient(135deg, var(--pink-bg), #f5f3ff); border: 1.5px solid var(--pink-light); border-radius: var(--radius); padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; }
+    .type-icon-big { font-size: 40px; flex-shrink: 0; }
+    .type-teaser-text h4 { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+    .type-teaser-text p { font-size: 12px; color: var(--text-sub); line-height: 1.5; }
+    .type-teaser-text span { font-size: 12px; color: var(--pink); font-weight: 700; }
+
+    /* Bottom nav */
+    .bottom-nav { display: flex; background: var(--white); border-top: 1px solid var(--border); padding: 8px 0 20px; position: sticky; bottom: 0; }
+    .bnav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; padding: 4px 0; }
+    .bnav-icon { font-size: 22px; }
+    .bnav-label { font-size: 10px; color: var(--text-xs); font-weight: 600; }
+    .bnav-item.active .bnav-icon { filter: none; }
+    .bnav-item.active .bnav-label { color: var(--pink); }
+
+    /* Desktop wrapper label */
+    .device-label { text-align: center; padding: 20px 0 8px; font-size: 12px; color: #9ca3af; font-weight: 600; letter-spacing: 1px; }
+    .device-label span { color: var(--pink); }
+  </style>
+</head>
+<body>
+
+<div class="device-label">📱 マイページ プレビュー — <span>案A：スタンダードSNS型</span></div>
+
+<div class="app-shell">
+
+  <!-- Top nav -->
+  <nav class="top-nav">
+    <span class="nav-logo">Wellulu</span>
+    <div class="nav-icons">
+      <span class="nav-icon">🔔</span>
+      <span class="nav-icon">⚙️</span>
+    </div>
+  </nav>
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-edit">カバーを変更</div>
+  </div>
+
+  <!-- Profile block -->
+  <div class="profile-block">
+    <div class="avatar-wrap">
+      <div class="avatar">🌿</div>
+    </div>
+    <button class="edit-btn">プロフィール編集</button>
+  </div>
+
+  <div style="padding:0 16px">
+    <div class="profile-name-row">
+      <span class="display-name">wellness_yuki</span>
+      <span class="username">@wellness_yuki · Wellulu</span>
+      <div class="rank-badge">🥈 Silver ランク</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">128</div><div class="stat-label">記事読了</div></div>
+    <div class="stat-item"><div class="stat-num">Lv.12</div><div class="stat-label">レベル</div></div>
+    <div class="stat-item"><div class="stat-num">3,400</div><div class="stat-label">EXP</div></div>
+    <div class="stat-item"><div class="stat-num">48</div><div class="stat-label">フォロワー</div></div>
+  </div>
+
+  <!-- EXP bar -->
+  <div class="exp-section">
+    <div class="exp-header">
+      <span class="exp-title">次のレベルまで</span>
+      <span class="exp-lv">Lv.12 → Lv.13</span>
+    </div>
+    <div class="exp-bar-bg"><div class="exp-bar-fill"></div></div>
+    <div class="exp-note">3,400 / 5,000 EXP</div>
+  </div>
+
+  <!-- Bio -->
+  <div class="bio-section">
+    <div class="bio-text">毎日を丁寧に生きる。ヨガと瞑想でこころとからだを整えています🌿</div>
+    <span class="bio-link">#マインドフルネス #ヨガ #睡眠改善</span>
+  </div>
+
+  <!-- Interests -->
+  <div class="interests-section">
+    <div class="section-heading">興味のあるテーマ</div>
+    <div class="tag-list">
+      <span class="tag">#マインドフルネス</span>
+      <span class="tag">#ヨガ</span>
+      <span class="tag">#睡眠改善</span>
+      <span class="tag">#食事管理</span>
+      <span class="tag">#ストレス</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Wellgram type -->
+  <div class="type-teaser" style="margin-top:12px">
+    <div class="type-icon-big">🌿</div>
+    <div class="type-teaser-text">
+      <h4>The Nurturer — 育む人</h4>
+      <p>ウェルグラム12タイプ診断の結果。<br />あなたのウェルビーイング・スタイルです。</p>
+      <span>詳細を見る →</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Tabs -->
+  <div class="tab-bar">
+    <div class="tab active">記録</div>
+    <div class="tab">保存済み</div>
+    <div class="tab">コメント</div>
+  </div>
+
+  <!-- Feed -->
+  <div class="feed">
+    <div class="feed-card">
+      <div class="feed-img">🧘</div>
+      <div class="feed-body">
+        <div class="feed-tag">#マインドフルネス</div>
+        <div class="feed-title">朝5分の瞑想が睡眠の質を劇的に変えた話</div>
+        <div class="feed-meta"><span>3日前</span><span>💬 12  ♥ 34</span></div>
+      </div>
+    </div>
+    <div class="feed-card">
+      <div class="feed-img">🥗</div>
+      <div class="feed-body">
+        <div class="feed-tag">#食事管理</div>
+        <div class="feed-title">腸活をはじめて2週間。体の変化レポート</div>
+        <div class="feed-meta"><span>1週間前</span><span>💬 7  ♥ 21</span></div>
+      </div>
+    </div>
+    <div class="feed-card">
+      <div class="feed-img">🌙</div>
+      <div class="feed-body">
+        <div class="feed-tag">#睡眠改善</div>
+        <div class="feed-title">スリープルーティンを見直したら朝が変わった</div>
+        <div class="feed-meta"><span>2週間前</span><span>💬 5  ♥ 18</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <div class="bnav-item"><span class="bnav-icon">🏠</span><span class="bnav-label">ホーム</span></div>
+    <div class="bnav-item"><span class="bnav-icon">🔍</span><span class="bnav-label">探す</span></div>
+    <div class="bnav-item"><span class="bnav-icon">➕</span><span class="bnav-label">投稿</span></div>
+    <div class="bnav-item"><span class="bnav-icon">💬</span><span class="bnav-label">通知</span></div>
+    <div class="bnav-item active"><span class="bnav-icon" style="filter:drop-shadow(0 0 4px #ff6b9d)">🌿</span><span class="bnav-label" style="color:var(--pink)">マイページ</span></div>
+  </nav>
+
+</div>
+
+</body>
+</html>

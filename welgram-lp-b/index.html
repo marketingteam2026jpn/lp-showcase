@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ウェルグラム診断 — Wellulu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --indigo: #4f46e5;
+      --indigo-light: #c7d2fe;
+      --indigo-bg: #eef2ff;
+      --pink: #ff6b9d;
+      --text: #0f0f1a;
+      --text-mid: #374151;
+      --text-sub: #6b7280;
+      --text-xs: #9ca3af;
+      --white: #fff;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif; color: var(--text); background: var(--white); }
+
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 60px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 18px; font-weight: 800; color: var(--pink); }
+    .nav-cta { background: var(--indigo); color: white; font-weight: 700; font-size: 14px; padding: 9px 22px; border-radius: 9999px; border: none; cursor: pointer; }
+
+    /* ===== HERO — full-bleed dark ===== */
+    .hero { background: #0a0a1a; min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 48px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(79,70,229,.25) 0%, transparent 60%); border-radius: 50%; pointer-events: none; }
+    .hero-eyebrow { font-size: 12px; font-weight: 700; color: var(--indigo-light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 32px; }
+    /* Giant type name as hero */
+    .hero-type-name { font-size: clamp(64px, 12vw, 130px); font-weight: 900; line-height: .95; letter-spacing: -6px; background: linear-gradient(135deg, #c7d2fe 0%, #a78bfa 40%, #f0abfc 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+    .hero-type-ja { font-size: clamp(20px, 3vw, 32px); font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: 2px; margin-bottom: 32px; }
+    .hero-divider { width: 60px; height: 3px; background: var(--indigo); border-radius: 9999px; margin: 0 auto 32px; }
+    .hero-headline { font-size: clamp(18px, 2.5vw, 26px); font-weight: 700; color: rgba(255,255,255,.85); max-width: 560px; line-height: 1.5; margin-bottom: 48px; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--indigo); color: white; font-size: 16px; font-weight: 800; padding: 17px 44px; border-radius: 9999px; cursor: pointer; box-shadow: 0 4px 24px rgba(79,70,229,.5); transition: all .2s; }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(79,70,229,.6); }
+    .hero-note { font-size: 13px; color: rgba(255,255,255,.35); margin-top: 14px; }
+
+    /* Type indicator dots */
+    .type-dots { display: flex; gap: 6px; justify-content: center; margin-top: 48px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.15); }
+    .dot.active { background: var(--indigo-light); width: 28px; border-radius: 5px; }
+
+    /* ===== PROBLEM SECTION ===== */
+    .problem { padding: 100px 60px; background: var(--bg); }
+    .prob-inner { max-width: 860px; margin: 0 auto; }
+    .sec-label { font-size: 12px; font-weight: 700; color: var(--text-xs); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .sec-h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -2px; line-height: 1.0; margin-bottom: 48px; color: var(--text); }
+    .fail-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .fail-card { background: var(--white); border-radius: 16px; border: 1.5px solid var(--border); padding: 28px 24px; }
+    .fail-icon { font-size: 32px; margin-bottom: 14px; }
+    .fail-card h3 { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+    .fail-card p { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+    .solution { background: var(--indigo); border-radius: 16px; padding: 32px 36px; margin-top: 24px; display: flex; align-items: center; gap: 24px; }
+    .sol-icon { font-size: 40px; flex-shrink: 0; }
+    .sol-text { font-size: 17px; font-weight: 700; color: white; line-height: 1.6; }
+    .sol-text em { font-style: normal; color: var(--indigo-light); }
+
+    /* ===== RESULT SHOWCASE ===== */
+    .showcase { padding: 100px 60px; background: var(--white); }
+    .show-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .show-left {}
+    .show-right { display: flex; flex-direction: column; gap: 16px; }
+    .type-result-card { background: linear-gradient(160deg, #0a0a1a, #1e1b4b); border-radius: 20px; padding: 36px; color: white; }
+    .trc-tag { font-size: 11px; font-weight: 700; color: var(--indigo-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .trc-icon { font-size: 56px; margin-bottom: 16px; }
+    .trc-name { font-size: 36px; font-weight: 900; letter-spacing: -1.5px; color: white; margin-bottom: 4px; }
+    .trc-ja { font-size: 16px; color: rgba(255,255,255,.5); margin-bottom: 20px; }
+    .trc-bar-label { font-size: 12px; color: rgba(255,255,255,.4); margin-bottom: 6px; display: flex; justify-content: space-between; }
+    .trc-bar-bg { background: rgba(255,255,255,.1); border-radius: 9999px; height: 6px; overflow: hidden; margin-bottom: 12px; }
+    .trc-bar-fill { height: 100%; border-radius: 9999px; }
+    .mini-tag { display: inline-block; background: rgba(199,210,254,.15); color: var(--indigo-light); border-radius: 9999px; padding: 5px 12px; font-size: 12px; font-weight: 600; margin: 4px 4px 0 0; }
+    .detail-item { background: var(--bg); border-radius: 14px; padding: 20px 22px; border: 1.5px solid var(--border); }
+    .detail-item h4 { font-size: 13px; font-weight: 700; color: var(--text-sub); margin-bottom: 6px; }
+    .detail-item p { font-size: 15px; font-weight: 600; color: var(--text); }
+
+    /* ===== SCIENCE ===== */
+    .science { padding: 100px 60px; background: var(--indigo-bg); }
+    .sci-inner { max-width: 900px; margin: 0 auto; }
+    .sci-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .sci-card { background: var(--white); border-radius: 16px; padding: 32px 26px; }
+    .sci-icon { font-size: 36px; margin-bottom: 16px; }
+    .sci-card h3 { font-size: 17px; font-weight: 800; color: var(--indigo); margin-bottom: 10px; }
+    .sci-card p { font-size: 14px; color: var(--text-sub); line-height: 1.75; }
+
+    /* ===== CTA ===== */
+    .cta { background: linear-gradient(135deg, #0a0a1a 0%, #1e1b4b 100%); padding: 100px 60px; text-align: center; }
+    .cta-eyebrow { font-size: 12px; font-weight: 700; color: var(--indigo-light); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+    .cta-h2 { font-size: clamp(36px, 6vw, 72px); font-weight: 900; letter-spacing: -3px; line-height: .95; color: white; margin-bottom: 24px; }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,.6); margin-bottom: 48px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--indigo); color: white; font-size: 17px; font-weight: 800; padding: 18px 52px; border-radius: 9999px; cursor: pointer; box-shadow: 0 4px 24px rgba(79,70,229,.5); transition: all .2s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(79,70,229,.65); }
+    .cta-note { color: rgba(255,255,255,.35); font-size: 13px; margin-top: 16px; }
+
+    footer { text-align: center; padding: 32px; background: #060610; color: rgba(255,255,255,.35); font-size: 13px; }
+    .footer-logo { color: white; font-weight: 800; font-size: 18px; margin-bottom: 6px; }
+
+    @media (max-width: 700px) {
+      nav, .problem, .showcase, .science, .cta { padding-left: 20px; padding-right: 20px; }
+      .fail-grid, .sci-grid { grid-template-columns: 1fr; }
+      .show-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Wellulu</span>
+  <button class="nav-cta">診断を受ける →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Well-Being Style 12タイプ診断 — ウェルグラム</div>
+  <div class="hero-type-name">The Nurturer</div>
+  <div class="hero-type-ja">育む人</div>
+  <div class="hero-divider"></div>
+  <p class="hero-headline">心理学 × 幸福学が導く、<br />あなただけのウェルビーイング・スタイル。<br />5分でわかる、12タイプ診断。</p>
+  <a class="hero-btn" href="#">科学に基づいた診断を受ける →</a>
+  <div class="hero-note">完全無料 · PERM理論準拠 · Wellulu監修 · 100万ユーザー</div>
+  <div class="type-dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="prob-inner">
+    <div class="sec-label">Why it matters</div>
+    <h2 class="sec-h2">なぜ<br />続かないのか</h2>
+    <div class="fail-grid">
+      <div class="fail-card">
+        <div class="fail-icon">😮‍💨</div>
+        <h3>SNSで見た方法を試す</h3>
+        <p>3日で挫折。他人に合った方法が自分に合うとは限らない。</p>
+      </div>
+      <div class="fail-card">
+        <div class="fail-icon">🔄</div>
+        <h3>成功体験を真似る</h3>
+        <p>タイプが違えば、同じ方法でも全く効果が異なります。</p>
+      </div>
+      <div class="fail-card">
+        <div class="fail-icon">😔</div>
+        <h3>自分を責める</h3>
+        <p>「意志が弱い」のではなく、「方法が間違っている」だけ。</p>
+      </div>
+    </div>
+    <div class="solution">
+      <div class="sol-icon">💡</div>
+      <div class="sol-text">ウェルグラムは、<em>あなたのタイプ</em>を起点に、あなたに本当に合う方法だけを届けます。「なんとなく」の健康管理から卒業しましょう。</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT SHOWCASE -->
+<section class="showcase">
+  <div class="show-inner">
+    <div class="show-left">
+      <div class="sec-label">Sample Result</div>
+      <h2 class="sec-h2" style="font-size:clamp(28px,4vw,48px)">診断で届く<br />レポート</h2>
+      <div class="type-result-card">
+        <div class="trc-tag">Type 01 · The Nurturer</div>
+        <div class="trc-icon">🌿</div>
+        <div class="trc-name">The Nurturer</div>
+        <div class="trc-ja">育む人</div>
+        <div class="trc-bar-label"><span>外向 ←→ 内向</span><span>72%</span></div>
+        <div class="trc-bar-bg"><div class="trc-bar-fill" style="width:72%;background:linear-gradient(90deg,#f9a8d4,#c7d2fe)"></div></div>
+        <div class="trc-bar-label"><span>成長 ←→ 安定</span><span>38%</span></div>
+        <div class="trc-bar-bg"><div class="trc-bar-fill" style="width:38%;background:linear-gradient(90deg,#6ee7b7,#a5b4fc)"></div></div>
+        <div class="trc-bar-label"><span>自己 ←→ 自然</span><span>61%</span></div>
+        <div class="trc-bar-bg"><div class="trc-bar-fill" style="width:61%;background:linear-gradient(90deg,#fbbf24,#6ee7b7)"></div></div>
+        <div style="margin-top:16px">
+          <span class="mini-tag">#ケア</span>
+          <span class="mini-tag">#共感</span>
+          <span class="mini-tag">#コミュニティ</span>
+          <span class="mini-tag">外向 · 安定 · 他者</span>
+        </div>
+      </div>
+    </div>
+    <div class="show-right">
+      <div class="detail-item"><h4>あなたに合う習慣</h4><p>対話型の運動・グループ瞑想・ボランティア活動</p></div>
+      <div class="detail-item"><h4>睡眠のポイント</h4><p>就寝前に感謝日記を書くと入眠が早くなる傾向</p></div>
+      <div class="detail-item"><h4>食事スタイル</h4><p>誰かと一緒に食べることが消化・幸福感を高める</p></div>
+      <div class="detail-item"><h4>相性タイプ</h4><p>The Connector / The Harmonizer と高相性</p></div>
+      <div class="detail-item"><h4>注意点</h4><p>他者優先になりすぎると燃え尽き症候群になりやすい</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science">
+  <div class="sci-inner">
+    <div class="sec-label">Scientific Background</div>
+    <h2 class="sec-h2" style="font-size:clamp(28px,4vw,52px)">3つの理論が<br />重なる場所に<br />あなたの答えがある</h2>
+    <div class="sci-grid">
+      <div class="sci-card">
+        <div class="sci-icon">🔬</div>
+        <h3>PERM理論</h3>
+        <p>Positive Emotion / Engagement / Relationships / Meaning / Achievement。ポジティブ心理学の基盤理論からあなたの幸福ドライバーを特定します。</p>
+      </div>
+      <div class="sci-card">
+        <div class="sci-icon">🎓</div>
+        <h3>ウェルビーイング21因子</h3>
+        <p>Welluluが独自定義した21の健康幸福因子。睡眠・栄養・運動・マインド・社会性を多面的に分析し、優先因子を特定します。</p>
+      </div>
+      <div class="sci-card">
+        <div class="sci-icon">📊</div>
+        <h3>ビッグ5パーソナリティ</h3>
+        <p>開放性・誠実性・外向性・協調性・神経症傾向の5特性を組み込み、行動傾向との相関を解析して精度を高めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-eyebrow">Well-Being Style Diagnosis</div>
+  <h2 class="cta-h2">「なんとなく」を<br />卒業しよう。</h2>
+  <p class="cta-sub">科学に基づいた、あなただけの処方箋。</p>
+  <a class="cta-btn" href="#">診断スタート（5分） →</a>
+  <div class="cta-note">完全無料 · PERM理論 × ビッグ5 × ウェルビーイング21因子 準拠 · Wellulu監修</div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wellulu</div>
+  <p>© 2026 Wellulu. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

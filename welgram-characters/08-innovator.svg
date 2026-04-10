@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECEEFA"/>
+      <stop offset="100%" stop-color="#DDE0F4"/>
+    </linearGradient>
+    <linearGradient id="body8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7B8DC6"/>
+      <stop offset="100%" stop-color="#6A7FBA"/>
+    </linearGradient>
+    <radialGradient id="glow8" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD166" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFD166" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg8)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#8F9DD0" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="262" rx="60" ry="74" fill="url(#body8)"/>
+  <!-- Turtleneck -->
+  <rect x="178" y="210" width="44" height="18" rx="6" fill="#6A7FBA"/>
+  <path d="M178,218 Q200,225 222,218" stroke="#5A6FAA" stroke-width="1" fill="none"/>
+  <!-- Legs -->
+  <rect x="172" y="320" width="22" height="30" rx="11" fill="#6A7FBA"/>
+  <rect x="206" y="320" width="22" height="30" rx="11" fill="#6A7FBA"/>
+  <ellipse cx="183" cy="352" rx="15" ry="8" fill="#5A6FAA"/>
+  <ellipse cx="217" cy="352" rx="15" ry="8" fill="#5A6FAA"/>
+  <!-- Left arm -->
+  <rect x="130" y="242" width="22" height="48" rx="11" fill="#6A7FBA" transform="rotate(-8 141 242)"/>
+  <!-- Right arm raised slightly -->
+  <rect x="248" y="232" width="22" height="48" rx="11" fill="#6A7FBA" transform="rotate(12 259 232)"/>
+  <!-- Notebook in left hand -->
+  <rect x="108" y="280" width="24" height="30" rx="3" fill="#FFF" stroke="#CCC" stroke-width="1"/>
+  <line x1="114" y1="288" x2="128" y2="288" stroke="#DDD" stroke-width="1"/>
+  <line x1="114" y1="293" x2="126" y2="293" stroke="#DDD" stroke-width="1"/>
+  <line x1="114" y1="298" x2="128" y2="298" stroke="#DDD" stroke-width="1"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#7B8DC6"/>
+  <circle cx="200" cy="165" r="55" fill="#8B9DD0" opacity="0.4"/>
+  <!-- Light bulb above head -->
+  <circle cx="200" cy="84" r="28" fill="url(#glow8)"/>
+  <path d="M188,98 Q188,72 200,68 Q212,72 212,98" fill="#FFD166" stroke="#E8B830" stroke-width="1.5"/>
+  <rect x="190" y="96" width="20" height="6" rx="2" fill="#E8B830"/>
+  <rect x="192" y="101" width="16" height="3" rx="1.5" fill="#D4A020"/>
+  <!-- Bulb filament -->
+  <path d="M196,82 Q200,76 204,82" stroke="#F0943D" stroke-width="1.5" fill="none"/>
+  <!-- Glow rays -->
+  <line x1="200" y1="52" x2="200" y2="44" stroke="#FFD166" stroke-width="2" opacity="0.5"/>
+  <line x1="176" y1="60" x2="170" y2="54" stroke="#FFD166" stroke-width="2" opacity="0.4"/>
+  <line x1="224" y1="60" x2="230" y2="54" stroke="#FFD166" stroke-width="2" opacity="0.4"/>
+  <line x1="168" y1="76" x2="160" y2="74" stroke="#FFD166" stroke-width="2" opacity="0.3"/>
+  <line x1="232" y1="76" x2="240" y2="74" stroke="#FFD166" stroke-width="2" opacity="0.3"/>
+  <!-- Eyes - quiet spark -->
+  <circle cx="182" cy="164" r="6" fill="#2D3A5A"/>
+  <circle cx="218" cy="164" r="6" fill="#2D3A5A"/>
+  <circle cx="184" cy="162" r="2" fill="#FFF"/>
+  <circle cx="220" cy="162" r="2" fill="#FFF"/>
+  <!-- Subtle spark in eye -->
+  <circle cx="180" cy="166" r="1" fill="#FFD166" opacity="0.7"/>
+  <circle cx="216" cy="166" r="1" fill="#FFD166" opacity="0.7"/>
+  <!-- Mouth - subtle, knowing smile -->
+  <path d="M192,180 Q200,186 208,180" stroke="#2D3A5A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="168" cy="178" rx="9" ry="5" fill="#6A7FBA" opacity="0.35"/>
+  <ellipse cx="232" cy="178" rx="9" ry="5" fill="#6A7FBA" opacity="0.35"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#5A6FAA" opacity="0.6">The Innovator</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1080" height="1080">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF0FA"/>
+      <stop offset="100%" stop-color="#E0E4F4"/>
+    </linearGradient>
+    <linearGradient id="body5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8FA7D4"/>
+      <stop offset="100%" stop-color="#7B94C4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg5)"/>
+  <ellipse cx="200" cy="360" rx="70" ry="12" fill="#A8B8E0" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="262" rx="64" ry="76" fill="url(#body5)"/>
+  <!-- Cardigan overlay -->
+  <path d="M148,225 Q145,280 155,320" stroke="#A8B8E0" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M252,225 Q255,280 245,320" stroke="#A8B8E0" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- Legs -->
+  <rect x="170" y="322" width="24" height="30" rx="12" fill="#7B94C4"/>
+  <rect x="206" y="322" width="24" height="30" rx="12" fill="#7B94C4"/>
+  <ellipse cx="182" cy="354" rx="16" ry="8" fill="#6A82B2"/>
+  <ellipse cx="218" cy="354" rx="16" ry="8" fill="#6A82B2"/>
+  <!-- Arms holding watering can -->
+  <rect x="134" y="240" width="22" height="48" rx="11" fill="#7B94C4" transform="rotate(-10 145 240)"/>
+  <rect x="244" y="240" width="22" height="48" rx="11" fill="#7B94C4" transform="rotate(10 255 240)"/>
+  <!-- Watering can -->
+  <ellipse cx="200" cy="286" rx="28" ry="18" fill="#A8D5BA"/>
+  <rect x="178" y="272" width="44" height="18" rx="8" fill="#A8D5BA"/>
+  <path d="M228,276 L252,262" stroke="#8CC0A0" stroke-width="5" stroke-linecap="round"/>
+  <!-- Water spout -->
+  <circle cx="256" cy="258" r="6" fill="#8CC0A0"/>
+  <!-- Water drops -->
+  <ellipse cx="252" cy="248" rx="2" ry="3" fill="#7DD4E8" opacity="0.7"/>
+  <ellipse cx="260" cy="250" rx="2" ry="3" fill="#7DD4E8" opacity="0.5"/>
+  <ellipse cx="248" cy="244" rx="1.5" ry="2.5" fill="#7DD4E8" opacity="0.6"/>
+  <!-- Handle -->
+  <path d="M186,270 Q200,255 214,270" stroke="#8CC0A0" stroke-width="4" fill="none"/>
+  <!-- Small flower being watered -->
+  <path d="M270,348 L270,330" stroke="#6BC06B" stroke-width="2"/>
+  <circle cx="270" cy="325" r="6" fill="#FFD166"/>
+  <circle cx="264" cy="327" r="4" fill="#FFE08A"/>
+  <circle cx="276" cy="327" r="4" fill="#FFE08A"/>
+  <circle cx="270" cy="321" r="4" fill="#FFE08A"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="62" fill="#8FA7D4"/>
+  <circle cx="200" cy="165" r="55" fill="#9DB5DC" opacity="0.4"/>
+  <!-- Eyes - soft, caring -->
+  <ellipse cx="180" cy="163" rx="6" ry="5" fill="#3D5068"/>
+  <ellipse cx="220" cy="163" rx="6" ry="5" fill="#3D5068"/>
+  <circle cx="182" cy="161" r="2" fill="#FFF"/>
+  <circle cx="222" cy="161" r="2" fill="#FFF"/>
+  <!-- Gentle eyebrows -->
+  <path d="M170,153 Q180,149 188,153" stroke="#3D5068" stroke-width="1.5" fill="none"/>
+  <path d="M212,153 Q220,149 230,153" stroke="#3D5068" stroke-width="1.5" fill="none"/>
+  <!-- Mouth - warm gentle smile -->
+  <path d="M188,180 Q200,190 212,180" stroke="#3D5068" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks - warm blush -->
+  <ellipse cx="166" cy="178" rx="11" ry="7" fill="#A8B8E0" opacity="0.45"/>
+  <ellipse cx="234" cy="178" rx="11" ry="7" fill="#A8B8E0" opacity="0.45"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#6A82B2" opacity="0.6">The Nurturer</text>
+</svg>
