@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEFRレベル別 学習時間比較表 | SpeakNow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: #f5f7fa;
+    color: #2d3748;
+    padding: 24px 16px;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a202c;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid #3182ce;
+    color: #2d3748;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: #fff;
+    margin-bottom: 24px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+  }
+  th, td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  thead th {
+    background: #2d3748;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  thead th:first-child {
+    border-radius: 12px 0 0 0;
+  }
+  thead th:last-child {
+    border-radius: 0 12px 0 0;
+  }
+  /* レベルヘッダー行 */
+  .level-header td {
+    background: #edf2f7;
+    font-weight: 700;
+    font-size: 16px;
+    color: #2d3748;
+    letter-spacing: 1px;
+  }
+  /* コンピテンシー行 */
+  .competency td {
+    background: #f7fafc;
+    font-size: 12px;
+    color: #4a5568;
+    text-align: left;
+    padding: 10px 12px;
+    font-style: italic;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  /* 独学行 */
+  .row-self td {
+    background: #fff5f5;
+  }
+  .row-self td:first-child {
+    color: #c53030;
+    font-weight: 600;
+  }
+  /* 他社行 */
+  .row-other td {
+    background: #fffff0;
+  }
+  .row-other td:first-child {
+    color: #b7791f;
+    font-weight: 600;
+  }
+  /* SpeakNow行 */
+  .row-speaknow td {
+    background: #ebf8ff;
+  }
+  .row-speaknow td:first-child {
+    color: #2b6cb0;
+    font-weight: 700;
+  }
+  .row-speaknow .highlight {
+    font-weight: 700;
+    color: #2b6cb0;
+    font-size: 16px;
+  }
+  /* 注記 */
+  .notes {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-top: 24px;
+  }
+  .notes h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #4a5568;
+  }
+  .notes ul {
+    padding-left: 20px;
+    font-size: 12px;
+    color: #718096;
+    line-height: 1.8;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  .badge-fast { background: #bee3f8; color: #2a4365; }
+  .badge-slow { background: #fed7d7; color: #742a2a; }
+  .badge-mid { background: #fefcbf; color: #744210; }
+
+  .method-note {
+    font-size: 11px;
+    color: #a0aec0;
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .table-wrap { box-shadow: none; border: 1px solid #ccc; }
+    .notes { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>CEFRレベル別 — 次のレベルまでの学習時間比較</h1>
+<p class="subtitle">初回カウンセリング資料 ｜ Cambridge English公式ガイドラインに基づく参考値</p>
+
+<!-- ① 学習時間パターン -->
+<div class="section-title">① 必要な学習時間（次のレベルまで）</div>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th style="width:140px;"></th>
+      <th>A1 → A2</th>
+      <th>A2 → B1</th>
+      <th>B1 → B2</th>
+      <th>B2 → C1</th>
+      <th>C1 → C2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- コンピテンシー A1 -->
+    <tr class="competency">
+      <td style="font-weight:600; font-style:normal; color:#2d3748;">現在のレベル感</td>
+      <td>基本的な挨拶・自己紹介ができる</td>
+      <td>買い物・道案内など日常会話が少しできる</td>
+      <td>旅行先で大抵の状況に対処できる</td>
+      <td>ネイティブと緊張せず会話できる</td>
+      <td>複雑な議論も自然に参加できる</td>
+    </tr>
+    <!-- 独学 -->
+    <tr class="row-self">
+      <td>独学<span class="method-note">教材・アプリのみ</span></td>
+      <td>150〜200h <span class="badge badge-slow">非効率</span></td>
+      <td>300〜400h</td>
+      <td>300〜400h</td>
+      <td>300〜400h</td>
+      <td>450〜600h</td>
+    </tr>
+    <!-- 他社（一般的なスクール） -->
+    <tr class="row-other">
+      <td>一般的なスクール<span class="method-note">グループレッスン中心</span></td>
+      <td>100〜120h</td>
+      <td>200〜240h</td>
+      <td>200〜240h</td>
+      <td>200〜240h</td>
+      <td>300〜360h</td>
+    </tr>
+    <!-- SpeakNow -->
+    <tr class="row-speaknow">
+      <td>SpeakNow<span class="method-note">AI×毎日マンツーマン</span></td>
+      <td><span class="highlight">約70〜80h</span> <span class="badge badge-fast">効率的</span></td>
+      <td><span class="highlight">約140〜160h</span></td>
+      <td><span class="highlight">約140〜160h</span></td>
+      <td><span class="highlight">約140〜160h</span></td>
+      <td><span class="highlight">約210〜240h</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ② 学習期間パターン -->
+<div class="section-title">② 学習頻度別の到達目安期間（次のレベルまで）</div>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th style="width:140px;"></th>
+      <th>A1 → A2</th>
+      <th>A2 → B1</th>
+      <th>B1 → B2</th>
+      <th>B2 → C1</th>
+      <th>C1 → C2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="competency">
+      <td style="font-weight:600; font-style:normal; color:#2d3748;">現在のレベル感</td>
+      <td>基本的な挨拶・自己紹介ができる</td>
+      <td>買い物・道案内など日常会話が少しできる</td>
+      <td>旅行先で大抵の状況に対処できる</td>
+      <td>ネイティブと緊張せず会話できる</td>
+      <td>複雑な議論も自然に参加できる</td>
+    </tr>
+    <!-- 独学: 1日1時間 = 月30h -->
+    <tr class="row-self">
+      <td>独学<span class="method-note">1日1時間の場合</span></td>
+      <td>5〜7ヶ月 <span class="badge badge-slow">長期化</span></td>
+      <td>10〜13ヶ月</td>
+      <td>10〜13ヶ月</td>
+      <td>10〜13ヶ月</td>
+      <td>15〜20ヶ月</td>
+    </tr>
+    <!-- 他社: 週2回×50分 ≒ 月7h -->
+    <tr class="row-other">
+      <td>一般的なスクール<span class="method-note">週2回×50分</span></td>
+      <td>14〜17ヶ月</td>
+      <td>29〜34ヶ月<span class="method-note">≒ 約2.5年</span></td>
+      <td>29〜34ヶ月<span class="method-note">≒ 約2.5年</span></td>
+      <td>29〜34ヶ月<span class="method-note">≒ 約2.5年</span></td>
+      <td>43〜51ヶ月<span class="method-note">≒ 約4年</span></td>
+    </tr>
+    <!-- SpeakNow: 毎日25分 ≒ 月12.5h -->
+    <tr class="row-speaknow">
+      <td>SpeakNow<span class="method-note">毎日25分の場合</span></td>
+      <td><span class="highlight">約6ヶ月</span> <span class="badge badge-fast">最短</span></td>
+      <td><span class="highlight">約11〜13ヶ月</span></td>
+      <td><span class="highlight">約11〜13ヶ月</span></td>
+      <td><span class="highlight">約11〜13ヶ月</span></td>
+      <td><span class="highlight">約17〜19ヶ月</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 注記 -->
+<div class="notes">
+  <h3>注記・算出根拠</h3>
+  <ul>
+    <li>学習時間はCambridge English（ケンブリッジ大学英語検定機構）公表の Guided Learning Hours に基づく参考値です</li>
+    <li>独学の所要時間はフィードバック不足・学習計画の非効率性を考慮した一般的な推定値です（×1.5〜2.0倍）</li>
+    <li>「一般的なスクール」はグループレッスン（4〜8名）中心のスクールを想定しています</li>
+    <li>SpeakNowの時間効率は、毎日のマンツーマン指導＋AIによる個別最適化学習により、Guided Learning Hoursの約70〜80%の時間で到達可能と想定した参考値です</li>
+    <li>学習期間の算出前提 — 独学：1日1時間（月30h）／ 一般スクール：週2回×50分（月約7h）／ SpeakNow：毎日25分（月約12.5h）</li>
+    <li>表②の期間差は主に学習頻度（時間数）の違いによるものであり、指導品質の優劣を示すものではありません</li>
+    <li><strong>個人差があります。学習効果を保証するものではありません。</strong></li>
+    <li>日本語話者は英語との言語間距離が大きく、上記より時間を要する場合があります</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>
