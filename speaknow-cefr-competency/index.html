@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEFRレベル別コンピテンシー表 | SpeakNow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: #f5f7fa;
+    color: #2d3748;
+    padding: 32px 16px;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1a202c;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 28px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 960px;
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 13px;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  /* ヘッダー */
+  thead th {
+    background: #2d3748;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px 14px;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child { border-radius: 0 12px 0 0; }
+
+  /* レベルラベル列 */
+  .level-cell {
+    text-align: center;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 60px;
+    min-width: 60px;
+  }
+  /* サマリー列 */
+  .summary-cell {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1a202c;
+    width: 200px;
+    min-width: 180px;
+  }
+  /* スキル列 */
+  .skill-cell {
+    font-size: 12.5px;
+    color: #4a5568;
+  }
+
+  /* レベル別カラーリング */
+  .row-a1 .level-cell { background: #fff5f5; color: #c53030; }
+  .row-a1 td { background: #fffafa; }
+  .row-a2 .level-cell { background: #fffaf0; color: #c05621; }
+  .row-a2 td { background: #fffcf5; }
+  .row-b1 .level-cell { background: #fffff0; color: #975a16; }
+  .row-b1 td { background: #fffffa; }
+  .row-b2 .level-cell { background: #f0fff4; color: #276749; }
+  .row-b2 td { background: #f7fff9; }
+  .row-c1 .level-cell { background: #ebf8ff; color: #2a4365; }
+  .row-c1 td { background: #f0faff; }
+  .row-c2 .level-cell { background: #e9d8fd; color: #553c9a; }
+  .row-c2 td { background: #faf5ff; }
+
+  /* B1→B2 の壁を視覚化 */
+  .row-b2 td {
+    border-top: 3px solid #38a169;
+  }
+  .wall-label {
+    display: none;
+  }
+  .wall-row td {
+    background: #f0fff4;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #276749;
+    padding: 4px 14px;
+    border-bottom: none;
+    letter-spacing: 2px;
+  }
+
+  /* 資格対応 */
+  .cert-badge {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* 注記 */
+  .notes {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #a0aec0;
+    line-height: 1.7;
+    padding: 0 4px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .table-wrap { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>CEFRレベル別 コンピテンシー表</h1>
+<p class="subtitle">初回カウンセリング — レベル確認・すり合わせ用</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>あなたの英語力</th>
+      <th>Speaking</th>
+      <th>Listening</th>
+      <th>語彙・文法</th>
+      <th>Reading / Writing</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- A1 -->
+    <tr class="row-a1">
+      <td class="level-cell">
+        A1
+        <br><span class="cert-badge">英検3級相当</span>
+      </td>
+      <td class="summary-cell">基本フレーズで自己紹介や簡単なやり取りができる</td>
+      <td class="skill-cell">名前・出身地など決まった質問に単語やフレーズで答えられる</td>
+      <td class="skill-cell">ゆっくり・はっきり話されれば知っている単語を拾える</td>
+      <td class="skill-cell">挨拶・数字・曜日など基本語彙。現在形中心</td>
+      <td class="skill-cell">看板やメニューの単語が読める。名前・住所が書ける</td>
+    </tr>
+
+    <!-- A2 -->
+    <tr class="row-a2">
+      <td class="level-cell">
+        A2
+        <br><span class="cert-badge">英検準2級相当</span>
+      </td>
+      <td class="summary-cell">日常の決まった場面で短い会話ができる</td>
+      <td class="skill-cell">買い物・レストラン注文など定型場面で短い文で話せる</td>
+      <td class="skill-cell">短いアナウンスや簡単な道案内の指示が聞き取れる</td>
+      <td class="skill-cell">日常語彙が増え、過去形・未来形を使い始める</td>
+      <td class="skill-cell">短いメールや案内文が読める。簡単な日記が書ける</td>
+    </tr>
+
+    <!-- B1 -->
+    <tr class="row-b1">
+      <td class="level-cell">
+        B1
+        <br><span class="cert-badge">英検2級 / TOEIC 550〜</span>
+      </td>
+      <td class="summary-cell">海外旅行で困らず、自分の意見も言える</td>
+      <td class="skill-cell">身近な話題で理由をつけて意見を述べられる</td>
+      <td class="skill-cell">日常会話の要点をほぼ聞き取れる</td>
+      <td class="skill-cell">接続詞・関係詞で文をつなげる。中級文法を使える</td>
+      <td class="skill-cell">ニュース記事の概要がわかる。まとまった文章が書ける</td>
+    </tr>
+
+    <!-- B1→B2 の壁 -->
+    <tr class="wall-row">
+      <td colspan="6">▲ ここが最大の壁 — 「日常会話」から「実務・議論」への飛躍 ▲</td>
+    </tr>
+
+    <!-- B2 -->
+    <tr class="row-b2">
+      <td class="level-cell">
+        B2
+        <br><span class="cert-badge">英検準1級 / TOEIC 790〜</span>
+      </td>
+      <td class="summary-cell">会議で反論でき、英語で仕事ができる</td>
+      <td class="skill-cell">抽象的な話題でも論理的に議論に参加できる</td>
+      <td class="skill-cell">ニュースや映画を字幕なしでほぼ理解できる</td>
+      <td class="skill-cell">複文・受動態を自然に使いこなせる</td>
+      <td class="skill-cell">専門的な記事を読みこなせる。報告書が書ける</td>
+    </tr>
+
+    <!-- C1 -->
+    <tr class="row-c1">
+      <td class="level-cell">
+        C1
+        <br><span class="cert-badge">英検1級 / TOEIC 950〜</span>
+      </td>
+      <td class="summary-cell">交渉や学会発表もこなせる上級者</td>
+      <td class="skill-cell">即興で流暢に話し、譲歩案を即座に提示できる</td>
+      <td class="skill-cell">早口や多様なアクセントでもほぼ理解できる</td>
+      <td class="skill-cell">慣用表現を含む高度な語彙を正確に使える</td>
+      <td class="skill-cell">論文や契約書を正確に読み書きできる</td>
+    </tr>
+
+    <!-- C2 -->
+    <tr class="row-c2">
+      <td class="level-cell">
+        C2
+        <br><span class="cert-badge">IELTS 8.5〜 / CPE</span>
+      </td>
+      <td class="summary-cell">ネイティブと遜色ない運用力</td>
+      <td class="skill-cell">どんな場面でも精緻に表現し説得力がある</td>
+      <td class="skill-cell">あらゆる英語を即座に正確に理解できる</td>
+      <td class="skill-cell">母語話者同等の表現力と正確さ</td>
+      <td class="skill-cell">学術論文・文学批評など高度な文章を書ける</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="notes">
+  ※ CEFR（ヨーロッパ言語共通参照枠）の公式Can-do descriptorsに基づく参考表記です。資格対応は目安であり、試験形式により異なります。
+</div>
+
+</div>
+</body>
+</html>
