@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スマクリED｜血管を太くすれば、硬くなる。</title>
+<meta name="description" content="気持ちでも、歳のせいでもない。血管へのアプローチで、変化が期待できます。月額3,980円〜・医師監修・オンライン完結・最短当日発送。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Reset ---------- */
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    font-weight: 500;
+    background: #0A0A0A;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg: #0A0A0A;
+    --bg-2: #1A1A1A;
+    --ink: #FFFFFF;
+    --ink-mute: #B8B8B8;
+    --line: #2A2A2A;
+    --accent: #E63946;   /* 朱色アクセント */
+    --accent-deep: #C8201F;
+    --cta: #E63946;
+    --cta-hover: #C8201F;
+    --max: 1120px;
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: 20px; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,10,10,.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .logo {
+    font-weight: 900; font-size: 18px; letter-spacing: .04em;
+    display: inline-flex; align-items: baseline; gap: 6px;
+  }
+  .logo .dot { width: 8px; height: 8px; background: var(--accent); display: inline-block; border-radius: 50%; transform: translateY(-1px); }
+  .logo small { font-weight: 700; font-size: 11px; color: var(--ink-mute); letter-spacing: .12em; }
+  .header-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 14px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 900; font-size: 13px;
+    border-radius: 999px;
+    letter-spacing: .04em;
+  }
+  .header-cta:hover { background: var(--cta-hover); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background: var(--bg);
+    padding: 64px 0 80px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* 控えめなテクスチャ（許容 opacity ≤ 0.12） */
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(230,57,70,.18), transparent 55%),
+      radial-gradient(ellipse at 80% 100%, rgba(230,57,70,.08), transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: .10;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; letter-spacing: .12em;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+  }
+  .eyebrow .bar { width: 28px; height: 1px; background: var(--ink-mute); display: inline-block; }
+  .eyebrow .accent { color: var(--accent); font-weight: 900; }
+
+  .h1 {
+    font-weight: 900;
+    font-size: clamp(36px, 11vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .h1 .line { display: block; }
+  .h1 .accent {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+  }
+  .h1 .accent::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 8px;
+    background: var(--accent);
+    opacity: .18;
+    border-radius: 4px;
+  }
+
+  .lead {
+    font-size: clamp(16px, 4.4vw, 22px);
+    line-height: 1.8;
+    color: var(--ink);
+    max-width: 34em;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .lead .mute { color: var(--ink-mute); font-weight: 500; }
+
+  .sub {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--ink-mute);
+    max-width: 34em;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-block { margin-top: 8px; }
+  .cta-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 460px;
+    padding: 22px 28px;
+    background: var(--cta);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(230,57,70,.35), inset 0 -3px 0 rgba(0,0,0,.18);
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .cta-primary:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: 0 16px 38px rgba(230,57,70,.45); }
+  .cta-primary .arrow {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #fff; color: var(--cta);
+    font-size: 16px; font-weight: 900;
+  }
+
+  .price-line {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-mute);
+    line-height: 1.7;
+    font-weight: 700;
+  }
+  .price-line .yen { color: var(--ink); font-size: 16px; }
+  .price-line .sep { color: #555; margin: 0 8px; }
+
+  .trust-row {
+    display: flex; flex-wrap: wrap; gap: 8px 10px;
+    margin-top: 22px;
+  }
+  .trust-pill {
+    font-size: 12px; font-weight: 700;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-mute);
+    letter-spacing: .04em;
+  }
+  .trust-pill .dot { color: var(--accent); }
+
+  /* 監修ドクターバッジ */
+  .supervisor {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    max-width: 460px;
+  }
+  .supervisor .icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900;
+  }
+  .supervisor .body {
+    font-size: 13px; line-height: 1.55;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .supervisor .body strong {
+    display: block;
+    font-size: 14px; font-weight: 900;
+    color: var(--ink);
+    letter-spacing: .02em;
+    margin-bottom: 2px;
+  }
+
+  /* ---------- Section: なぜ ---------- */
+  section.why {
+    background: var(--bg-2);
+    padding: 72px 0 64px;
+    border-top: 1px solid var(--line);
+  }
+  .section-eyebrow {
+    font-size: 13px; font-weight: 900; letter-spacing: .18em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .h2 {
+    font-size: clamp(26px, 6.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    max-width: 22em;
+  }
+  .h2 .accent { color: var(--accent); }
+  .why-body p {
+    font-size: 18px; line-height: 1.95;
+    color: #E8E8E8;
+    max-width: 34em;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .why-body p strong { color: #fff; font-weight: 900; }
+  .why-body p .mark { background: linear-gradient(transparent 60%, rgba(230,57,70,.35) 60%); padding: 0 2px; }
+
+  .why-grid {
+    display: grid; gap: 14px;
+    margin-top: 36px;
+  }
+  .why-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 22px 22px;
+    border-radius: 12px;
+  }
+  .why-card .num {
+    font-size: 14px; font-weight: 900;
+    color: var(--accent);
+    letter-spacing: .12em;
+    margin-bottom: 8px;
+  }
+  .why-card h3 {
+    font-size: 19px; font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .why-card p {
+    font-size: 15px; line-height: 1.8;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+
+  /* ---------- Section: FAQ ---------- */
+  section.faq {
+    background: var(--bg);
+    padding: 72px 0 56px;
+    border-top: 1px solid var(--line);
+  }
+  .faq-list { margin-top: 24px; }
+  details.qa {
+    border-top: 1px solid var(--line);
+    padding: 22px 4px;
+  }
+  details.qa:last-of-type { border-bottom: 1px solid var(--line); }
+  details.qa summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: 28px 1fr 24px; gap: 14px;
+    align-items: start;
+    font-size: 18px; font-weight: 900;
+    line-height: 1.55;
+  }
+  details.qa summary::-webkit-details-marker { display: none; }
+  details.qa summary .q {
+    color: var(--accent); font-weight: 900;
+  }
+  details.qa summary .toggle {
+    font-size: 18px; font-weight: 900;
+    color: var(--ink-mute);
+    text-align: center;
+    transition: transform .2s ease;
+  }
+  details.qa[open] summary .toggle { transform: rotate(45deg); color: var(--accent); }
+  details.qa .a {
+    margin-top: 14px; padding-left: 42px;
+    font-size: 16px; line-height: 1.9;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+
+  /* ---------- Section: Closer CTA ---------- */
+  section.closer {
+    background: var(--bg-2);
+    padding: 80px 0;
+    border-top: 1px solid var(--line);
+  }
+  .closer-h {
+    font-size: clamp(28px, 7.5vw, 52px);
+    font-weight: 900;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    max-width: 14em;
+  }
+  .closer-h .accent { color: var(--accent); }
+  .closer-sub {
+    font-size: 18px; line-height: 1.85;
+    color: var(--ink-mute); font-weight: 500;
+    max-width: 34em;
+    margin-bottom: 32px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #050505;
+    padding: 32px 0 40px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.8;
+    border-top: 1px solid var(--line);
+  }
+  footer .disclaimer { max-width: 720px; }
+  footer .meta {
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 8px 14px;
+  }
+  footer .meta a { color: #aaa; }
+
+  /* ---------- Floating mobile CTA ---------- */
+  .float-cta {
+    position: fixed;
+    left: 12px; right: 12px; bottom: 12px;
+    z-index: 40;
+    display: none;
+  }
+  .float-cta a {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%;
+    padding: 18px 22px;
+    background: var(--cta);
+    color: #fff;
+    font-size: 17px; font-weight: 900;
+    letter-spacing: .04em;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(230,57,70,.45);
+  }
+
+  /* ---------- Animation (1つだけ・reduce対応) ---------- */
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: .55; }
+  }
+  .logo .dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .logo .dot { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 0 64px; }
+    .h1 { letter-spacing: -0.015em; }
+    .cta-primary { font-size: 18px; padding: 20px 22px; }
+    .float-cta { display: block; }
+    body { padding-bottom: 96px; } /* float CTA分の余白 */
+  }
+  @media (min-width: 768px) {
+    .why-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  }
+  @media (min-width: 960px) {
+    .hero { padding: 96px 0 112px; }
+    .h1 { margin-bottom: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="wrap inner">
+    <div class="logo">
+      <span class="dot" aria-hidden="true"></span>
+      スマクリED <small>ONLINE CLINIC</small>
+    </div>
+    <a class="header-cta" href="#cta">無料診断</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="bar" aria-hidden="true"></span>
+      <span>気持ちでもなく、歳のせいでもなく、</span>
+      <span class="accent">血管の話。</span>
+    </div>
+
+    <h1 class="h1">
+      <span class="line">血管を太くすれば、</span>
+      <span class="line"><span class="accent">硬くなる。</span></span>
+    </h1>
+
+    <p class="lead">
+      ── 海綿体に届く血流量で、<br>
+      <span class="mute">硬さは決まる。</span>
+    </p>
+
+    <p class="sub">
+      多くの男性が「自分のせい」だと抱え込んでいます。けれど、硬さに関わるのは<strong style="color:#fff;font-weight:900;">血管の太さ</strong>。気持ちの問題ではありません。医師の判断のもと、血管へのアプローチで変化が期待できます。
+    </p>
+
+    <div class="cta-block" id="cta">
+      <a class="cta-primary" href="#" aria-label="無料診断を始める">
+        <span>無料診断を始める</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <p class="price-line">
+        <span class="yen">月額 3,980円（税込）〜</span>
+        <span class="sep">／</span>オンライン完結
+        <span class="sep">／</span>最短当日発送
+      </p>
+      <div class="trust-row" aria-label="信頼情報">
+        <span class="trust-pill"><span class="dot">●</span> 通院不要</span>
+        <span class="trust-pill"><span class="dot">●</span> プライバシー厳守</span>
+        <span class="trust-pill"><span class="dot">●</span> 最短当日発送</span>
+      </div>
+      <div class="supervisor" aria-label="監修ドクター">
+        <span class="icon" aria-hidden="true">＋</span>
+        <span class="body">
+          <strong>医療法人スマクリED 監修ドクターチーム</strong>
+          内科・泌尿器科の専門医が処方を判断
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY ========== -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-eyebrow">なぜ、気合いでは戻らないのか</div>
+    <h2 class="h2">
+      硬さの正体は<span class="accent">血流</span>。<br>
+      心の弱さでも、加齢でもない。
+    </h2>
+    <div class="why-body">
+      <p>
+        「最近、自信がない」「歳だから仕方ない」── そう片付けてきた人ほど、<span class="mark">本当の理由を見落としている</span>可能性があります。
+      </p>
+      <p>
+        硬さに関わっているのは、神経でもメンタルでもなく、<strong>そこに流れ込む血液の量</strong>です。血管が細ければ、どれだけ気合いを入れても物理的に届きにくい。だからこそ、<strong>血管へのアプローチで変化が期待できる</strong>のです。
+      </p>
+      <p>
+        スマクリEDは、医師がオンラインで状態を確認したうえで、血管を広げる作用が期待できる治療薬を処方します。気持ちの問題として抱え込む前に、まずは状態の確認から。
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">01 / 仕組み</div>
+        <h3>血流が足りないと、硬くならない</h3>
+        <p>「やる気の問題」ではなく、物理現象。血管の内径が答えを決めています。</p>
+      </div>
+      <div class="why-card">
+        <div class="num">02 / 治療</div>
+        <h3>血管を広げる作用にアプローチ</h3>
+        <p>医師の判断のもと、状態に合わせた治療薬を処方。改善が期待できます。</p>
+      </div>
+      <div class="why-card">
+        <div class="num">03 / 受け方</div>
+        <h3>通院ゼロ・最短当日発送</h3>
+        <p>誰にも会わず、スマホで完結。薬は中身のわからない封筒でお届け。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq">
+  <div class="wrap">
+    <div class="section-eyebrow">よくある質問</div>
+    <h2 class="h2">「自分の話じゃない」と<br>思っていた人ほど、読んでほしい。</h2>
+
+    <div class="faq-list">
+      <details class="qa">
+        <summary>
+          <span class="q">Q.</span>
+          <span>EDというほど深刻ではないのですが、相談しても良いですか？</span>
+          <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <p class="a">はい。「以前ほど硬くない」「途中で萎えてしまう」など、軽い違和感の段階からご相談いただけます。多くの方が、深刻化する前の段階で受診されています。</p>
+      </details>
+
+      <details class="qa">
+        <summary>
+          <span class="q">Q.</span>
+          <span>本当に通院せず、スマホだけで完結しますか？</span>
+          <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <p class="a">無料診断 → オンライン診察 → 薬の発送まで、すべてスマホで完了します。最短当日発送、中身のわからない封筒でご自宅へお届けします。</p>
+      </details>
+
+      <details class="qa">
+        <summary>
+          <span class="q">Q.</span>
+          <span>家族や職場にバレませんか？</span>
+          <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <p class="a">発送物の差出人名・梱包は中身がわからない仕様です。クレジットカード明細にもクリニック名がそのまま出ない配慮をしています。</p>
+      </details>
+
+      <details class="qa">
+        <summary>
+          <span class="q">Q.</span>
+          <span>料金はいくらからですか？</span>
+          <span class="toggle" aria-hidden="true">+</span>
+        </summary>
+        <p class="a">月額3,980円（税込）からご利用いただけます。治療薬・本数によって変動しますので、無料診断時に最適なプランをご案内します。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CLOSER CTA ========== -->
+<section class="closer">
+  <div class="wrap">
+    <h2 class="closer-h">
+      気合いを<br>
+      <span class="accent">血流</span>に、置き換える。
+    </h2>
+    <p class="closer-sub">
+      ── ひとりで抱え込まなくて、大丈夫です。<br>
+      まずは無料診断で、状態を確認するところから。
+    </p>
+    <a class="cta-primary" href="#" aria-label="無料診断を始める">
+      <span>無料診断を始める</span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+    <p class="price-line">
+      <span class="yen">月額 3,980円（税込）〜</span>
+      <span class="sep">／</span>オンライン完結
+      <span class="sep">／</span>最短当日発送
+    </p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <p class="disclaimer">
+      ※ 効果には個人差があります。治療内容・処方は医師の判断のもと決定されます。本ページは医療広告ガイドラインに準拠した範囲で表現しています。
+    </p>
+    <div class="meta">
+      <span>© スマクリED Online Clinic</span>
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">運営会社</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FLOATING MOBILE CTA ========== -->
+<div class="float-cta" aria-hidden="false">
+  <a href="#cta">無料診断を始める ›</a>
+</div>
+
+<script>
+  // prefers-reduced-motion: reduce 対応（JSフォールバック）
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.setProperty('scroll-behavior', 'auto');
+    }
+  })();
+</script>
+
+</body>
+</html>

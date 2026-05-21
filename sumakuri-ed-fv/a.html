@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血管を太くすれば、硬くなる。 | スマクリED</title>
+<meta name="description" content="勃起の正体は、海綿体への血流量。── 循環器の話です。月額3,980円（税込）〜、オンライン完結。医師監修。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1A33;          /* ディープネイビー（医療信頼色） */
+    --ink-2:#13284D;
+    --ink-soft:#2B3C5C;
+    --line:#D8DEE8;
+    --line-soft:#ECEFF5;
+    --bg:#FFFFFF;
+    --bg-soft:#F5F7FB;
+    --muted:#5A6B85;
+    --cta:#D6303A;          /* アクセント赤（CTA限定） */
+    --cta-press:#B5252E;
+    --vein-bad:#7A8AA5;
+    --vein-good:#13284D;
+    --blood:#C9303A;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic Medium",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    font-size:18px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;}
+
+  /* ヘッダー */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.96);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:saturate(180%) blur(8px);
+  }
+  .header-inner{
+    max-width:1080px;margin:0 auto;
+    padding:12px 16px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand-mark{
+    width:32px;height:32px;border-radius:8px;
+    background:var(--ink);
+    display:grid;place-items:center;
+    color:#fff;font-weight:900;font-size:14px;letter-spacing:0.04em;
+  }
+  .brand-name{
+    font-weight:700;font-size:16px;color:var(--ink);
+    letter-spacing:0.02em;
+  }
+  .brand-sub{
+    font-size:11px;color:var(--muted);font-weight:500;
+    margin-top:1px;
+  }
+  .header-cta{
+    background:var(--cta);color:#fff;
+    padding:9px 14px;border-radius:8px;
+    font-size:13px;font-weight:700;
+    letter-spacing:0.02em;
+    transition:background .15s ease;
+  }
+  .header-cta:hover{background:var(--cta-press);}
+
+  /* メイン */
+  main{display:block;}
+
+  /* FV */
+  .fv{
+    background:#fff;
+    padding:28px 16px 40px;
+    position:relative;
+  }
+  .fv-inner{
+    max-width:780px;margin:0 auto;
+  }
+
+  .fv-supra{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);
+    background:var(--bg-soft);
+    color:var(--ink-2);
+    padding:6px 12px;border-radius:999px;
+    font-size:13px;font-weight:600;
+    margin-bottom:18px;
+    letter-spacing:0.02em;
+  }
+  .fv-supra::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--ink-2);
+  }
+
+  .fv-h1{
+    font-family:"Noto Serif JP","Noto Sans JP",serif;
+    font-weight:900;
+    color:var(--ink);
+    font-size:38px;
+    line-height:1.32;
+    letter-spacing:-0.005em;
+    margin-bottom:18px;
+  }
+  .fv-h1 .accent{
+    color:var(--ink-2);
+    background:linear-gradient(transparent 62%, rgba(214,48,58,0.16) 62%, rgba(214,48,58,0.16) 92%, transparent 92%);
+    padding:0 2px;
+  }
+
+  .fv-sub{
+    font-size:18px;
+    line-height:1.85;
+    color:var(--ink-soft);
+    font-weight:500;
+    max-width:34em;
+    margin-bottom:24px;
+  }
+  .fv-sub strong{
+    color:var(--ink);font-weight:700;
+  }
+
+  /* 図解 */
+  .diagram{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:#fff;
+    padding:18px 14px 14px;
+    margin-bottom:24px;
+  }
+  .diagram-title{
+    font-size:13px;font-weight:700;color:var(--muted);
+    letter-spacing:0.08em;
+    margin-bottom:14px;
+    text-align:center;
+  }
+  .diagram-grid{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:12px;align-items:center;
+  }
+  .vein-cell{
+    text-align:center;
+  }
+  .vein-label-top{
+    font-size:12px;font-weight:700;color:var(--muted);
+    letter-spacing:0.06em;
+    margin-bottom:8px;
+  }
+  .vein-svg-wrap{
+    background:var(--bg-soft);
+    border-radius:10px;
+    padding:14px 6px;
+    margin-bottom:10px;
+  }
+  .vein-caption{
+    font-size:13px;font-weight:600;color:var(--ink);
+    line-height:1.5;
+  }
+  .vein-caption .num{
+    display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:2px;
+  }
+  .arrow{
+    color:var(--ink-2);font-size:22px;font-weight:700;
+    padding:0 2px;
+  }
+  .diagram-foot{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    font-size:12px;color:var(--muted);line-height:1.65;
+    text-align:left;
+  }
+
+  /* CTA */
+  .cta-block{
+    margin-top:8px;
+  }
+  .cta-primary{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;
+    background:var(--cta);
+    color:#fff;
+    font-size:19px;font-weight:800;
+    letter-spacing:0.04em;
+    padding:18px 20px;
+    border-radius:12px;
+    box-shadow:0 6px 0 var(--cta-press), 0 12px 24px -8px rgba(214,48,58,0.45);
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .cta-primary:hover{background:var(--cta-press);}
+  .cta-primary:active{
+    transform:translateY(3px);
+    box-shadow:0 3px 0 var(--cta-press), 0 6px 12px -6px rgba(214,48,58,0.4);
+  }
+  .cta-primary .arrow-r{
+    font-size:22px;line-height:1;
+  }
+  .cta-meta{
+    margin-top:12px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;
+    font-size:13px;color:var(--muted);font-weight:500;
+  }
+  .cta-meta span{display:inline-flex;align-items:center;gap:5px;}
+  .cta-meta span::before{
+    content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-2);
+  }
+
+  .price-row{
+    margin-top:18px;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+    font-size:14px;color:var(--ink-soft);
+  }
+  .price-row .price{
+    color:var(--ink);font-weight:800;font-size:22px;
+    font-family:"Noto Sans JP",sans-serif;
+  }
+  .price-row .price small{
+    font-size:13px;font-weight:600;color:var(--ink-soft);margin-left:2px;
+  }
+  .price-row .sep{color:var(--line);}
+
+  /* 監修バッジ */
+  .supervised{
+    margin-top:20px;
+    display:flex;align-items:center;gap:12px;
+    border:1px solid var(--line);
+    border-left:4px solid var(--ink-2);
+    background:#fff;
+    padding:12px 14px;border-radius:10px;
+  }
+  .supervised-icon{
+    flex-shrink:0;
+    width:42px;height:42px;border-radius:50%;
+    background:var(--ink-2);color:#fff;
+    display:grid;place-items:center;
+    font-weight:900;font-size:13px;letter-spacing:0.04em;
+    font-family:"Noto Serif JP",serif;
+  }
+  .supervised-text{
+    font-size:13px;line-height:1.55;color:var(--ink-soft);
+  }
+  .supervised-text strong{color:var(--ink);font-weight:700;display:block;font-size:14px;margin-bottom:2px;}
+
+  /* セクション共通 */
+  .section{
+    padding:48px 16px;
+  }
+  .section.alt{background:var(--bg-soft);}
+  .section-inner{
+    max-width:780px;margin:0 auto;
+  }
+  .section-eyebrow{
+    font-size:12px;font-weight:700;
+    color:var(--ink-2);
+    letter-spacing:0.14em;
+    margin-bottom:10px;
+  }
+  .section-h2{
+    font-family:"Noto Serif JP",serif;
+    font-weight:900;
+    color:var(--ink);
+    font-size:26px;line-height:1.45;
+    margin-bottom:18px;
+  }
+  .section-lead{
+    font-size:17px;line-height:1.85;color:var(--ink-soft);
+    max-width:34em;margin-bottom:24px;
+  }
+
+  /* なぜ血管か */
+  .reason-list{
+    display:grid;gap:14px;
+  }
+  .reason-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 18px;
+  }
+  .reason-num{
+    display:inline-block;
+    font-family:"Noto Serif JP",serif;
+    font-weight:700;color:var(--ink-2);
+    font-size:14px;letter-spacing:0.08em;
+    margin-bottom:6px;
+  }
+  .reason-title{
+    font-size:17px;font-weight:700;color:var(--ink);
+    margin-bottom:8px;line-height:1.55;
+  }
+  .reason-body{
+    font-size:15px;line-height:1.75;color:var(--ink-soft);
+  }
+
+  /* FAQ */
+  .faq{display:grid;gap:10px;}
+  .faq-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;
+    display:flex;align-items:flex-start;gap:10px;
+    padding:16px 16px;
+    text-align:left;
+    font-size:16px;font-weight:700;color:var(--ink);
+    line-height:1.55;
+  }
+  .faq-q .q-mark{
+    flex-shrink:0;
+    width:24px;height:24px;border-radius:6px;
+    background:var(--ink-2);color:#fff;
+    display:grid;place-items:center;
+    font-family:"Noto Serif JP",serif;
+    font-size:14px;font-weight:700;
+    margin-top:1px;
+  }
+  .faq-a{
+    padding:0 16px 16px 50px;
+    font-size:15px;line-height:1.8;color:var(--ink-soft);
+  }
+
+  /* ボトムCTA */
+  .bottom-cta{
+    background:var(--ink);
+    color:#fff;
+    padding:44px 16px;
+    text-align:center;
+  }
+  .bottom-cta h2{
+    font-family:"Noto Serif JP",serif;
+    font-weight:900;
+    font-size:24px;line-height:1.5;
+    margin-bottom:8px;
+  }
+  .bottom-cta p{
+    font-size:15px;color:#C7D0DF;
+    margin-bottom:20px;
+    max-width:30em;margin-left:auto;margin-right:auto;
+  }
+  .bottom-cta .cta-primary{
+    max-width:420px;margin:0 auto;
+  }
+
+  /* フッター */
+  .footer{
+    background:#0A1428;color:#8898B5;
+    padding:24px 16px 32px;
+    font-size:12px;line-height:1.7;
+  }
+  .footer-inner{max-width:780px;margin:0 auto;}
+  .footer-disclaim{
+    border:1px solid #1B2A45;
+    border-radius:8px;
+    padding:12px 14px;
+    margin-bottom:14px;
+    color:#A6B5CF;
+  }
+  .footer-meta{
+    display:flex;flex-wrap:wrap;gap:10px 16px;
+    color:#6E7E9C;
+  }
+
+  /* 心拍アニメ（1つだけ・FV右上の小さなインジケータ） */
+  .pulse-dot{
+    position:absolute;
+    top:18px;right:16px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--cta);
+    box-shadow:0 0 0 0 rgba(214,48,58,0.55);
+    animation:pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(214,48,58,0.55);}
+    70%{box-shadow:0 0 0 12px rgba(214,48,58,0);}
+    100%{box-shadow:0 0 0 0 rgba(214,48,58,0);}
+  }
+
+  /* 動き低減 */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:0.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.001ms !important;
+      scroll-behavior:auto !important;
+    }
+    .pulse-dot{animation:none;}
+  }
+
+  /* スマホ調整 */
+  @media (max-width:380px){
+    .fv-h1{font-size:32px;line-height:1.34;}
+    .section-h2{font-size:22px;}
+    .header-cta{padding:8px 11px;font-size:12px;}
+    .brand-name{font-size:15px;}
+  }
+
+  /* タブレット以上 */
+  @media (min-width:720px){
+    .fv{padding:48px 24px 64px;}
+    .fv-h1{font-size:54px;line-height:1.28;}
+    .fv-sub{font-size:19px;}
+    .section{padding:64px 24px;}
+    .section-h2{font-size:32px;}
+    .cta-primary{font-size:21px;padding:20px 24px;}
+    .header-inner{padding:14px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="brand" aria-label="スマクリED">
+      <span class="brand-mark" aria-hidden="true">SC</span>
+      <span>
+        <span class="brand-name">スマクリED</span>
+        <span class="brand-sub" style="display:block;">オンライン診療</span>
+      </span>
+    </a>
+    <a href="#cta" class="header-cta">無料診断へ</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ FV ============ -->
+  <section class="fv" aria-labelledby="fv-h1">
+    <span class="pulse-dot" aria-hidden="true"></span>
+    <div class="fv-inner">
+
+      <span class="fv-supra">医師監修・循環器系オンライン治療</span>
+
+      <h1 id="fv-h1" class="fv-h1">
+        血管を太くすれば、<br><span class="accent">硬くなる。</span>
+      </h1>
+
+      <p class="fv-sub">
+        勃起の正体は、海綿体への<strong>血流量</strong>。<br>
+        ── これは気持ちでも、老化でもなく、<strong>循環器の話</strong>です。
+      </p>
+
+      <!-- Before/After 血管図解 -->
+      <figure class="diagram" aria-label="血管断面の比較図">
+        <div class="diagram-title">海綿体動脈：内腔の比較（模式図）</div>
+
+        <div class="diagram-grid">
+          <!-- BEFORE -->
+          <div class="vein-cell">
+            <div class="vein-label-top">治療前 <span style="font-size:10px;opacity:0.7;font-weight:600;">BEFORE</span></div>
+            <div class="vein-svg-wrap">
+              <svg viewBox="0 0 120 120" width="100%" height="110" role="img" aria-label="細い血管の断面">
+                <!-- 血管壁 -->
+                <circle cx="60" cy="60" r="48" fill="#fff" stroke="#7A8AA5" stroke-width="2"/>
+                <!-- 内壁（厚い＝動脈硬化のイメージ） -->
+                <circle cx="60" cy="60" r="42" fill="#E7ECF3" stroke="#A8B5CC" stroke-width="1"/>
+                <!-- 内腔（狭い） -->
+                <circle cx="60" cy="60" r="14" fill="#C9303A" opacity="0.85"/>
+                <!-- 矢印（細い流れ） -->
+                <path d="M60 60 L60 60" stroke="#C9303A" stroke-width="2"/>
+                <text x="60" y="64" font-size="9" text-anchor="middle" fill="#fff" font-weight="700" font-family="Noto Sans JP, sans-serif">血流↓</text>
+              </svg>
+            </div>
+            <div class="vein-caption">
+              内腔が狭く、流入量が不足
+              <span class="num">→ 充血が起きにくい状態</span>
+            </div>
+          </div>
+
+          <div class="arrow" aria-hidden="true">→</div>
+
+          <!-- AFTER -->
+          <div class="vein-cell">
+            <div class="vein-label-top" style="color:var(--ink-2);">治療後 <span style="font-size:10px;opacity:0.7;font-weight:600;">AFTER</span></div>
+            <div class="vein-svg-wrap" style="background:#EAF0FA;">
+              <svg viewBox="0 0 120 120" width="100%" height="110" role="img" aria-label="拡張した血管の断面">
+                <circle cx="60" cy="60" r="48" fill="#fff" stroke="#13284D" stroke-width="2"/>
+                <circle cx="60" cy="60" r="44" fill="#F4F7FC" stroke="#13284D" stroke-width="1" stroke-dasharray="2 3"/>
+                <circle cx="60" cy="60" r="32" fill="#C9303A" opacity="0.92"/>
+                <text x="60" y="64" font-size="11" text-anchor="middle" fill="#fff" font-weight="700" font-family="Noto Sans JP, sans-serif">血流↑</text>
+              </svg>
+            </div>
+            <div class="vein-caption">
+              内腔が拡張し、血流量が増加
+              <span class="num">→ 海綿体への充血が起こる</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="diagram-foot">
+          ※ PDE5阻害薬は、cGMPの分解を抑制することで陰茎海綿体の動脈・洞様隙を拡張させ、血流量を増やす作用機序を持ちます（医師判断のもと処方）。図は説明用の模式図です。
+        </p>
+      </figure>
+
+      <!-- CTA -->
+      <div class="cta-block" id="cta">
+        <a href="#" class="cta-primary">
+          <span>無料診断を始める</span>
+          <span class="arrow-r" aria-hidden="true">›</span>
+        </a>
+        <div class="cta-meta">
+          <span>所要 約3分</span>
+          <span>来院不要</span>
+          <span>診察料0円</span>
+        </div>
+      </div>
+
+      <!-- 価格 -->
+      <div class="price-row">
+        <span>月額</span>
+        <span class="price">3,980<small>円（税込）〜</small></span>
+        <span class="sep" aria-hidden="true">／</span>
+        <span>オンライン完結</span>
+        <span class="sep" aria-hidden="true">／</span>
+        <span>最短当日発送</span>
+      </div>
+
+      <!-- 監修バッジ -->
+      <div class="supervised">
+        <div class="supervised-icon" aria-hidden="true">医監</div>
+        <div class="supervised-text">
+          <strong>医療法人スマクリED 監修ドクター（内科・泌尿器科の専門医チーム）</strong>
+          常勤医師12名体制で、PDE5阻害薬を中心とした循環器系治療を、提携医師の判断のもとオンライン処方しています。
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ なぜ血管か ============ -->
+  <section class="section alt" aria-labelledby="why-h">
+    <div class="section-inner">
+      <div class="section-eyebrow">WHY VESSELS</div>
+      <h2 id="why-h" class="section-h2">なぜ「気持ち」ではなく<br>「血管」の話なのか。</h2>
+      <p class="section-lead">
+        勃起は、陰茎海綿体に血液が流れ込み、内部の圧力が高まることで起こる生理現象です。<br>
+        つまり、起点はメンタルでも年齢でもなく、<strong>血流</strong>です。
+      </p>
+
+      <div class="reason-list">
+        <article class="reason-item">
+          <div class="reason-num">— 01</div>
+          <h3 class="reason-title">勃起＝海綿体への血液流入</h3>
+          <p class="reason-body">
+            性的刺激により放出されたNO（一酸化窒素）が、陰茎の血管を弛緩させ、血流量を一気に増やすことで勃起が成立します。
+          </p>
+        </article>
+
+        <article class="reason-item">
+          <div class="reason-num">— 02</div>
+          <h3 class="reason-title">硬さが続かないのは「流入量不足」</h3>
+          <p class="reason-body">
+            動脈硬化・運動不足・喫煙などにより内腔が狭くなると、必要な血流量に届かず、勃起の維持が難しくなる傾向があります。
+          </p>
+        </article>
+
+        <article class="reason-item">
+          <div class="reason-num">— 03</div>
+          <h3 class="reason-title">PDE5阻害薬は血流を回復させる</h3>
+          <p class="reason-body">
+            医師判断のもと処方されるPDE5阻害薬は、血管拡張に関わるcGMPの分解を抑制し、海綿体への血流改善が期待できる治療薬です。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" aria-labelledby="faq-h">
+    <div class="section-inner">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 id="faq-h" class="section-h2">よくあるご質問</h2>
+
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="q-mark" aria-hidden="true">Q</span>
+            <span>ED自覚はないのですが、相談してよいですか？</span>
+          </button>
+          <div class="faq-a">
+            「最近、硬さが続かない」「立ち上がりが鈍い」といった軽度の自覚で来院・相談される方も多くいらっしゃいます。血流の問題は早期介入ほど選択肢が広がります。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="q-mark" aria-hidden="true">Q</span>
+            <span>本当にオンラインで完結しますか？</span>
+          </button>
+          <div class="faq-a">
+            問診・医師診察・処方・配送までスマートフォン1台で完結します。来院は不要です（医師判断により対面受診をお願いする場合があります）。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="q-mark" aria-hidden="true">Q</span>
+            <span>料金体系を教えてください。</span>
+          </button>
+          <div class="faq-a">
+            診察料は無料、お薬代のみの実費負担で、月額3,980円（税込）〜からご利用いただけます。詳細は診察時にご案内します。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="q-mark" aria-hidden="true">Q</span>
+            <span>副作用が心配です。</span>
+          </button>
+          <div class="faq-a">
+            PDE5阻害薬には頭痛・ほてり等の副作用が報告されています。既往歴・併用薬を踏まえ、医師判断のもと安全な処方を行います。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ボトムCTA ============ -->
+  <section class="bottom-cta">
+    <h2>血管の話なら、<br>今日から始められます。</h2>
+    <p>3分の無料診断で、あなたに合った治療方針を医師が判断します。</p>
+    <a href="#" class="cta-primary">
+      <span>無料診断を始める</span>
+      <span class="arrow-r" aria-hidden="true">›</span>
+    </a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-disclaim">
+      本ページは医師監修のもと作成された情報提供コンテンツです。掲載内容は治療効果を保証するものではなく、効果には個人差があります。処方の可否は医師の診察と判断に基づきます。
+    </div>
+    <div class="footer-meta">
+      <span>運営：スマクリED</span>
+      <span>特定商取引法に基づく表記</span>
+      <span>プライバシーポリシー</span>
+      <span>医療広告ガイドライン遵守</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
