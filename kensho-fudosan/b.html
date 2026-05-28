@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小平の非公開物件を、LINEで毎週お届け。｜健匠不動産</title>
+<meta name="description" content="希望条件をLINEで送るだけ。小平＋近隣7市から、あなたに合う物件を担当者が厳選してお届け。営業電話は一切いたしません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --base: #FAF7F2;
+  --base-warm: #F5EFE6;
+  --main: #2D4A3B;
+  --main-light: #4A6B5A;
+  --accent: #C19A6B;
+  --accent-light: #D9BC95;
+  --text: #2D2D2D;
+  --text-sub: #5C5C5C;
+  --cta: #06C755;
+  --cta-hover: #05B04A;
+  --border: #E5DDD0;
+  --line-bg: #8EA3BD;
+  --line-talk-bg: #87A6BF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--base);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 88px;
+}
+h1 { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; font-weight: 600; color: var(--main); line-height: 1.5; }
+h2, h3 { font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; font-weight: 700; color: var(--main); line-height: 1.5; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* === ヘッダー === */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,242,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-family: "Noto Serif JP", serif; font-size: 20px; font-weight: 700; color: var(--main); }
+.logo small { font-family: "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 400; color: var(--text-sub); display: block; line-height: 1; }
+.header-cta {
+  background: var(--cta); color: #fff; padding: 12px 24px; border-radius: 28px;
+  font-weight: 700; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center;
+  transition: background .2s;
+}
+.header-cta:hover { background: var(--cta-hover); }
+
+/* === FV === */
+.fv {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+  min-height: 92vh; background: var(--base);
+  align-items: center;
+}
+.fv-text {
+  padding: 80px 56px;
+}
+.fv-eyebrow {
+  color: var(--accent); font-size: 14px; font-weight: 500; letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.fv-eyebrow::before { content: "—— "; }
+.fv h1 {
+  font-size: clamp(28px, 4.2vw, 46px); line-height: 1.5;
+  margin-bottom: 28px;
+}
+.fv h1 .highlight {
+  background: linear-gradient(transparent 60%, rgba(193,154,107,0.35) 60%);
+  padding: 0 4px;
+}
+.fv-sub {
+  font-size: 17px; color: var(--text-sub); line-height: 1.9; margin-bottom: 32px;
+  max-width: 34em;
+}
+.fv-badges {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px;
+}
+.badge {
+  background: #fff; border: 1px solid var(--border); padding: 14px 18px; border-radius: 10px;
+}
+.badge-label { font-size: 11px; color: var(--text-sub); margin-bottom: 4px; }
+.badge-value { font-size: 17px; font-weight: 700; color: var(--main); font-family: "Noto Sans JP", sans-serif; line-height: 1.4; }
+.badge-note { font-size: 10px; color: var(--text-sub); margin-top: 2px; }
+.fv-promise {
+  background: #fff; border-left: 4px solid var(--cta);
+  padding: 14px 18px; border-radius: 8px; margin-bottom: 20px;
+  font-size: 14px; color: var(--main); font-weight: 500;
+}
+.cta-button {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--cta); color: #fff; font-weight: 700;
+  padding: 20px 28px; min-height: 64px; border-radius: 32px; font-size: 18px;
+  transition: all .2s; box-shadow: 0 6px 20px rgba(6,199,85,0.3);
+}
+.cta-button:hover { background: var(--cta-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(6,199,85,0.4); }
+.cta-button::before { content: ""; width: 22px; height: 22px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314'/%3E%3C/svg%3E") no-repeat center / contain; }
+.cta-sub {
+  font-size: 13px; color: var(--text-sub); text-align: center; margin-top: 12px; line-height: 1.7;
+}
+
+/* === FV スマホモック === */
+.fv-mock-wrap {
+  display: flex; justify-content: center; align-items: center; padding: 40px;
+}
+.phone-mock {
+  width: 320px; height: 640px; background: #1a1a1a;
+  border-radius: 44px; padding: 12px; box-shadow: 0 30px 60px rgba(45,74,59,0.25), 0 10px 30px rgba(45,74,59,0.15);
+  position: relative;
+}
+.phone-mock::before {
+  content: ""; position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 24px; background: #1a1a1a; border-radius: 0 0 16px 16px; z-index: 10;
+}
+.phone-screen {
+  width: 100%; height: 100%; background: var(--line-talk-bg);
+  border-radius: 32px; overflow: hidden; display: flex; flex-direction: column;
+}
+.line-header {
+  background: #4A6B5A; color: #fff; padding: 42px 16px 12px;
+  display: flex; align-items: center; gap: 10px; font-size: 14px;
+}
+.line-avatar {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--accent);
+  display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff;
+}
+.line-name { font-weight: 700; }
+.line-status { font-size: 11px; opacity: 0.8; }
+.line-talk {
+  flex: 1; padding: 16px 12px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.talk-time { text-align: center; font-size: 10px; color: rgba(255,255,255,0.7); margin: 4px 0; }
+.talk-bubble {
+  background: #fff; padding: 12px 14px; border-radius: 14px;
+  max-width: 75%; font-size: 12px; line-height: 1.6; color: #2D2D2D;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  animation: bubbleIn 0.5s ease-out backwards;
+}
+.talk-bubble:nth-child(2) { animation-delay: 0.3s; }
+.talk-bubble:nth-child(3) { animation-delay: 0.8s; }
+.talk-bubble:nth-child(4) { animation-delay: 1.3s; }
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.talk-property {
+  background: #fff; border-radius: 10px; padding: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  display: flex; gap: 10px; align-items: center; font-size: 11px;
+}
+.talk-property-img {
+  width: 60px; height: 50px; background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  border-radius: 6px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: #fff;
+}
+.talk-property-info { flex: 1; line-height: 1.4; color: #2D2D2D; }
+.talk-property-price { font-weight: 700; color: var(--main); font-size: 13px; }
+
+/* === セクション共通 === */
+section { padding: 96px 32px; }
+.container { max-width: 1080px; margin: 0 auto; }
+.section-eyebrow {
+  text-align: center; color: var(--accent); font-size: 13px; letter-spacing: 0.15em;
+  margin-bottom: 12px; font-weight: 500;
+}
+.section-title {
+  text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 56px; line-height: 1.5;
+}
+
+/* === なぜLINE === */
+.why-section { background: var(--base-warm); }
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 880px; margin: 0 auto; }
+.why-card {
+  background: #fff; padding: 36px 32px; border-radius: 16px; border-left: 4px solid var(--cta);
+}
+.why-num { font-family: "Noto Serif JP", serif; color: var(--accent); font-size: 14px; margin-bottom: 8px; letter-spacing: 0.1em; }
+.why-card h3 { font-size: 20px; margin-bottom: 12px; }
+.why-card p { font-size: 15px; color: var(--text-sub); line-height: 1.9; }
+
+/* === 3ステップ === */
+.step-grid {
+  display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; gap: 0; align-items: stretch;
+  max-width: 980px; margin: 0 auto;
+}
+.step-card {
+  background: #fff; padding: 36px 28px; border-radius: 16px; text-align: center;
+  border: 1px solid var(--border);
+}
+.step-num {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--cta); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-family: "Noto Serif JP", serif;
+  font-size: 24px; font-weight: 600; margin: 0 auto 16px;
+}
+.step-card h3 { font-size: 18px; margin-bottom: 8px; }
+.step-card p { font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+.step-time { font-size: 12px; color: var(--accent); font-weight: 700; margin-top: 8px; }
+.step-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--accent);
+}
+
+/* === 物件サンプル === */
+.sample-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sample-card {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border); transition: transform .2s, box-shadow .2s;
+}
+.sample-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(45,74,59,0.1); }
+.sample-img {
+  height: 180px; background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center; color: #fff;
+  position: relative; overflow: hidden;
+}
+.sample-img::after {
+  content: "LINE登録で公開"; position: absolute; bottom: 12px; right: 12px;
+  background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 700;
+}
+.sample-body { padding: 20px; }
+.sample-tag { font-size: 11px; color: var(--accent); margin-bottom: 6px; font-weight: 500; }
+.sample-card h3 { font-size: 17px; margin-bottom: 12px; }
+.sample-info { display: flex; gap: 12px; font-size: 13px; color: var(--text-sub); flex-wrap: wrap; }
+.sample-price { font-family: "Noto Serif JP", serif; color: var(--main); font-size: 22px; font-weight: 700; margin-top: 12px; }
+
+/* === 信頼バンド === */
+.trust-band { background: var(--main); color: #fff; padding: 56px 32px; }
+.trust-content {
+  max-width: 880px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;
+}
+.trust-num {
+  font-family: "Noto Serif JP", serif; font-size: 38px; font-weight: 700;
+  color: var(--accent-light); line-height: 1;
+}
+.trust-label { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 8px; }
+
+/* === 代表（縮小版） === */
+.rep-mini-section { background: var(--base-warm); }
+.rep-mini-grid { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center; max-width: 720px; margin: 0 auto; }
+.rep-mini-photo {
+  width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; text-align: center; font-size: 12px; border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(45,74,59,0.15);
+}
+.rep-mini-text h3 { font-size: 24px; margin-bottom: 4px; }
+.rep-mini-role { color: var(--accent); font-size: 13px; margin-bottom: 16px; }
+.rep-mini-text p { font-size: 15px; color: var(--text); }
+
+/* === お客様の声 === */
+.voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 880px; margin: 0 auto; }
+.voice-card {
+  background: #fff; padding: 32px 28px; border-radius: 16px;
+  border: 1px solid var(--border);
+}
+.voice-stars { color: #F5C518; font-size: 16px; margin-bottom: 12px; letter-spacing: 0.1em; }
+.voice-text { font-size: 16px; line-height: 1.9; margin-bottom: 20px; }
+.voice-meta { font-size: 13px; color: var(--text-sub); }
+.voice-source { color: var(--accent); font-weight: 500; }
+
+/* === メインCTAセクション === */
+.cta-section {
+  background: var(--main);
+  color: #fff; padding: 96px 32px;
+}
+.cta-section .section-title { color: #fff; margin-bottom: 24px; }
+.cta-section .section-eyebrow { color: var(--accent-light); }
+.cta-intro { text-align: center; color: rgba(255,255,255,0.9); max-width: 620px; margin: 0 auto 40px; font-size: 16px; }
+.cta-benefits {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  max-width: 720px; margin: 0 auto 40px;
+}
+.cta-benefit {
+  background: rgba(255,255,255,0.1); padding: 20px 16px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15); text-align: center;
+}
+.cta-benefit-num { font-family: "Noto Serif JP", serif; font-size: 14px; color: var(--accent-light); margin-bottom: 8px; letter-spacing: 0.1em; }
+.cta-benefit-label { font-size: 14px; color: #fff; font-weight: 700; }
+.cta-benefit-note { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 4px; line-height: 1.6; }
+.cta-main-btn-wrap { max-width: 480px; margin: 0 auto; }
+.cta-promise-strong {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px; padding: 14px; margin-bottom: 20px;
+  text-align: center; font-size: 14px; color: #fff; font-weight: 500;
+}
+.cta-main-btn-wrap .cta-sub { color: rgba(255,255,255,0.85); }
+
+/* === FAQ === */
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border); padding: 24px 0;
+}
+.faq-q {
+  font-weight: 700; color: var(--main); margin-bottom: 12px; padding-left: 32px; position: relative;
+  font-size: 17px;
+}
+.faq-q::before {
+  content: "Q"; position: absolute; left: 0; top: 0;
+  font-family: "Noto Serif JP", serif; color: var(--accent); font-size: 20px; font-weight: 600;
+}
+.faq-a { padding-left: 32px; color: var(--text-sub); font-size: 15px; position: relative; }
+.faq-a::before {
+  content: "A"; position: absolute; left: 0; top: 0;
+  font-family: "Noto Serif JP", serif; color: var(--main-light); font-size: 18px; font-weight: 600;
+}
+
+/* === フッター === */
+footer {
+  background: var(--main); color: rgba(255,255,255,0.9); padding: 56px 32px 32px;
+}
+.footer-info { max-width: 1080px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; margin-bottom: 32px; }
+.footer-logo { font-family: "Noto Serif JP", serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.footer-address { font-size: 14px; line-height: 1.9; }
+.footer-license { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 16px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; font-size: 12px; color: rgba(255,255,255,0.6); text-align: center; }
+
+/* === SPフローティングCTA === */
+.floating-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border); padding: 12px 16px;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+}
+.floating-cta .cta-button { width: 100%; font-size: 16px; padding: 16px; min-height: 56px; }
+
+/* === レスポンシブ === */
+@media (max-width: 920px) {
+  .fv { grid-template-columns: 1fr; min-height: auto; }
+  .fv-text { padding: 56px 24px; }
+  .fv-mock-wrap { padding: 16px 24px 56px; }
+  .phone-mock { transform: scale(0.85); }
+  section { padding: 64px 20px; }
+  .why-grid, .sample-grid, .voice-grid, .cta-benefits { grid-template-columns: 1fr; }
+  .step-grid { grid-template-columns: 1fr; gap: 16px; }
+  .step-arrow { transform: rotate(90deg); padding: 8px; }
+  .trust-content { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .rep-mini-grid { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+  .rep-mini-photo { margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .floating-cta { display: block; }
+  header .header-cta { display: none; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .fv h1 { font-size: 26px; }
+  .section-title { font-size: 22px; margin-bottom: 40px; }
+  header { padding: 12px 16px; }
+  .logo { font-size: 17px; }
+  .phone-mock { transform: scale(0.75); transform-origin: top center; height: 580px; }
+  .trust-num { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .talk-bubble { animation: none !important; opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">健匠不動産<small>けんしょう不動産｜小平市</small></div>
+  <a href="#cta" class="header-cta">LINE登録</a>
+</header>
+
+<!-- ============ FV ============ -->
+<section class="fv">
+  <div class="fv-text">
+    <div class="fv-eyebrow">小平市・一橋学園｜LINEで届く物件配信サービス</div>
+    <h1>
+      学区そのまま、予算内で。<br>
+      <span class="highlight">小平の家</span>を探す。
+    </h1>
+    <p class="fv-sub">
+      希望条件をLINEで送るだけ。小平＋近隣7市から、<br>
+      あなたに合う物件を、担当者が厳選して毎週お届けします。
+    </p>
+    <div class="fv-badges">
+      <div class="badge">
+        <div class="badge-label">★ Googleクチコミ</div>
+        <div class="badge-value">5.0 ／ 38件</div>
+        <div class="badge-note">2026年5月時点</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">対応エリア</div>
+        <div class="badge-value">小平＋7市</div>
+        <div class="badge-note">一橋学園駅 徒歩3分</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">担当者</div>
+        <div class="badge-value">FP×宅建士 11年</div>
+        <div class="badge-note">代表が直接対応</div>
+      </div>
+      <div class="badge">
+        <div class="badge-label">登録〜配信開始</div>
+        <div class="badge-value">最短3分</div>
+        <div class="badge-note">所要1分の条件入力のみ</div>
+      </div>
+    </div>
+    <div class="fv-promise">
+      ▶ お電話での営業は一切いたしません。やり取りはすべてLINEで完結します。
+    </div>
+    <a href="#cta" class="cta-button">LINEで物件提案を受け取る（無料）</a>
+    <div class="cta-sub">
+      ①友だち追加 ②希望条件を選択 ③物件が届く<br>
+      所要3分・登録だけでもOK・いつでもブロック可能
+    </div>
+  </div>
+  <div class="fv-mock-wrap">
+    <div class="phone-mock">
+      <div class="phone-screen">
+        <div class="line-header">
+          <div class="line-avatar">健</div>
+          <div>
+            <div class="line-name">健匠不動産</div>
+            <div class="line-status">小平市の物件をLINEでお届け</div>
+          </div>
+        </div>
+        <div class="line-talk">
+          <div class="talk-time">14:32</div>
+          <div class="talk-bubble">こんにちは！希望条件に合う今週の新着物件、3件お送りしますね 🏡</div>
+          <div class="talk-property">
+            <div class="talk-property-img">物件①</div>
+            <div class="talk-property-info">
+              【小平市・学園西町】中古戸建<br>
+              4LDK／土地128㎡<br>
+              <span class="talk-property-price">4,280万円</span>
+            </div>
+          </div>
+          <div class="talk-property">
+            <div class="talk-property-img">物件②</div>
+            <div class="talk-property-info">
+              【国分寺市・本町】中古マンション<br>
+              3LDK／75㎡<br>
+              <span class="talk-property-price">3,980万円</span>
+            </div>
+          </div>
+          <div class="talk-bubble" style="background:var(--accent); color:#fff;">気になる物件があれば「①」とだけ送ってください 😊</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 信頼バンド ============ -->
+<section class="trust-band">
+  <div class="trust-content">
+    <div>
+      <div class="trust-num">5.0</div>
+      <div class="trust-label">Googleクチコミ評価<br>（全38件）</div>
+    </div>
+    <div>
+      <div class="trust-num">8<small style="font-size:18px;">市</small></div>
+      <div class="trust-label">対応エリア<br>（小平＋近隣7市）</div>
+    </div>
+    <div>
+      <div class="trust-num">11<small style="font-size:18px;">年</small></div>
+      <div class="trust-label">業界経験<br>（代表・宅建士）</div>
+    </div>
+    <div>
+      <div class="trust-num">0<small style="font-size:18px;">円</small></div>
+      <div class="trust-label">LINE登録料・<br>住宅ローン相談料</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ なぜLINE ============ -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-eyebrow">なぜLINEなのか</div>
+    <h2 class="section-title">SUUMOで探す時代は、<br>もう終わり。</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">理由 01</div>
+        <h3>毎日チェックしなくていい</h3>
+        <p>条件を一度登録すれば、新着物件が出た時だけLINEに届きます。仕事や育児の合間にスマホを見るだけ。SUUMOを開く手間がゼロに。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">理由 02</div>
+        <h3>電話営業ゼロ</h3>
+        <p>「問い合わせ」した瞬間に営業電話が鳴り出す、よくある不動産あるあるとは無縁です。気になる物件があれば、LINEでひと言「見たい」と送るだけ。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">理由 03</div>
+        <h3>非公開物件が届く</h3>
+        <p>SUUMOやHOME'Sに出ない、小平エリアの未公開物件もLINE登録者限定で配信。一般の方より早く、好条件の物件を知ることができます。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">理由 04</div>
+        <h3>住宅ローンも同時相談OK</h3>
+        <p>代表がファイナンシャルプランナー資格保有。「この物件、ローンいくらまで通る？」もLINEで聞けます。銀行比較・返済シミュレーションも無料。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3ステップ ============ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">3ステップで開始</div>
+    <h2 class="section-title">所要3分。<br>登録から物件配信まで。</h2>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>LINE友だち追加</h3>
+        <p>下のボタンをタップして友だち追加。</p>
+        <div class="step-time">所要 10秒</div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>希望条件を選択</h3>
+        <p>学区・駅・予算・間取りを選択肢から選ぶだけ。</p>
+        <div class="step-time">所要 1〜3分</div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>物件が届く</h3>
+        <p>毎週金曜18時に、条件に合う物件をLINE配信。</p>
+        <div class="step-time">登録の翌週から</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 物件サンプル ============ -->
+<section style="background:var(--base-warm);">
+  <div class="container">
+    <div class="section-eyebrow">配信される物件サンプル</div>
+    <h2 class="section-title">こんな物件が、<br>毎週LINEに届きます</h2>
+    <div class="sample-grid">
+      <div class="sample-card">
+        <div class="sample-img">物件画像</div>
+        <div class="sample-body">
+          <div class="sample-tag">小平市・学園西町</div>
+          <h3>中古戸建・南向き</h3>
+          <div class="sample-info">
+            <span>4LDK</span><span>土地 128㎡</span><span>築12年</span>
+          </div>
+          <div class="sample-price">4,280<small style="font-size:14px;">万円</small></div>
+        </div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-img">物件画像</div>
+        <div class="sample-body">
+          <div class="sample-tag">国分寺市・本町</div>
+          <h3>中古マンション・駅徒歩5分</h3>
+          <div class="sample-info">
+            <span>3LDK</span><span>75㎡</span><span>築8年</span>
+          </div>
+          <div class="sample-price">3,980<small style="font-size:14px;">万円</small></div>
+        </div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-img">物件画像</div>
+        <div class="sample-body">
+          <div class="sample-tag">東村山市・恩多町</div>
+          <h3>新築戸建・小学校 徒歩7分</h3>
+          <div class="sample-info">
+            <span>4LDK</span><span>土地 110㎡</span><span>新築</span>
+          </div>
+          <div class="sample-price">4,580<small style="font-size:14px;">万円</small></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px; color:var(--text-sub); font-size:14px;">
+      ※ 表示物件はサンプルです。LINE登録後、ご希望条件に合う実在の物件をお送りします。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 対応エリア ============ -->
+<section style="background: var(--main); color: #fff;">
+  <div class="container" style="text-align:center;">
+    <div class="section-eyebrow" style="color: var(--accent-light);">対応エリア</div>
+    <h2 class="section-title" style="color: #fff;">小平市＋近隣7市、<br>すべて対応いたします</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 720px; margin: 0 auto 24px;">
+      <span style="background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 28px; font-weight: 500; font-size: 15px;">小平市（メインエリア）</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">東村山市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">国分寺市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">小金井市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">西東京市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">東久留米市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">東大和市</span>
+      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 12px 22px; border-radius: 28px; font-size: 15px;">立川市</span>
+    </div>
+    <p style="color: rgba(255,255,255,0.8); font-size: 14px;">上記エリア以外でも、ご相談内容によっては対応可能です。お気軽にLINEでご相談ください。</p>
+  </div>
+</section>
+
+<!-- ============ 代表（縮小版） ============ -->
+<section class="rep-mini-section">
+  <div class="container">
+    <div class="section-eyebrow">担当者のご紹介</div>
+    <h2 class="section-title">物件をお送りするのは、<br>こちらの代表です</h2>
+    <div class="rep-mini-grid">
+      <div class="rep-mini-photo">
+        代表写真<br>プレースホルダー
+      </div>
+      <div class="rep-mini-text">
+        <h3>穂本 健太郎</h3>
+        <div class="rep-mini-role">代表取締役｜宅地建物取引士｜2級FP技能士</div>
+        <p>不動産業界での経験11年。LINEでの物件配信から内見のご案内、住宅ローン相談、ご契約まで、すべて代表が直接対応いたします。「営業っぽい連絡」は一切いたしません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ お客様の声 ============ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">お客様の声</div>
+    <h2 class="section-title">小平で家を買われた、<br>ご家族の声</h2>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「最初のお電話からとても丁寧で印象が良かったです。家の構造やつくり、設備の特徴などを分かりやすく説明してくださり、ご自身の家づくりの経験を踏まえたアドバイスも大変参考になりました。」</p>
+        <div class="voice-meta">小平市内・ご家族／<span class="voice-source">Googleクチコミより</span></div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「希望に合わせて値段交渉も頑張ってくださり、相談した際の対応もいつも早く安心してお願いできました。住宅ローンの組み方まで一緒に考えていただけて、本当に心強かったです。」</p>
+        <div class="voice-meta">国分寺市内・ご家族／<span class="voice-source">Googleクチコミより</span></div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px; color:var(--text-sub); font-size:14px;">
+      Googleクチコミ <strong style="color:var(--main);">★5.0 ／ 38件</strong> の評価をいただいています（2026年5月時点）
+    </p>
+  </div>
+</section>
+
+<!-- ============ メインCTA ============ -->
+<section id="cta" class="cta-section">
+  <div class="container">
+    <div class="section-eyebrow">LINE友だち追加</div>
+    <h2 class="section-title">今すぐLINEに登録して、<br>今週の物件を受け取る</h2>
+    <p class="cta-intro">SUUMOやHOME'Sでは見つからない物件も、毎週金曜お届け。<br>登録は10秒・無料・いつでも退会できます。</p>
+    <div class="cta-benefits">
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">特典 01</div>
+        <div class="cta-benefit-label">非公開物件レポート</div>
+        <div class="cta-benefit-note">一般サイト未掲載の<br>小平エリア限定情報</div>
+      </div>
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">特典 02</div>
+        <div class="cta-benefit-label">学区マップ付き相場表</div>
+        <div class="cta-benefit-note">学区を変えずに<br>買えるエリアの相場</div>
+      </div>
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">特典 03</div>
+        <div class="cta-benefit-label">FP無料ローン診断</div>
+        <div class="cta-benefit-note">無理なく返せる<br>予算を個別診断</div>
+      </div>
+    </div>
+    <div class="cta-main-btn-wrap">
+      <div class="cta-promise-strong">
+        ▶ お電話での営業は一切いたしません<br>
+        やり取りはすべてLINEで完結します
+      </div>
+      <a href="#" class="cta-button">LINEで物件提案を受け取る（無料）</a>
+      <div class="cta-sub">①友だち追加 ②希望条件を選択 ③物件が届く／所要3分・いつでもブロック可能</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">よくあるご質問</div>
+    <h2 class="section-title">ご登録前に、よくいただくご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">LINE登録するだけで、料金はかかりませんか？</div>
+        <div class="faq-a">完全に無料です。LINE登録料・物件配信料・住宅ローン相談料、すべて0円です。費用が発生するのは、ご成約時の仲介手数料のみです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">登録しても、本当に営業電話は来ませんか？</div>
+        <div class="faq-a">はい、お電話での営業は一切いたしません。やり取りはすべてLINE上で完結します。ご質問・物件のお問合せもLINEで受付けています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">いつでも登録解除できますか？</div>
+        <div class="faq-a">はい、いつでもブロック・友だち削除いただけます。配信を止めたいだけの場合は「配信停止」とメッセージを送っていただくだけでもOKです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">未公開物件も本当にありますか？</div>
+        <div class="faq-a">はい、SUUMO・HOME'S等の一般サイトに掲載されていない物件も、定期的に入荷しております。LINE登録者には優先的にご案内しています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">小平市以外でも対応できますか？</div>
+        <div class="faq-a">小平市＋近隣7市（東村山・国分寺・小金井・西東京・東久留米・東大和・立川）に対応しております。それ以外のエリアもご相談に応じます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer>
+  <div class="footer-info">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">健匠不動産</div>
+        <div class="footer-address">
+          〒187-0045 東京都小平市学園西町1-20-18 第2中村ビル5階<br>
+          TEL: 042-313-5916／FAX: 042-313-5917<br>
+          営業時間: 10:00-18:00／定休日: 水曜
+        </div>
+        <div class="footer-license">
+          宅地建物取引業免許 東京都知事(1)第111638号<br>
+          公益社団法人 東京都宅地建物取引業協会・公益社団法人 首都圏不動産公正取引協議会 加盟
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700; margin-bottom:12px; color:#fff;">対応エリア</div>
+        <div style="font-size:13px; line-height:1.9;">
+          小平市・東村山市・国分寺市・小金井市・西東京市・東久留米市・東大和市・立川市
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 健匠不動産（株式会社健匠不動産）</div>
+  </div>
+</footer>
+
+<!-- ============ SPフローティングCTA ============ -->
+<div class="floating-cta">
+  <a href="#cta" class="cta-button">LINEで物件提案を受け取る</a>
+</div>
+
+</body>
+</html>
