@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小平の物件情報を、LINEで毎週。｜健匠不動産</title>
+<meta name="description" content="小平市・一橋学園駅 徒歩3分。希望条件を一度送るだけで、あなたに合う小平＋近隣7市の物件をLINEで毎週お届け。住宅ローン・FP相談すべて無料。Googleクチコミ★5.0／38件。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* 採用サイト＋議事録のロゴカラー：ベージュ基調／コバルト／LINE緑／暖色ブラウン */
+  --base: #FAF6EE;
+  --base-warm: #F0E9D8;
+  --base-deep: #E8DFC8;
+  --cobalt: #004AAD;
+  --cobalt-light: #4A7BBF;
+  --cobalt-pale: #A2C4FF;
+  --brown: #C98A3A;
+  --cta: #06C755;
+  --cta-hover: #05A847;
+  --text: #2A3340;
+  --text-sub: #5A6478;
+  --border: #E3D9C2;
+  --border-blue: #CFE0F6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-weight: 400; font-size: 17px; line-height: 1.85;
+  color: var(--text); background: var(--base);
+  -webkit-font-smoothing: antialiased; padding-bottom: 84px;
+}
+h1, h2, h3 { font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif; font-weight: 700; color: var(--cobalt); line-height: 1.5; }
+.mincho { font-family: "Shippori Mincho", serif; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.photo { position: relative; background: var(--base-deep); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo-ph::after { content: attr(data-label); position: absolute; inset: auto 12px 12px; font-size: 12px; color: var(--cobalt); background: rgba(255,255,255,0.85); padding: 7px 12px; border-radius: 8px; text-align: center; line-height: 1.5; }
+.photo-ph .ico { font-size: 13px; color: var(--cobalt-light); opacity: .6; letter-spacing: .1em; }
+
+/* LINE icon button */
+.line-ico { width: 22px; height: 22px; flex-shrink: 0; }
+
+/* === ヘッダー === */
+header { position: sticky; top: 0; z-index: 100; background: rgba(250,246,238,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.logo-img { height: 38px; width: auto; }
+.header-right { display: flex; align-items: center; gap: 18px; }
+.header-tel { font-family: "Shippori Mincho", serif; font-size: 19px; font-weight: 700; color: var(--cobalt); letter-spacing: .02em; }
+.header-tel small { display: block; font-family: "Zen Kaku Gothic New",sans-serif; font-size: 10px; font-weight: 400; color: var(--text-sub); letter-spacing: 0; }
+.header-cta { background: var(--cta); color: #fff; padding: 11px 20px; border-radius: 26px; font-weight: 700; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; gap: 7px; transition: background .2s; }
+.header-cta:hover { background: var(--cta-hover); }
+
+/* === FV === */
+.fv { background: linear-gradient(160deg, var(--base) 0%, var(--base-warm) 100%); }
+.fv-inner { max-width: 1140px; margin: 0 auto; padding: 56px 32px 64px; display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 52px; align-items: center; }
+.fv-eyebrow { display: inline-block; font-family: "Shippori Mincho",serif; color: var(--cobalt); font-size: 14px; font-weight: 600; letter-spacing: .08em; border-left: 3px solid var(--brown); padding-left: 12px; margin-bottom: 22px; }
+.fv h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.4; margin-bottom: 22px; color: var(--cobalt); font-weight: 800; }
+.fv-sub { font-size: 17px; color: var(--text-sub); line-height: 1.95; margin-bottom: 28px; max-width: 32em; }
+.fv-sub strong { color: var(--text); font-weight: 700; }
+.trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.trust-chip { background: #fff; border: 1px solid var(--border-blue); border-radius: 12px; padding: 10px 16px; font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.4; }
+.trust-chip b { display: block; color: var(--cobalt); font-family: "Shippori Mincho",serif; font-weight: 700; font-size: 19px; }
+.trust-chip .star { color: #F5A623; }
+.fv-cta-block { background: #fff; border: 1px solid var(--border-blue); border-radius: 18px; padding: 20px; box-shadow: 0 10px 28px rgba(0,74,173,0.10); }
+.cta-promise { font-size: 13.5px; color: var(--cobalt); font-weight: 700; margin-bottom: 12px; text-align: center; }
+.cta-button { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--cta); color: #fff; font-weight: 700; padding: 18px 24px; min-height: 60px; border-radius: 14px; font-size: 18px; transition: all .2s; box-shadow: 0 6px 16px rgba(6,199,85,0.28); }
+.cta-button:hover { background: var(--cta-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6,199,85,0.38); }
+.cta-button .line-ico { width: 24px; height: 24px; }
+.cta-sub { font-size: 13px; color: var(--text-sub); text-align: center; margin-top: 11px; line-height: 1.7; }
+.fv-photo { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 16px 40px rgba(0,74,173,0.14); }
+.fv-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.fv-photo .cap { position: absolute; left: 0; bottom: 0; right: 0; background: linear-gradient(transparent, rgba(0,32,80,0.78)); color: #fff; padding: 28px 22px 18px; }
+.fv-photo .cap .role { font-size: 12px; opacity: .85; letter-spacing: .05em; }
+.fv-photo .cap .nm { font-family: "Shippori Mincho",serif; font-size: 22px; font-weight: 700; }
+
+/* === セクション共通 === */
+section { padding: 84px 32px; }
+.container { max-width: 1060px; margin: 0 auto; }
+.eyebrow { text-align: center; font-family: "Shippori Mincho",serif; color: var(--brown); font-size: 14px; letter-spacing: .14em; margin-bottom: 12px; font-weight: 600; }
+.s-title { text-align: center; font-size: clamp(24px, 3.1vw, 36px); margin-bottom: 18px; line-height: 1.5; color: var(--cobalt); }
+.s-lead { text-align: center; color: var(--text-sub); max-width: 31em; margin: 0 auto 50px; font-size: 16px; }
+
+/* === ボディ1 思い === */
+.think { background: var(--base-warm); }
+.think-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: 48px; align-items: center; max-width: 1000px; margin: 0 auto; }
+.think h2 { font-size: clamp(23px,2.8vw,32px); margin-bottom: 22px; line-height: 1.6; }
+.think .lead { font-size: 17px; color: var(--text); margin-bottom: 24px; line-height: 1.9; }
+.think ul { list-style: none; }
+.think li { padding: 13px 0 13px 34px; position: relative; border-bottom: 1px dashed var(--border); font-size: 16px; }
+.think li::before { content: ""; position: absolute; left: 4px; top: 20px; width: 16px; height: 16px; border-radius: 50%; background: var(--cobalt-pale); border: 4px solid var(--cobalt); }
+.think-photo { aspect-ratio: 3/4; min-height: 340px; }
+
+/* === ボディ2 LINEの魅力 === */
+.merit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 920px; margin: 0 auto; }
+.merit-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 26px; display: flex; gap: 16px; align-items: flex-start; }
+.merit-ico { flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px; background: var(--base-deep); color: var(--cobalt); display: flex; align-items: center; justify-content: center; font-family: "Shippori Mincho",serif; font-weight: 800; font-size: 20px; }
+.merit-card h3 { font-size: 17px; margin-bottom: 6px; color: var(--cobalt); }
+.merit-card p { font-size: 14.5px; color: var(--text-sub); line-height: 1.8; }
+
+/* === ボディ3 使い方 === */
+.how { background: var(--cobalt); color: #fff; }
+.how .eyebrow { color: var(--cobalt-pale); } .how .s-title { color: #fff; } .how .s-lead { color: rgba(255,255,255,0.82); }
+.how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 920px; margin: 0 auto 44px; }
+.how-step { text-align: center; padding: 0 18px; position: relative; }
+.how-step:not(:last-child)::after { content: "›"; position: absolute; right: -8px; top: 24px; font-size: 28px; color: var(--cobalt-pale); }
+.how-circle { width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 16px; background: #fff; color: var(--cobalt); display: flex; align-items: center; justify-content: center; font-family: "Shippori Mincho",serif; font-size: 28px; font-weight: 800; }
+.how-step .t { font-size: 13px; color: #FFE08A; font-weight: 700; margin-bottom: 6px; }
+.how-step h3 { font-size: 18px; margin-bottom: 8px; color: #fff; }
+.how-step p { font-size: 14px; color: rgba(255,255,255,0.85); }
+.how-cta { max-width: 440px; margin: 0 auto; }
+
+/* === ボディ5 届く情報 === */
+.deliver { background: var(--base-warm); }
+.phone-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; max-width: 760px; margin: 0 auto 16px; }
+.phone { aspect-ratio: 9/16; border-radius: 22px; border: 6px solid #fff; box-shadow: 0 12px 30px rgba(0,74,173,0.12); }
+.deliver-note { text-align: center; color: var(--text-sub); font-size: 14px; margin: 16px auto 44px; max-width: 30em; }
+.gift-box { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 34px; max-width: 880px; margin: 0 auto; }
+.gift-box h3 { text-align: center; font-size: 20px; margin-bottom: 8px; }
+.gift-box .gift-sub { text-align: center; color: var(--text-sub); font-size: 14px; margin-bottom: 26px; }
+.gift-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.gift-item { text-align: center; padding: 22px 16px; background: var(--base); border-radius: 12px; border: 1px solid var(--border); }
+.gift-item .g-ico { font-family: "Shippori Mincho",serif; font-weight: 800; color: var(--brown); font-size: 22px; margin-bottom: 8px; }
+.gift-item h4 { font-size: 15px; color: var(--cobalt); margin-bottom: 6px; }
+.gift-item p { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+/* === ボディ6 約束 === */
+.promise-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.promise-card { background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--cobalt); border-radius: 14px; padding: 34px 28px; }
+.promise-num { font-family: "Shippori Mincho",serif; font-size: 15px; font-weight: 700; color: var(--brown); letter-spacing: .06em; margin-bottom: 14px; }
+.promise-card h3 { font-size: 19px; margin-bottom: 12px; line-height: 1.5; }
+.promise-card p { font-size: 15px; color: var(--text-sub); line-height: 1.85; }
+
+/* === ボディ7 口コミ === */
+.voice { background: var(--base-warm); }
+.voice-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; max-width: 920px; margin: 0 auto; }
+.voice-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 26px; }
+.voice-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.voice-g { width: 22px; height: 22px; }
+.voice-stars { color: #F5A623; font-size: 15px; letter-spacing: .08em; }
+.voice-text { font-size: 15px; line-height: 1.9; margin-bottom: 14px; }
+.voice-name { font-size: 13px; color: var(--text-sub); }
+.voice-cite { text-align: center; margin-top: 28px; color: var(--text-sub); font-size: 13px; }
+.voice-cite b { color: var(--cobalt); }
+
+/* === ボディ8 代表 === */
+.rep { background: var(--base); }
+.rep-grid { display: grid; grid-template-columns: 330px 1fr; gap: 52px; align-items: center; max-width: 960px; margin: 0 auto; }
+.rep-photo { aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; box-shadow: 0 14px 36px rgba(0,74,173,0.13); }
+.rep-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.rep .quote { font-family: "Shippori Mincho",serif; color: var(--cobalt); font-size: clamp(21px,2.5vw,28px); font-weight: 700; margin-bottom: 22px; line-height: 1.6; }
+.rep-name { font-family: "Shippori Mincho",serif; font-size: 22px; font-weight: 700; color: var(--cobalt); margin-bottom: 2px; }
+.rep-role { color: var(--text-sub); font-size: 14px; margin-bottom: 20px; }
+.rep p { margin-bottom: 15px; color: var(--text); font-size: 16px; }
+
+/* === ボディ9 エリア === */
+.area { background: var(--base-warm); text-align: center; }
+.area-map { max-width: 760px; margin: 0 auto 28px; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 32px; }
+.area-list { display: flex; flex-wrap: wrap; gap: 11px; justify-content: center; margin-bottom: 0; }
+.area-item { background: var(--base); padding: 12px 22px; border-radius: 26px; border: 1px solid var(--border-blue); color: var(--cobalt); font-weight: 500; font-size: 15px; }
+.area-item.main { background: var(--cobalt); color: #fff; border-color: var(--cobalt); font-weight: 700; }
+.area-stat { display: inline-block; background: #fff; border: 1px solid var(--border-blue); border-radius: 14px; padding: 18px 34px; }
+.area-stat b { font-family: "Shippori Mincho",serif; font-size: 30px; color: var(--cobalt); font-weight: 800; }
+.area-stat span { color: var(--text-sub); font-size: 13px; display: block; }
+
+/* === ボディ10 来店 === */
+.visit-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 44px; align-items: center; max-width: 1000px; margin: 0 auto; }
+.visit-photo { aspect-ratio: 4/3; }
+.visit h2 { font-size: clamp(23px,2.8vw,32px); margin-bottom: 20px; line-height: 1.55; }
+.visit ul { list-style: none; }
+.visit li { padding: 12px 0 12px 32px; position: relative; font-size: 16px; border-bottom: 1px dashed var(--border); }
+.visit li::before { content: "✓"; position: absolute; left: 2px; color: var(--cta); font-weight: 900; }
+
+/* === FAQ === */
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+.faq-q { font-family: "Shippori Mincho",serif; font-weight: 700; color: var(--cobalt); margin-bottom: 10px; padding-left: 34px; position: relative; font-size: 17px; }
+.faq-q::before { content: "Q"; position: absolute; left: 0; top: -2px; color: var(--brown); font-size: 21px; font-weight: 800; }
+.faq-a { padding-left: 34px; color: var(--text-sub); font-size: 15px; }
+
+/* === 最終CTA === */
+.final { background: var(--cobalt); color: #fff; text-align: center; }
+.final .s-title { color: #fff; } .final .eyebrow { color: var(--cobalt-pale); }
+.final-text { color: rgba(255,255,255,0.85); margin: 0 auto 26px; max-width: 30em; }
+.final-gift { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0 auto 32px; max-width: 620px; }
+.final-gift span { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 8px 18px; font-size: 14px; }
+.final-buttons { display: flex; gap: 16px; justify-content: center; max-width: 680px; margin: 0 auto; }
+.final-buttons .cta-button { flex: 1; max-width: 320px; }
+.cta-button.tel { background: #fff; color: var(--cobalt); box-shadow: none; }
+.cta-button.tel:hover { background: var(--base-warm); }
+.final-note { margin-top: 16px; color: rgba(255,255,255,0.7); font-size: 13px; }
+
+/* === フッター === */
+footer { background: #0E2547; color: rgba(255,255,255,0.88); padding: 50px 32px 28px; }
+.footer-info { max-width: 1060px; margin: 0 auto; }
+.footer-logo { background: #fff; display: inline-block; padding: 10px 16px; border-radius: 10px; margin-bottom: 18px; }
+.footer-logo img { height: 34px; }
+.footer-address { font-size: 14px; line-height: 1.95; }
+.footer-license { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 14px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 22px; margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.6); text-align: center; }
+
+/* === SPフローティング === */
+.floating { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,0.98); backdrop-filter: blur(8px); border-top: 1px solid var(--border); padding: 10px 14px; box-shadow: 0 -2px 12px rgba(0,0,0,0.08); }
+.floating .cta-button { width: 100%; font-size: 16px; padding: 14px; min-height: 54px; border-radius: 12px; }
+
+@media (max-width: 920px) {
+  .fv-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px 20px 52px; }
+  .fv-photo { order: -1; aspect-ratio: 4/3; max-height: 420px; }
+  section { padding: 58px 20px; }
+  .think-grid, .visit-grid, .rep-grid { grid-template-columns: 1fr; gap: 28px; }
+  .think-photo { order: -1; max-width: 380px; margin: 0 auto; } .visit-photo { order: -1; } .rep-photo { max-width: 300px; margin: 0 auto; }
+  .merit-grid, .promise-grid, .voice-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; gap: 26px; }
+  .how-step:not(:last-child)::after { content: "↓"; right: 50%; transform: translateX(50%); top: auto; bottom: -20px; }
+  .phone-grid { max-width: 260px; grid-template-columns: 1fr; } .phone-grid .phone:nth-child(n+2) { display: none; }
+  .gift-grid { grid-template-columns: 1fr; }
+  .final-buttons { flex-direction: column; align-items: center; } .final-buttons .cta-button { width: 100%; max-width: 360px; }
+  .floating { display: block; } .header-tel { display: none; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .fv h1 { font-size: 30px; } .s-title { font-size: 22px; }
+  header { padding: 9px 14px; } .logo-img { height: 32px; }
+  .promise-card, .merit-card, .voice-card { padding: 24px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo-img" src="assets/logo.png" alt="株式会社健匠不動産">
+  <div class="header-right">
+    <a href="tel:0423135916" class="header-tel">042-313-5916<small>10:00-18:00／水曜定休</small></a>
+    <a href="#final" class="header-cta">
+      <svg class="line-ico" viewBox="0 0 24 24" fill="white"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.7 0 1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4 9.4-7C23.2 14.4 24 12.5 24 10.3M7.7 13.5H5.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.1h1.7c.3 0 .6.3.6.6s-.3.6-.6.6m2.3-.6c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m5.7 0c0 .3-.2.5-.4.6h-.2c-.2 0-.4-.1-.5-.3l-2.4-3.3v2.9c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.2-.5.4-.6h.2c.2 0 .4.1.5.3l2.4 3.3V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m4 .6h-2.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6h2.4c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.7"/></svg>
+      LINEで物件を受け取る
+    </a>
+  </div>
+</header>
+
+<!-- ===== FV ===== -->
+<section class="fv">
+  <div class="fv-inner">
+    <div class="fv-text">
+      <span class="fv-eyebrow">小平市・一橋学園｜地域密着の住まい探し</span>
+      <h1>家族の未来を、<br>一緒に選ぶ。</h1>
+      <p class="fv-sub">小平市と、その周辺で。<strong>希望条件を一度送るだけ</strong>で、あなたに合うマイホーム物件を、毎週LINEでお届けします。住宅ローンやお金の相談まで、地域に根ざした相談所として寄り添います。</p>
+      <div class="trust-row">
+        <span class="trust-chip"><b><span class="star">★</span>5.0／38件</b>Googleクチコミ</span>
+        <span class="trust-chip"><b>8市対応</b>小平＋近隣7市</span>
+        <span class="trust-chip"><b>無料</b>住宅ローン・FP相談</span>
+      </div>
+      <div class="fv-cta-block">
+        <div class="cta-promise">しつこい営業電話は一切いたしません</div>
+        <a href="#final" class="cta-button">
+          <svg class="line-ico" viewBox="0 0 24 24" fill="white"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.7 0 1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4 9.4-7C23.2 14.4 24 12.5 24 10.3M7.7 13.5H5.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.1h1.7c.3 0 .6.3.6.6s-.3.6-.6.6m2.3-.6c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m5.7 0c0 .3-.2.5-.4.6h-.2c-.2 0-.4-.1-.5-.3l-2.4-3.3v2.9c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.2-.5.4-.6h.2c.2 0 .4.1.5.3l2.4 3.3V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m4 .6h-2.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6h2.4c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.7"/></svg>
+          条件に合う物件を受け取る（完全無料）
+        </a>
+        <div class="cta-sub">友だち追加だけでOK／所要1分／いつでも退会できます</div>
+      </div>
+    </div>
+    <div class="fv-photo">
+      <img src="assets/ceo.jpg" alt="健匠不動産 代表取締役 穂本健太郎">
+      <div class="cap"><div class="role">代表取締役</div><div class="nm">穂本 健太郎</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ1 思い ===== -->
+<section class="think">
+  <div class="think-grid">
+    <div>
+      <div class="eyebrow" style="text-align:left;">健匠不動産の考え方</div>
+      <h2>“物件”よりも、<br>“考え方”をお渡しします。</h2>
+      <p class="lead">マイホーム選びは、家族の未来につながる大切なこと。だからこそ私たちは、売り込む前に、あなたが自分で判断するための材料をそろえます。</p>
+      <ul>
+        <li>その物件の良い点だけでなく、リスクとコストも正直にお伝えします</li>
+        <li>「賃貸のままでいいのか、買うべきか」から一緒に考えます</li>
+        <li>最終的に決めるのは、いつもお客様自身。私たちは判断材料をそろえる役です</li>
+      </ul>
+    </div>
+    <div class="think-photo photo photo-ph" data-label="ご家族の相談シーン（実写差し替え予定）"><span class="ico">PHOTO</span></div>
+  </div>
+</section>
+
+<!-- ===== ボディ2 LINEの魅力 ===== -->
+<section>
+  <div class="container">
+    <div class="eyebrow">LINEでできること</div>
+    <h2 class="s-title">LINE登録で、“探し続ける”から<br>“待つ”家探しへ。</h2>
+    <div class="merit-grid">
+      <div class="merit-card"><div class="merit-ico">地</div><div><h3>地図から探せる</h3><p>エリア・学区から、物件を地図上で直感的に確認できます。</p></div></div>
+      <div class="merit-card"><div class="merit-ico">限</div><div><h3>LINE会員限定の物件</h3><p>一般サイトに出る前の情報を、LINEで先行公開します。</p></div></div>
+      <div class="merit-card"><div class="merit-ico">専</div><div><h3>条件はあなた専用</h3><p>一度伝えた希望条件に合うものだけが届く。毎回の探し直しは不要です。</p></div></div>
+      <div class="merit-card"><div class="merit-ico">楽</div><div><h3>気になった物件だけ反応でOK</h3><p>見るだけ・比較するだけでも歓迎。気軽に使えます。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ3 使い方 ===== -->
+<section class="how">
+  <div class="container">
+    <div class="eyebrow">かんたん3ステップ</div>
+    <h2 class="s-title">条件を一度送るだけ。<br>あとは毎週、届くのを待つだけ。</h2>
+    <p class="s-lead">急いで探すのではなく、安心して待つ家選びへ。LINEだけで完結します。</p>
+    <div class="how-grid">
+      <div class="how-step"><div class="how-circle">1</div><div class="t">所要10秒</div><h3>LINEで友だち追加</h3><p>下のボタンから友だち追加するだけ。アプリも会員登録も不要です。</p></div>
+      <div class="how-step"><div class="how-circle">2</div><div class="t">所要1分</div><h3>希望条件を入力</h3><p>学区・駅・予算・間取り・築年数を、メッセージ感覚で送るだけ。電話は一切なし。</p></div>
+      <div class="how-step"><div class="how-circle">3</div><div class="t">毎週金曜</div><h3>物件情報が届く</h3><p>条件に合う物件だけを厳選して配信。一般サイト未掲載の非公開物件も含みます。</p></div>
+    </div>
+    <div class="how-cta">
+      <a href="#final" class="cta-button">
+        <svg class="line-ico" viewBox="0 0 24 24" fill="white"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.7 0 1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4 9.4-7C23.2 14.4 24 12.5 24 10.3M7.7 13.5H5.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.1h1.7c.3 0 .6.3.6.6s-.3.6-.6.6m2.3-.6c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m5.7 0c0 .3-.2.5-.4.6h-.2c-.2 0-.4-.1-.5-.3l-2.4-3.3v2.9c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.2-.5.4-.6h.2c.2 0 .4.1.5.3l2.4 3.3V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m4 .6h-2.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6h2.4c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.7"/></svg>
+        まずは条件を送ってみる（無料）
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ5 届く情報 ===== -->
+<section class="deliver">
+  <div class="container">
+    <div class="eyebrow">実際に届く物件情報</div>
+    <h2 class="s-title">毎週、こんなふうに届きます</h2>
+    <div class="phone-grid">
+      <div class="phone photo photo-ph" data-label="LINE物件配信①"><span class="ico">LINE</span></div>
+      <div class="phone photo photo-ph" data-label="LINE物件配信②"><span class="ico">LINE</span></div>
+      <div class="phone photo photo-ph" data-label="LINE物件配信③"><span class="ico">LINE</span></div>
+    </div>
+    <p class="deliver-note">物件画像・価格・築年数・駅徒歩分数・間取りが、ひと目で分かるカード形式。気になった物件だけ「見たい」と返信すればOKです。</p>
+    <div class="gift-box">
+      <h3>友だち追加でお渡しする3つの資料</h3>
+      <p class="gift-sub">登録するだけで、家探しがぐっと進みます。</p>
+      <div class="gift-grid">
+        <div class="gift-item"><div class="g-ico">01</div><h4>購入ロードマップ</h4><p>家探しの最初から契約・引渡しまでの進め方が分かるガイド。</p></div>
+        <div class="gift-item"><div class="g-ico">02</div><h4>資金計画の資料</h4><p>無理のない予算の考え方。FPによる資金計画相談にもつながります。</p></div>
+        <div class="gift-item"><div class="g-ico">03</div><h4>物件の選び方ガイド</h4><p>後悔しない物件選びのチェックポイントをまとめました。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ6 約束 ===== -->
+<section>
+  <div class="container">
+    <div class="eyebrow">3つの約束</div>
+    <h2 class="s-title">安心して使っていただくための、約束</h2>
+    <div class="promise-grid">
+      <div class="promise-card"><div class="promise-num">約束 01</div><h3>あなたのペースを、<br>何より大切にします</h3><p>「まだ見ているだけ」「今すぐではない」——その段階こそ歓迎です。こちらから売り込みのお電話をすることはありません。決めるタイミングは、いつもお客様が。</p></div>
+      <div class="promise-card"><div class="promise-num">約束 02</div><h3>条件に合う物件だけを、<br>厳選してお届けします</h3><p>ご希望に合うものだけを毎週金曜にLINEへ。非公開物件も含めてお送りします。情報は多すぎず、あなた専用に。</p></div>
+      <div class="promise-card"><div class="promise-num">約束 03</div><h3>お金の相談まで、<br>まるごと無料でサポート</h3><p>FPによる資金計画相談、「賃貸 vs 購入」の比較、購入後の家計の見直しまで。物件の先にある“暮らし”まで一緒に考えます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ7 口コミ ===== -->
+<section class="voice">
+  <div class="container">
+    <div class="eyebrow">お客様の声</div>
+    <h2 class="s-title">小平で住まいを見つけた、ご家族の声</h2>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-head"><svg class="voice-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg><span class="voice-stars">★★★★★</span></div>
+        <p class="voice-text">初めてのマイホームを探している中で健匠不動産様と出会いました。こちらの条件や希望に沿って物件を多数提案してくださり、気にしていた通勤面や金額面などとても親身に相談にのってくださいました！歳の近い子供がいる共通点などもあり子連れで伺っても明るく接していただき安心して家探しを進めることもできました。夫婦共々、納得のいく住宅の購入ができとても感謝しています</p>
+        <div class="voice-name">ichimiii さん</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head"><svg class="voice-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg><span class="voice-stars">★★★★★</span></div>
+        <p class="voice-text">住宅ローンの組み方など、初めてで分からないことも多かったのですが、一つひとつ丁寧に教えてくださり、安心して進めることができました。地域の事情にも詳しく、地元に寄り添った温かいサポートをしてくれる印象で、相談しやすかったです。</p>
+        <div class="voice-name">Reimi さん</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head"><svg class="voice-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg><span class="voice-stars">★★★★★</span></div>
+        <p class="voice-text">最初のお電話からとても丁寧で印象が良かったです。家の構造やつくり、設備の特徴などをとても分かりやすく説明してくださり、こちらの希望に合わせて値段交渉も頑張ってくださり、相談した際の対応もいつも早く安心してお願いできました。</p>
+        <div class="voice-name">k k さん</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head"><svg class="voice-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg><span class="voice-stars">★★★★★</span></div>
+        <p class="voice-text">対応がとても迅速で丁寧で、良い点だけでなくメリット・デメリットを正直に提示してくださったことで、こちらも納得感を持って判断でき、非常に信頼できると感じました。</p>
+        <div class="voice-name">Eita Sakai さん</div>
+      </div>
+    </div>
+    <p class="voice-cite">いずれも <b>Googleのクチコミ</b> より引用（原文ママ）。<b>★5.0 ／ 38件</b> の評価をいただいています</p>
+  </div>
+</section>
+
+<!-- ===== ボディ8 代表 ===== -->
+<section class="rep">
+  <div class="rep-grid">
+    <div class="rep-photo"><img src="assets/ceo.jpg" alt="代表取締役 穂本健太郎"></div>
+    <div>
+      <div class="eyebrow" style="text-align:left;">代表のご紹介</div>
+      <p class="quote">「家を売る」のではなく、<br>「家族の未来を、一緒に選ぶ」。</p>
+      <div class="rep-name">穂本 健太郎</div>
+      <div class="rep-role">代表取締役</div>
+      <p>2025年、小平の地で健匠不動産を創業しました。私自身も、2人目の子どもを授かったタイミングで住宅ローンを組み、新築戸建を購入した一人の生活者です。家を買うときの不安も、迷いも、当事者として知っています。</p>
+      <p>物件を「数」で追うのではなく、ご家族一組ずつの人生に寄り添う。「実家で育った安心感を、次の家にも」——その想いで、一軒一軒ていねいにご提案しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ9 エリア ===== -->
+<section class="area">
+  <div class="container">
+    <div class="eyebrow">対応エリア</div>
+    <h2 class="s-title">小平市＋近隣7市に対応</h2>
+    <div class="area-map">
+      <div class="area-list">
+        <span class="area-item main">小平市</span>
+        <span class="area-item">東村山市</span>
+        <span class="area-item">国分寺市</span>
+        <span class="area-item">小金井市</span>
+        <span class="area-item">西東京市</span>
+        <span class="area-item">東久留米市</span>
+        <span class="area-item">東大和市</span>
+        <span class="area-item">立川市</span>
+      </div>
+    </div>
+    <div class="area-stat"><b>約1,000件以上に対応</b><span>小平＋近隣7市の売買物件から、ご希望条件に合うものだけを厳選</span></div>
+  </div>
+</section>
+
+<!-- ===== ボディ10 来店 ===== -->
+<section>
+  <div class="visit-grid">
+    <div class="visit-photo photo"><img src="assets/office.webp" alt="健匠不動産 相談スペース"></div>
+    <div>
+      <div class="eyebrow" style="text-align:left;">ご来店について</div>
+      <h2>お子さま連れで、<br>気兼ねなくお越しください</h2>
+      <ul>
+        <li>キッズスペース・授乳スペース・おむつ替え・ミルク用お湯などを完備</li>
+        <li>託児サービス／最寄り駅からの送迎サービスあり</li>
+        <li>近隣コインパーキングの駐車料金は当社が負担</li>
+        <li>来店は任意。LINEだけで物件確認から相談まで完結します</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ11 FAQ ===== -->
+<section class="deliver">
+  <div class="container">
+    <div class="eyebrow">よくあるご質問</div>
+    <h2 class="s-title">ご登録前の、よくあるご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">LINE登録したら、営業電話がたくさん来ませんか？</div><div class="faq-a">いいえ、しつこい営業電話は一切いたしません。やり取りはすべてLINE上で完結します。ブロック・退会もいつでも可能です。</div></div>
+      <div class="faq-item"><div class="faq-q">まだ買うか決めていない段階でも、登録していいですか？</div><div class="faq-a">むしろ、その段階の方がほとんどです。「相場だけ知りたい」「学区内にどんな物件があるか見たい」という方こそ、気軽にご登録ください。</div></div>
+      <div class="faq-item"><div class="faq-q">料金はかかりますか？</div><div class="faq-a">LINE登録・物件情報の配信・ご相談はすべて無料です。仲介手数料は、ご成約時に宅地建物取引業法で定められた上限額（売買価格の3%＋6万円＋税。売買価格400万円超の場合の速算式）以内で、事前に明示してご請求します。</div></div>
+      <div class="faq-item"><div class="faq-q">小さな子どもを連れて事務所に行ってもいいですか？</div><div class="faq-a">はい、ぜひお越しください。キッズスペース・授乳スペース・オムツ替え台をご用意しています。コインパーキング代も当社で負担いたします。</div></div>
+      <div class="faq-item"><div class="faq-q">登録の解除はできますか？</div><div class="faq-a">いつでも可能です。LINEのブロックまたは退会で、配信は即時停止します。手続きや引き止めの連絡は一切ありません。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ボディ12 最終CTA ===== -->
+<section id="final" class="final">
+  <div class="container">
+    <div class="eyebrow">まずは、LINEで。</div>
+    <h2 class="s-title">探すのをやめて、<br>届く側になりませんか。</h2>
+    <p class="final-text">LINEでもお電話でも、お気軽にどうぞ。物件を見るだけ・相談だけでも大歓迎です。</p>
+    <div class="final-gift">
+      <span>購入ロードマップ</span><span>資金計画の資料</span><span>物件の選び方ガイド</span>
+    </div>
+    <div class="final-buttons">
+      <a href="#" class="cta-button">
+        <svg class="line-ico" viewBox="0 0 24 24" fill="white"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.7 0 1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4 9.4-7C23.2 14.4 24 12.5 24 10.3M7.7 13.5H5.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.1h1.7c.3 0 .6.3.6.6s-.3.6-.6.6m2.3-.6c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m5.7 0c0 .3-.2.5-.4.6h-.2c-.2 0-.4-.1-.5-.3l-2.4-3.3v2.9c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.2-.5.4-.6h.2c.2 0 .4.1.5.3l2.4 3.3V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m4 .6h-2.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6h2.4c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.7"/></svg>
+        LINEで物件を受け取る
+      </a>
+      <a href="tel:0423135916" class="cta-button tel">042-313-5916</a>
+    </div>
+    <p class="final-note">営業時間 10:00–18:00／定休日 水曜</p>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer>
+  <div class="footer-info">
+    <div class="footer-logo"><img src="assets/logo.png" alt="株式会社健匠不動産"></div>
+    <div class="footer-address">
+      株式会社 健匠不動産 ─ Kensho Estate Co., Ltd.<br>
+      代表取締役 ／ 穂本 健太郎<br>
+      〒187-0045 東京都小平市学園西町1-20-18 第2中村ビル4F<br>
+      TEL：042-313-5916 ／ 営業時間：10:00 – 18:00 ／ 定休日：水曜
+    </div>
+    <div class="footer-license">宅地建物取引業免許 東京都知事(1)第111638号</div>
+    <div class="footer-bottom">© 2026 株式会社健匠不動産</div>
+  </div>
+</footer>
+
+<div class="floating">
+  <a href="#final" class="cta-button">
+    <svg class="line-ico" viewBox="0 0 24 24" fill="white"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.7 0 1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4 9.4-7C23.2 14.4 24 12.5 24 10.3M7.7 13.5H5.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.1h1.7c.3 0 .6.3.6.6s-.3.6-.6.6m2.3-.6c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m5.7 0c0 .3-.2.5-.4.6h-.2c-.2 0-.4-.1-.5-.3l-2.4-3.3v2.9c0 .3-.3.6-.6.6s-.6-.3-.6-.6V8.1c0-.3.2-.5.4-.6h.2c.2 0 .4.1.5.3l2.4 3.3V8.1c0-.3.3-.6.6-.6s.6.3.6.6v4.8m4 .6h-2.4c-.3 0-.6-.3-.6-.6V8.1c0-.3.3-.6.6-.6h2.4c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.6h-1.8v1.1h1.8c.3 0 .6.3.6.6s-.3.6-.6.7"/></svg>
+    LINEで物件を受け取る（無料）
+  </a>
+</div>
+
+</body>
+</html>
