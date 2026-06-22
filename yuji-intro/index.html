@@ -9,20 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blue:#1f5fb0;        /* primary brand blue */
-    --blue-bright:#1c63d4; /* speaker pill / accent */
-    --ink:#1c2330;         /* near-black text */
-    --sub:#6b7280;         /* gray sub text */
-    --cream:#f7f3ea;       /* warm base */
+    --blue:#1f5fb0; --blue-bright:#1c63d4;
+    --ink:#1c2330; --sub:#6b7280; --cream:#f7f3ea;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
   body{
-    background:#5b6470;
-    display:flex;align-items:center;justify-content:center;min-height:100vh;
+    background:#5b6470;display:flex;align-items:center;justify-content:center;min-height:100vh;
     font-family:"Noto Sans JP",sans-serif;
   }
-  /* 16:9 stage, scales to viewport width */
   .stage{
     position:relative;width:1280px;height:720px;
     background:
@@ -30,76 +25,61 @@
       radial-gradient(90% 80% at 6% 96%, rgba(150,190,235,.26) 0%, rgba(150,190,235,0) 45%),
       radial-gradient(70% 60% at 96% 92%, rgba(190,170,140,.16) 0%, rgba(190,170,140,0) 50%),
       linear-gradient(160deg,#fbf8f1 0%,#f6f1e7 55%,#f1ebdd 100%);
-    overflow:hidden;
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);
   }
-  /* faint world map */
-  .map{
-    position:absolute;inset:0;
-    background:url('assets/world_bg.svg') center/118% no-repeat;
-    opacity:.5;filter:saturate(.8);
-    transform:translateY(2%);
-    pointer-events:none;
-  }
-  /* soft watercolor washes */
+  .map{position:absolute;inset:0;background:url('assets/world_bg.svg') center/118% no-repeat;
+    opacity:.5;filter:saturate(.8);transform:translateY(2%);pointer-events:none}
   .wash{position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none}
   .wash.a{width:520px;height:360px;right:-120px;top:-110px;background:rgba(120,170,225,.20)}
   .wash.b{width:460px;height:340px;left:-150px;bottom:-140px;background:rgba(120,170,225,.18)}
 
-  /* ---- top-left header ---- */
   .header{position:absolute;left:54px;top:42px;z-index:6}
-  .pill{
-    display:inline-block;background:var(--blue-bright);color:#fff;
-    font-style:italic;font-weight:700;font-size:18px;letter-spacing:.04em;
-    padding:5px 18px;border-radius:6px;box-shadow:0 4px 10px rgba(28,99,212,.30);
-  }
+  .pill{display:inline-block;background:var(--blue-bright);color:#fff;font-style:italic;
+    font-weight:700;font-size:18px;letter-spacing:.04em;padding:5px 18px;border-radius:6px;
+    box-shadow:0 4px 10px rgba(28,99,212,.30)}
   .title-row{display:flex;align-items:center;gap:14px;margin-top:12px}
   .title-bar{width:8px;height:42px;background:var(--blue-bright);border-radius:2px}
   .title{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:40px;color:var(--ink);letter-spacing:.06em}
 
-  /* ---- left profile panel ---- */
-  .panel{
-    position:absolute;left:46px;top:142px;width:430px;height:540px;z-index:5;
+  .panel{position:absolute;left:46px;top:142px;width:430px;height:540px;z-index:5;
     background:rgba(255,255,255,.92);
     border-radius:26px 40px 30px 44px/40px 28px 46px 30px;
     box-shadow:0 18px 46px rgba(40,60,95,.16);
-    padding:26px 26px 28px;
-    display:flex;flex-direction:column;align-items:center;
-  }
-  .photo{
-    width:312px;height:344px;border-radius:18px;overflow:hidden;
-    box-shadow:0 12px 26px rgba(40,60,95,.22);
-    background:#dfe6ef;
-  }
+    padding:26px 26px 28px;display:flex;flex-direction:column;align-items:center}
+  .photo{width:312px;height:344px;border-radius:18px;overflow:hidden;
+    box-shadow:0 12px 26px rgba(40,60,95,.22);background:#dfe6ef}
   .photo img{width:100%;height:100%;object-fit:cover;object-position:46% 24%}
-  .photo .ph{display:flex;width:100%;height:100%;align-items:center;justify-content:center;color:#9aa6b5;font-size:15px;text-align:center;padding:0 24px;line-height:1.7}
   .name{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:46px;color:var(--ink);margin-top:22px;letter-spacing:.04em}
-  .name .sp{display:inline-block;width:14px}
-  .role{font-size:19px;font-weight:700;color:var(--blue);margin-top:10px;letter-spacing:.01em}
-  .meta{font-size:16px;color:var(--sub);margin-top:9px;font-weight:500}
+  .role{font-size:21px;font-weight:700;color:var(--blue);margin-top:12px;letter-spacing:.01em}
+  .meta{font-size:18px;color:var(--sub);margin-top:10px;font-weight:500}
 
-  /* ---- right content ---- */
-  .content{position:absolute;left:512px;top:158px;right:56px;z-index:5}
-  .sec{margin-bottom:34px}
-  .sec-head{display:flex;align-items:center;gap:12px}
-  .sec-ico{width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;
-    background:rgba(31,95,176,.10);border-radius:11px}
-  .sec-ico svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-  .sec-title{font-size:25px;font-weight:900;color:var(--ink);font-family:"Zen Kaku Gothic New",sans-serif;letter-spacing:.02em}
-  .sec-title .en{color:var(--blue);font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:22px}
-  .bullets{margin:16px 0 0 8px}
-  .bullets li{list-style:none;display:flex;gap:13px;font-size:19px;line-height:1.62;color:#2a313c;margin-bottom:11px;font-weight:500}
-  .bullets li::before{content:"";flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:var(--blue);margin-top:11px}
+  .content{position:absolute;left:512px;top:150px;right:50px;z-index:5}
+  .sec{margin-bottom:42px}
+  .sec-head{display:flex;align-items:center;gap:14px}
+  .sec-ico{width:48px;height:48px;flex:0 0 48px;display:flex;align-items:center;justify-content:center;
+    background:rgba(31,95,176,.10);border-radius:13px}
+  .sec-ico svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .sec-title{font-size:31px;font-weight:900;color:var(--ink);font-family:"Zen Kaku Gothic New",sans-serif;letter-spacing:.02em}
+  .sec-title .en{color:var(--blue);font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:27px}
+  .bullets{margin:18px 0 0 6px}
+  .bullets li{list-style:none;display:flex;gap:15px;font-size:25px;line-height:1.55;color:#2a313c;margin-bottom:15px;font-weight:500}
+  .bullets li::before{content:"";flex:0 0 12px;width:12px;height:12px;border-radius:50%;background:var(--blue);margin-top:13px}
   .hl{color:var(--blue);font-weight:700}
-  .arr{color:var(--blue);font-weight:700;padding:0 3px}
+  .arr{color:var(--blue);font-weight:700;padding:0 4px}
 
-  /* ---- footer ---- */
-  .footer{position:absolute;left:0;right:0;bottom:14px;text-align:center;
-    font-size:12px;color:#9aa1ac;letter-spacing:.04em;z-index:6}
+  .footer{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-size:13px;color:#9aa1ac;letter-spacing:.04em;z-index:6}
+
+  /* background-only render mode: hide text + photo, keep graphics */
+  body.bg .pill,body.bg .title,body.bg .name,body.bg .role,body.bg .meta,
+  body.bg .sec-title,body.bg .sec-title .en,body.bg .bullets li{color:transparent !important}
+  body.bg .bullets li::before{background:transparent !important}
+  body.bg .photo{background:transparent !important}
+  body.bg .photo img{visibility:hidden !important}
+  body.bg .footer{color:transparent !important}
 
   @media(max-width:1320px){
-    body{align-items:flex-start}
-    .stage{transform:scale(calc(100vw/1280));transform-origin:top left}
+    body:not(.bg){align-items:flex-start}
+    body:not(.bg) .stage{transform:scale(calc(100vw/1280));transform-origin:top left}
   }
 </style>
 </head>
@@ -110,54 +90,67 @@
     <div class="wash b"></div>
 
     <div class="header">
-      <span class="pill">Speaker</span>
+      <span class="pill" data-slot="pill">Speaker</span>
       <div class="title-row">
         <span class="title-bar"></span>
-        <span class="title">紹介</span>
+        <span class="title" data-slot="title">紹介</span>
       </div>
     </div>
 
-    <!-- profile -->
     <div class="panel">
-      <div class="photo">
-        <img src="assets/photo.jpg" alt="三神 勇治"
-             onerror="this.parentNode.innerHTML='&lt;div class=&quot;ph&quot;&gt;写真をここに配置<br>assets/photo.jpg&lt;/div&gt;'">
+      <div class="photo" data-slot="photo">
+        <img src="assets/photo.jpg" alt="三神 勇治">
       </div>
-      <div class="name">三神<span class="sp"></span>勇治</div>
-      <div class="role">Yuji Mikami / カウンセリングリーダー</div>
-      <div class="meta">28歳 / 大阪府出身</div>
+      <div class="name" data-slot="name">三神　勇治</div>
+      <div class="role" data-slot="role">Yuji Mikami / カウンセリングリーダー</div>
+      <div class="meta" data-slot="meta">28歳 / 大阪府出身</div>
     </div>
 
-    <!-- sections -->
     <div class="content">
       <div class="sec">
         <div class="sec-head">
-          <span class="sec-ico">
+          <span class="sec-ico" data-slot="ico1">
             <svg viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 0 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
           </span>
-          <span class="sec-title">経歴 <span class="en">/ Career Journey</span></span>
+          <span class="sec-title" data-slot="sec1title">経歴 <span class="en">/ Career Journey</span></span>
         </div>
-        <ul class="bullets">
+        <ul class="bullets" data-slot="sec1body">
           <li>東京大学経済学部 卒</li>
-          <li>暮らしメディアを創業<span class="arr">→</span>事業を継承／<span class="hl">売却</span></li>
-          <li>渡米2ヶ月、現地で<span class="hl">AIサービス会社を創業</span>（現在）</li>
+          <li>暮らしメディアを創業、事業を継承／売却</li>
+          <li>渡米2ヶ月、現地でAIサービス会社を創業（現在）</li>
         </ul>
       </div>
 
       <div class="sec">
         <div class="sec-head">
-          <span class="sec-ico">
+          <span class="sec-ico" data-slot="ico2">
             <svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5Z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5A1.5 1.5 0 0 1 20 20.5Z"/></svg>
           </span>
-          <span class="sec-title">パーソナル <span class="en">/ Personal</span></span>
+          <span class="sec-title" data-slot="sec2title">パーソナル <span class="en">/ Personal</span></span>
         </div>
-        <ul class="bullets">
+        <ul class="bullets" data-slot="sec2body">
           <li>趣味：映画、サッカー観戦、海外旅行、AI活用、アニメ鑑賞</li>
         </ul>
       </div>
     </div>
 
-    <div class="footer">© 2026 SpeakNow　All Rights Reserved.</div>
+    <div class="footer" data-slot="footer">© 2026 SpeakNow　All Rights Reserved.</div>
   </div>
+
+  <pre id="layout" style="position:fixed;left:-9999px;top:0">PENDING</pre>
+  <script>
+    if (location.search.indexOf('bg=1') >= 0) document.body.classList.add('bg');
+    function dump(){
+      const stage = document.querySelector('.stage').getBoundingClientRect();
+      const out = {};
+      document.querySelectorAll('[data-slot]').forEach(el=>{
+        const r = el.getBoundingClientRect();
+        out[el.dataset.slot] = {x:r.left-stage.left, y:r.top-stage.top, w:r.width, h:r.height};
+      });
+      document.getElementById('layout').textContent = 'LAYOUT_JSON='+JSON.stringify(out);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(()=>setTimeout(dump,150));
+    else window.addEventListener('load',()=>setTimeout(dump,300));
+  </script>
 </body>
 </html>
