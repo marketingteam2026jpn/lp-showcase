@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>冒険者 The Achiever — ウェルグラム12タイプ</title>
+<meta name="description" content="ウェルビーイング診断「ウェルグラム」12タイプ解説｜冒険者（The Achiever）。強み・弱み・相性・よく合うウェルビーイング因子・おすすめ習慣をしっかり解説。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --type:#E0A21A;      /* Self group accent (deepened for contrast) */
+  --type-d:#B57E0A;
+  --type-bg:#FFF8EC;
+  --type-soft:#FCEBC4;
+  --teal:#0d9488;
+  --text:#26303a;
+  --sub:#5a6573;
+  --xs:#8b95a3;
+  --white:#fff;
+  --bg:#fbfaf7;
+  --border:#ececec;
+  --r:18px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif;background:var(--bg);color:var(--text);line-height:1.95;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* Nav */
+.nav{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.nav-logo{font-family:'Zen Kaku Gothic New';font-size:21px;font-weight:900;color:var(--teal);letter-spacing:.5px}
+.nav-logo span{color:var(--type)}
+.nav-back{font-size:13px;font-weight:700;color:var(--sub);border:1.5px solid var(--border);border-radius:9999px;padding:7px 16px;transition:.2s}
+.nav-back:hover{border-color:var(--type);color:var(--type)}
+
+/* Hero */
+.hero{background:radial-gradient(120% 120% at 80% 0%,var(--type-soft) 0%,var(--type-bg) 45%,#fff 100%);padding:56px 22px 64px;overflow:hidden}
+.hero-in{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--type-soft);border-radius:9999px;padding:7px 16px;font-size:13px;font-weight:700;color:var(--type-d);margin-bottom:20px}
+.hero-badge .dot{width:10px;height:10px;border-radius:50%;background:var(--type)}
+.hero-num{font-size:14px;font-weight:700;color:var(--xs);letter-spacing:2px;margin-bottom:6px}
+.hero h1{font-family:'Zen Kaku Gothic New';font-size:clamp(40px,8vw,68px);font-weight:900;line-height:1.1;letter-spacing:1px}
+.hero-en{font-size:clamp(15px,3vw,19px);font-weight:700;color:var(--type-d);letter-spacing:2px;margin:6px 0 22px}
+.hero-copy{font-family:'Zen Kaku Gothic New';font-size:clamp(20px,4vw,28px);font-weight:700;line-height:1.6;margin-bottom:26px}
+.hero-copy b{color:var(--type-d)}
+.axes{display:flex;gap:10px;flex-wrap:wrap}
+.axis-tag{display:inline-flex;flex-direction:column;background:var(--white);border:1.5px solid var(--type-soft);border-radius:14px;padding:10px 18px;min-width:92px}
+.axis-tag small{font-size:11px;font-weight:700;color:var(--xs);letter-spacing:1px}
+.axis-tag b{font-family:'Zen Kaku Gothic New';font-size:19px;font-weight:900;color:var(--type-d)}
+.hero-art{position:relative}
+.hero-art::before{content:'';position:absolute;inset:6% 8%;background:radial-gradient(circle,var(--type-soft) 0%,transparent 68%);filter:blur(6px);z-index:0}
+.hero-art img{position:relative;z-index:1;width:100%;max-width:380px;margin:0 auto;filter:drop-shadow(0 24px 40px rgba(180,126,10,.22))}
+
+/* Section frame */
+.section{max-width:760px;margin:0 auto;padding:68px 22px 0}
+.section.wide{max-width:980px}
+.sec-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--type-d);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.sec-h{font-family:'Zen Kaku Gothic New';font-size:clamp(24px,5vw,32px);font-weight:900;line-height:1.4;margin-bottom:24px}
+.sec-h .bar{color:var(--type)}
+.lead{font-size:18px;line-height:2.05}
+.lead+.lead{margin-top:18px}
+.lead b{color:var(--type-d);font-weight:700}
+
+/* Axis cards */
+.axis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.axis-c{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:22px 20px;border-top:4px solid var(--type)}
+.axis-c .ico{font-size:26px;margin-bottom:8px}
+.axis-c h4{font-family:'Zen Kaku Gothic New';font-size:18px;font-weight:900;margin-bottom:6px}
+.axis-c p{font-size:14.5px;line-height:1.85;color:var(--sub)}
+
+/* List blocks */
+.block{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 26px;margin-top:24px}
+.block.good{border-left:5px solid var(--type)}
+.block.care{border-left:5px solid #E07B5A;background:#fffaf8}
+.point{display:flex;gap:13px;align-items:flex-start;font-size:16.5px;line-height:1.85;padding:11px 0}
+.point+.point{border-top:1px dashed var(--border)}
+.point .mk{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;margin-top:3px}
+.good .mk{background:var(--type-bg);color:var(--type-d)}
+.care .mk{background:#fdeae3;color:#c2573a}
+.note{margin-top:18px;font-size:15.5px;line-height:1.9;color:var(--sub);background:var(--type-bg);border-radius:12px;padding:16px 18px}
+.note b{color:var(--type-d)}
+
+/* Wellbeing factors */
+.factor{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:24px 24px;margin-top:16px}
+.factor .ftop{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.factor .fnum{font-family:'Zen Kaku Gothic New';font-size:13px;font-weight:900;color:var(--white);background:var(--type);border-radius:9999px;padding:5px 14px;letter-spacing:.5px}
+.factor h4{font-family:'Zen Kaku Gothic New';font-size:19px;font-weight:900}
+.factor p{font-size:16px;line-height:1.9;color:var(--sub)}
+.factor p b{color:var(--type-d)}
+.miss{margin-top:18px;border:1.5px dashed var(--type-soft);background:var(--type-bg);border-radius:var(--r);padding:22px 24px}
+.miss h4{font-family:'Zen Kaku Gothic New';font-size:17px;font-weight:900;margin-bottom:8px;color:var(--type-d)}
+.miss p{font-size:16px;line-height:1.9}
+
+/* Habits */
+.habits{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+.habit{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:24px 22px;position:relative}
+.habit .hn{font-family:'Zen Kaku Gothic New';font-size:34px;font-weight:900;color:var(--type-soft);line-height:1}
+.habit h4{font-family:'Zen Kaku Gothic New';font-size:17.5px;font-weight:900;margin:6px 0 8px}
+.habit p{font-size:15px;line-height:1.85;color:var(--sub)}
+
+/* Compatibility */
+.compat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.cmp{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;text-align:center;transition:.25s}
+.cmp:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.07)}
+.cmp .imgw{background:linear-gradient(160deg,#fff,var(--type-bg));padding:14px 0 6px}
+.cmp .imgw img{width:120px;height:120px;object-fit:contain;margin:0 auto}
+.cmp .rank{font-size:11.5px;font-weight:800;color:var(--type-d);letter-spacing:1px;margin-top:12px}
+.cmp h4{font-family:'Zen Kaku Gothic New';font-size:20px;font-weight:900;margin:2px 0}
+.cmp .ax{font-size:12px;color:var(--xs);margin-bottom:10px}
+.cmp p{font-size:13.5px;line-height:1.8;color:var(--sub);padding:0 18px 20px;text-align:left}
+
+/* Insight rows */
+.insight{margin-top:18px}
+.irow{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:22px 24px}
+.irow+.irow{margin-top:14px}
+.irow h4{font-family:'Zen Kaku Gothic New';font-size:16px;font-weight:900;color:var(--type-d);margin-bottom:8px}
+.irow p{font-size:16px;line-height:1.9;color:var(--text)}
+
+/* Famous */
+.famous{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.fchip{background:var(--white);border:1.5px solid var(--type-soft);border-radius:9999px;padding:11px 20px;font-size:16px;font-weight:700;color:var(--type-d)}
+.famous-note{font-size:15px;color:var(--sub);line-height:1.9;margin-top:16px}
+
+/* Final */
+.final{max-width:980px;margin:80px auto 0;padding:0 22px}
+.final-in{background:linear-gradient(135deg,var(--type) 0%,var(--type-d) 100%);border-radius:28px;padding:52px 30px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.final-in::before{content:'';position:absolute;top:-40%;right:-10%;width:60%;height:180%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%)}
+.final-q{font-family:'Zen Kaku Gothic New';font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.5;position:relative}
+.final-s{font-size:16.5px;line-height:1.9;margin-top:16px;opacity:.95;position:relative}
+.final-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--type-d);border-radius:9999px;padding:16px 38px;font-size:17px;font-weight:900;margin-top:28px;position:relative;transition:.2s}
+.final-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.22)}
+
+footer{text-align:center;padding:48px 22px 56px;color:var(--xs);font-size:13px}
+footer b{color:var(--teal);font-weight:900}
+
+@media(max-width:860px){
+  .hero-in{grid-template-columns:1fr;gap:24px;text-align:center}
+  .hero-art{order:-1}
+  .hero-art img{max-width:280px}
+  .axes{justify-content:center}
+  .axis-grid{grid-template-columns:1fr}
+  .habits{grid-template-columns:1fr}
+  .compat{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cmp:hover,.final-btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">Wel<span>gram</span></div>
+  <a class="nav-back" href="../../welgram-diagnosis/">12タイプ診断へ戻る</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="hero-badge"><span class="dot"></span>Self グループ ー 自己の幸福</div>
+      <div class="hero-num">TYPE 01</div>
+      <h1>冒険者</h1>
+      <div class="hero-en">THE ACHIEVER</div>
+      <p class="hero-copy">動くほど、<b>自分が見えてくる。</b></p>
+      <div class="axes">
+        <div class="axis-tag"><small>軸 A</small><b>外向</b></div>
+        <div class="axis-tag"><small>軸 B</small><b>成長</b></div>
+        <div class="axis-tag"><small>軸 C</small><b>自己</b></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="../chars/achiever.png" alt="冒険者タイプのキャラクター" />
+    </div>
+  </div>
+</header>
+
+<!-- 概要 -->
+<section class="section">
+  <span class="sec-tag">Overview</span>
+  <h2 class="sec-h">未知に飛び込み、<span class="bar">体験で自分を更新する人</span></h2>
+  <p class="lead">冒険者タイプは、「未知に飛び込む → 体験で学ぶ → 次の挑戦に更新する」というサイクルで自己像を磨いていく人です。新しい場所・人・仕事・遊びに身を置くほどエネルギーが湧き、停滞よりも変化の中でこそ本来の力を発揮します。</p>
+  <p class="lead">ただ勢いに任せて動いているわけではありません。冒険者にとって体験は<b>“素材”</b>であり、その素材を通して自分の価値観や得意領域を一つずつ発見していく。動くことが、自分を知る手段になっているタイプです。</p>
+  <div class="axis-grid">
+    <div class="axis-c"><div class="ico">🔥</div><h4>外向</h4><p>エネルギーは外の世界との接触から生まれる。行動し、人と関わり、刺激を受け取ることで気持ちが前を向く。</p></div>
+    <div class="axis-c"><div class="ico">🌱</div><h4>成長</h4><p>現状維持より「昨日の自分を更新すること」に価値を感じる。挑戦そのものが報酬になる。</p></div>
+    <div class="axis-c"><div class="ico">🧭</div><h4>自己</h4><p>他者や社会よりまず自分の経験・納得を軸に進む。世界を「自分を試す舞台」として捉える。</p></div>
+  </div>
+</section>
+
+<!-- 強み -->
+<section class="section">
+  <span class="sec-tag">Strengths</span>
+  <h2 class="sec-h">あなたの<span class="bar">強み</span></h2>
+  <p class="lead">最大の武器は、変化を恐れず<b>まず試せる行動力</b>です。周囲が躊躇する局面でも一歩目を踏み出せるため、チームに「前に進む空気」を生み出します。</p>
+  <div class="block good">
+    <div class="point"><span class="mk">✓</span><div>失敗も含めて経験から学ぶ回復力がある。転んでもそれを次の挑戦の材料に変えられる。</div></div>
+    <div class="point"><span class="mk">✓</span><div>ゼロから何かを立ち上げる場面に強い。新規企画、新天地への移動、新しい人脈づくりなど、前例のない局面で突破口を見つけやすい。</div></div>
+    <div class="point"><span class="mk">✓</span><div>行動の速さそのものが周囲を勇気づける。あなたの一歩目に背中を押される人が必ずいる。</div></div>
+  </div>
+  <div class="note">止まっている状況を動かす<b>起爆剤</b>になれる ー これが冒険者の代えがたい価値です。</div>
+</section>
+
+<!-- 弱み -->
+<section class="section">
+  <span class="sec-tag">Watch out</span>
+  <h2 class="sec-h">気をつけたい<span class="bar">ポイント</span></h2>
+  <p class="lead">強みである「動き続ける力」は、裏返すと消耗の原因にもなります。</p>
+  <div class="block care">
+    <div class="point"><span class="mk">!</span><div>刺激を求め続けるあまり、休息や内省を後回しにしやすい。次々と動くうちに「何が本当に大事か」が曖昧になりがち。</div></div>
+    <div class="point"><span class="mk">!</span><div>疲れが溜まった状態のまま走ると、判断が雑になり、せっかくの経験が学びにならない。</div></div>
+    <div class="point"><span class="mk">!</span><div>自分のペースが速いぶん、周囲を置き去りにしてしまうことがある。共有や合意形成の時間が不足すると、孤立や摩擦につながる。</div></div>
+  </div>
+  <div class="note">対策はシンプル。挑戦の<b>「あと」に振り返り</b>をセットにし、立ち止まる時間を意図的に予定へ組み込むこと。これだけで、行動量が“消耗”ではなく“成長”に変わります。</div>
+</section>
+
+<!-- ウェルビーイング因子 -->
+<section class="section">
+  <span class="sec-tag">Well-being Factors</span>
+  <h2 class="sec-h">よく合う<span class="bar">ウェルビーイング因子</span></h2>
+  <p class="lead">ウェルビーイング研究では、人の幸福感を支える要素がいくつかの因子に整理されています。冒険者タイプが特に満たされやすい因子は次のとおりです。</p>
+  <div class="factor">
+    <div class="ftop"><span class="fnum">因子 01</span><h4>やってみよう因子（自己実現と成長）</h4></div>
+    <p>「幸せの4因子」のうち、冒険者が最も強く持っているのがこれです。新しいことに挑戦し、自分の可能性を広げているとき、冒険者の幸福度は跳ね上がります。逆にこの因子が満たされない停滞期は、他のタイプ以上に苦しく感じます。<b>挑戦の機会を切らさないこと</b>が、あなたの幸福の生命線です。</p>
+  </div>
+  <div class="factor">
+    <div class="ftop"><span class="fnum">因子 02</span><h4>なんとかなる因子（前向きと楽観）</h4></div>
+    <p>失敗を引きずらず「次に活かせばいい」と切り替えられる楽観性は、冒険者の回復力の源です。この前向きさを意識的に言葉にする（うまくいかなかった日も<b>「ここを学んだ」と記録する</b>）と、因子がさらに強化されます。</p>
+  </div>
+  <div class="factor">
+    <div class="ftop"><span class="fnum">因子 03</span><h4>没頭・達成（エンゲージメントと達成感）</h4></div>
+    <p>何かに夢中になって時間を忘れる感覚、そして「やりきった」という達成感。冒険者はこの2つを行動の中で自然に得られます。小さくても<b>“やりきる体験”</b>を積むほど、自己肯定感が安定します。</p>
+  </div>
+  <div class="miss">
+    <h4>見落としやすい因子</h4>
+    <p>冒険者が忘れがちなのが「つながり因子（感謝・関係性）」と「ありのまま因子（休息・自分を整えること）」です。挑戦の合間に、支えてくれる人へ感謝を向ける時間、何もしない時間を意識して足すと、幸福のバランスが大きく整います。</p>
+  </div>
+</section>
+
+<!-- おすすめ習慣 -->
+<section class="section wide">
+  <span class="sec-tag">Habits</span>
+  <h2 class="sec-h">おすすめの<span class="bar">習慣</span></h2>
+  <div class="habits">
+    <div class="habit"><div class="hn">01</div><h4>挑戦と振り返りをセットにする</h4><p>新しいことに取り組んだ日は、寝る前に「今日の学び3つ／次に試す1つ」をメモ。体験を言語化することで、ただの刺激が“資産”に変わる。</p></div>
+    <div class="habit"><div class="hn">02</div><h4>週に1度「刺激の少ない日」をつくる</h4><p>あえて予定を入れない静かな一日を確保。体力・睡眠・食事を整えるこの日が、次の冒険の土台になる。動き続けるための“燃料補給日”。</p></div>
+    <div class="habit"><div class="hn">03</div><h4>新しい体験は「小さく・早く・数多く」</h4><p>最初から大きく賭けず、小さく試して当たりを見つけ、当たったものを深掘りする。この循環が冒険者の成長を最も加速させる。</p></div>
+    <div class="habit"><div class="hn">04</div><h4>月に一度、優先順位を見直す</h4><p>動くうちにブレやすい「何が大事か」を、月初にひとつ書き出す。軸が定まると、挑戦の質が上がる。</p></div>
+  </div>
+</section>
+
+<!-- 相性 -->
+<section class="section wide">
+  <span class="sec-tag">Compatibility</span>
+  <h2 class="sec-h">あなたと<span class="bar">相性のいいタイプ</span></h2>
+  <p class="lead">冒険者は「動く力」が突き抜けているぶん、「深める力」や「整える力」を持つ相手と組むと、一人では届かない場所まで進めます。</p>
+  <div class="compat">
+    <div class="cmp">
+      <div class="imgw"><img src="../chars/seeker.png" alt="求道者"/></div>
+      <div class="rank">★ 最も相性が良い</div>
+      <h4>求道者</h4>
+      <div class="ax">内向 × 成長 × 自己</div>
+      <p>冒険者が外の世界で得てきた経験を、深い洞察へと変えてくれる存在。行動と探究が循環し、体験が“意味”に育つ関係です。</p>
+    </div>
+    <div class="cmp">
+      <div class="imgw"><img src="../chars/reflector.png" alt="内省者"/></div>
+      <div class="rank">次に相性が良い</div>
+      <h4>内省者</h4>
+      <div class="ax">内向 × 安定 × 自己</div>
+      <p>体験を落ち着いて整理し、意味づけしてくれる存在。冒険の経験が流れていかず、しっかり身につきます。</p>
+    </div>
+    <div class="cmp">
+      <div class="imgw"><img src="../chars/bloomer.png" alt="共生者"/></div>
+      <div class="rank">組むと強い</div>
+      <h4>共生者</h4>
+      <div class="ax">内向 × 安定 × 自然</div>
+      <p>生活リズムや環境という土台を整えてくれる存在。基盤が安定し、行動量が消耗ではなく持続的な成長へ変わります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 人生テーマ・幸福観 -->
+<section class="section">
+  <span class="sec-tag">Your Story</span>
+  <h2 class="sec-h">人生のテーマと<span class="bar">幸福観</span></h2>
+  <div class="insight">
+    <div class="irow"><h4>人生のテーマ</h4><p>あなたの人生に、「同じ場所にとどまり続ける」という選択はあまり多くないでしょう。気づけば新しい環境、新しい挑戦へと足が向いている。変化そのものが、自分らしさを保つ手段になっている ー そんな傾向があります。</p></div>
+    <div class="irow"><h4>あなたの幸福観</h4><p>あなたにとっての幸せとは、「昨日の自分を少し超えている感覚」です。安定よりも更新、停滞よりも前進。挑戦の最中にこそ、最も生きている実感を覚えるはずです。</p></div>
+    <div class="irow"><h4>周囲から見たあなた</h4><p>「行動力がある人」「勢いのある人」と見られやすいでしょう。あなたの一歩目の速さに勇気づけられている人がいる一方で、内面の葛藤までは見えにくいと思われているかも。弱さや迷いを言葉にできる相手を持つことが、強さを長く保つ鍵になります。</p></div>
+  </div>
+</section>
+
+<!-- 著名人 -->
+<section class="section">
+  <span class="sec-tag">Same Type</span>
+  <h2 class="sec-h">同じタイプの<span class="bar">著名人</span></h2>
+  <div class="famous">
+    <span class="fchip">ローラ</span>
+    <span class="fchip">トム・クルーズ</span>
+    <span class="fchip">GACKT</span>
+    <span class="fchip">羽生結弦</span>
+  </div>
+  <p class="famous-note">いずれも、未知の領域へ飛び込み、挑戦を重ねながら自分を更新し続けてきた人たちです。</p>
+</section>
+
+<!-- Final -->
+<section class="final">
+  <div class="final-in">
+    <p class="final-q">動くほど、自分が見えてくる。</p>
+    <p class="final-s">挑戦の「あと」に振り返りを置けば、<br/>あなたの行動はすべて成長になる。</p>
+    <a class="final-btn" href="../../welgram-diagnosis/">あなたのタイプを診断する →</a>
+  </div>
+</section>
+
+<footer>
+  <b>Welgram</b> ー Well-Being-Style 12タイプ診断<br/>
+  冒険者（The Achiever）｜外向 × 成長 × 自己
+</footer>
+
+</body>
+</html>
