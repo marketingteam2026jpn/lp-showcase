@@ -1,17 +1,20 @@
 /* NVIDIA DGX Spark 販売LP
    ビジュアル規範: japanese-lp-visual [B] BtoB
-   本文 Noto Sans JP 400 / 17px PC / 16px SP / line-height 1.75
-   使用色: 紺 #10284a / 朱 #a83217 / 墨 #1a1a1a （3色以内）
-   NVIDIA green はバッジ枠内のみに限定（自社ブランド要素への組み込み禁止条項への配慮）
+   本文 18px PC / 17px SP / line-height 1.75 / ゴシック単一
+   使用色: 紺 #10284a / 朱 #8d2a12 / 墨 #1a1a1a
+   NVIDIA green はバッジ枠内のみ。自社ブランド要素に組み込まない
+   （NVIDIAのビジュアルスタイルの模倣も禁止条項のため、意匠を寄せない）
 */
 
 :root {
   --navy: #10284a;
   --navy-deep: #0a1a31;
-  --accent: #a83217;
+  --accent: #8d2a12;
+  --accent-hover: #6f2010;
   --ink: #1a1a1a;
-  --ink-sub: #4a5568;
-  --line: #d8dee6;
+  --ink-sub: #40506b;
+  --line: #b4bdc9;
+  --field-line: #6b7684;
   --bg-soft: #f4f6f8;
   --nvidia-green: #76b900;
   --measure: 34em;
@@ -23,7 +26,7 @@ body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.75;
   color: var(--ink);
   background: #fff;
@@ -31,123 +34,158 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
+a { color: var(--navy); }
 
 .wrap { width: min(1080px, 92vw); margin-inline: auto; }
-.narrow { max-width: var(--measure); }
 
 section { padding: 64px 0; border-top: 1px solid var(--line); }
 section.soft { background: var(--bg-soft); }
 
 h2 {
-  font-size: clamp(24px, 3.2vw, 34px);
-  font-weight: 700;
-  line-height: 1.45;
-  margin: 0 0 8px;
-  color: var(--navy);
+  font-size: clamp(25px, 3.2vw, 34px);
+  font-weight: 700; line-height: 1.45;
+  margin: 0 0 8px; color: var(--navy);
 }
-h3 { font-size: 19px; font-weight: 700; margin: 0 0 6px; line-height: 1.5; }
+h3 { font-size: 20px; font-weight: 700; margin: 0 0 6px; line-height: 1.5; }
 p { margin: 0 0 16px; max-width: var(--measure); }
 .lead { color: var(--ink-sub); margin-bottom: 32px; }
+ul { max-width: var(--measure); padding-left: 1.3em; }
+li { margin-bottom: 8px; }
 
 /* ---- ヘッダー ---- */
 .site-head {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 14px 0;
+  gap: 16px; padding: 14px 0; flex-wrap: wrap;
 }
-.brand { font-weight: 700; color: var(--navy); font-size: 17px; letter-spacing: .02em; }
+.brand { font-weight: 700; color: var(--navy); font-size: 18px; }
+.head-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.head-tel { font-size: 16px; line-height: 1.5; color: var(--ink-sub); }
+.head-tel strong { font-size: 20px; color: var(--navy); }
 
-/* NVIDIAパートナーバッジ設置枠。実バッジはNVIDIAからの支給品のみ使用可。
-   最小56px・全周にワードマーク「n」高さ以上のクリアスペース・背景コントラスト1:10以上。 */
+/* NVIDIAパートナーバッジ設置枠。実バッジはNVIDIA支給品のみ使用可。
+   最小56px・全周に「n」高さ以上のクリアスペース・背景コントラスト1:10以上。
+   枠線は仮置きの目印であり、本番ビルドでは削除する（枠囲みは禁止事項）。 */
 .nv-badge {
   min-width: 168px; min-height: 56px;
   display: flex; align-items: center; justify-content: center;
   padding: 8px 18px; background: #fff;
   border: 1px dashed var(--nvidia-green);
-  font-size: 12px; line-height: 1.5; color: #4a5568; text-align: center;
+  font-size: 13px; line-height: 1.5; color: #40506b; text-align: center;
 }
 
 /* ---- ヒーロー ---- */
 .hero { background: var(--navy); color: #fff; padding: 56px 0 60px; border: 0; }
 .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
-.hero h1 {
-  font-size: clamp(28px, 4.4vw, 46px);
-  font-weight: 700; line-height: 1.4; margin: 14px 0 18px;
-}
-.hero p { color: #e3e8ef; }
+.hero h1 { font-size: clamp(29px, 4.4vw, 46px); font-weight: 700; line-height: 1.4; margin: 14px 0 18px; }
+.hero p { color: #e8edf4; }
 .eyebrow {
-  display: inline-block; font-size: 14px; font-weight: 700;
-  padding: 6px 12px; background: rgba(255,255,255,.14); color: #fff;
+  display: inline-block; font-size: 15px; font-weight: 700;
+  padding: 6px 12px; background: rgba(255,255,255,.16); color: #fff;
 }
 .hero-visual {
   background: #1b365d; border: 1px solid rgba(255,255,255,.22);
   aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
-  color: #c3cede; font-size: 14px; text-align: center; padding: 20px; line-height: 1.7;
+  color: #cdd7e5; font-size: 15px; text-align: center; padding: 20px; line-height: 1.7;
 }
+/* ヒーロー内オファー表示。大型数字での強調は避け、囲みで視認順位のみ上げる */
+.hero-offer {
+  display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  border: 1px solid rgba(255,255,255,.5);
+  padding: 12px 20px; margin: 0 0 20px; max-width: none;
+  font-size: 18px; color: #fff;
+}
+.hero-offer-num { font-size: 30px; font-weight: 700; line-height: 1.2; }
 
 /* ---- CTA ---- */
 .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 56px; padding: 14px 32px;
-  font-size: 17px; font-weight: 700; text-decoration: none;
+  font-family: inherit; font-size: 18px; font-weight: 700;
+  text-decoration: none; cursor: pointer;
   background: var(--accent); color: #fff; border: 2px solid var(--accent);
 }
-.btn:hover { background: #8d2a12; border-color: #8d2a12; }
-.btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.ghost {
+  background: transparent; color: #fff;
+  border-color: rgba(255,255,255,.42); font-weight: 400; padding: 14px 24px;
+}
 .btn.ghost:hover { background: rgba(255,255,255,.1); }
+/* 中間CTA */
+.cta-inline { border-top: 1px solid var(--line); margin-top: 36px; padding-top: 28px; }
+.cta-inline p { font-weight: 700; margin-bottom: 14px; }
+/* 追従CTA */
+.sticky-cta { position: fixed; right: 24px; bottom: 24px; z-index: 50; }
+.sticky-cta .btn { box-shadow: 0 2px 12px rgba(0,0,0,.28); }
 
-/* ---- 汎用グリッド ---- */
+/* ---- グリッド ---- */
 .grid { display: grid; gap: 20px; margin-top: 8px; }
 .g3 { grid-template-columns: repeat(3, 1fr); }
 .g2 { grid-template-columns: repeat(2, 1fr); }
 .card { background: #fff; border: 1px solid var(--line); padding: 24px; }
-.card p { margin-bottom: 0; font-size: 16px; color: var(--ink-sub); }
-.card .num { color: var(--accent); font-weight: 700; font-size: 14px; display: block; margin-bottom: 8px; }
+.card p { margin-bottom: 0; font-size: 17px; color: var(--ink-sub); }
+.card .num { color: var(--accent); font-weight: 700; font-size: 15px; display: block; margin-bottom: 8px; }
 
-/* ---- 特典ボックス ---- */
+/* ---- オファー ---- */
 .offer { border: 3px solid var(--navy); padding: 32px; background: #fff; }
-.offer h3 { font-size: clamp(20px, 2.6vw, 26px); color: var(--navy); }
-.offer .big { font-size: clamp(30px, 5vw, 48px); font-weight: 700; color: var(--accent); line-height: 1.3; }
+.offer h3 { font-size: clamp(21px, 2.6vw, 26px); color: var(--navy); }
+.offer .big { font-size: clamp(30px, 5vw, 44px); font-weight: 700; color: var(--navy); line-height: 1.3; }
 
 /* ---- 表 ---- */
 .table-scroll { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 16px; }
+table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 17px; }
 th, td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
 th { background: var(--bg-soft); font-weight: 700; width: 34%; white-space: nowrap; }
 
 /* ---- 注記 ---- */
-.note { font-size: 15px; color: var(--ink-sub); max-width: var(--measure); }
+.note { font-size: 16px; color: var(--ink-sub); max-width: var(--measure); }
 .todo {
-  background: #fffbe6; border: 1px solid #e0c860; padding: 14px 18px;
-  font-size: 15px; color: #5c4a10; margin: 16px 0; max-width: var(--measure);
+  background: #fffbe6; border: 1px solid #b08d10; padding: 14px 18px;
+  font-size: 16px; color: #4a3c0d; margin: 16px 0; max-width: var(--measure);
 }
 
 /* ---- フォーム ---- */
 .form { background: #fff; border: 1px solid var(--line); padding: 28px; max-width: 640px; }
 .field { margin-bottom: 18px; }
-label { display: block; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
-.req { color: var(--accent); font-size: 14px; margin-left: 6px; }
+label { display: block; font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.req { color: var(--accent); font-size: 15px; margin-left: 6px; }
+.opt { color: var(--ink-sub); font-size: 15px; margin-left: 6px; font-weight: 400; }
 input, select, textarea {
   width: 100%; padding: 13px 14px; font-size: 16px; font-family: inherit;
-  border: 1px solid #9aa5b1; background: #fff; color: var(--ink); min-height: 48px;
+  border: 1px solid var(--field-line); background: #fff; color: var(--ink); min-height: 48px;
 }
-textarea { min-height: 110px; }
-.screening {
-  background: var(--bg-soft); border-left: 4px solid var(--navy);
-  padding: 14px 18px; font-size: 16px; margin-bottom: 22px;
-}
+textarea { min-height: 90px; }
+.consent label { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; font-size: 17px; }
+.consent input { width: 22px; height: 22px; min-height: 0; flex: 0 0 auto; margin-top: 3px; }
+.form .btn { width: 100%; }
 
 /* ---- フッター ---- */
-footer { background: var(--navy-deep); color: #c3cede; padding: 36px 0; }
-footer p { max-width: none; font-size: 15px; }
-/* 商標帰属表示。最小6ポイント規定に対し余裕を持って11px。 */
-.trademark { font-size: 11px; line-height: 1.7; color: #90a0b5; margin-top: 18px; }
+footer { background: var(--navy-deep); color: #cdd7e5; padding: 36px 0; }
+footer p { max-width: none; font-size: 16px; }
+footer a { color: #cdd7e5; }
+/* 商標帰属表示。最小6ポイント規定に対し11px（約8.25pt）。 */
+.trademark { font-size: 11px; line-height: 1.7; color: #9aabc0; margin-top: 18px; }
 
 @media (max-width: 860px) {
-  body { font-size: 16px; }
+  body { font-size: 17px; }
   .hero .wrap, .g3, .g2 { grid-template-columns: 1fr; }
   section { padding: 48px 0; }
   .site-head { flex-direction: column; align-items: flex-start; }
+  .sticky-cta {
+    left: 0; right: 0; bottom: 0; padding: 10px 12px;
+    background: rgba(255,255,255,.97); border-top: 1px solid var(--line);
+  }
+  .sticky-cta .btn { width: 100%; }
+  body { padding-bottom: 84px; }
+}
+
+/* 設置要件表はSPで縦積み。横スクロールは読み飛ばしを誘発するため */
+@media (max-width: 640px) {
+  table { min-width: 0; }
+  table tr { display: block; border-bottom: 1px solid var(--line); }
+  table th, table td { display: block; width: auto; border: 0; white-space: normal; }
+  table th { background: var(--bg-soft); padding: 8px 12px; }
+  table td { padding: 10px 12px 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
