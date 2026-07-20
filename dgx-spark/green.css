@@ -1,0 +1,44 @@
+/* NVIDIA グリーン適用版（style.css の上に読み込む差分）
+   使用ルール
+   ・緑は「NVIDIA由来のもの」にのみ使う
+     製品名の強調／比較表のDGX Spark列／仕様の数値強調／セクション罫
+   ・自社の行動喚起には使わない
+     CTAボタン・フォーム・自社ロゴまわりは自社色のまま
+     CTAを緑にすると、NVIDIAがその購入を推奨しているように読める余地があるため
+   ・ロゴとバッジには一切手を加えない。リカラー・改変は禁止
+   ・緑の上の文字は黒。白文字はコントラストが不足する
+*/
+
+:root {
+  --nv: #76b900;
+  --nv-deep: #5c8f00;   /* 白背景上のテキスト用。#76b900 は白地でコントラスト不足のため */
+}
+
+/* セクション見出しの上ラベルを緑に。ページ全体に NVIDIA の signal を通す */
+.kicker { color: var(--nv-deep); }
+
+/* 見出し直下の罫 */
+h2 { position: relative; padding-bottom: 18px; }
+h2::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 56px; height: 4px; background: var(--nv);
+}
+.dark h2::after { background: var(--nv); }
+
+/* ヒーローのオファー罫のみ緑（特典・価格はNVIDIA由来ではないため要検討箇所） */
+.offer-line { border-left-color: var(--nv); }
+
+/* 比較表の DGX Spark 列を緑でハイライト。緑地には黒文字 */
+.own-head { background: var(--nv); color: #16181d; }
+.dark .own-head { background: var(--nv); color: #16181d; }
+.own { background: #f2f8e6; }
+.dark .own { background: #1d2a12; }
+
+/* 製品名の強調 */
+.nv-name { color: var(--nv-deep); font-weight: 700; }
+.dark .nv-name { color: #9dcb3f; }
+
+/* 番号ラベルは自社色のまま（自社の課題提起であるため） */
+.card .num { color: var(--accent); }
+
+/* CTA・フォームは自社色のまま。緑にしない */
