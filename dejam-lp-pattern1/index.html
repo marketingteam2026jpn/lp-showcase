@@ -298,8 +298,32 @@ table.price .yen{font-family:var(--jp-head);font-weight:700;font-size:22px;color
 table.price .yen small{font-size:15px;font-weight:400;color:var(--ink-mute);display:block;}
 table.price .target-yes{font-weight:700;color:var(--orange-ink);}
 table.price .target-no{color:var(--ink-mute);}
+.section--alt2{background:var(--bg-alt2);}
 .price-notes{margin-top:24px;}
 .price-notes li{font-size:15px;line-height:1.8;color:var(--ink-mute);margin-bottom:6px;}
+/* 比較表（競合は製品名を伏せて記載。優劣の主張ではなく仕様差の提示） */
+table.cmp{min-width:760px;}
+table.cmp thead th:first-child{width:22%;}
+table.cmp thead th.is-them{background:#3a3c52;font-weight:700;}
+table.cmp thead th.is-us{background:var(--orange-cta);}
+table.cmp tbody th{width:22%;background:var(--bg-alt);}
+table.cmp td{width:39%;}
+table.cmp td.them{background:#fafafa;color:var(--ink-mute);}
+table.cmp td.us{background:#fff7f3;}
+table.cmp td.us b{font-family:var(--jp-head);color:var(--orange-ink);display:block;margin-bottom:4px;}
+table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
+.cmp-legend{margin-top:18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+.cmp-legend span{font-size:15px;color:var(--ink-mute);display:inline-flex;align-items:center;gap:8px;}
+.cmp-legend i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid var(--line);}
+.whatis{
+  margin-top:40px;background:var(--bg-alt);border-left:5px solid var(--navy);
+  border-radius:0 8px 8px 0;padding:28px 26px;
+}
+.whatis h3{margin-bottom:10px;}
+.whatis p{margin:0;font-size:17px;line-height:1.9;}
+@media (max-width:768px){
+  .whatis{padding:24px 20px;}
+}
 .struct{
   margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px 28px;
 }
@@ -549,7 +573,8 @@ table.price .target-no{color:var(--ink-mute);}
           <span class="nw">乗り換えの手間は、</span><span class="nw"><span class="hl">こちらが10本分</span>引き受けます。</span>
         </h1>
         <p class="hero__sub">
-          稼働中のLPを最大10本、Dejamがそのまま移設します。あなたの作業は素材を渡すだけ。タグ1行で導入でき、DNSもドメイン切替も要りません。
+          <b>Dejamは、記事LP・スワイプLPの制作から、ABテスト・ヒートマップによる改善までを1つで回すCVR改善ツールです。</b>
+          いまお使いのLP量産ツールから乗り換える場合、稼働中のLPを最大10本、Dejamがそのまま移設します。あなたの作業は素材を渡すだけ。タグ1行で導入でき、DNSもドメイン切替も要りません。
         </p>
 
         <div class="cta-block">
@@ -606,7 +631,88 @@ table.price .target-no{color:var(--ink-mute);}
     </div>
 
     <div class="bridge rv">
-      <p>この3つはどれも、機能の不足ではなく<b>運用側の摩擦</b>です。だからDejamは、機能の説明より先に、この3つへの答えを用意しました。<b>工数はこちらが引き受け、導入はタグ1行、料金は全部公開する。</b>以下はその中身だけを説明します。</p>
+      <p>この3つはどれも、機能の不足ではなく<b>運用側の摩擦</b>です。では、いま使っているツールとDejamは具体的に何が違うのか。<b>まずそこから、仕様の差だけを並べて説明します。</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 今お使いのツールとの違い（比較表） ============ -->
+<!--
+  ▼比較表の方針
+  競合製品名は意図的に伏せている。特定製品との優劣を主張するものではなく、
+  仕様差の提示にとどめるため。記載は2026年7月時点の公開情報で確認できる事実のみ。
+  公開情報がない項目は「公開情報なし」と明記し、推測で埋めない。
+-->
+<section class="section section--alt2" id="compare">
+  <div class="container">
+    <div class="sec-head rv">
+      <p class="sec-label">03 ／ 今お使いのツールとの違い</p>
+      <h2><span class="nw">機能の量ではなく、</span><span class="nw">運用の入口が違います。</span></h2>
+      <p class="lead measure">アドアフィ向けのLP量産ツールは、どれも制作・ABテスト・計測を一通り備えています。差が出るのは機能表ではなく、始めるまでに何を確認し、誰を巻き込み、いくら払うのかという入口の部分です。</p>
+    </div>
+
+    <div class="price-wrap rv">
+      <table class="price cmp">
+        <thead>
+          <tr>
+            <th scope="col">比較する項目</th>
+            <th scope="col" class="is-them">一般的なLP量産型ツール</th>
+            <th scope="col" class="is-us">Dejam</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">料金の確認方法</th>
+            <td class="them">問い合わせと商談を経て見積もりが出る。サイト上では金額が確認できない</td>
+            <td class="us"><b>サイトで全プラン公開</b>月3万円／5万円／12万円。問い合わせ前に自社で試算できる</td>
+          </tr>
+          <tr>
+            <th scope="row">既存サイトへの導入方法</th>
+            <td class="them">DNS・ドメインの切り替えを伴う</td>
+            <td class="us"><b>タグを1行設置するだけ</b>DNSにもドメインにも触れない</td>
+          </tr>
+          <tr>
+            <th scope="row">導入時のエンジニア関与</th>
+            <td class="them">初回のドメイン設定でエンジニア対応が必要になる</td>
+            <td class="us"><b>不要</b>制作・運用の担当者だけで完結する</td>
+          </tr>
+          <tr>
+            <th scope="row">想定している運用規模</th>
+            <td class="them">LPの大量量産を前提とした価格設計。数本の運用では費用対効果が合いにくい</td>
+            <td class="us"><b>数本からでも合う</b>月3万円のプランから始められる</td>
+          </tr>
+          <tr>
+            <th scope="row">AIによる改善提案</th>
+            <td class="them">機能は搭載されているが、提案の内容・精度は公開されていない</td>
+            <td class="us"><b>CROサジェスト</b>LPの画像かURLから最短30秒で、改善案を理由付きで複数生成（特許出願中）</td>
+          </tr>
+          <tr>
+            <th scope="row">ヒートマップ</th>
+            <td class="them">搭載</td>
+            <td class="us"><b>搭載＋CVR寄与度の自動解析</b>どこを直せば効くかまで提示する</td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザー数の扱い</th>
+            <td class="them"><span class="unk">公開情報なし</span></td>
+            <td class="us"><b>実質無制限</b>社員だけでなくパートナー企業とも共有できる</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="price-notes rv">
+      <li>※本表は2026年7月時点で各社が公開している情報に基づいて作成しています。特定の製品を名指しして優劣を主張するものではないため、製品名の記載は控えています。</li>
+      <li>※「一般的なLP量産型ツール」は、アドアフィリエイト向けに広く使われているLP量産型ツールに共通する仕様をまとめたものです。個別製品の仕様・料金は変更される場合がありますので、最新の内容は各社にご確認ください。</li>
+      <li>※機能の優劣や使用感についての評価は含みません。判断に必要な項目は、両社にお問い合わせのうえご確認ください。</li>
+    </ul>
+
+    <div class="whatis rv">
+      <h3>そもそもDejamとは</h3>
+      <p>株式会社LeanGoが提供するCVR改善ツールです。記事LP・スワイプLP・アンケートLP・フォームの制作、ABテスト（デザイン変更・リダイレクト・ポップアップの3種）、ヒートマップ、AIによる改善提案までを1つの画面で扱えます。上場している広告業界企業の12.5%に導入されており、ISMS（ISO/IEC 27001:2022）認証を取得しています。</p>
+    </div>
+
+    <div class="bridge rv">
+      <p>違いは以上です。ただ、<b>差が分かっても乗り換えが進むわけではありません。</b>止まっているのは工数の問題だからです。そこで用意したのが、次の移行代行です。</p>
     </div>
   </div>
 </section>
@@ -615,7 +721,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section" id="offer">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">03 ／ 移行代行オファーの中身</p>
+      <p class="sec-label">04 ／ 移行代行オファーの中身</p>
       <h2><span class="nw">稼働中のLPを最大10本、</span><span class="nw">そのままDejamへ移設します。</span></h2>
       <p class="lead measure">「LP制作10本分無料」の中身は、ゼロからの新規制作ではありません。いま広告を回しているLPを、こちらが受け取ってDejam上に移し替える作業一式です。移設の実作業はLeanGoが行います。</p>
     </div>
@@ -700,7 +806,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section" id="flow">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">04 ／ 導入の流れ</p>
+      <p class="sec-label">05 ／ 導入の流れ</p>
       <h2><span class="nw">申し込みから初回ABテストまで、</span><span class="nw">4ステップです。</span></h2>
       <p class="lead measure">エンジニアの空きを待つ工程はありません。既存サイトへの設置はタグ1行で完了し、DNSやドメインの切り替えは発生しません。</p>
     </div>
@@ -744,7 +850,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section section--alt" id="price">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">05 ／ 料金</p>
+      <p class="sec-label">06 ／ 料金</p>
       <h2><span class="nw">見積もりを待たずに、</span><span class="nw">いまこの場で試算できます。</span></h2>
       <p class="lead measure">Dejamは全プランの価格を公開しています。商談を挟まなくても、自社が月いくら払うことになるのかを、このページで計算できます。</p>
     </div>
@@ -789,7 +895,7 @@ table.price .target-no{color:var(--ink-mute);}
     <ul class="price-notes rv" style="padding-left:1.2em;">
       <li>表示金額は各プランの最低価格です。ご利用範囲により変動します。</li>
       <li>無料移行代行の対象はCMSプラン以上・年間契約のご契約に限ります。</li>
-      <li>Squad beyondは料金が公開されていないため、本ページでは金額の比較は行いません。ご自身で両社に確認のうえ判断してください。</li>
+      <li>他社ツールは料金を公開していない場合があるため、本ページでは金額の比較は行いません。ご自身で両社に確認のうえ判断してください。</li>
       <li>表示価格は税別の月額です。</li>
     </ul>
 
@@ -810,7 +916,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section" id="features">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">06 ／ Dejamでできること</p>
+      <p class="sec-label">07 ／ Dejamでできること</p>
       <h2><span class="nw">制作・分析・改善を、</span><span class="nw">1つの画面で回します。</span></h2>
       <p class="lead measure">機能を全部並べても判断材料にはなりません。乗り換えの判断に効くところだけを挙げます。</p>
     </div>
@@ -851,7 +957,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section section--navy" id="cro">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">07 ／ CROサジェスト</p>
+      <p class="sec-label">08 ／ CROサジェスト</p>
       <p class="pill">特許出願中</p>
       <h2><span class="nw">LPの画像かURLを入れると、</span><span class="nw">最短30秒で改善案が返ってきます。</span></h2>
       <p class="lead measure">AIが改善案を出すところまではよくある機能です。Dejamが返すのは、なぜそこを直すのかという理由がついた改善案です。理由がついているから、そのまま外注への指示書として使えます。</p>
@@ -879,7 +985,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section section--alt" id="results">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">08 ／ 実績</p>
+      <p class="sec-label">09 ／ 実績</p>
       <h2><span class="nw">乗り換えの判断材料として、</span><span class="nw">数字を出しておきます。</span></h2>
       <p class="lead measure">乗り換えは元に戻しにくい判断です。だから最後に、確認できる数字だけを並べます。</p>
     </div>
@@ -975,7 +1081,7 @@ table.price .target-no{color:var(--ink-mute);}
 <section class="section" id="faq">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">09 ／ よくある質問</p>
+      <p class="sec-label">10 ／ よくある質問</p>
       <h2>乗り換えにあたって、よくいただく質問</h2>
     </div>
 
@@ -1015,7 +1121,7 @@ table.price .target-no{color:var(--ink-mute);}
 <!-- ============ 10. 最終CTA ============ -->
 <section class="final section--navy" id="apply">
   <div class="container">
-    <p class="sec-label">10 ／ お申し込み</p>
+    <p class="sec-label">11 ／ お申し込み</p>
     <h2><span class="nw">乗り換えの手間は、</span><span class="nw">こちらが10本分引き受けます。</span></h2>
     <p class="lead">まずは、いま稼働しているLPが何本で、どのくらいの期間で移せるのか。その見積もりだけ受け取ってください。この時点で費用は発生しません。</p>
 
@@ -1075,7 +1181,7 @@ table.price .target-no{color:var(--ink-mute);}
       <li>※本ページに記載の改善実績はいずれも個別事例であり、成果を保証するものではありません。業種・LPの状態・実施施策によって結果は異なります。</li>
       <li>※「CVR改善成功率90%以上」「上場している広告業界企業の12.5%に導入」はいずれも自社調べによる数値です。</li>
       <li>※導入企業名は順不同・敬称略で記載しています。</li>
-      <li>※本ページ内のSquad beyondに関する記述は、公開情報から確認できる事実（料金が公開されていないこと、既存サイト導入時にドメイン切替が必要であること）に限定しています。機能の優劣や使用感についての評価は含みません。Squad beyondは各権利者の商標です。</li>
+      <li>※本ページ内の他社ツールに関する記述は、2026年7月時点の公開情報から確認できる事実に限定しています。機能の優劣や使用感についての評価は含みません。特定の製品との比較を主張するものではないため、製品名の記載は控えています。各製品名・サービス名は各権利者の商標です。</li>
       <li>※移行代行の日数はいずれも目安です。対象本数および元LPの構成により前後します。</li>
     </ul>
   </div>
