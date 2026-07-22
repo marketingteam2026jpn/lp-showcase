@@ -169,9 +169,36 @@ p:last-child{margin-bottom:0;}
   position:relative;
 }
 .hero__grid{display:grid;gap:40px;}
-.hero h1{margin-bottom:24px;}
+/* 社会的証明は主役にしない。h1 の 1/3 以下に抑え、視線の第一到達点を h1 に置く */
+.hero__praise{
+  display:inline-block;margin-bottom:16px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+  border-radius:4px;padding:7px 13px;
+  font-size:15px;line-height:1.5;font-weight:500;color:#d5d7e3;letter-spacing:.04em;
+}
+.hero h1{margin-bottom:20px;}
 .hero h1 .hl{color:var(--orange-sub);}
-.hero__sub{font-size:18px;line-height:1.9;color:#e2e4ef;max-width:34em;margin-bottom:32px;}
+.hero h1 .h1-sub{
+  display:block;font-size:clamp(19px,2.3vw,26px);line-height:1.5;
+  color:#c6c8d6;font-weight:700;margin-top:12px;
+}
+.hero__sub{font-size:18px;line-height:1.9;color:#e2e4ef;max-width:34em;margin-bottom:28px;}
+/* 価格を最初の便益として明示する帯 */
+.hero__price{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px;
+  margin:0 0 28px;padding:18px 20px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.20);
+  border-left:5px solid var(--orange-sub);border-radius:0 6px 6px 0;
+}
+.hero__price .amount{
+  font-family:var(--jp-head);font-weight:700;color:var(--orange-sub);
+  font-size:clamp(26px,3.4vw,36px);line-height:1.2;
+}
+.hero__price .amount small{font-size:18px;margin-left:2px;}
+.hero__price .cond{font-size:16px;line-height:1.7;color:#e2e4ef;}
+@media (max-width:768px){
+  .hero__price{padding:16px;}
+}
 .hero .cta-block{text-align:left;}
 .hero__points{
   display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
@@ -312,6 +339,17 @@ table.cmp td.them{background:#fafafa;color:var(--ink-mute);}
 table.cmp td.us{background:#fff7f3;}
 table.cmp td.us b{font-family:var(--jp-head);color:var(--orange-ink);display:block;margin-bottom:4px;}
 table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
+.cmp-price{
+  margin-top:32px;background:#fff7f3;border:1px solid #f0c9b6;
+  border-left:5px solid var(--orange-cta);border-radius:0 8px 8px 0;padding:26px 26px;
+}
+.cmp-price__head{
+  font-family:var(--jp-head);font-weight:700;font-size:17px;
+  color:var(--orange-ink);margin:0 0 8px;
+}
+.cmp-price__body{margin:0;font-size:17px;line-height:1.9;max-width:44em;}
+.cmp-price__body b{font-family:var(--jp-head);}
+@media (max-width:768px){ .cmp-price{padding:22px 20px;} }
 .cmp-legend{margin-top:18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
 .cmp-legend span{font-size:15px;color:var(--ink-mute);display:inline-flex;align-items:center;gap:8px;}
 .cmp-legend i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid var(--line);}
@@ -568,13 +606,19 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
   <div class="container">
     <div class="hero__grid">
       <div>
+        <p class="hero__praise">アドアフィ界隈大絶賛</p>
         <h1>
-          <span class="nw">アドアフィ界隈大絶賛。</span><br>
-          <span class="nw">乗り換えの手間は、</span><span class="nw"><span class="hl">こちらが10本分</span>引き受けます。</span>
+          <span class="nw">記事LP・スワイプLPの</span><span class="nw">制作管理ツールを、</span><span class="nw"><span class="hl">月3万円から。</span></span>
+          <span class="h1-sub"><span class="nw">いまお使いのLPツールからの</span><span class="nw">乗り換えに対応しています。</span></span>
         </h1>
+
+        <div class="hero__price">
+          <p class="amount">月30,000円<small>〜</small></p>
+          <p class="cond">全3プランの料金を公開／ユーザー数は実質無制限／初期費用なしのタグ1行導入</p>
+        </div>
+
         <p class="hero__sub">
-          <b>Dejamは、記事LP・スワイプLPの制作から、ABテスト・ヒートマップによる改善までを1つで回すCVR改善ツールです。</b>
-          いまお使いのLP量産ツールから乗り換える場合、稼働中のLPを最大10本、Dejamがそのまま移設します。あなたの作業は素材を渡すだけ。タグ1行で導入でき、DNSもドメイン切替も要りません。
+          記事LP・スワイプLP・アンケートLPの制作から、ABテストとヒートマップによる改善までを1つで回せます。乗り換えの際は、稼働中のLPを最大10本、LeanGoが無料で移設します。あなたの作業は素材を渡すだけです。
         </p>
 
         <div class="cta-block">
@@ -583,9 +627,9 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
         </div>
 
         <ul class="hero__points">
-          <li><b>最大10本</b>稼働中LPの移設を、LeanGoが代行します</li>
-          <li><b>タグ1行</b>DNS変更もドメイン切替も発生しません</li>
-          <li><b>月3万円〜</b>全プランの料金を公開しています</li>
+          <li><b>月3万円〜</b>料金は全プラン公開。見積もり待ちは発生しません</li>
+          <li><b>人数無制限</b>チームが増えても月額は変わりません</li>
+          <li><b>移行10本無料</b>稼働中LPの移設をLeanGoが代行します</li>
         </ul>
 
         <!--
@@ -647,8 +691,8 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
   <div class="container">
     <div class="sec-head rv">
       <p class="sec-label">03 ／ 今お使いのツールとの違い</p>
-      <h2><span class="nw">機能の量ではなく、</span><span class="nw">運用の入口が違います。</span></h2>
-      <p class="lead measure">アドアフィ向けのLP量産ツールは、どれも制作・ABテスト・計測を一通り備えています。差が出るのは機能表ではなく、始めるまでに何を確認し、誰を巻き込み、いくら払うのかという入口の部分です。</p>
+      <h2><span class="nw">差が出るのは機能ではなく、</span><span class="nw">料金と、導入のしかたです。</span></h2>
+      <p class="lead measure">アドアフィ向けのLP量産ツールは、どれも制作・ABテスト・計測を一通り備えています。機能表を並べても差は出ません。実際に効いてくるのは、月にいくら払うのか、その金額をいつ知れるのか、そして始めるのに誰を巻き込むのかという部分です。上から順に、そこを並べています。</p>
     </div>
 
     <div class="price-wrap rv">
@@ -662,9 +706,24 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
         </thead>
         <tbody>
           <tr>
-            <th scope="row">料金の確認方法</th>
-            <td class="them">問い合わせと商談を経て見積もりが出る。サイト上では金額が確認できない</td>
-            <td class="us"><b>サイトで全プラン公開</b>月3万円／5万円／12万円。問い合わせ前に自社で試算できる</td>
+            <th scope="row">月額料金</th>
+            <td class="them">公開されていない。問い合わせと商談を経てから見積もりが出る</td>
+            <td class="us"><b>月30,000円から</b>オプティマイズ3万円／CMS5万円／オールインワン12万円の3プランをサイトで公開</td>
+          </tr>
+          <tr>
+            <th scope="row">費用が分かるタイミング</th>
+            <td class="them">商談のあと。それまで社内の比較表が作れない</td>
+            <td class="us"><b>いま、この場で</b>問い合わせ前に自社の費用を試算できる</td>
+          </tr>
+          <tr>
+            <th scope="row">人数が増えたときの費用</th>
+            <td class="them"><span class="unk">公開情報なし</span></td>
+            <td class="us"><b>増えない</b>ユーザー数は実質無制限。社員だけでなくパートナー企業とも共有できる</td>
+          </tr>
+          <tr>
+            <th scope="row">想定している運用規模</th>
+            <td class="them">LPの大量量産を前提とした価格設計。数本の運用では費用対効果が合いにくい</td>
+            <td class="us"><b>数本からでも合う</b>月3万円のプランから始められる</td>
           </tr>
           <tr>
             <th scope="row">既存サイトへの導入方法</th>
@@ -677,11 +736,6 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
             <td class="us"><b>不要</b>制作・運用の担当者だけで完結する</td>
           </tr>
           <tr>
-            <th scope="row">想定している運用規模</th>
-            <td class="them">LPの大量量産を前提とした価格設計。数本の運用では費用対効果が合いにくい</td>
-            <td class="us"><b>数本からでも合う</b>月3万円のプランから始められる</td>
-          </tr>
-          <tr>
             <th scope="row">AIによる改善提案</th>
             <td class="them">機能は搭載されているが、提案の内容・精度は公開されていない</td>
             <td class="us"><b>CROサジェスト</b>LPの画像かURLから最短30秒で、改善案を理由付きで複数生成（特許出願中）</td>
@@ -691,13 +745,13 @@ table.cmp td .unk{font-size:15px;color:var(--ink-mute);font-style:normal;}
             <td class="them">搭載</td>
             <td class="us"><b>搭載＋CVR寄与度の自動解析</b>どこを直せば効くかまで提示する</td>
           </tr>
-          <tr>
-            <th scope="row">ユーザー数の扱い</th>
-            <td class="them"><span class="unk">公開情報なし</span></td>
-            <td class="us"><b>実質無制限</b>社員だけでなくパートナー企業とも共有できる</td>
-          </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="cmp-price rv">
+      <p class="cmp-price__head">価格面の要点</p>
+      <p class="cmp-price__body"><b>月30,000円から。しかも、人数が増えても月額は変わりません。</b>ユーザー数が実質無制限のため、社内の担当者を増やしても、外部のパートナーやライターにアカウントを渡しても、支払う金額は同じです。LPを数本しか動かしていない月でも、料金は3万円のまま据え置けます。金額は3プランとも公開しているので、問い合わせをする前に自社の年間費用まで計算できます。</p>
     </div>
 
     <ul class="price-notes rv">
