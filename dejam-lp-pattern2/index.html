@@ -300,6 +300,38 @@ h3{ font-size: clamp(19px, 2.2vw, 23px); line-height:1.6; }
 .disclaimer li{ padding-left:1em; text-indent:-1em; }
 
 /* --- ステップ図解 --- */
+/* 2つの直し方（ノーコード／コード編集）を並べる */
+.ways{ display:grid; gap:18px; margin-top:32px; grid-template-columns:1fr; }
+@media (min-width:860px){ .ways{ grid-template-columns:1fr 1fr; } }
+.way{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:26px 24px; border-top:5px solid var(--navy); }
+.way--code{ border-top-color: var(--orange-cta); }
+.way .way-tag{ font-size:15px; font-weight:700; color: var(--orange-ink); margin-bottom:6px; }
+.way h3{ font-size:20px; margin-bottom:10px; }
+.way p{ font-size:16px; line-height:1.85; color: var(--ink-mute); }
+.way ul{ margin:14px 0 0; padding:0; list-style:none; }
+.way li{ font-size:15px; line-height:1.8; color: var(--ink-mute); padding-left:1em; text-indent:-1em; }
+.way li + li{ margin-top:4px; }
+/* AIが書いたコードを貼る様子の擬似エディタ */
+.code-demo{ margin-top:26px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; }
+.code-demo__bar{ background: var(--navy); color:#fff; font-size:15px; font-weight:700; padding:12px 16px; }
+.code-demo__body{ display:grid; grid-template-columns:1fr; }
+@media (min-width:860px){ .code-demo__body{ grid-template-columns:1fr 1fr; } }
+.code-demo__pane{ padding:20px 18px; }
+.code-demo__pane + .code-demo__pane{ border-top:1px solid var(--line); }
+@media (min-width:860px){ .code-demo__pane + .code-demo__pane{ border-top:0; border-left:1px solid var(--line); } }
+.code-demo__ttl{ font-size:15px; font-weight:700; color: var(--orange-ink); margin-bottom:10px; }
+.code-demo pre{
+  margin:0; background:#f7f7f9; border:1px solid var(--line); border-radius:6px;
+  padding:14px; overflow-x:auto; font-size:15px; line-height:1.7; color:#26262f;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.code-demo__note{ font-size:15px; line-height:1.8; color: var(--ink-mute); margin-top:10px; }
+/* 詰まらない・崩れないの根拠 */
+.safe{ display:grid; gap:14px; margin-top:32px; grid-template-columns:1fr; }
+@media (min-width:768px){ .safe{ grid-template-columns:1fr 1fr; } }
+.safe li{ background: var(--bg-alt2); border:1px solid var(--line); border-radius:8px; padding:20px 20px; list-style:none; }
+.safe b{ display:block; font-size:17px; color: var(--navy); margin-bottom:6px; }
+.safe p{ font-size:15px; line-height:1.8; color: var(--ink-mute); margin:0; }
 .steps{ display:grid; gap:14px; margin-top:32px; grid-template-columns:1fr; }
 @media (min-width: 900px){ .steps{ grid-template-columns:repeat(4,1fr); gap:16px; } }
 .step{
@@ -645,14 +677,16 @@ thead th.is-dejam{ background: var(--orange-cta); }
       <span class="nb"><span class="hl">5分でLP修正。</span></span><span class="nb">アドアフィ界隈大絶賛の</span><span class="nb">LP制作・管理ツール</span>
     </h1>
     <p class="hero-sub">
-      広告の勝ちパターンが変わるのは今日です。LPの差し替えを、外注待ちにしない。月3万円から、タグ1行で即日導入。
+      <b>AIに書かせたHTML・CSS・JavaScriptを、そのまま貼って反映できます。</b>細かい文言や画像の差し替えは、コードを触らずノーコードのままでも直せます。広告の勝ちパターンが変わるのは今日です。LPの差し替えを、外注待ちにしない。月3万円から、タグ1行で即日導入。
     </p>
 
     <div class="hero-pills">
-      <span class="pill">ノーコードで差し替え</span>
+      <span class="pill">AIのコードを貼るだけ</span>
+      <span class="pill">ノーコードでも直せる</span>
+      <span class="pill">公開前にプレビュー確認</span>
+      <span class="pill">ちらつき防止が標準付帯</span>
       <span class="pill">AIが改善案を最短30秒</span>
       <span class="pill">記事LP・スワイプLP対応</span>
-      <span class="pill">ユーザー数 実質無制限</span>
     </div>
 
     <div class="cta-block">
@@ -758,11 +792,57 @@ thead th.is-dejam{ background: var(--orange-cta); }
 <!-- ============ 03 5分でできることの実演 ============ -->
 <section class="sec" id="edit">
   <div class="wrap">
-    <p class="eyebrow">03 ／ 修正から公開まで</p>
-    <h2><span class="nb">見出しも、画像も、CTAも。</span><span class="nb">4ステップで差し替えて即公開</span></h2>
+    <p class="eyebrow">03 ／ AIで書いて、そのまま貼る</p>
+    <h2><span class="nb">AIに書かせたコードを貼るだけ。</span><span class="nb">ノーコードでも直せます。</span></h2>
     <p class="lede">
-      コードを書く必要も、制作会社に指示書を送る必要もありません。管理画面で直したい箇所をクリックして書き換え、公開を押す。それだけで、タグを設置済みのページに反映されます。ドメインもサーバーも、いま使っているものをそのまま使います。
+      Dejamは2025年4月のアップデートで、LP制作機能にHTML・CSS・JavaScriptのコード編集を追加しました。ChatGPTやClaudeに「このセクションをこう変えて」と書かせたコードを、そのまま貼り付けて反映できます。細かい文言や画像の差し替えは、コードを触らずノーコードのままでも直せます。用途で使い分けられるのが要点です。
     </p>
+
+    <div class="ways">
+      <div class="way reveal">
+        <p class="way-tag">直し方その1</p>
+        <h3>ノーコードで書き換える</h3>
+        <p>管理画面で直したい箇所をクリックして書き換えます。HTMLやCSSの知識は要りません。日々の文言変更・画像差し替え・CTAのリンク先変更はこちらで完結します。</p>
+        <ul>
+          <li>・見出し、本文、画像、CTAのラベルとリンク先</li>
+          <li>・広告に合わせた訴求違いの出し分け</li>
+        </ul>
+      </div>
+      <div class="way way--code reveal">
+        <p class="way-tag">直し方その2</p>
+        <h3>コードを書いて反映する</h3>
+        <p>HTML・CSS・JavaScriptを直接編集できます。ノーコードだと表現しきれないレイアウトや動きは、コードで書けば実現できます。生成AIに書かせたコードを貼り付ける使い方が、いちばん速い。</p>
+        <ul>
+          <li>・背景画像の上にボタンやテキストを自由配置</li>
+          <li>・カルーセル、アコーディオンなどの動き</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="code-demo reveal">
+      <p class="code-demo__bar">生成AIに書かせたコードを、そのまま貼って反映する</p>
+      <div class="code-demo__body">
+        <div class="code-demo__pane">
+          <p class="code-demo__ttl">1. AIに指示する</p>
+          <pre>このLPのCTAボタンを、
+スマホで画面下に固定して、
+スクロールしても消えないように
+HTMLとCSSで書いて</pre>
+          <p class="code-demo__note">ChatGPT、Claudeなど普段使っている生成AIで構いません。Dejam側で特別な準備は不要です。</p>
+        </div>
+        <div class="code-demo__pane">
+          <p class="code-demo__ttl">2. 出てきたコードを貼る</p>
+          <pre>&lt;style&gt;
+.cta-fix{position:fixed;
+  bottom:0;left:0;right:0;
+  padding:12px;z-index:99;}
+&lt;/style&gt;</pre>
+          <p class="code-demo__note">Dejamのコード編集画面に貼り付けて、プレビューで確認してから公開します。制作会社への依頼も、外注の空き待ちも発生しません。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:44px;font-size:22px;">公開までは、4ステップです</h3>
 
     <ol class="steps">
       <li class="step reveal">
@@ -773,7 +853,7 @@ thead th.is-dejam{ background: var(--orange-cta); }
       <li class="step reveal">
         <p class="step-no">2</p>
         <h3>直したい箇所を書き換える</h3>
-        <p>見出し、本文、画像、CTAのラベルやリンク先を、画面上で直接編集します。HTMLやCSSの知識は不要です。</p>
+        <p>画面上で直接編集するか、コード編集に切り替えてHTML・CSS・JavaScriptを書きます。AIに書かせたコードを貼るのもここです。</p>
       </li>
       <li class="step reveal">
         <p class="step-no">3</p>
@@ -793,6 +873,34 @@ thead th.is-dejam{ background: var(--orange-cta); }
       <span class="chip">サーバー移設不要</span>
       <span class="chip">既存LPをそのまま使える</span>
     </div>
+
+    <h3 style="margin-top:52px;font-size:22px;">途中で詰まらない、公開してから崩れない</h3>
+    <p class="lede" style="margin-top:12px;">
+      ツールを乗り換えたのに使いこなせず放置、という失敗を避けるための仕組みが入っています。
+    </p>
+    <ul class="safe">
+      <li class="reveal">
+        <b>ノーコードとコードを行き来できる</b>
+        <p>ノーコードで詰まってもコード編集に切り替えれば解決します。逆に、コードで作った箇所の文言だけをノーコードで直すこともできます。片方で行き止まりになりません。</p>
+      </li>
+      <li class="reveal">
+        <b>公開前にプレビューで確認する</b>
+        <p>PCとスマートフォンそれぞれの表示を、公開前にその場で確認できます。意図しない崩れは公開する前に見つけられます。</p>
+      </li>
+      <li class="reveal">
+        <b>ちらつき防止ツールが標準で付く</b>
+        <p>ABテストでよくある「一瞬だけ元のページが見えてしまう」現象を防ぐ機能が、全プランに無料で付帯します。オプション料金はかかりません。</p>
+      </li>
+      <li class="reveal">
+        <b>既存のLPをそのまま載せ替えられる</b>
+        <p>他ツールで作ったLPも、ツールを使わずに作ったLPも載せ替えられます。ゼロから作り直す必要がないので、作り直しに伴う崩れ自体が発生しません。</p>
+      </li>
+    </ul>
+
+    <ul class="notes note">
+      <li>※コード編集機能（HTML・CSS・JavaScript）は、2025年4月のLP制作機能アップデートで追加された機能です。背景画像の自由配置、カルーセル、アコーディオンにも対応しています。</li>
+      <li>※生成AIはDejamに内蔵されているものではありません。お使いの生成AIで出力したコードを、Dejamのコード編集画面に貼り付けてご利用いただく想定です。</li>
+    </ul>
 
     <div class="disclaimer" style="margin-top:24px;">
       <p class="ttl">「5分」の測定条件について</p>
