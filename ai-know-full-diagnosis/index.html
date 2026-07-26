@@ -49,6 +49,7 @@ a{color:inherit;text-decoration:none}
 
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:46px;max-width:840px;margin-left:auto;margin-right:auto}
+.stats.stats-3{grid-template-columns:repeat(3,1fr);max-width:660px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 14px}
 .stat b{display:block;font-family:'Shippori Mincho',serif;font-size:clamp(20px,3vw,27px);font-weight:800;color:var(--teal-d)}
 .stat b .u{font-size:13px}
@@ -149,7 +150,7 @@ footer{background:#12211F;color:#9FB2AD;padding:34px 0;text-align:center;font-si
 </head>
 <body>
 
-<div class="note">これは仮組のデザインモックです（口コミの顔写真はイラスト仮画像・会員数は数値確定前、後で調整予定）</div>
+<div class="note">これは仮組のデザインモックです（口コミの顔写真はイラスト仮画像・後で調整予定）</div>
 
 <!-- HEADER -->
 <header class="site-head"><div class="wrap head-in">
@@ -168,11 +169,10 @@ footer{background:#12211F;color:#9FB2AD;padding:34px 0;text-align:center;font-si
   <a href="quiz.html" class="btn btn-main">無料で診断を受ける</a>
   <small>登録不要・全63問・約10分・結果の概要は無料でご覧いただけます</small>
 
-  <div class="stats">
+  <div class="stats stats-3">
     <div class="stat"><b>1,215,446<span class="u">人</span></b><small>診断受験者数</small><div class="ref">※2</div></div>
     <div class="stat"><b>4.87<span class="u">/5</span></b><small>利用者満足度</small><div class="ref">※3</div></div>
     <div class="stat"><b>95.1<span class="u">%↑</span></b><small>公式一致率</small><div class="ref">※1</div></div>
-    <div class="stat"><b>—</b><small>会員数（確定前）</small><div class="ref">※4</div></div>
   </div>
 </div></div>
 
@@ -268,8 +268,7 @@ footer{background:#12211F;color:#9FB2AD;padding:34px 0;text-align:center;font-si
   <b>出典・注釈</b><br>
   ※1 2024年7月1日までの社内テスト。公式診断によるタイプと、当診断によるタイプの一致率の調査結果。<br>
   ※2 2024年5月31日までの自社データによる。当協会の診断メディア累計ユーザー数。<br>
-  ※3 2024年4月25日までの自社データによる。<br>
-  ※4 会員数は数値確定前のため、正式データ確定後に掲載します（仮組）。
+  ※3 2024年4月25日までの自社データによる。
 </div></div>
 
 <footer>
