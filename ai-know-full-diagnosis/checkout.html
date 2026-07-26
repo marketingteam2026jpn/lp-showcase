@@ -3,75 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>診断結果とプラン | 全統合パーソナリティ診断 — AI-KNOW</title>
+<title>診断結果とプラン | 日本性格診断協会</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--purple:#9B6DD7;--purple-d:#7A4FC0;--pink:#C77DBA;--ink:#2D2346;--sub:#6B5E80;--line:rgba(45,35,70,.08);--bg:#FFFBFE}
+:root{--teal:#0F766E;--teal-d:#0B5A54;--teal-l:#2FA38E;--navy:#315F9B;--gold:#B87A1E;--gold-l:#E9C86A;--ink:#182B28;--sub:#566B67;--line:rgba(24,43,40,.10);--bg:#F8FBFA;--card:#fff;--cream:#F1F6F3}
 html{font-size:16px}
-body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.75;overflow-x:hidden}
-.note{background:#FFF6E9;border-bottom:1px solid #F4D9A8;color:#8a6d3b;font-size:12px;text-align:center;padding:7px;font-weight:700}
+body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.8;overflow-x:hidden}
+.serif{font-family:'Shippori Mincho',serif}
+a{color:inherit;text-decoration:none}
+.note{background:#FBF3E3;border-bottom:1px solid #EAD6A8;color:#8a6d3b;font-size:12px;text-align:center;padding:7px;font-weight:700}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px}
-.top{position:sticky;top:0;z-index:10;background:rgba(255,251,254,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top-in{max-width:720px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--purple)}
+
+/* HEADER */
+.site-head{position:sticky;top:0;z-index:20;background:rgba(248,251,250,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-in{max-width:720px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:36px;height:35px;flex:none}
+.brand-txt{font-family:'Shippori Mincho',serif;font-weight:800;font-size:17px;color:var(--teal-d);letter-spacing:.03em;line-height:1.1}
+.brand-txt small{display:block;font-family:'Noto Sans JP';font-weight:500;font-size:8px;letter-spacing:.12em;color:var(--sub)}
+.head-chip{font-size:11px;font-weight:700;color:var(--gold);text-align:right}
+.head-chip b{color:var(--teal-d)}
 
 .done{text-align:center;padding:34px 0 8px}
-.done .em{font-size:38px}
-.done h1{font-size:24px;font-weight:900;margin-top:8px}
+.done .em{font-size:36px}
+.done h1{font-family:'Shippori Mincho',serif;font-size:24px;font-weight:800;margin-top:8px}
 .done p{color:var(--sub);font-size:14px;margin-top:6px}
 
-/* result cards */
 .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
-.rc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+.rc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
 .rc.full{grid-column:1/-1}
-.rc .tag{font-size:11.5px;font-weight:900;color:var(--purple);letter-spacing:.06em}
-.rc .big{font-size:30px;font-weight:900;margin:6px 0 2px;letter-spacing:.02em}
+.rc .tag{font-size:11px;font-weight:900;color:var(--gold);letter-spacing:.06em}
+.rc .big{font-family:'Shippori Mincho',serif;font-size:30px;font-weight:800;margin:6px 0 2px;letter-spacing:.02em;color:var(--teal-d)}
 .rc .nm{font-size:15px;font-weight:700}
 .rc .ds{color:var(--sub);font-size:12.5px;margin-top:6px}
-
-/* radar */
 .radar-wrap{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
 .b5list{text-align:left;font-size:13px}
 .b5list div{display:flex;justify-content:space-between;gap:16px;padding:2px 0}
-.b5list b{color:var(--purple-d)}
+.b5list b{color:var(--teal-d)}
+.catch{grid-column:1/-1;background:linear-gradient(135deg,#E4F1ED,#FAF1DD);border-radius:14px;padding:22px;text-align:center}
+.catch small{font-weight:900;color:var(--teal);font-size:11px;letter-spacing:.06em}
+.catch h3{font-family:'Shippori Mincho',serif;font-size:19px;font-weight:800;margin-top:6px}
 
-/* integrated catch */
-.catch{grid-column:1/-1;background:linear-gradient(135deg,#F3E9FB,#FDE9F4);border-radius:18px;padding:22px;text-align:center}
-.catch small{font-weight:900;color:var(--purple);font-size:11.5px;letter-spacing:.06em}
-.catch h3{font-size:19px;font-weight:900;margin-top:6px}
+/* AUTHORITY strip */
+.authstrip{margin-top:22px;background:var(--teal-d);color:#fff;border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:18px}
+.authstrip .r{font-family:'Shippori Mincho',serif;font-size:38px;font-weight:800;color:var(--gold-l);line-height:1;flex:none}
+.authstrip .r span{font-size:16px}
+.authstrip .txt{font-size:13px;color:#DCEAE6}
+.authstrip .txt b{color:#fff;font-weight:700}
 
 /* paywall */
-.lock{margin-top:30px;position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.lock{margin-top:26px;position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
 .lock-preview{padding:24px;filter:blur(4px);opacity:.6;pointer-events:none;user-select:none}
-.lock-preview h4{font-weight:900;margin:14px 0 4px}
+.lock-preview h4{font-family:'Shippori Mincho',serif;font-weight:800;margin:14px 0 4px}
 .lock-preview p{color:var(--sub);font-size:13px}
-.lock-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,251,254,.2),rgba(255,251,254,.96) 55%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:26px}
-.lock-ic{font-size:34px}
-.lock-over h3{font-size:20px;font-weight:900;margin:8px 0 4px}
+.lock-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(248,251,250,.2),rgba(248,251,250,.97) 55%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:26px}
+.lock-ic{font-size:32px}
+.lock-over h3{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:800;margin:8px 0 4px}
 .lock-over p{color:var(--sub);font-size:13.5px;max-width:26em}
 
 /* plan */
-.plan{margin-top:26px;border:2px solid var(--purple);border-radius:22px;padding:26px;background:#fff;box-shadow:0 12px 30px rgba(155,109,215,.12)}
-.plan .ttl{font-weight:900;font-size:17px;text-align:center}
+.plan{margin-top:24px;border:2px solid var(--teal);border-radius:16px;padding:26px;background:#fff;box-shadow:0 12px 28px rgba(15,118,110,.10)}
+.plan .ttl{font-family:'Shippori Mincho',serif;font-weight:800;font-size:18px;text-align:center}
 .price{text-align:center;margin:10px 0 4px}
-.price b{font-size:40px;font-weight:900}
+.price b{font-family:'Shippori Mincho',serif;font-size:40px;font-weight:800;color:var(--teal-d)}
 .price span{color:var(--sub);font-size:13px}
 .feat{list-style:none;margin:18px 0 0}
 .feat li{padding:8px 0 8px 30px;position:relative;font-size:14px;border-bottom:1px dashed var(--line)}
-.feat li::before{content:"✓";position:absolute;left:4px;color:var(--purple);font-weight:900}
-.btn{display:block;width:100%;text-align:center;font-weight:900;font-size:17px;padding:17px;border-radius:99px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:0 10px 26px rgba(155,109,215,.35);margin-top:22px;transition:transform .15s}
+.feat li::before{content:"✓";position:absolute;left:4px;color:var(--teal);font-weight:900}
+.btn{display:block;width:100%;text-align:center;font-weight:800;font-size:17px;padding:17px;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;box-shadow:0 10px 24px rgba(15,118,110,.28);margin-top:22px;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .pay-note{text-align:center;color:var(--sub);font-size:12px;margin-top:12px}
-.guarantee{text-align:center;font-size:12.5px;color:var(--sub);margin-top:10px}
-.retry{text-align:center;margin:26px 0 40px}
-.retry a{color:var(--purple);font-weight:700;font-size:13px;text-decoration:underline}
-@media(max-width:560px){.rgrid{grid-template-columns:1fr}}
+.guarantee{text-align:center;font-size:12.5px;color:var(--sub);margin-top:8px}
+.retry{text-align:center;margin:26px 0 10px}
+.retry a{color:var(--teal);font-weight:700;font-size:13px;text-decoration:underline}
+
+.footnotes{border-top:1px solid var(--line);padding:22px 0;color:#8B9A96;font-size:11px;line-height:1.9;margin-top:20px}
+.footnotes b{color:var(--sub)}
+footer{background:#12211F;color:#9FB2AD;padding:28px 0;text-align:center;font-size:12px}
+.foot-brand{font-family:'Shippori Mincho',serif;color:#fff;font-weight:800;font-size:15px}
+@media(max-width:560px){.rgrid{grid-template-columns:1fr}.authstrip{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
 <div class="note">仮組モック：料金・決済は未接続（ダミー）です</div>
-<div class="top"><div class="top-in">AI-KNOW 全統合パーソナリティ診断</div></div>
+
+<!-- HEADER -->
+<header class="site-head"><div class="head-in">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 332 320" aria-label="日本性格診断協会"><defs><linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F766E"/><stop offset="1" stop-color="#2FA38E"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#315F9B"/><stop offset="1" stop-color="#628BC0"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D89A3D"/><stop offset="1" stop-color="#F1C66C"/></linearGradient></defs><g transform="translate(58 52)"><circle cx="108" cy="108" r="101" fill="#F2F7F5"/><g transform="translate(108 108) rotate(45)"><rect x="-35" y="-110" width="70" height="70" rx="15" fill="url(#blue)"/><rect x="-35" y="40" width="70" height="70" rx="15" fill="url(#teal)"/><rect x="40" y="-35" width="70" height="70" rx="15" fill="url(#gold)"/><rect x="-110" y="-35" width="70" height="70" rx="15" fill="#93BDA8"/><rect x="-35" y="-35" width="70" height="70" rx="15" fill="#174D47"/><rect x="-88" y="-88" width="38" height="38" rx="10" fill="#B7D0C6"/><rect x="50" y="50" width="38" height="38" rx="10" fill="#B6D1E0"/><rect x="50" y="-88" width="38" height="38" rx="10" fill="#F3D792"/><rect x="-88" y="50" width="38" height="38" rx="10" fill="#6C9F91"/></g></g></svg>
+    <span class="brand-txt">日本性格診断協会<small>JAPAN PERSONALITY ASSESSMENT ASSOCIATION</small></span>
+  </a>
+  <span class="head-chip">公式一致率<br><b>95.1%以上</b></span>
+</div></header>
 
 <div class="wrap">
   <div class="done">
@@ -80,7 +106,13 @@ body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:
     <p>3理論それぞれの、あなたのタイプは以下のとおりです。</p>
   </div>
 
-  <div class="rgrid" id="rgrid"><!-- filled by JS --></div>
+  <div class="rgrid" id="rgrid"></div>
+
+  <!-- AUTHORITY -->
+  <div class="authstrip">
+    <div class="r">95.1<span>%↑</span></div>
+    <div class="txt"><b>この診断は、公式セッション（有資格者による対面診断）との結果一致率95.1%以上※1。</b>専門家が監修し、社内テストで精度を検証しています。だからこそ、詳細レポートの内容も安心してご活用いただけます。</div>
+  </div>
 
   <!-- PAYWALL -->
   <div class="lock">
@@ -113,87 +145,58 @@ body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:
     </ul>
     <button class="btn" onclick="alert('※ 仮組モックです。実際の決済は未接続です。')">詳細レポートを開放する</button>
     <div class="pay-note">クレジットカード・各種決済に対応予定</div>
-    <div class="guarantee">ご購入後すぐに全レポートをご覧いただけます</div>
+    <div class="guarantee">公式一致率95.1%以上※1の診断を、そのまま詳細まで。ご購入後すぐにご覧いただけます。</div>
   </div>
 
   <div class="retry"><a href="quiz.html">← もう一度診断する</a>　｜　<a href="index.html">トップに戻る</a></div>
+
+  <div class="footnotes">
+    <b>出典・注釈</b><br>
+    ※1 2024年7月1日までの社内テスト。公式診断によるタイプと、当診断によるタイプの一致率の調査結果。<br>
+    ※2 2024年5月31日までの自社データによる。当協会の診断メディア累計ユーザー数。<br>
+    ※3 2024年4月25日までの自社データによる。
+  </div>
 </div>
 
+<footer>
+  <div class="foot-brand">日本性格診断協会</div>
+  <div style="margin-top:8px">© 2026 日本性格診断協会 ｜ 全統合パーソナリティ診断（仮組モック）</div>
+</footer>
+
 <script>
-const MBTI_NAME={
-  INTJ:'建築家',INTP:'論理学者',ENTJ:'指揮官',ENTP:'討論者',
-  INFJ:'提唱者',INFP:'仲介者',ENFJ:'主人公',ENFP:'広報運動家',
-  ISTJ:'管理者',ISFJ:'擁護者',ESTJ:'幹部',ESFJ:'領事',
-  ISTP:'巨匠',ISFP:'冒険家',ESTP:'起業家',ESFP:'エンターテイナー'
-};
-const MBTI_DESC={
-  INTJ:'戦略的な計画者',INTP:'探究心の強い理論家',ENTJ:'決断力あるリーダー',ENTP:'発想豊かな挑戦者',
-  INFJ:'理想を追う導き手',INFP:'理想主義的な仲介者',ENFJ:'人を導く主人公',ENFP:'情熱的な自由人',
-  ISTJ:'誠実で堅実な実務家',ISFJ:'献身的な守り手',ESTJ:'秩序を作る管理者',ESFJ:'面倒見のよい調整役',
-  ISTP:'冷静な職人肌',ISFP:'感性豊かな冒険家',ESTP:'行動派の起業家',ESFP:'場を明るくする人気者'
-};
+const MBTI_NAME={INTJ:'建築家',INTP:'論理学者',ENTJ:'指揮官',ENTP:'討論者',INFJ:'提唱者',INFP:'仲介者',ENFJ:'主人公',ENFP:'広報運動家',ISTJ:'管理者',ISFJ:'擁護者',ESTJ:'幹部',ESFJ:'領事',ISTP:'巨匠',ISFP:'冒険家',ESTP:'起業家',ESFP:'エンターテイナー'};
+const MBTI_DESC={INTJ:'戦略的な計画者',INTP:'探究心の強い理論家',ENTJ:'決断力あるリーダー',ENTP:'発想豊かな挑戦者',INFJ:'理想を追う導き手',INFP:'理想主義的な仲介者',ENFJ:'人を導く主人公',ENFP:'情熱的な自由人',ISTJ:'誠実で堅実な実務家',ISFJ:'献身的な守り手',ESTJ:'秩序を作る管理者',ESFJ:'面倒見のよい調整役',ISTP:'冷静な職人肌',ISFP:'感性豊かな冒険家',ESTP:'行動派の起業家',ESFP:'場を明るくする人気者'};
 const ENNEA_NAME={1:'完全主義者',2:'献身家',3:'達成者',4:'個性派',5:'研究者',6:'忠実家',7:'楽天家',8:'挑戦者',9:'平和主義者'};
 const ENNEA_DESC={1:'正しさを大切にする改革者',2:'人を支える愛情家',3:'成果を追う達成者',4:'感性で生きる個性派',5:'知を探る観察者',6:'誠実で慎重な忠実家',7:'楽しさを求める楽天家',8:'力強く導く挑戦者',9:'調和を重んじる平和主義者'};
 const B5={E:'外向性',A:'協調性',C:'誠実性',N:'神経症傾向',O:'開放性'};
-
 function level(v){return v>=3.5?'高い':(v>=2.5?'標準':'低め');}
-
 function radar(vals){
-  // vals: [E,A,C,N,O] 1-5
   const cx=70,cy=70,R=58,n=5;
   const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/n;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];};
-  let grid='';
-  [1,2,3,4,5].forEach(step=>{
-    let p='';for(let i=0;i<n;i++){const[x,y]=pt(i,R*step/5);p+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}
-    grid+=`<path d="${p}Z" fill="none" stroke="#E6D8F2" stroke-width="1"/>`;
-  });
-  let axes='';for(let i=0;i<n;i++){const[x,y]=pt(i,R);axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#E6D8F2"/>`;}
+  let grid='';[1,2,3,4,5].forEach(step=>{let p='';for(let i=0;i<n;i++){const[x,y]=pt(i,R*step/5);p+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}grid+=`<path d="${p}Z" fill="none" stroke="#D5E5DF" stroke-width="1"/>`;});
+  let axes='';for(let i=0;i<n;i++){const[x,y]=pt(i,R);axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#D5E5DF"/>`;}
   let poly='';vals.forEach((v,i)=>{const[x,y]=pt(i,R*v/5);poly+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';});
-  return `<svg width="140" height="140" viewBox="0 0 140 140">${grid}${axes}<path d="${poly}Z" fill="rgba(155,109,215,.28)" stroke="#9B6DD7" stroke-width="2"/></svg>`;
+  return `<svg width="140" height="140" viewBox="0 0 140 140">${grid}${axes}<path d="${poly}Z" fill="rgba(15,118,110,.26)" stroke="#0F766E" stroke-width="2"/></svg>`;
 }
-
 function render(){
-  let r;
-  try{ r=JSON.parse(localStorage.getItem('aiknow_result')); }catch(e){}
-  if(!r){ // デモ用フォールバック
-    r={mbti:{type:'INFP'},big5:{E:3.2,A:4.1,C:2.8,N:3.5,O:4.4},ennea:{main:4,wing:5}};
-  }
-  const g=document.getElementById('rgrid');
-  const t=r.mbti.type, tn=MBTI_NAME[t]||'', td=MBTI_DESC[t]||'';
-  const em=r.ennea.main, ew=r.ennea.wing;
-  const b=r.big5;
-  const vals=[b.E,b.A,b.C,b.N,b.O];
-  g.innerHTML=`
-    <div class="rc">
-      <div class="tag">16タイプ</div>
-      <div class="big">${t}</div>
-      <div class="nm">${tn}</div>
-      <div class="ds">${td}</div>
+  let r;try{r=JSON.parse(localStorage.getItem('aiknow_result'));}catch(e){}
+  if(!r)r={mbti:{type:'INFP'},big5:{E:3.2,A:4.1,C:2.8,N:3.5,O:4.4},ennea:{main:4,wing:5}};
+  const t=r.mbti.type,tn=MBTI_NAME[t]||'',td=MBTI_DESC[t]||'';
+  const em=r.ennea.main,ew=r.ennea.wing,b=r.big5,vals=[b.E,b.A,b.C,b.N,b.O];
+  document.getElementById('rgrid').innerHTML=`
+    <div class="rc"><div class="tag">16タイプ</div><div class="big">${t}</div><div class="nm">${tn}</div><div class="ds">${td}</div></div>
+    <div class="rc"><div class="tag">エニアグラム</div><div class="big">タイプ${em}<span style="font-size:16px">w${ew}</span></div><div class="nm">${ENNEA_NAME[em]}</div><div class="ds">${ENNEA_DESC[em]}</div></div>
+    <div class="rc full"><div class="tag">Big5 性格プロファイル</div>
+      <div class="radar-wrap" style="margin-top:10px">${radar(vals)}
+      <div class="b5list">
+        <div><span>${B5.E}</span><b>${b.E}（${level(b.E)}）</b></div>
+        <div><span>${B5.A}</span><b>${b.A}（${level(b.A)}）</b></div>
+        <div><span>${B5.C}</span><b>${b.C}（${level(b.C)}）</b></div>
+        <div><span>${B5.N}</span><b>${b.N}（${level(b.N)}）</b></div>
+        <div><span>${B5.O}</span><b>${b.O}（${level(b.O)}）</b></div>
+      </div></div>
     </div>
-    <div class="rc">
-      <div class="tag">エニアグラム</div>
-      <div class="big">タイプ${em}<span style="font-size:16px">w${ew}</span></div>
-      <div class="nm">${ENNEA_NAME[em]}</div>
-      <div class="ds">${ENNEA_DESC[em]}</div>
-    </div>
-    <div class="rc full">
-      <div class="tag">Big5 性格プロファイル</div>
-      <div class="radar-wrap" style="margin-top:10px">
-        ${radar(vals)}
-        <div class="b5list">
-          <div><span>${B5.E}</span><b>${b.E}（${level(b.E)}）</b></div>
-          <div><span>${B5.A}</span><b>${b.A}（${level(b.A)}）</b></div>
-          <div><span>${B5.C}</span><b>${b.C}（${level(b.C)}）</b></div>
-          <div><span>${B5.N}</span><b>${b.N}（${level(b.N)}）</b></div>
-          <div><span>${B5.O}</span><b>${b.O}（${level(b.O)}）</b></div>
-        </div>
-      </div>
-    </div>
-    <div class="catch">
-      <small>あなたを一言でいうと</small>
-      <h3>「${ENNEA_DESC[em]}」×「${td}」</h3>
-    </div>
-  `;
+    <div class="catch"><small>あなたを一言でいうと</small><h3>「${ENNEA_DESC[em]}」×「${td}」</h3></div>`;
 }
 render();
 </script>
