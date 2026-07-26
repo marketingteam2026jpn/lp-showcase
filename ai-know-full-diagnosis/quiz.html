@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断 | 全統合パーソナリティ診断 — AI-KNOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--purple:#9B6DD7;--purple-d:#7A4FC0;--pink:#C77DBA;--ink:#2D2346;--sub:#6B5E80;--line:rgba(45,35,70,.08);--bg:#FFFBFE}
+html{font-size:16px}
+body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.note{background:#FFF6E9;border-bottom:1px solid #F4D9A8;color:#8a6d3b;font-size:12px;text-align:center;padding:7px;font-weight:700}
+
+/* NAV + PROGRESS */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,251,254,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 18px;max-width:680px;margin:0 auto}
+.back{background:none;border:none;color:var(--sub);font-size:13px;cursor:pointer}
+.logo{font-weight:900;color:var(--purple);font-size:15px}
+.count{font-size:12px;color:var(--sub);font-weight:700}
+.pbar{max-width:680px;margin:0 auto;padding:12px 18px}
+.parts{display:flex;gap:6px}
+.part{flex:1;height:6px;background:#F0E6F6;border-radius:99px;overflow:hidden}
+.part i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width .4s}
+.plabel{display:flex;justify-content:space-between;margin-top:8px;font-size:11.5px;color:var(--sub);font-weight:700}
+
+/* SCREENS */
+.screen{max-width:680px;margin:0 auto;padding:24px 20px 120px}
+.hide{display:none!important}
+
+/* START */
+.start{text-align:center;padding-top:36px}
+.start .em{font-size:44px;margin-bottom:14px}
+.start h1{font-size:26px;font-weight:900;line-height:1.4}
+.start p{color:var(--sub);margin:16px auto 0;max-width:30em;font-size:15px}
+.meta{display:flex;justify-content:center;gap:26px;margin:28px 0 6px}
+.meta div{text-align:center}
+.meta b{display:block;font-size:20px;font-weight:900;color:var(--purple)}
+.meta small{font-size:12px;color:var(--sub)}
+.btn{display:inline-block;font-weight:900;font-size:17px;padding:16px 46px;border-radius:99px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:0 10px 26px rgba(155,109,215,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.start .btn{margin-top:26px}
+.tips{margin-top:24px;color:var(--sub);font-size:12.5px}
+
+/* QUESTION */
+.q-part{font-size:12.5px;font-weight:900;color:var(--purple);letter-spacing:.05em}
+.q-num{color:var(--sub);font-weight:700}
+.q-text{font-size:22px;font-weight:700;line-height:1.6;margin:14px 0 34px;min-height:2em}
+.scale{display:flex;align-items:center;justify-content:center;gap:10px}
+.dot{border:2px solid #D9C7EC;border-radius:50%;background:#fff;cursor:pointer;transition:all .15s;display:grid;place-items:center;color:transparent}
+.dot:hover{transform:scale(1.08);border-color:var(--purple)}
+.dot.d5{width:56px;height:56px}
+.dot.d4{width:46px;height:46px}
+.dot.d3{width:38px;height:38px;border-color:#C9BAD9}
+.dot.d2{width:46px;height:46px}
+.dot.d1{width:56px;height:56px}
+.dot.pos{border-color:var(--purple);background:rgba(155,109,215,.12)}
+.dot.neg{border-color:var(--pink);background:rgba(199,125,186,.12)}
+.dot.sel{background:linear-gradient(135deg,var(--purple),var(--pink))!important;border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(155,109,215,.4)}
+.dot.sel::after{content:"✓";font-weight:900}
+.labels{display:flex;justify-content:space-between;margin-top:16px;font-size:13px;font-weight:700}
+.labels .l{color:var(--pink)}
+.labels .r{color:var(--purple)}
+.scale-wrap{max-width:460px;margin:0 auto}
+
+/* NAV BUTTONS */
+.navbtns{position:fixed;bottom:0;left:0;right:0;background:rgba(255,251,254,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:14px 20px}
+.navbtns-in{max-width:680px;margin:0 auto;display:flex;gap:12px}
+.nbtn{flex:1;padding:14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--sub);font-weight:700;font-size:15px;cursor:pointer}
+.nbtn:disabled{opacity:.4;cursor:not-allowed}
+.nbtn.prim{border:none;background:var(--purple);color:#fff}
+
+/* ANALYSIS */
+.analysis{text-align:center;padding-top:60px}
+.spin{width:64px;height:64px;border:5px solid #EEE3F7;border-top-color:var(--purple);border-radius:50%;margin:0 auto 26px;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.analysis h2{font-size:20px;font-weight:900}
+.asteps{max-width:280px;margin:22px auto 0;text-align:left}
+.astep{color:var(--sub);font-size:14px;padding:5px 0;opacity:.4;transition:opacity .3s}
+.astep.on{opacity:1;color:var(--ink);font-weight:700}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="note">仮組モック：回答内容はこの端末内のみで計算されます</div>
+
+<!-- ===== START SCREEN（質問ページ トップ）===== -->
+<div id="screenStart">
+  <div class="screen start">
+    <div class="em">🧭</div>
+    <h1>全統合パーソナリティ診断</h1>
+    <p>これから63問の質問に答えていきます。深く考えず、直感で「どれくらい当てはまるか」を選んでください。</p>
+    <div class="meta">
+      <div><b>63</b><small>問</small></div>
+      <div><b>約10分</b><small>所要時間</small></div>
+      <div><b>3</b><small>理論を診断</small></div>
+    </div>
+    <button class="btn" onclick="startQuiz()">診断をはじめる</button>
+    <div class="tips">Part 1：16タイプ ／ Part 2：Big5 ／ Part 3：エニアグラム</div>
+  </div>
+</div>
+
+<!-- ===== QUESTION SCREEN（他 質問ページ）===== -->
+<div id="screenQuiz" class="hide">
+  <div class="top">
+    <div class="top-in">
+      <button class="back" onclick="goPrev()">← 戻る</button>
+      <span class="logo">AI-KNOW</span>
+      <span class="count" id="count">1 / 63</span>
+    </div>
+    <div class="pbar">
+      <div class="parts">
+        <div class="part"><i id="p0"></i></div>
+        <div class="part"><i id="p1"></i></div>
+        <div class="part"><i id="p2"></i></div>
+      </div>
+      <div class="plabel"><span id="partName">Part 1・16タイプ</span><span id="pct">0%</span></div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="q-part" id="qpart">PART 1 — 16タイプ</div>
+    <div class="q-text"><span class="q-num" id="qnum">Q1.</span> <span id="qtext"></span></div>
+    <div class="scale-wrap">
+      <div class="scale" id="scale"></div>
+      <div class="labels"><span class="l" id="lmin">当てはまらない</span><span class="r" id="lmax">当てはまる</span></div>
+    </div>
+  </div>
+
+  <div class="navbtns"><div class="navbtns-in">
+    <button class="nbtn" id="btnPrev" onclick="goPrev()" disabled>前へ</button>
+    <button class="nbtn prim" id="btnNext" onclick="goNext()" disabled>次へ</button>
+  </div></div>
+</div>
+
+<!-- ===== ANALYSIS SCREEN ===== -->
+<div id="screenAnalysis" class="hide">
+  <div class="screen analysis">
+    <div class="spin"></div>
+    <h2>あなたの回答を解析しています…</h2>
+    <div class="asteps">
+      <div class="astep" data-i="0">・16タイプの傾向を判定中</div>
+      <div class="astep" data-i="1">・Big5の5因子をスコアリング中</div>
+      <div class="astep" data-i="2">・エニアグラムのタイプを分析中</div>
+      <div class="astep" data-i="3">・3理論を統合してクロス分析中</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========== 質問データ（63問） ========== */
+// section: mbti / big5 / ennea
+// mbti: axis EI/SN/TF/JP（高い値=2文字目の極: E,N,T,J）
+// big5: factor E/A/C/N/O、rev=逆転項目
+// ennea: type 1-9
+const Q = [
+  // ---- Part1: 16タイプ 16問 ----
+  {s:'mbti',axis:'EI',t:'大勢の人と過ごすとエネルギーが湧いてくる。',min:'内向的',max:'外向的'},
+  {s:'mbti',axis:'EI',t:'初対面の人とも気軽に話せる方だ。',min:'内向的',max:'外向的'},
+  {s:'mbti',axis:'EI',t:'考えを話しながらまとめることが多い。',min:'内向的',max:'外向的'},
+  {s:'mbti',axis:'EI',t:'一人で過ごす時間よりも、人と一緒にいる時間の方が好きだ。',min:'内向的',max:'外向的'},
+  {s:'mbti',axis:'SN',t:'具体的な事実やデータよりも、全体的なパターンや可能性に目が行く。',min:'現実的',max:'直観的'},
+  {s:'mbti',axis:'SN',t:'「将来どうなるか」を想像するのが好きで、未来志向だ。',min:'現実的',max:'直観的'},
+  {s:'mbti',axis:'SN',t:'比喩や抽象的な表現を使って考えるのが得意だ。',min:'現実的',max:'直観的'},
+  {s:'mbti',axis:'SN',t:'現実的な解決策よりも、新しいアイデアや理論に惹かれる。',min:'現実的',max:'直観的'},
+  {s:'mbti',axis:'TF',t:'決断するとき、相手の気持ちよりも論理的な正しさを重視する。',min:'感情的',max:'論理的'},
+  {s:'mbti',axis:'TF',t:'批判されても感情的にならず、客観的に受け止められる。',min:'感情的',max:'論理的'},
+  {s:'mbti',axis:'TF',t:'人間関係の問題でも、感情より公平さや原則で判断したい。',min:'感情的',max:'論理的'},
+  {s:'mbti',axis:'TF',t:'相手を傷つけても、正直に本当のことを言うべきだと思う。',min:'感情的',max:'論理的'},
+  {s:'mbti',axis:'JP',t:'予定を立てて計画通りに進めるのが好きだ。',min:'柔軟型',max:'計画型'},
+  {s:'mbti',axis:'JP',t:'締め切りがあると早めに取り掛かり、余裕を持って終わらせたい。',min:'柔軟型',max:'計画型'},
+  {s:'mbti',axis:'JP',t:'物事に決着をつけるのが好きで、未解決のまま放置するのは嫌だ。',min:'柔軟型',max:'計画型'},
+  {s:'mbti',axis:'JP',t:'日常生活ではルーティンや秩序を大切にしている。',min:'柔軟型',max:'計画型'},
+  // ---- Part2: Big5 20問 ----
+  {s:'big5',f:'E',t:'社交的な場が好きで、人と話すのが楽しい。'},
+  {s:'big5',f:'E',t:'初対面の人にも積極的に話しかける方だ。'},
+  {s:'big5',f:'E',rev:true,t:'一人でいる時間の方が、人といるより心地よい。'},
+  {s:'big5',f:'E',t:'グループの中では自然とリーダー的な役割になることが多い。'},
+  {s:'big5',f:'A',t:'他人の気持ちに共感しやすい方だ。'},
+  {s:'big5',f:'A',t:'困っている人がいたら、自分のことを後回しにしても助けたい。'},
+  {s:'big5',f:'A',rev:true,t:'人を信用しすぎるのは危険だと思う。'},
+  {s:'big5',f:'A',t:'争いごとを避け、みんなが仲良くできるよう努力する。'},
+  {s:'big5',f:'C',t:'計画を立ててから行動する方だ。'},
+  {s:'big5',f:'C',t:'細かいところまで丁寧に仕上げたい。'},
+  {s:'big5',f:'C',rev:true,t:'やるべきことを後回しにしてしまうことが多い。'},
+  {s:'big5',f:'C',t:'決めたことは最後までやり遂げる方だ。'},
+  {s:'big5',f:'N',t:'小さなことでも心配になりやすい。'},
+  {s:'big5',f:'N',t:'ストレスを感じると気分が大きく落ち込む。'},
+  {s:'big5',f:'N',rev:true,t:'ほとんどの状況で冷静でいられる。'},
+  {s:'big5',f:'N',t:'将来のことを考えると不安になることが多い。'},
+  {s:'big5',f:'O',t:'新しいアイデアや考え方に興味がある。'},
+  {s:'big5',f:'O',t:'芸術や音楽、文学作品に深く感動することがある。'},
+  {s:'big5',f:'O',rev:true,t:'慣れたやり方を変えるのは好きではない。'},
+  {s:'big5',f:'O',t:'想像力が豊かで、空想にふけることがよくある。'},
+  // ---- Part3: エニアグラム 27問（各タイプ3問）----
+  {s:'ennea',ty:4,t:'想像するのが得意で、自分なりの考え方や人生観を持っている。'},
+  {s:'ennea',ty:4,t:'ロマンチックな性格で、人生で大きな恋愛をしたいと思っている。'},
+  {s:'ennea',ty:4,t:'人生の目的について深く考えることが多い。'},
+  {s:'ennea',ty:6,t:'他の人をなんとなく信用しきれず、心配になることが多い。'},
+  {s:'ennea',ty:6,t:'自分で決める必要がある時、不安になることがある。'},
+  {s:'ennea',ty:6,t:'自分の人生で、安全で安心できることがとても大切。'},
+  {s:'ennea',ty:9,t:'どんな状況にも合わせやすく、リラックスしていて、明るい性格だ。'},
+  {s:'ennea',ty:9,t:'毎日のルーティンや計画があると、もっと集中して生産的になる。'},
+  {s:'ennea',ty:9,t:'たくさんの決断を下すと、ストレスや不安を感じることがある。'},
+  {s:'ennea',ty:2,t:'人から頼まれたことを断るのが苦手だ。'},
+  {s:'ennea',ty:2,t:'人と親密になりたい。親密になれないと拒否された気がして傷つく。'},
+  {s:'ennea',ty:2,t:'人との関係を保つために、一生懸命努力しようとする。'},
+  {s:'ennea',ty:3,t:'複数のことを同時にこなす「マルチタスク」が得意だ。'},
+  {s:'ennea',ty:3,t:'自分の能力に自信を持ち、トップになりたいと思っている。'},
+  {s:'ennea',ty:3,t:'仕事をすること、生産的でいることが楽しく、人生で大切な部分だ。'},
+  {s:'ennea',ty:5,t:'感情的で騒がしい人と一緒にいるのは苦手だ。'},
+  {s:'ennea',ty:5,t:'データを集めたり、物事を研究し、仕組みを知ることが好きだ。'},
+  {s:'ennea',ty:5,t:'独立して物事に取り組み、自立していることを楽しむ。'},
+  {s:'ennea',ty:7,t:'人生を楽しく生きることが大切だと思う。未来に希望を持っている。'},
+  {s:'ennea',ty:7,t:'他人を楽しませることが好きで、話すときには笑いが多い。'},
+  {s:'ennea',ty:7,t:'退屈なことが苦手で、ルーティンワークを避ける傾向がある。'},
+  {s:'ennea',ty:8,t:'周りの人は、私を勇気がある自然なリーダーだと思っている。'},
+  {s:'ennea',ty:8,t:'新しいことや競争することにワクワクする。'},
+  {s:'ennea',ty:8,t:'自分や大切な人を守るために強くなりたい。自分の人生は自分で決めたい。'},
+  {s:'ennea',ty:1,t:'物事をしっかりコントロールし、公平であることに幸せを感じる。'},
+  {s:'ennea',ty:1,t:'正直であることが、自分にとってすごく大事だ。'},
+  {s:'ennea',ty:1,t:'片付けや時間を守ることを、自分にも他人にも求める。'},
+];
+
+const PARTS = [
+  {name:'Part 1・16タイプ', label:'PART 1 — 16タイプ', start:0, end:16},
+  {name:'Part 2・Big5',    label:'PART 2 — Big5',   start:16, end:36},
+  {name:'Part 3・エニアグラム', label:'PART 3 — エニアグラム', start:36, end:63},
+];
+const SCALE_LABELS = ['まったく\n当てはまらない','あまり','どちらとも','やや','とても\n当てはまる'];
+
+let idx = 0;
+const answers = new Array(Q.length).fill(0);
+
+function partOf(i){ return PARTS.findIndex(p=>i>=p.start && i<p.end); }
+
+function startQuiz(){
+  document.getElementById('screenStart').classList.add('hide');
+  document.getElementById('screenQuiz').classList.remove('hide');
+  render();
+}
+
+function render(){
+  const q = Q[idx];
+  const pi = partOf(idx);
+  const p = PARTS[pi];
+  document.getElementById('qpart').textContent = p.label;
+  document.getElementById('qnum').textContent = 'Q'+(idx+1)+'.';
+  document.getElementById('qtext').textContent = q.t;
+  document.getElementById('count').textContent = (idx+1)+' / '+Q.length;
+  document.getElementById('partName').textContent = p.name;
+  // labels
+  document.getElementById('lmin').textContent = q.min || '当てはまらない';
+  document.getElementById('lmax').textContent = q.max || '当てはまる';
+  // progress
+  const answered = answers.filter(a=>a>0).length;
+  document.getElementById('pct').textContent = Math.round(answered/Q.length*100)+'%';
+  PARTS.forEach((pp,k)=>{
+    const inRange = Math.min(Math.max(idx+1,pp.start),pp.end)-pp.start;
+    const total = pp.end-pp.start;
+    let w = 0;
+    if(idx+1>pp.end) w=100; else if(idx>=pp.start) w=Math.round((idx-pp.start)/total*100);
+    document.getElementById('p'+k).style.width = w+'%';
+  });
+  // scale dots
+  const scale = document.getElementById('scale');
+  scale.innerHTML='';
+  for(let v=1;v<=5;v++){
+    const b=document.createElement('button');
+    const size = v===3?3:(v<3?(v===1?1:2):(v===5?1:2));
+    b.className='dot d'+ (v===3?3:(v===1||v===5?5:4));
+    if(v<3) b.classList.add('neg'); if(v>3) b.classList.add('pos');
+    if(answers[idx]===v) b.classList.add('sel');
+    b.title=SCALE_LABELS[v-1].replace('\n','');
+    b.onclick=()=>select(v);
+    scale.appendChild(b);
+  }
+  document.getElementById('btnPrev').disabled = idx===0;
+  document.getElementById('btnNext').disabled = answers[idx]===0;
+  document.getElementById('btnNext').textContent = idx===Q.length-1 ? '結果を見る' : '次へ';
+}
+
+function select(v){
+  answers[idx]=v;
+  render();
+  setTimeout(()=>{ if(idx<Q.length-1) goNext(); else render(); }, 260);
+}
+function goNext(){
+  if(answers[idx]===0) return;
+  if(idx>=Q.length-1){ finish(); return; }
+  idx++; render(); window.scrollTo(0,0);
+}
+function goPrev(){
+  if(idx===0){ // 戻る→開始画面
+    document.getElementById('screenQuiz').classList.add('hide');
+    document.getElementById('screenStart').classList.remove('hide');
+    return;
+  }
+  idx--; render(); window.scrollTo(0,0);
+}
+
+/* ========== スコアリング ========== */
+function scoreMBTI(){
+  const ax={EI:[],SN:[],TF:[],JP:[]};
+  Q.forEach((q,i)=>{ if(q.s==='mbti') ax[q.axis].push(answers[i]); });
+  const sum=a=>a.reduce((x,y)=>x+y,0);
+  const t=(a,hi,lo)=>sum(ax[a])>=12?hi:lo;
+  const type = t('EI','E','I')+t('SN','N','S')+t('TF','T','F')+t('JP','J','P');
+  return {type, axes:{EI:sum(ax.EI),SN:sum(ax.SN),TF:sum(ax.TF),JP:sum(ax.JP)}};
+}
+function scoreBig5(){
+  const f={E:[],A:[],C:[],N:[],O:[]};
+  Q.forEach((q,i)=>{ if(q.s==='big5'){ let v=answers[i]; if(q.rev) v=6-v; f[q.f].push(v); }});
+  const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
+  const r={};for(const k in f) r[k]=Math.round(avg(f[k])*10)/10;
+  return r; // 1.0-5.0
+}
+function scoreEnnea(){
+  const s={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+  Q.forEach((q,i)=>{ if(q.s==='ennea') s[q.ty]+=answers[i]; });
+  let main=1,best=-1;for(const k in s){ if(s[k]>best){best=s[k];main=+k;} }
+  // wing（環状 8-9-1-2-3-4-5-6-7）
+  const ring=[9,1,2,3,4,5,6,7,8,9,1];// helper for neighbors
+  const left = main===1?9:main-1;
+  const right = main===9?1:main+1;
+  const wing = s[left]>=s[right]?left:right;
+  return {main, wing, scores:s};
+}
+
+function finish(){
+  document.getElementById('screenQuiz').classList.add('hide');
+  const a=document.getElementById('screenAnalysis');
+  a.classList.remove('hide');
+  const result={mbti:scoreMBTI(), big5:scoreBig5(), ennea:scoreEnnea(), at:'session'};
+  try{ localStorage.setItem('aiknow_result', JSON.stringify(result)); }catch(e){}
+  // animation
+  const steps=document.querySelectorAll('.astep');
+  let i=0;
+  const tick=setInterval(()=>{ if(i<steps.length){steps[i].classList.add('on');i++;} },520);
+  setTimeout(()=>{ clearInterval(tick); location.href='checkout.html'; }, 2600);
+}
+</script>
+</body>
+</html>

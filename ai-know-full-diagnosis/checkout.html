@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断結果とプラン | 全統合パーソナリティ診断 — AI-KNOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--purple:#9B6DD7;--purple-d:#7A4FC0;--pink:#C77DBA;--ink:#2D2346;--sub:#6B5E80;--line:rgba(45,35,70,.08);--bg:#FFFBFE}
+html{font-size:16px}
+body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.75;overflow-x:hidden}
+.note{background:#FFF6E9;border-bottom:1px solid #F4D9A8;color:#8a6d3b;font-size:12px;text-align:center;padding:7px;font-weight:700}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,251,254,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:720px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--purple)}
+
+.done{text-align:center;padding:34px 0 8px}
+.done .em{font-size:38px}
+.done h1{font-size:24px;font-weight:900;margin-top:8px}
+.done p{color:var(--sub);font-size:14px;margin-top:6px}
+
+/* result cards */
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.rc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+.rc.full{grid-column:1/-1}
+.rc .tag{font-size:11.5px;font-weight:900;color:var(--purple);letter-spacing:.06em}
+.rc .big{font-size:30px;font-weight:900;margin:6px 0 2px;letter-spacing:.02em}
+.rc .nm{font-size:15px;font-weight:700}
+.rc .ds{color:var(--sub);font-size:12.5px;margin-top:6px}
+
+/* radar */
+.radar-wrap{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
+.b5list{text-align:left;font-size:13px}
+.b5list div{display:flex;justify-content:space-between;gap:16px;padding:2px 0}
+.b5list b{color:var(--purple-d)}
+
+/* integrated catch */
+.catch{grid-column:1/-1;background:linear-gradient(135deg,#F3E9FB,#FDE9F4);border-radius:18px;padding:22px;text-align:center}
+.catch small{font-weight:900;color:var(--purple);font-size:11.5px;letter-spacing:.06em}
+.catch h3{font-size:19px;font-weight:900;margin-top:6px}
+
+/* paywall */
+.lock{margin-top:30px;position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.lock-preview{padding:24px;filter:blur(4px);opacity:.6;pointer-events:none;user-select:none}
+.lock-preview h4{font-weight:900;margin:14px 0 4px}
+.lock-preview p{color:var(--sub);font-size:13px}
+.lock-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,251,254,.2),rgba(255,251,254,.96) 55%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:26px}
+.lock-ic{font-size:34px}
+.lock-over h3{font-size:20px;font-weight:900;margin:8px 0 4px}
+.lock-over p{color:var(--sub);font-size:13.5px;max-width:26em}
+
+/* plan */
+.plan{margin-top:26px;border:2px solid var(--purple);border-radius:22px;padding:26px;background:#fff;box-shadow:0 12px 30px rgba(155,109,215,.12)}
+.plan .ttl{font-weight:900;font-size:17px;text-align:center}
+.price{text-align:center;margin:10px 0 4px}
+.price b{font-size:40px;font-weight:900}
+.price span{color:var(--sub);font-size:13px}
+.feat{list-style:none;margin:18px 0 0}
+.feat li{padding:8px 0 8px 30px;position:relative;font-size:14px;border-bottom:1px dashed var(--line)}
+.feat li::before{content:"✓";position:absolute;left:4px;color:var(--purple);font-weight:900}
+.btn{display:block;width:100%;text-align:center;font-weight:900;font-size:17px;padding:17px;border-radius:99px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:0 10px 26px rgba(155,109,215,.35);margin-top:22px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.pay-note{text-align:center;color:var(--sub);font-size:12px;margin-top:12px}
+.guarantee{text-align:center;font-size:12.5px;color:var(--sub);margin-top:10px}
+.retry{text-align:center;margin:26px 0 40px}
+.retry a{color:var(--purple);font-weight:700;font-size:13px;text-decoration:underline}
+@media(max-width:560px){.rgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="note">仮組モック：料金・決済は未接続（ダミー）です</div>
+<div class="top"><div class="top-in">AI-KNOW 全統合パーソナリティ診断</div></div>
+
+<div class="wrap">
+  <div class="done">
+    <div class="em">🎉</div>
+    <h1>診断が完了しました</h1>
+    <p>3理論それぞれの、あなたのタイプは以下のとおりです。</p>
+  </div>
+
+  <div class="rgrid" id="rgrid"><!-- filled by JS --></div>
+
+  <!-- PAYWALL -->
+  <div class="lock">
+    <div class="lock-preview">
+      <h4>■ 統合クロス分析</h4>
+      <p>あなたのエニアグラム・16タイプ・Big5を掛け合わせると、意思決定のクセや無意識の行動パターンが浮かび上がります。たとえば……</p>
+      <h4>■ 強み・弱みの深掘り</h4>
+      <p>3理論から導かれる、あなたが最も力を発揮できる状況と、注意すべき落とし穴を具体的に……</p>
+      <h4>■ 相性・キャリア適性</h4>
+      <p>相性の良いタイプ／すれ違いやすいタイプ、向いている働き方・役割・環境を……</p>
+    </div>
+    <div class="lock-over">
+      <div class="lock-ic">🔒</div>
+      <h3>ここから先が本編です</h3>
+      <p>統合クロス分析・強み弱み・相性・キャリア適性・成長ロードマップ。あなただけの詳細レポートを開放しましょう。</p>
+    </div>
+  </div>
+
+  <!-- PLAN -->
+  <div class="plan">
+    <div class="ttl">詳細レポートを開放する</div>
+    <div class="price"><b>¥1,480</b><span> / 買い切り（税込・仮）</span></div>
+    <ul class="feat">
+      <li>3理論すべての詳細解説（16タイプ・Big5・エニアグラム）</li>
+      <li>3理論を掛け合わせた統合クロス分析</li>
+      <li>強み・弱みの深掘りと活かし方</li>
+      <li>相性の良い／注意すべきタイプ</li>
+      <li>キャリア適性・向いている働き方</li>
+      <li>成長ロードマップ</li>
+    </ul>
+    <button class="btn" onclick="alert('※ 仮組モックです。実際の決済は未接続です。')">詳細レポートを開放する</button>
+    <div class="pay-note">クレジットカード・各種決済に対応予定</div>
+    <div class="guarantee">ご購入後すぐに全レポートをご覧いただけます</div>
+  </div>
+
+  <div class="retry"><a href="quiz.html">← もう一度診断する</a>　｜　<a href="index.html">トップに戻る</a></div>
+</div>
+
+<script>
+const MBTI_NAME={
+  INTJ:'建築家',INTP:'論理学者',ENTJ:'指揮官',ENTP:'討論者',
+  INFJ:'提唱者',INFP:'仲介者',ENFJ:'主人公',ENFP:'広報運動家',
+  ISTJ:'管理者',ISFJ:'擁護者',ESTJ:'幹部',ESFJ:'領事',
+  ISTP:'巨匠',ISFP:'冒険家',ESTP:'起業家',ESFP:'エンターテイナー'
+};
+const MBTI_DESC={
+  INTJ:'戦略的な計画者',INTP:'探究心の強い理論家',ENTJ:'決断力あるリーダー',ENTP:'発想豊かな挑戦者',
+  INFJ:'理想を追う導き手',INFP:'理想主義的な仲介者',ENFJ:'人を導く主人公',ENFP:'情熱的な自由人',
+  ISTJ:'誠実で堅実な実務家',ISFJ:'献身的な守り手',ESTJ:'秩序を作る管理者',ESFJ:'面倒見のよい調整役',
+  ISTP:'冷静な職人肌',ISFP:'感性豊かな冒険家',ESTP:'行動派の起業家',ESFP:'場を明るくする人気者'
+};
+const ENNEA_NAME={1:'完全主義者',2:'献身家',3:'達成者',4:'個性派',5:'研究者',6:'忠実家',7:'楽天家',8:'挑戦者',9:'平和主義者'};
+const ENNEA_DESC={1:'正しさを大切にする改革者',2:'人を支える愛情家',3:'成果を追う達成者',4:'感性で生きる個性派',5:'知を探る観察者',6:'誠実で慎重な忠実家',7:'楽しさを求める楽天家',8:'力強く導く挑戦者',9:'調和を重んじる平和主義者'};
+const B5={E:'外向性',A:'協調性',C:'誠実性',N:'神経症傾向',O:'開放性'};
+
+function level(v){return v>=3.5?'高い':(v>=2.5?'標準':'低め');}
+
+function radar(vals){
+  // vals: [E,A,C,N,O] 1-5
+  const cx=70,cy=70,R=58,n=5;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/n;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];};
+  let grid='';
+  [1,2,3,4,5].forEach(step=>{
+    let p='';for(let i=0;i<n;i++){const[x,y]=pt(i,R*step/5);p+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}
+    grid+=`<path d="${p}Z" fill="none" stroke="#E6D8F2" stroke-width="1"/>`;
+  });
+  let axes='';for(let i=0;i<n;i++){const[x,y]=pt(i,R);axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#E6D8F2"/>`;}
+  let poly='';vals.forEach((v,i)=>{const[x,y]=pt(i,R*v/5);poly+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';});
+  return `<svg width="140" height="140" viewBox="0 0 140 140">${grid}${axes}<path d="${poly}Z" fill="rgba(155,109,215,.28)" stroke="#9B6DD7" stroke-width="2"/></svg>`;
+}
+
+function render(){
+  let r;
+  try{ r=JSON.parse(localStorage.getItem('aiknow_result')); }catch(e){}
+  if(!r){ // デモ用フォールバック
+    r={mbti:{type:'INFP'},big5:{E:3.2,A:4.1,C:2.8,N:3.5,O:4.4},ennea:{main:4,wing:5}};
+  }
+  const g=document.getElementById('rgrid');
+  const t=r.mbti.type, tn=MBTI_NAME[t]||'', td=MBTI_DESC[t]||'';
+  const em=r.ennea.main, ew=r.ennea.wing;
+  const b=r.big5;
+  const vals=[b.E,b.A,b.C,b.N,b.O];
+  g.innerHTML=`
+    <div class="rc">
+      <div class="tag">16タイプ</div>
+      <div class="big">${t}</div>
+      <div class="nm">${tn}</div>
+      <div class="ds">${td}</div>
+    </div>
+    <div class="rc">
+      <div class="tag">エニアグラム</div>
+      <div class="big">タイプ${em}<span style="font-size:16px">w${ew}</span></div>
+      <div class="nm">${ENNEA_NAME[em]}</div>
+      <div class="ds">${ENNEA_DESC[em]}</div>
+    </div>
+    <div class="rc full">
+      <div class="tag">Big5 性格プロファイル</div>
+      <div class="radar-wrap" style="margin-top:10px">
+        ${radar(vals)}
+        <div class="b5list">
+          <div><span>${B5.E}</span><b>${b.E}（${level(b.E)}）</b></div>
+          <div><span>${B5.A}</span><b>${b.A}（${level(b.A)}）</b></div>
+          <div><span>${B5.C}</span><b>${b.C}（${level(b.C)}）</b></div>
+          <div><span>${B5.N}</span><b>${b.N}（${level(b.N)}）</b></div>
+          <div><span>${B5.O}</span><b>${b.O}（${level(b.O)}）</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="catch">
+      <small>あなたを一言でいうと</small>
+      <h3>「${ENNEA_DESC[em]}」×「${td}」</h3>
+    </div>
+  `;
+}
+render();
+</script>
+</body>
+</html>
