@@ -48,13 +48,13 @@ a{color:inherit;text-decoration:none}
 .qitem:last-child{border-bottom:none}
 .qi-text{font-size:16.5px;font-weight:700;line-height:1.6;margin-bottom:18px}
 .qi-num{font-family:'Shippori Mincho',serif;color:var(--teal);font-weight:800;margin-right:5px}
-.scale-wrap{max-width:440px;margin:0 auto}
-.scale{display:flex;align-items:center;justify-content:center;gap:12px}
+.scale-wrap{max-width:500px;margin:0 auto}
+.scale{display:flex;align-items:center;justify-content:center;gap:min(6vw,26px);padding:6px 0}
 .dot{border:2px solid #BBD3CC;border-radius:50%;background:#fff;cursor:pointer;transition:all .15s;display:grid;place-items:center;color:transparent}
 .dot:hover{transform:scale(1.08);border-color:var(--teal)}
-.dot.s5{width:46px;height:46px}
-.dot.s4{width:38px;height:38px}
-.dot.s3{width:30px;height:30px;border-color:#C7D6D1}
+.dot.s5{width:56px;height:56px}
+.dot.s4{width:47px;height:47px}
+.dot.s3{width:38px;height:38px;border-color:#C7D6D1}
 .dot.pos{border-color:var(--teal)}
 .dot.neg{border-color:var(--navy)}
 .dot.sel{background:linear-gradient(135deg,var(--teal),var(--teal-l))!important;border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(15,118,110,.35)}
@@ -251,6 +251,7 @@ const LABEL_MIN='当てはまらない', LABEL_MAX='当てはまる';
 const PER_PAGE=6, TOTAL_PAGES=Math.ceil(Q.length/PER_PAGE);
 let page=0;
 const answers=new Array(Q.length).fill(0);
+const startTs=Date.now(); // 回答開始時刻（所要時間の計測用）
 function pageRange(p){const s=p*PER_PAGE;return [s,Math.min(s+PER_PAGE,Q.length)];}
 
 function render(){
@@ -296,6 +297,20 @@ function select(i,v){
   const ok=answersInPage(s,e);
   document.getElementById('btnNext').disabled=!ok;
   document.getElementById('hint').textContent=ok?'':`このページの${e-s}問すべてに回答すると次へ進めます`;
+  // 回答したら自動で次の設問へスクロール
+  autoAdvance(i,s,e);
+}
+function autoAdvance(i,s,e){
+  setTimeout(()=>{
+    const items=document.querySelectorAll('#qlist .qitem');
+    if(i<e-1){
+      const next=items[i-s+1];
+      if(next) next.scrollIntoView({behavior:'smooth',block:'center'});
+    }else{
+      // ページ最後の設問 → 次へボタンへ
+      document.getElementById('btnNext').scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  },230);
 }
 function goNext(){
   const [s,e]=pageRange(page);
@@ -334,8 +349,9 @@ function scoreEnnea(){
 function finish(){
   document.getElementById('card').style.display='none';
   const ac=document.getElementById('analysisCard');ac.style.display='';ac.classList.remove('hide');
-  const result={mbti:scoreMBTI(),big5:scoreBig5(),ennea:scoreEnnea(),at:'session'};
-  try{localStorage.setItem('aiknow_result',JSON.stringify(result));}catch(e){}
+  const elapsed=Math.max(1,Math.round((Date.now()-startTs)/1000)); // 所要時間（秒）
+  const result={mbti:scoreMBTI(),big5:scoreBig5(),ennea:scoreEnnea(),elapsed,at:'session'};
+  try{localStorage.setItem('aiknow_result',JSON.stringify(result));localStorage.removeItem('aiknow_checkout_start');}catch(e){}
   ac.scrollIntoView({block:'center',behavior:'smooth'});
   const steps=ac.querySelectorAll('.astep');let i=0;
   const tick=setInterval(()=>{if(i<steps.length){steps[i].classList.add('on');i++;}},520);

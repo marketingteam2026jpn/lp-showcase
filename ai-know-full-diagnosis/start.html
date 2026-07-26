@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公式16タイプ性格診断テスト | 日本性格診断協会</title>
+<meta name="description" content="MBTI/16タイプの公式資格取得者が作成した、信頼度の高い性格診断テスト。公式セッションとの一致率95.1%以上。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#0F766E;--teal-d:#0B5A54;--teal-l:#2FA38E;--navy:#315F9B;--gold:#B87A1E;--gold-l:#E9C86A;--ink:#182B28;--sub:#566B67;--line:rgba(24,43,40,.10);--bg:#F8FBFA;--card:#fff;--cream:#F1F6F3}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.note{background:#FBF3E3;border-bottom:1px solid #EAD6A8;color:#8a6d3b;font-size:12px;text-align:center;padding:7px;font-weight:700}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(248,251,250,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-in{max-width:720px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:36px;height:35px;flex:none}
+.brand-txt{font-family:'Shippori Mincho',serif;font-weight:800;font-size:17px;color:var(--teal-d);letter-spacing:.03em;line-height:1.1}
+.brand-txt small{display:block;font-family:'Noto Sans JP';font-weight:500;font-size:8px;letter-spacing:.12em;color:var(--sub)}
+.head-chip{font-size:11px;font-weight:700;color:var(--gold);text-align:right;line-height:1.3}
+.head-chip b{color:var(--teal-d)}
+
+/* HERO */
+.hero{text-align:center;padding:52px 0 20px;background:radial-gradient(120% 90% at 50% 0%,#E4F0EC 0%,var(--bg) 66%)}
+.assoc{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--teal-d);font-weight:700;font-size:12px;padding:6px 15px;border-radius:99px;margin-bottom:20px}
+.assoc b{color:var(--gold)}
+.hero h1{font-family:'Shippori Mincho',serif;font-size:clamp(26px,6vw,40px);font-weight:800;line-height:1.4;letter-spacing:.02em}
+.hero .subcopy{margin:18px auto 0;max-width:30em;color:var(--sub);font-size:15.5px;font-weight:500}
+.btn{display:inline-block;font-weight:800;font-size:18px;padding:18px 52px;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;box-shadow:0 10px 24px rgba(15,118,110,.28);transition:transform .15s;font-family:'Noto Sans JP'}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(15,118,110,.36)}
+.hero .btn{margin-top:30px}
+.hero small{display:block;margin-top:14px;color:var(--sub);font-size:12.5px}
+
+/* 3 EXPLAIN BLOCKS */
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:44px 0 8px}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center}
+.blk .ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin:0 auto 14px;font-size:26px}
+.blk:nth-child(1) .ic{background:#E2EEF7;color:var(--navy)}
+.blk:nth-child(2) .ic{background:#E4F1ED;color:var(--teal)}
+.blk:nth-child(3) .ic{background:#FAF1DD;color:var(--gold)}
+.blk h3{font-family:'Shippori Mincho',serif;font-size:17px;font-weight:800}
+.blk p{color:var(--sub);font-size:13.5px;margin-top:8px}
+
+/* CTA BAND */
+.midcta{text-align:center;padding:28px 0 48px}
+
+/* FOOTNOTES + FOOTER */
+.footnotes{border-top:1px solid var(--line);padding:24px 0;color:#8B9A96;font-size:11px;line-height:1.9}
+.footnotes b{color:var(--sub)}
+footer{background:#12211F;color:#9FB2AD;padding:30px 0;text-align:center;font-size:12px}
+.foot-brand{font-family:'Shippori Mincho',serif;color:#fff;font-weight:800;font-size:15px;letter-spacing:.04em}
+.foot-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+@media(max-width:720px){.blocks{grid-template-columns:1fr}.hero{padding:40px 0 16px}}
+</style>
+</head>
+<body>
+<div class="note">これは仮組のデザインモックです（後で調整予定）</div>
+
+<!-- HEADER -->
+<header class="site-head"><div class="head-in">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 332 320" aria-label="日本性格診断協会"><defs><linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F766E"/><stop offset="1" stop-color="#2FA38E"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#315F9B"/><stop offset="1" stop-color="#628BC0"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D89A3D"/><stop offset="1" stop-color="#F1C66C"/></linearGradient></defs><g transform="translate(58 52)"><circle cx="108" cy="108" r="101" fill="#F2F7F5"/><g transform="translate(108 108) rotate(45)"><rect x="-35" y="-110" width="70" height="70" rx="15" fill="url(#blue)"/><rect x="-35" y="40" width="70" height="70" rx="15" fill="url(#teal)"/><rect x="40" y="-35" width="70" height="70" rx="15" fill="url(#gold)"/><rect x="-110" y="-35" width="70" height="70" rx="15" fill="#93BDA8"/><rect x="-35" y="-35" width="70" height="70" rx="15" fill="#174D47"/><rect x="-88" y="-88" width="38" height="38" rx="10" fill="#B7D0C6"/><rect x="50" y="50" width="38" height="38" rx="10" fill="#B6D1E0"/><rect x="50" y="-88" width="38" height="38" rx="10" fill="#F3D792"/><rect x="-88" y="50" width="38" height="38" rx="10" fill="#6C9F91"/></g></g></svg>
+    <span class="brand-txt">日本性格診断協会<small>JAPAN PERSONALITY ASSESSMENT ASSOCIATION</small></span>
+  </a>
+  <span class="head-chip">公式一致率<br><b>95.1%以上</b></span>
+</div></header>
+
+<!-- HERO -->
+<div class="hero"><div class="wrap">
+  <span class="assoc">日本性格診断協会 監修｜公式一致率 <b>95.1%以上</b></span>
+  <h1>公式16タイプ性格診断テスト</h1>
+  <p class="subcopy">MBTI／16タイプの公式資格取得者が作成した、信頼度の高いテストです。</p>
+  <a href="quiz.html" class="btn">テストを始める</a>
+  <small>登録不要・全63問・約10分・結果の概要は無料でご覧いただけます</small>
+</div></div>
+
+<!-- 3 EXPLAIN BLOCKS -->
+<div class="wrap">
+  <div class="blocks">
+    <div class="blk">
+      <div class="ic">⏱️</div>
+      <h3>わずか10分</h3>
+      <p>全63問の質問に、直感で当てはまる度合いを答えるだけ。難しい知識は必要ありません。</p>
+    </div>
+    <div class="blk">
+      <div class="ic">🎓</div>
+      <h3>専門家が設計</h3>
+      <p>MBTI／16タイプの公式資格取得者と心理の専門家が、膨大な研究データをもとに設問を作成しています。</p>
+    </div>
+    <div class="blk">
+      <div class="ic">✅</div>
+      <h3>高い信頼性</h3>
+      <p>公式セッション（有資格者による対面診断）との結果一致率は95.1%以上※1。感覚ではなくデータで裏付けています。</p>
+    </div>
+  </div>
+
+  <div class="midcta">
+    <a href="quiz.html" class="btn">テストを始める</a>
+  </div>
+
+  <div class="footnotes">
+    <b>出典・注釈</b><br>
+    ※1 2024年7月1日までの社内テスト。公式診断によるタイプと、当診断によるタイプの一致率の調査結果。
+  </div>
+</div>
+
+<footer>
+  <div class="foot-brand">日本性格診断協会</div>
+  <div class="foot-links"><a href="index.html">トップ</a><a href="#">監修体制</a><a href="#">利用規約</a><a href="#">プライバシー</a></div>
+  © 2026 日本性格診断協会 ｜ 全統合パーソナリティ診断（仮組モック）
+</footer>
+</body>
+</html>
