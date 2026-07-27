@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>Dejam｜LPをもっと早く、安く回す。｜株式会社LeanGo</title>
 <meta name="description" content="記事LP・スワイプLPの制作・改善ツール「Dejam」。ノーコードとコードを自由に行き来し、AIに聞いてその場で直せる。料金は月3万円から全プラン公開、人数は実質無制限。乗り換え時は稼働中のLPを最大10本、無料で移設します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +73,9 @@ body{
 }
 img{max-width:100%;height:auto;display:block;}
 a{color:inherit;}
+.preview-banner{background:#fff4e8;color:#713100;border-bottom:1px solid #ffd3ad;text-align:center;padding:8px 16px;font-size:13px;font-weight:700;line-height:1.5;}
+.form-status{display:none;margin:16px 0 0;padding:12px 14px;border-radius:6px;background:#fff4e8;color:#713100;font-size:14px;font-weight:700;line-height:1.7;}
+.form-status.is-visible{display:block;}
 
 /* ---------- レイアウト ---------- */
 .container{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);}
@@ -433,6 +437,8 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
 </head>
 <body>
 
+<div class="preview-banner">公開確認用プロトタイプ｜このページのフォームから情報は送信されません</div>
+
 <!-- ヘッダー非固定（先方指定）。CTAは固定バーで担保 -->
 <header class="header">
   <div class="header__inner">
@@ -448,10 +454,9 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
   <div class="container">
     <div class="hero__grid">
       <div>
-        <!-- 公開前チェック: 「アドアフィ界隈大絶賛」「乗り換え多発」は体験談・実績表示。掲載許諾済みの実利用者コメントと裏付けが揃うまでこの文言で公開しない。揃うまでは事実ベース表現に差し替える -->
         <ul class="hero__praise">
-          <li>アドアフィ界隈大絶賛</li>
-          <li>乗り換え多発</li>
+          <li>全3プランの料金を公開</li>
+          <li>ユーザー数は実質無制限</li>
         </ul>
         <h1>
           <span class="nw">LPをもっと</span><span class="nw"><span class="hl">早く、安く回す。</span></span>
@@ -484,7 +489,7 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
         </ul>
 
         <p class="hero__disclaimer">
-          ※「アドアフィ界隈大絶賛」「乗り換え多発」は、掲載許諾を得た実利用者コメントと裏付けを揃えたうえで掲載します。揃うまでは事実ベースの表現に差し替えます。取得方法・件数は<a href="#voice">利用者の声</a>に記載します。
+          ※表示価格は税別・各プランの最低価格です。移行代行はCMSプラン以上・年間契約などの適用条件があります。
         </p>
       </div>
     </div>
@@ -584,8 +589,7 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
   <div class="container">
     <div class="sec-head rv">
       <p class="sec-label">03 ／ AIによる改善提案（CROサジェスト）</p>
-      <!-- 公開前確認: 「特許出願中」表示は出願番号・出願日の裏付けを確認のうえ掲載すること -->
-      <p class="pill">特許出願中</p>
+      <p class="pill">AIによる改善提案</p>
       <h2><span class="nw">画像かURLを入れるだけ。</span><span class="nw">最短30秒で改善案。</span></h2>
       <p class="lead measure">AIが改善案を出す。それだけならよくある機能です。Dejamが返すのは、「なぜそこを直すのか」の理由がついた改善案。理由があるから、そのまま外注への指示書になります。乗り換えれば、運用そのものが軽くなります。</p>
     </div>
@@ -607,34 +611,32 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
   </div>
 </section>
 
-<!-- ============ 04 利用者の声 ============ -->
+<!-- ============ 04 乗り換え判断のポイント ============ -->
 <section class="section section--alt" id="voice-sec">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">04 ／ 利用者の声</p>
-      <h2><span class="nw">乗り換えの決め手は、</span><span class="nw">どこにあったか。</span></h2>
-      <p class="lead measure">費用が読める。人数で増えない。移行を任せられる。現場がそのまま使える。決め手になったのは、この4つでした。実際の声を、掲載許諾を得たうえで並べます。</p>
+      <p class="sec-label">04 ／ 乗り換え判断のポイント</p>
+      <h2><span class="nw">比較する項目を、</span><span class="nw">4つに絞る。</span></h2>
+      <p class="lead measure">料金、運用人数、移行工数、切り替え方法。乗り換え前に確認したい条件を、先に整理しました。</p>
     </div>
-    <!-- 利用者の声（未取得）: 下記は仮テキスト。許諾済みコメント3件が揃うまで公開しない -->
     <div class="voice rv" id="voice">
-      <p class="voice__flag">利用者の声（掲載準備中）</p>
-      <h3>※掲載前に実利用者からの取得が必要</h3>
-      <p class="note" style="margin-top:10px;">以下は掲載枠の仮テキストです。実際のコメントは、掲載許諾を得た利用者から取得のうえ差し替えます。現時点で実在するコメントではありません。</p>
+      <p class="voice__flag">CHECK POINT</p>
+      <h3>契約前に、この4点をご確認ください</h3>
       <div class="voice-grid">
         <div class="voice-item">
-          <p>（仮）人数で費用が膨らむ悩みが、乗り換えでどう解消したか。※掲載前に実利用者からの取得が必要</p>
-          <p class="who">（仮）アフィリエイト広告事業者・経営者</p>
+          <p>全プランの最低価格を公開。利用範囲による変動分は、見積もり時に確認できます。</p>
+          <p class="who">料金構造</p>
         </div>
         <div class="voice-item">
-          <p>（仮）想定していた移行工数が、実際どうだったか。※掲載前に実利用者からの取得が必要</p>
-          <p class="who">（仮）アフィリエイト広告事業者・運用責任者</p>
+          <p>ユーザー数は実質無制限。担当者や外部パートナーが増えても人数課金を前提としません。</p>
+          <p class="who">運用人数</p>
         </div>
         <div class="voice-item">
-          <p>（仮）現場がそのまま使えたか、制作スピードがどう変わったか。※掲載前に実利用者からの取得が必要</p>
-          <p class="who">（仮）アフィリエイト広告事業者・広告運用担当</p>
+          <p>対象プランでは稼働中LPを最大10本まで移設。元LPを残したまま並行稼働できます。</p>
+          <p class="who">移行工数と切り替え</p>
         </div>
       </div>
-      <p class="voice__note">※掲載するコメントは、掲載許諾を得た実利用者から取得します。取得方法・件数・時期は掲載時にここへ記載します。許諾済みコメントが3件揃うまで、体験談・推奨に当たる表現（「アドアフィ界隈大絶賛」「乗り換え多発」を含む）でのページ公開は行いません。</p>
+      <p class="voice__note">※料金・移行条件は、このページの料金表と注意事項をご確認ください。正式契約前に、対象範囲と最新条件をご案内します。</p>
     </div>
   </div>
 </section>
@@ -740,7 +742,7 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
           <tr>
             <th scope="row">AIによる改善提案</th>
             <td class="them"><span class="mk mk--mid">△</span><span class="sub">内容・精度は不透明</span></td>
-            <td class="us"><span class="mk mk--best">◎</span><span class="sub">画像/URLから最短30秒・理由つき（特許出願中）</span></td>
+            <td class="us"><span class="mk mk--best">◎</span><span class="sub">画像/URLから最短30秒・理由つき</span></td>
           </tr>
           <tr>
             <th scope="row">既存サイトへの導入／タグ1行</th>
@@ -908,37 +910,18 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
   </div>
 </section>
 
-<!-- ============ 09 実績＋ロゴ＋FAQ ============ -->
+<!-- ============ 09 導入判断＋FAQ ============ -->
 <section class="section section--alt" id="results">
   <div class="container">
     <div class="sec-head rv">
-      <p class="sec-label">09 ／ 実績とよくある質問</p>
-      <h2><span class="nw">乗り換えの判断材料に、</span><span class="nw">数字と実績を出します。</span></h2>
-      <p class="lead measure">乗り換えは、元に戻しにくい判断です。だから確認できる数字だけを並べ、よくいただく質問にお答えします。</p>
+      <p class="sec-label">09 ／ 導入判断とよくある質問</p>
+      <h2><span class="nw">切り替える前に、</span><span class="nw">運用条件を確認する。</span></h2>
+      <p class="lead measure">いきなり全面移行する必要はありません。元LPを残し、対象範囲と条件を確認してから判断できます。</p>
     </div>
     <div class="stats">
-      <div class="stat rv"><p class="stat__v"><em>90%</em>以上</p><p class="stat__l">CVR改善成功率</p><p class="stat__n">※自社表記</p></div>
-      <div class="stat rv"><p class="stat__v"><em>12.5%</em></p><p class="stat__l">上場している広告業界企業への導入率</p><p class="stat__n">※自社調べ</p></div>
-      <div class="stat rv"><p class="stat__v">ISMS</p><p class="stat__l">ISO/IEC 27001:2022 認証取得</p><p class="stat__n">情報セキュリティマネジメントシステム</p></div>
-    </div>
-    <div class="cases">
-      <div class="case rv"><p class="case__v">CVR 150%改善</p><p class="case__n">株式会社プロトソリューション</p><p>Dejamの導入で、CVRの150%改善を実現しました。</p></div>
-      <div class="case rv"><p class="case__v">成果2倍・時間半分</p><p class="case__n">KAAAN株式会社</p><p>成果は2倍、時間は半分に。改善の速度そのものが変わりました。</p></div>
-    </div>
-    <p class="note rv" style="margin-top:18px;">※記載の改善実績はいずれも個別事例であり、成果を保証するものではありません。業種・LPの状態・実施施策により結果は異なります。</p>
-    <div class="logos rv">
-      <h4>導入企業（一部・順不同）</h4>
-      <div class="logo-band">
-        <span>リクルート</span><span>JAL</span><span>コメ兵</span><span>じげん</span><span>電通デジタル</span><span>オプト</span><span>ADKマーケティング・ソリューションズ</span><span>アドウェイズ</span><span>Speee</span><span>LANY</span>
-      </div>
-      <p class="note" style="margin-top:16px;">ロゴは、乗り換えの最後の後押しです。まずは使い心地と料金でご判断ください。信頼の裏付けとしてご確認いただけます。</p>
-    </div>
-    <div class="isms rv">
-      <div class="isms__mark">ISMS</div>
-      <div>
-        <h4>ISO/IEC 27001:2022 認証取得</h4>
-        <p>広告用LPは、個人情報の入口になります。Dejamを提供する株式会社LeanGoは、ISMSの国際規格 ISO/IEC 27001:2022 の認証を取得。社内のセキュリティチェックシートへの回答も、この認証を基点に対応します。</p>
-      </div>
+      <div class="stat rv"><p class="stat__v"><em>30日</em></p><p class="stat__l">元LPとの並行稼働</p><p class="stat__n">数値を見てから切り替え判断</p></div>
+      <div class="stat rv"><p class="stat__v"><em>最大10本</em></p><p class="stat__l">対象プランの移行代行</p><p class="stat__n">適用条件あり</p></div>
+      <div class="stat rv"><p class="stat__v"><em>1行</em></p><p class="stat__l">既存サイトへのタグ設置</p><p class="stat__n">発行タグをhead内に設置</p></div>
     </div>
     <div class="faq">
       <details class="rv">
@@ -963,7 +946,7 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
       </details>
       <details class="rv">
         <summary>セキュリティ面の社内審査に対応できますか。</summary>
-        <div class="ans"><p>株式会社LeanGoは、ISMSの国際規格 ISO/IEC 27001:2022 の認証を取得しています。取引先から求められるセキュリティチェックシートも、この認証を基点に対応します。必要な確認事項があれば、お申し込み前にご連絡ください。</p></div>
+        <div class="ans"><p>必要な確認項目や社内様式がある場合は、お申し込み前にご相談ください。正式な認証情報・運用体制・回答可能範囲は、最新情報を個別にご案内します。</p></div>
       </details>
       <details class="rv">
         <summary>移行代行10本無料の条件を、もう一度教えてください。</summary>
@@ -984,17 +967,16 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
       <div><b>手を動かすのは、こちら</b>移設の実作業、計測タグの引き継ぎ、初回ABテストの設計まで、LeanGoが行います。</div>
       <div><b>条件は先に開示します</b>CMSプラン以上・年間契約が条件です。月あたりの受入本数に上限があり、上限に達した月は受付を停止します。</div>
     </div>
-    <!-- 申込フォーム（モック）: action="#" はダミー。本番は申込エンドポイントに差し替える -->
+    <!-- 申込フォーム（公開確認用モック） -->
     <form class="form rv" id="apply-form" action="#" method="post" novalidate>
       <p class="form__h">無料で移行の見積もりを受け取る</p>
-      <p class="form__note">入力は1分程度。この時点で費用は発生しません。</p>
+      <p class="form__note">公開確認用のモックです。入力内容は保存・送信されません。</p>
       <div class="field"><label for="a-company">会社名<span class="req">必須</span></label><input type="text" id="a-company" name="company" autocomplete="organization" required></div>
       <div class="field"><label for="a-name">お名前<span class="req">必須</span></label><input type="text" id="a-name" name="name" autocomplete="name" required></div>
       <div class="field"><label for="a-email">メールアドレス<span class="req">必須</span></label><input type="email" id="a-email" name="email" autocomplete="email" required></div>
       <div class="field"><label for="a-url">稼働中のLPのURL<span class="opt">複数ある場合は代表的な1本をご記入ください</span></label><input type="url" id="a-url" name="url" placeholder="https://"></div>
-      <p class="form__consent">送信をもって<a href="#">個人情報の取扱いについて</a>に同意したものとみなします。ご入力内容は、お見積もりのご案内・ご連絡の目的にのみ使用します。</p>
-      <button type="submit" class="btn">無料で移行の見積もりを見る</button>
-      <p class="form__note" style="margin:14px 0 0;">入力1分。費用はかかりません。しつこい営業はしません。</p>
+      <button type="submit" class="btn">フォーム動作を確認する</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite">これは公開確認用ページのため、入力内容は送信されません。本番公開時に正式な申込フォームへ接続してください。</p>
     </form>
   </div>
 </section>
@@ -1006,16 +988,12 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
     <div class="logo">Dejam<span>株式会社LeanGo</span></div>
     <p>CVR改善のためのLP制作・改善ツール「Dejam」を提供しています。</p>
     <ul class="foot-links">
-      <li><a href="#">会社概要</a></li>
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">特定商取引法に基づく表記</a></li>
+      <li><a href="https://leango.co.jp/" target="_blank" rel="noopener">株式会社LeanGo 公式サイト</a></li>
+      <li><a href="https://leango.co.jp/dejam/" target="_blank" rel="noopener">Dejam 公式サイト</a></li>
     </ul>
     <ul>
       <li>※記載の料金はいずれも各プランの最低価格です。ご利用範囲により変動します。表示価格は税別・月額です。</li>
-      <li>※本ページの改善実績はいずれも個別事例であり、成果を保証するものではありません。業種・LPの状態・実施施策により結果は異なります。</li>
-      <li>※「CVR改善成功率90%以上」「上場している広告業界企業の12.5%に導入」はいずれも自社調べの数値です。</li>
-      <li>※「アドアフィ界隈大絶賛」「乗り換え多発」は、掲載許諾を得た実利用者コメントと裏付けを揃えたうえで掲載します。揃うまでは、これらの表現でのページ公開は行いません。</li>
-      <li>※導入企業名は、順不同・敬称略で記載しています。</li>
+      <li>※本ページは公開確認用プロトタイプです。フォーム入力は保存・送信されません。</li>
       <li>※他社ツールに関する記述は、2026年7月時点の公開情報から確認できる事実に限定しています。機能の優劣や使用感の評価は含みません。特定製品との比較を主張するものではなく、製品名の記載は控えています。各製品名・サービス名は各権利者の商標です。</li>
       <li>※移行代行の日数はいずれも目安です。対象本数・元LPの構成により前後します。</li>
     </ul>
@@ -1029,6 +1007,15 @@ table.cmp2 td.us .sub{font-size:15px;color:var(--ink);line-height:1.6;}
 
 <script>
 (function(){
+  var form = document.getElementById('apply-form');
+  var status = document.getElementById('form-status');
+  if (form && status) {
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      status.classList.add('is-visible');
+      status.focus && status.focus();
+    });
+  }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.rv');
   if (reduce || !('IntersectionObserver' in window)) {
