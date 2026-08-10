@@ -1,0 +1,1472 @@
+/* ===========================================================
+   Dejam 広告LP（パターン4 / 乗り換え訴求）
+   dejam-base.css（leango.co.jp のビルド済みCSS）に足りない
+   LP固有のレイアウト・部品だけをここに置く。
+   トークン（色・字送り・角丸）は base 側のクラスを使う。
+   =========================================================== */
+
+/* 公式サイトの primary は #E72420 だが、白文字とのコントラストが 4.496:1 で
+   AA(4.5:1) をわずかに割る。依頼書は「CTAはAA以上」を必須としているため、
+   知覚上ほぼ同じ #E1201C（4.75:1）に落として使う。 */
+:root {
+  --lp-primary: #e1201c;
+  --lp-secondary: #08092d;    /* base の .text-secondary と同値 */
+  --lp-line: #e6e6e6;
+  --lp-bg: #f5f6f1;
+  --lp-card: #f4f2f2;
+  --lp-cta-h-sp: 60px;        /* 依頼書指定: モバイル固定CTA高さ */
+  --lp-fv-cta-w: 420px;       /* FVのCTAとベネフィット3点の共通幅 */
+}
+
+/* base CSS 側の primary もAA準拠の赤に揃える */
+.text-primary { color: var(--lp-primary) !important; }
+.bg-primary { background-color: var(--lp-primary) !important; }
+.border-primary { border-color: var(--lp-primary) !important; }
+
+/* --- ページ土台 ------------------------------------------- */
+body {
+  font-family: var(--font-noto-sans-jp);
+  color: var(--lp-secondary);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 依頼書: Desktop 最大幅1080px / セクション間96px */
+.lp-wrap { width: 100%; max-width: 1080px; margin-inline: auto; padding-inline: 20px; }
+.lp-section { padding-block: 96px; }
+.lp-section--tight { padding-block: 64px; }
+
+/* 依頼書: 本文は34em以内 */
+.lp-measure { max-width: 34em; }
+.lp-measure-c { max-width: 34em; margin-inline: auto; }
+
+/* 濃地セクション */
+.lp-dark { background: var(--lp-secondary); color: #fff; }
+.lp-dark .lp-lead { color: rgba(255, 255, 255, .8); }
+
+/* 見出しの折り返しを整える */
+.lp-h2 { text-wrap: balance; }
+
+/* --- 見出しブロック（公式サイトの型を踏襲） ---------------- */
+.lp-head { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.lp-head hr { width: 80px; border: 0; border-bottom: 2px solid var(--lp-primary); }
+
+/* --- CTAボタン -------------------------------------------- */
+.lp-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 64px; padding: 14px 32px; border-radius: 999px;
+  background: var(--lp-primary); color: #fff; font-weight: 700; font-size: 18px;
+  line-height: 1.4; text-align: center; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(231, 36, 32, .28);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.lp-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(231, 36, 32, .34); }
+.lp-cta--ghost {
+  background: #fff; color: var(--lp-primary);
+  border: 1px solid var(--lp-primary); box-shadow: none;
+}
+.lp-cta--ghost:hover { box-shadow: none; }
+.lp-micro { margin-top: 10px; font-size: 13px; line-height: 1.6; color: #707070; }
+.lp-dark .lp-micro { color: rgba(255, 255, 255, .7); }
+
+/* --- FV --------------------------------------------------- */
+/* モバイルは1カラムの横並び行。3カラムに詰めると折り返しが汚くなる */
+.lp-fv-badges { display: grid; grid-template-columns: 1fr; gap: 8px; width: 100%; }
+.lp-fv-badges li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; text-align: left;
+  border: 1px solid var(--lp-line); border-radius: 8px; background: #fff;
+}
+.lp-fv-badges__label { font-size: 13px; font-weight: 700; line-height: 1.4; color: #707070; }
+.lp-fv-badges__value {
+  font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--lp-primary);
+  font-feature-settings: "palt" on; text-align: right;
+}
+/* モバイルの1行表示では改行を無効化する */
+.lp-fv-badges__value br { display: none; }
+
+/* モバイルはヘッダーCTAを出さない（下部固定CTAに一本化する。依頼書指定） */
+.lp-header-cta { display: none; }
+
+/* FVのCTAと、その下のベネフィット3点は幅を揃える */
+.lp-cta--fv { width: 100%; max-width: var(--lp-fv-cta-w); }
+
+/* CTA直下のベネフィット3点（アイコン＋見出し＋補足） */
+.lp-benefits {
+  width: 100%; max-width: var(--lp-fv-cta-w); margin-top: 14px;
+  display: grid; grid-template-columns: 1fr;
+  border: 1px solid var(--lp-line); border-radius: 8px; background: #fff;
+  overflow: hidden;
+}
+.lp-benefits li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; text-align: left;
+  border-top: 1px solid var(--lp-line);
+}
+.lp-benefits li:first-child { border-top: 0; }
+.lp-benefits__icon { width: 28px; height: 28px; flex-shrink: 0; object-fit: contain; }
+.lp-benefits__title { font-size: 15px; font-weight: 700; line-height: 1.4; color: var(--lp-secondary); }
+.lp-benefits__note { margin-top: 2px; font-size: 12px; line-height: 1.4; color: #707070; }
+
+/* FV右: ノートPCの画像の中にデモ動画を重ねる（公式サイトと同じ見せ方） */
+.lp-fv-media { position: relative; max-width: 440px; }
+.lp-fv-media > img { display: block; width: 100%; height: auto; }
+.lp-fv-media__video {
+  position: absolute; top: 5.8%; left: 50%; transform: translateX(-50%);
+  width: 75.4%; height: auto; background: #fff;
+}
+
+/* --- カード ----------------------------------------------- */
+.lp-cards { display: grid; gap: 20px; }
+.lp-cards--3 { grid-template-columns: 1fr; }
+.lp-card {
+  border: 1px solid var(--lp-line); border-radius: 8px; background: #fff;
+  padding: 28px 24px; display: flex; flex-direction: column; gap: 12px;
+}
+.lp-card__no {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--lp-card); color: var(--lp-primary);
+  font-family: var(--font-red-hat-display); font-weight: 700; font-size: 15px;
+}
+.lp-card__title { font-size: 19px; font-weight: 700; line-height: 1.5; }
+.lp-card__body { font-size: 17px; line-height: 1.8; color: #364153; }
+
+/* 依頼書: 本文18px目安・最低16px。見出し下のリードは18pxに揃える */
+.lp-head p { font-size: 18px; }
+/* 機能カードの説明文（12pxだと本文として小さすぎる） */
+#fn-grid .text-3 { font-size: 15px; }
+/* 比較表セル内の補足 */
+.lp-table .text-3 { font-size: 13px; }
+.lp-placeholder p { font-size: 16px !important; }
+
+/* --- 課題（共感） ----------------------------------------- */
+#issue {
+  position: relative; overflow: hidden;
+  background: #fff;
+}
+#issue .lp-wrap { max-width: 1260px; }
+#issue::before,
+#issue::after {
+  content: ""; position: absolute; pointer-events: none;
+  background: radial-gradient(circle at 1px 1px, rgba(225, 32, 28, .26) 1px, transparent 1.9px) 0 0 / 12px 12px;
+}
+#issue::before { width: 220px; height: 220px; left: -8px; bottom: 22px; opacity: .55; }
+#issue::after { width: 160px; height: 260px; right: -10px; top: 54px; opacity: .65; }
+.lp-issue-grid {
+  display: grid; grid-template-columns: 1fr; gap: 28px;
+  margin-top: 48px; position: relative; z-index: 1;
+}
+.lp-issue-card {
+  position: relative; display: flex; flex-direction: column;
+  min-height: 378px; padding: 30px 28px; border: 1px solid rgba(8, 9, 45, .08);
+  border-radius: 8px; background: rgba(255, 255, 255, .9);
+  box-shadow: 0 16px 34px rgba(8, 9, 45, .12);
+}
+.lp-issue-card::after {
+  content: none;
+}
+.lp-issue-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.lp-issue-card__no {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(225, 32, 28, .1); color: var(--lp-primary);
+  font-family: var(--font-red-hat-display); font-size: 18px; font-weight: 700;
+}
+.lp-issue-card__icon { width: 68px; height: 68px; object-fit: contain; }
+.lp-issue-card__title {
+  margin-top: 22px; padding-bottom: 14px; border-bottom: 1px solid rgba(225, 32, 28, .28);
+  font-size: 24px; font-weight: 700; line-height: 1.45; color: var(--lp-secondary);
+}
+.lp-issue-card__body { margin-top: 18px; font-size: 16px; line-height: 1.85; color: #364153; }
+
+/* --- 使いやすさ: 生成背景あしらい＋カードデザイン ----------- */
+#usability {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .94) 0%, rgba(250, 249, 245, .96) 100%) !important;
+  isolation: isolate;
+}
+#usability::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: url("../img/usability/usability-ribbons.webp") center / cover no-repeat;
+  opacity: .72;
+}
+#usability::after {
+  content: none;
+}
+#usability .lp-wrap { position: relative; z-index: 1; }
+#usability .lp-wrap::before,
+#usability .lp-wrap::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .46;
+  background: radial-gradient(circle at 2px 2px, rgba(8, 9, 45, .15) 2px, transparent 2.8px) 0 0 / 20px 20px;
+}
+#usability .lp-wrap::before {
+  width: 190px;
+  height: 140px;
+  left: -78px;
+  top: -70px;
+}
+#usability .lp-wrap::after {
+  width: 230px;
+  height: 160px;
+  right: -86px;
+  top: -44px;
+}
+#usability .lp-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+#usability .lp-head { gap: 22px; }
+#usability .lp-head hr {
+  width: 92px;
+  border-bottom-width: 4px;
+  border-radius: 999px;
+}
+#usability .lp-head p {
+  max-width: 46em;
+  color: var(--lp-secondary);
+}
+#usability .lp-cards--3 {
+  gap: 28px;
+  margin-top: 54px !important;
+}
+#usability .lp-card {
+  min-height: 276px;
+  padding: 40px 34px 36px;
+  border: 1px solid rgba(8, 9, 45, .06);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 18px 38px rgba(8, 9, 45, .1);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+#usability .lp-card > img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+}
+/* --- 課題→解決のブリッジ ---------------------------------- */
+.lp-issue-bridge { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; margin-top: 18px; }
+.lp-issue-arrows {
+  width: 100%; display: grid; grid-template-columns: repeat(3, 1fr);
+  max-width: 100%; margin-bottom: 24px; padding-inline: 9.2%;
+}
+.lp-issue-arrows span {
+  justify-self: center; width: 0; height: 0;
+  border-left: 12px solid transparent; border-right: 12px solid transparent;
+  border-top: 20px solid var(--lp-primary);
+}
+.lp-bridge__box {
+  position: relative; width: 100%; overflow: hidden;
+  border: 1px solid rgba(225, 32, 28, .45); border-radius: 8px; background: #fff;
+  min-height: 178px; padding: 30px 24px 28px; text-align: center; box-shadow: 0 10px 24px rgba(8, 9, 45, .08);
+}
+.lp-bridge__accent {
+  position: absolute; right: -4px; bottom: -26px; z-index: 0;
+  width: min(34%, 330px); height: auto; pointer-events: none;
+}
+.lp-bridge__lead {
+  position: relative; z-index: 1; font-size: 17px; line-height: 1.6; font-weight: 700;
+  color: var(--lp-secondary);
+}
+.lp-bridge__title {
+  position: relative; z-index: 1; margin-top: 8px;
+  font-size: clamp(34px, 7vw, 54px); line-height: 1.25; font-weight: 800;
+  color: var(--lp-secondary);
+}
+.lp-bridge__title span { color: var(--lp-primary); font-family: var(--font-red-hat-display); letter-spacing: 0; }
+
+@media (max-width: 767px) {
+  #usability::before {
+    background-size: auto 100%;
+    background-position: center top;
+    opacity: .54;
+  }
+  #usability::after {
+    content: none;
+  }
+  #usability .lp-wrap::before {
+    width: 118px;
+    height: 92px;
+    left: -48px;
+    top: -44px;
+  }
+  #usability .lp-wrap::after {
+    width: 136px;
+    height: 104px;
+    right: -54px;
+    top: 86px;
+    opacity: .34;
+  }
+  #usability .lp-cards--3 {
+    gap: 18px;
+    margin-top: 36px !important;
+  }
+  #usability .lp-card {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+  #usability .lp-card > img {
+    width: 46px;
+    height: 46px;
+  }
+  #issue { background: #fff; }
+  #issue .lp-wrap { max-width: 1080px; }
+  #issue::before { display: none; }
+  #issue::after { width: 112px; height: 172px; right: -28px; top: 48px; opacity: .45; }
+  .lp-issue-grid { gap: 28px; margin-top: 36px; }
+  .lp-issue-card { min-height: auto; padding: 24px 20px; }
+  .lp-issue-card__no { width: 48px; height: 48px; font-size: 16px; }
+  .lp-issue-card__icon { width: 58px; height: 58px; }
+  .lp-issue-card__title { font-size: 20px; }
+  .lp-issue-card__body { font-size: 16px; }
+  .lp-issue-bridge { margin-top: 10px; }
+  .lp-issue-arrows { display: none; }
+  .lp-bridge__box { min-height: auto; padding: 28px 18px 30px; }
+  .lp-bridge__accent { right: -58px; bottom: -28px; width: 250px; max-width: none; }
+  .lp-bridge__lead { font-size: 15px; }
+}
+
+@media (min-width: 768px) {
+  .lp-issue-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --- 料金表 ----------------------------------------------- */
+.lp-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--lp-line); }
+.lp-table { width: 100%; min-width: 720px; border-collapse: collapse; background: #fff; }
+.lp-table th, .lp-table td { padding: 16px 12px; text-align: center; font-size: 15px; }
+.lp-table thead th { background: var(--lp-secondary); color: #fff; font-size: 16px; }
+.lp-table thead th:first-child { text-align: left; }
+/* 横スクロール時も項目名が残るよう1列目を固定する */
+.lp-table tbody th {
+  text-align: left; font-weight: 700; background: #fafafa;
+  border-right: 1px solid var(--lp-line); white-space: nowrap;
+  position: sticky; left: 0; z-index: 1;
+}
+.lp-table thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--lp-secondary); }
+
+/* モバイルで横スクロールできることを明示する */
+.lp-scroll-hint { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; font-size: 13px; color: #707070; }
+@media (min-width: 1024px) { .lp-scroll-hint { display: none; } }
+.lp-table tbody tr { border-top: 1px solid var(--lp-line); }
+.lp-table .is-price { font-size: 22px; font-weight: 700; color: var(--lp-primary); white-space: nowrap; }
+.lp-table .is-yes {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #ebfef4; color: #06c37b; font-weight: 700;
+}
+.lp-table .is-no { color: #d1d1d1; font-size: 20px; }
+.lp-table .is-mark { font-size: 20px; font-weight: 700; color: var(--lp-secondary); }
+
+/* --- 注記 ------------------------------------------------- */
+.lp-note { margin-top: 14px; font-size: 13px; line-height: 1.8; color: #707070; }
+.lp-dark .lp-note { color: rgba(255, 255, 255, .65); }
+.lp-note li { list-style: none; padding-left: 1em; text-indent: -1em; }
+
+/* --- 移行代行の担当図 -------------------------------------- */
+.lp-flowrow {
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+  border: 1px solid var(--lp-line); border-radius: 12px; overflow: hidden; background: #fff;
+}
+.lp-flowrow__item { display: flex; gap: 16px; align-items: flex-start; padding: 22px 20px; border-top: 1px solid var(--lp-line); }
+.lp-flowrow__item:first-child { border-top: 0; }
+.lp-flowrow__owner {
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  padding: 6px 12px; border-radius: 999px;
+  background: var(--lp-primary); color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+
+/* --- 導入企業ロゴ ----------------------------------------- */
+.lp-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.lp-logos img { width: 100%; height: auto; }
+.lp-logos li {
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--lp-line); border-radius: 8px; background: #fff; padding: 10px;
+}
+
+/* --- FAQ -------------------------------------------------- */
+.lp-faq { border-top: 1px solid var(--lp-line); }
+.lp-faq details { border-bottom: 1px solid var(--lp-line); }
+.lp-faq summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 4px; cursor: pointer; list-style: none;
+  font-size: 17px; font-weight: 700; line-height: 1.6;
+}
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq details[open] .lp-faq__plus { display: none; }
+.lp-faq__minus { display: none; }
+.lp-faq details[open] .lp-faq__minus { display: block; }
+.lp-faq__a { padding: 0 4px 24px; font-size: 17px; line-height: 1.9; color: #364153; }
+
+/* --- フォーム --------------------------------------------- */
+.lp-form { background: #fff; border-radius: 16px; padding: 32px 24px; color: var(--lp-secondary); }
+.lp-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.lp-field label { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.lp-req { background: var(--lp-primary); color: #fff; font-size: 11px; padding: 3px 8px; border-radius: 4px; }
+.lp-any { background: #ececec; color: #707070; font-size: 11px; padding: 3px 8px; border-radius: 4px; }
+.lp-field input {
+  width: 100%; padding: 14px 16px; font-size: 16px; /* 16px未満はiOSで自動ズームする */
+  border: 1px solid #d9d9d9; border-radius: 8px; background: #fff; color: var(--lp-secondary);
+}
+.lp-field input:focus { outline: 2px solid var(--lp-primary); outline-offset: 1px; border-color: transparent; }
+.lp-form__consent { font-size: 13px; line-height: 1.8; color: #707070; margin-top: 4px; }
+.lp-form__consent a { color: var(--lp-primary); text-decoration: underline; }
+.lp-form .lp-cta { width: 100%; }
+
+/* 未接続であることを画面に明示する（実フォーム差し替えまで） */
+.lp-stub {
+  border: 1px dashed var(--lp-primary); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 20px;
+  font-size: 13px; line-height: 1.7; color: var(--lp-primary); background: #fff5f5;
+}
+
+/* --- recap ------------------------------------------------ */
+.lp-recap { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.lp-recap li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 16px; border-radius: 8px; background: rgba(255, 255, 255, .08);
+  font-size: 15px; line-height: 1.7;
+}
+.lp-recap img { margin-top: 4px; flex-shrink: 0; }
+
+/* --- 実績数値 --------------------------------------------- */
+.lp-stats { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.lp-stat { border: 1px solid var(--lp-line); border-radius: 12px; padding: 24px; text-align: center; background: #fff; }
+.lp-stat__num { font-size: 34px; font-weight: 700; color: var(--lp-primary); line-height: 1.2; font-family: var(--font-red-hat-display); }
+.lp-stat__label { margin-top: 8px; font-size: 15px; font-weight: 700; }
+.lp-stat__note { margin-top: 6px; font-size: 12px; color: #707070; }
+
+/* --- 未確定コンテンツのプレースホルダ ---------------------- */
+.lp-placeholder {
+  border: 1px dashed #c9c9c9; border-radius: 8px; background: #fafafa;
+  padding: 24px 20px; color: #8e8e8e;
+}
+.lp-placeholder .lp-placeholder__tag {
+  display: inline-block; margin-bottom: 10px; padding: 3px 8px; border-radius: 4px;
+  background: #ececec; color: #707070; font-size: 11px; font-weight: 700;
+}
+
+/* --- モバイル固定CTA -------------------------------------- */
+.lp-sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  height: var(--lp-cta-h-sp);
+  display: flex; align-items: center; padding: 0 12px;
+  background: rgba(255, 255, 255, .96); border-top: 1px solid var(--lp-line);
+  backdrop-filter: blur(6px);
+}
+.lp-sticky .lp-cta {
+  width: 100%; min-height: 44px; padding: 8px 16px; font-size: 15px; box-shadow: none;
+}
+/* 固定CTAが本文・FAQ・フッターを隠さないよう、その分の余白を確保する */
+body { padding-bottom: calc(var(--lp-cta-h-sp) + env(safe-area-inset-bottom, 0px)); }
+
+/* --- アニメーション（依頼書: フェード1種のみ） -------------- */
+.lp-fade { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.lp-fade.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-fade { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .lp-cta { transition: none; }
+  .lp-cta:hover { transform: none; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* --- Desktop ---------------------------------------------- */
+@media (min-width: 768px) {
+  /* ベネフィット3点は横並び＋縦の区切り線にする。
+     3カラムに必要な実測幅は558pxなので、左カラム幅いっぱい(600px)まで広げて余裕を持たせる */
+  :root { --lp-fv-cta-w: 600px; }
+  .lp-benefits { grid-template-columns: repeat(3, 1fr); }
+  .lp-benefits li { border-top: 0; border-left: 1px solid var(--lp-line); gap: 8px; padding: 12px 10px; }
+  .lp-benefits li:first-child { border-left: 0; }
+  .lp-benefits__title { font-size: 14px; }
+  .lp-benefits__note { font-size: 11px; }
+
+  .lp-fv-badges { grid-template-columns: repeat(3, 1fr); }
+  .lp-fv-badges li { flex-direction: column; align-items: center; justify-content: flex-start; gap: 4px; padding: 14px 8px; text-align: center; }
+  .lp-fv-badges__label { font-size: 12px; }
+  .lp-fv-badges__value { font-size: 19px; text-align: center; }
+  .lp-fv-badges__value br { display: inline; }
+  .lp-cards--3 { grid-template-columns: repeat(3, 1fr); }
+  .lp-logos { grid-template-columns: repeat(4, 1fr); }
+  .lp-stats { grid-template-columns: repeat(3, 1fr); }
+  .lp-recap { grid-template-columns: repeat(3, 1fr); }
+  .lp-flowrow { grid-template-columns: 1fr; }
+  .lp-form { padding: 40px; }
+}
+
+@media (min-width: 1024px) {
+  .lp-wrap { padding-inline: 32px; }
+  /* 横並びになると左カラムが右のFV画像に押されて536pxまで縮み、
+     ベネフィット3点(要558px)が折り返す。画像側を詰めて左に幅を渡す */
+  .lp-fv-media { max-width: 400px; }
+  .lp-logos { grid-template-columns: repeat(6, 1fr); }
+  /* 固定CTAはモバイル・タブレットのみ。PCでは出さない（依頼書指定）。
+     ヘッダーCTAはその裏返しで、固定CTAが消えるここから出す。
+     768px から出すとタブレット幅でCTAが二重に見えてしまう */
+  .lp-sticky { display: none; }
+  .lp-header-cta { display: inline-flex; }
+  body { padding-bottom: 0; }
+}
+
+/* ===========================================================
+   1on1（三神さん×山中）での修正指示ぶん
+   =========================================================== */
+
+/* --- FV: SPは copy → 画面イメージ → CTA の順に組み替える ---- */
+.lp-fv-layout { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.lp-fv-copy, .lp-fv-action { width: 100%; }
+
+/* FV上部の吹き出し */
+.lp-fv-bubble {
+  position: relative; display: inline-block;
+  padding: 9px 18px; border-radius: 999px;
+  background: var(--lp-secondary); color: #fff;
+  font-size: 14px; font-weight: 700; line-height: 1.4;
+}
+.lp-fv-bubble::after {
+  content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 7px solid transparent; border-top-color: var(--lp-secondary); border-bottom: 0;
+}
+
+/* CTA内の改行はSPだけ */
+.lp-br-sp { display: inline; }
+
+/* --- 動画（YouTubeファサード。クリックで初めて読み込む） ---- */
+.lp-video { width: 100%; }
+.lp-video__frame {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
+  padding: 0; border: 0; border-radius: 12px; overflow: hidden;
+  background: #000; cursor: pointer;
+}
+.lp-video__frame > img,
+.lp-video__frame > iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  object-fit: cover;
+}
+.lp-video__play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--lp-primary); box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  transition: transform .15s ease;
+}
+.lp-video__play::after {
+  content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%);
+  border: 13px solid transparent; border-left: 20px solid #fff; border-right: 0;
+}
+.lp-video__frame:hover .lp-video__play { transform: translate(-50%, -50%) scale(1.06); }
+.lp-video__cap { margin-top: 10px; font-size: 13px; line-height: 1.6; color: #707070; text-align: center; }
+
+/* --- STEP番号（円だと「STEP 1」が収まらずズレるためpillにする） --- */
+.lp-step-no {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 28px; padding: 0 14px; border-radius: 999px;
+  background: var(--lp-card); color: var(--lp-primary);
+  font-family: var(--font-red-hat-display); font-weight: 700; font-size: 13px;
+  letter-spacing: .04em; white-space: nowrap;
+}
+
+/* --- 導入企業の声（コメント中心。数字は出さない） ---------- */
+.lp-voices { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.lp-voice {
+  position: relative;
+  display: flex; flex-direction: column; gap: 16px;
+  min-height: 320px;
+  padding: 42px 34px 34px;
+  border: 1px solid rgba(8, 9, 45, .12); border-radius: 8px;
+  background: #fff; box-shadow: 0 14px 32px rgba(8, 9, 45, .08);
+}
+.lp-voice::before {
+  content: "";
+  position: absolute; left: 0; top: 0;
+  width: 5px; height: 68px; border-radius: 8px 0 0 0;
+  background: var(--lp-primary);
+}
+.lp-voice::after {
+  content: "“";
+  color: rgba(225, 32, 28, .68);
+  font-family: Georgia, serif; font-size: 58px; font-weight: 700; line-height: 1;
+  height: 30px; margin-bottom: 2px;
+}
+.lp-voice__quote {
+  order: 1;
+  font-size: 20px; font-weight: 700; line-height: 1.65; color: var(--lp-secondary);
+  font-feature-settings: "palt" on;
+}
+.lp-voice__body { order: 2; font-size: 15px; line-height: 1.9; color: #364153; flex: 1; }
+.lp-voice__person {
+  order: 3;
+  display: flex; align-items: center; gap: 16px;
+  padding-top: 24px; border-top: 1px dashed #cfd4dc;
+}
+.lp-voice__avatar {
+  position: relative;
+  flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, #f5262b 0%, var(--lp-primary) 100%);
+  color: transparent; font-size: 0;
+  box-shadow: 0 8px 18px rgba(225, 32, 28, .22);
+}
+.lp-voice__avatar::before {
+  content: "";
+  width: 28px; height: 28px; background: #fff;
+  -webkit-mask:
+    radial-gradient(circle at 50% 31%, #000 0 22%, transparent 23%) top / 100% 58% no-repeat,
+    radial-gradient(ellipse at 50% 92%, #000 0 41%, transparent 42%) bottom / 100% 58% no-repeat;
+  mask:
+    radial-gradient(circle at 50% 31%, #000 0 22%, transparent 23%) top / 100% 58% no-repeat,
+    radial-gradient(ellipse at 50% 92%, #000 0 41%, transparent 42%) bottom / 100% 58% no-repeat;
+}
+.lp-voice__name { display: block; font-size: 15px; font-weight: 700; line-height: 1.4; }
+.lp-voice__org { display: block; margin-top: 2px; font-size: 12px; line-height: 1.5; color: #707070; }
+
+/* --- 強調帯（「今の月額より安く」「乗り換えるなら今」） ----- */
+.lp-emphasis {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 20px 24px; border-radius: 12px; text-align: center;
+  background: #fff; border: 2px solid var(--lp-primary);
+  font-size: 17px; line-height: 1.6; color: var(--lp-secondary);
+}
+.lp-emphasis strong { font-size: 21px; font-weight: 700; color: var(--lp-primary); }
+.lp-emphasis span { font-size: 14px; color: #364153; }
+.lp-emphasis--now { background: var(--lp-primary); border-color: var(--lp-primary); }
+.lp-emphasis--now strong { display: block; font-size: 24px; color: #fff; }
+.lp-emphasis--now span { color: rgba(255, 255, 255, .9); }
+
+/* --- 実績バッジ ------------------------------------------- */
+.lp-badges { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.lp-badge {
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  padding: 26px 20px 24px; text-align: center; background: #fff;
+  border: 1px solid var(--lp-line); border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(8, 9, 45, .08);
+}
+.lp-badge__ribbon {
+  width: 34px; height: 16px;
+  background: linear-gradient(90deg, var(--lp-primary), #ff8a5c);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 68%, 0 100%);
+}
+.lp-badge__num {
+  margin-top: 14px; width: 112px; height: 112px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  background: linear-gradient(140deg, var(--lp-primary) 0%, #ff5f5b 100%); color: #fff;
+  box-shadow: 0 10px 24px rgba(225, 32, 28, .3), 0 0 0 4px rgba(225, 32, 28, .12);
+  font-family: var(--font-red-hat-display); font-weight: 700; font-size: 32px; line-height: 1;
+}
+.lp-badge__num span { font-size: 13px; font-weight: 700; align-self: center; margin-top: 12px; }
+.lp-badge__num--text { font-size: 24px; letter-spacing: .02em; }
+.lp-badge__label { margin-top: 16px; font-size: 15px; font-weight: 700; line-height: 1.6; }
+.lp-badge__note { margin-top: 8px; font-size: 12px; line-height: 1.6; color: #707070; }
+
+/* --- 事例（トグルで開く。成果・使いこなしの話） ------------ */
+.lp-cases { display: flex; flex-direction: column; gap: 12px; }
+.lp-case { border: 1px solid var(--lp-line); border-radius: 12px; background: #fff; overflow: hidden; }
+.lp-case > summary {
+  position: relative; list-style: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 20px 52px 20px 20px;
+}
+.lp-case > summary::-webkit-details-marker { display: none; }
+.lp-case__org { font-size: 13px; font-weight: 700; color: var(--lp-primary); line-height: 1.5; }
+.lp-case__lead { font-size: 18px; font-weight: 700; line-height: 1.6; color: var(--lp-secondary); }
+.lp-case__toggle {
+  position: absolute; top: 24px; right: 20px; width: 16px; height: 16px;
+}
+.lp-case__toggle::before,
+.lp-case__toggle::after {
+  content: ""; position: absolute; top: 50%; left: 0; width: 16px; height: 2px;
+  background: var(--lp-secondary); transition: transform .2s ease;
+}
+.lp-case__toggle::after { transform: rotate(90deg); }
+.lp-case[open] .lp-case__toggle::after { transform: rotate(0deg); }
+.lp-case__body { padding: 0 20px 20px; }
+.lp-case__body p { font-size: 15px; line-height: 1.85; color: #364153; }
+.lp-case__metric { margin-top: 10px; font-size: 12px !important; color: #8e8e8e !important; }
+
+/* --- フォーム直前の「入力30秒」 --------------------------- */
+.lp-form__speed {
+  margin-bottom: 14px; text-align: center;
+  font-size: 14px; font-weight: 700; line-height: 1.5; color: var(--lp-primary);
+}
+
+@media (min-width: 768px) {
+  /* ベネフィットは2点になったので、件数に合わせて等幅に並べる */
+  .lp-benefits { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .lp-br-sp { display: none; }
+  .lp-voices { grid-template-columns: repeat(3, 1fr); }
+  .lp-badges { grid-template-columns: repeat(3, 1fr); }
+  .lp-emphasis { font-size: 18px; }
+  .lp-fv-bubble { font-size: 15px; }
+}
+
+@media (min-width: 1024px) {
+  .lp-fv-layout {
+    display: grid; align-items: start;
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+    column-gap: 40px; row-gap: 28px;
+  }
+  .lp-fv-copy   { grid-column: 1; grid-row: 1; }
+  .lp-fv-action { grid-column: 1; grid-row: 2; }
+  .lp-fv-media  { grid-column: 2; grid-row: 1 / span 2; align-self: center; justify-self: end; }
+  /* 左寄せレイアウトでは吹き出しの尻尾も左に寄せる */
+  .lp-fv-bubble::after { left: 32px; }
+}
+
+/* SPの1行表示で長い値が右にはみ出すのを防ぐ */
+.lp-fv-badges li > * { min-width: 0; }
+
+/* --- FV visual refresh: red arc, dotted texture, arrow CTA --- */
+.lp-fv-header {
+  position: relative;
+  z-index: 3;
+  background:
+    linear-gradient(120deg, #fff 0%, #fbfaf7 52%, #f7f5f0 100%) !important;
+}
+
+.lp-fv {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(120deg, #fff 0%, #fbfaf7 52%, #f7f5f0 100%) !important;
+}
+
+.lp-fv::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  pointer-events: none;
+  width: min(76vw, 860px);
+  aspect-ratio: 1 / 1;
+  right: max(-36vw, -420px);
+  bottom: max(-48vw, -620px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 58% 62%, rgba(255, 255, 255, .26) 0 18%, transparent 42%),
+    linear-gradient(145deg, #ff2d31 0%, var(--lp-primary) 42%, #ff7c7f 100%);
+  box-shadow: -18px -28px 64px rgba(225, 32, 28, .16);
+}
+
+.lp-fv::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: min(28vw, 360px);
+  height: min(22vw, 280px);
+  right: min(5vw, 72px);
+  bottom: min(6vw, 84px);
+  opacity: .42;
+  background:
+    radial-gradient(circle at 2px 2px, rgba(255, 255, 255, .72) 2px, transparent 2.8px) 0 0 / 18px 18px;
+}
+
+.lp-fv .lp-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.lp-fv .lp-fv-media {
+  filter: drop-shadow(0 24px 34px rgba(8, 9, 45, .18));
+}
+
+.lp-fv .lp-cta--fv {
+  position: relative;
+  min-height: 70px;
+  padding: 16px 76px 16px 32px;
+  background: linear-gradient(180deg, #f3161d 0%, var(--lp-primary) 100%);
+  box-shadow: 0 12px 26px rgba(225, 32, 28, .28);
+}
+
+.lp-fv .lp-cta--fv::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(255, 255, 255, .78);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.lp-fv .lp-cta--fv::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .lp-fv::before {
+    width: 520px;
+    right: -330px;
+    bottom: 210px;
+    opacity: .86;
+  }
+  .lp-fv::after {
+    width: 190px;
+    height: 170px;
+    right: -18px;
+    bottom: 300px;
+    opacity: .32;
+  }
+  .lp-fv .lp-cta--fv {
+    min-height: 64px;
+    padding-right: 62px;
+    padding-left: 22px;
+  }
+  .lp-fv .lp-cta--fv::after {
+    right: 17px;
+    width: 28px;
+    height: 28px;
+  }
+  .lp-fv .lp-cta--fv::before {
+    right: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-fv::before {
+    width: min(70vw, 900px);
+    right: max(-30vw, -380px);
+    top: 96px;
+    bottom: auto;
+  }
+  .lp-fv::after {
+    right: min(7vw, 96px);
+    bottom: min(8vw, 108px);
+  }
+}
+
+/* ===========================================================
+   比較表（#compare）: Dejam列を1枚のカードとして縦に通す
+   料金表(.lp-table)には影響させないため --compare で閉じる
+   =========================================================== */
+.lp-table-scroll--compare {
+  border: 1px solid var(--lp-line); border-radius: 16px; background: #fff;
+  padding: 16px 16px 18px;
+  box-shadow: 0 14px 34px rgba(8, 9, 45, .07);
+}
+.lp-table--compare { border-collapse: separate; border-spacing: 0; background: transparent; }
+.lp-table--compare th,
+.lp-table--compare td { border: 0; padding: 18px 14px; }
+
+/* 見出し行（Dejam列以外はライトグレーの帯） */
+.lp-table--compare thead th {
+  background: #f5f5f7; color: var(--lp-secondary);
+  font-size: 15px; font-weight: 700; padding: 16px 14px;
+}
+.lp-table--compare thead th:first-child {
+  background: #f5f5f7; text-align: left; border-radius: 10px 0 0 10px;
+}
+.lp-table--compare thead th:last-child { border-radius: 0 10px 10px 0; }
+
+/* 項目名の列 */
+.lp-table--compare tbody th {
+  background: #fff; text-align: left; font-weight: 700;
+  font-size: 15px; color: var(--lp-secondary);
+  border-right: 0; border-bottom: 1px solid var(--lp-line);
+}
+.lp-table--compare tbody td { border-bottom: 1px solid var(--lp-line); }
+.lp-table--compare tbody tr:last-child th,
+.lp-table--compare tbody tr:last-child td { border-bottom: 0; }
+
+/* Dejam列 */
+.lp-table--compare th:nth-child(2),
+.lp-table--compare td:nth-child(2) {
+  border-left: 1px solid rgba(225, 32, 28, .16);
+  border-right: 1px solid rgba(225, 32, 28, .16);
+}
+.lp-table--compare thead th:nth-child(2) {
+  background: var(--lp-secondary); color: #fff; font-size: 18px;
+  border-color: var(--lp-secondary);
+  border-radius: 12px 12px 0 0;
+  padding-top: 20px; padding-bottom: 20px;
+}
+.lp-table--compare tbody td:nth-child(2) { background: #fdf4f4; }
+.lp-table--compare tbody tr:last-child td:nth-child(2) {
+  border-bottom: 1px solid rgba(225, 32, 28, .16);
+  border-radius: 0 0 12px 12px;
+}
+
+/* ブランド名＋王冠 */
+.lp-table__brand { display: inline-flex; align-items: center; gap: 8px; }
+.lp-table__crown { fill: var(--lp-primary); flex-shrink: 0; }
+
+/* 記号と補足（Dejam=赤／他社=グレー） */
+.lp-table--compare .is-mark { display: inline-block; font-size: 22px; margin-bottom: 4px; }
+.lp-table--compare td:nth-child(2) .is-mark { color: var(--lp-primary); }
+.lp-table--compare td:nth-child(3) .is-mark { color: #b6bac4; }
+.lp-table--compare td:nth-child(2) .text-3 { color: var(--lp-secondary); font-weight: 700; }
+.lp-table--compare td:nth-child(3) .text-3 { color: #9aa0ab; }
+
+/* SPは1列目を折り返して詰め、Dejam列が最初から見えるようにする */
+@media (max-width: 767px) {
+  .lp-table--compare { min-width: 640px; }
+  .lp-table--compare th,
+  .lp-table--compare td { padding: 14px 10px; }
+  .lp-table--compare thead th:first-child,
+  .lp-table--compare tbody th {
+    white-space: normal; width: 150px; min-width: 150px; font-size: 14px;
+  }
+  .lp-table-scroll--compare { padding: 12px 12px 14px; }
+}
+
+/* 補足テキスト内の赤アクセントと小さい但し書き */
+.lp-table--compare .is-hl { color: var(--lp-primary); font-weight: 700; }
+.lp-table--compare .lp-table__sub { display: inline-block; margin-top: 2px; font-size: 11px; font-weight: 400; color: #9aa0ab; }
+
+/* --- 機能一覧: PCは3列（12項目=4行できれいに割り切れる） ----- */
+#fn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (min-width: 1024px) {
+  #fn-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+/* FV内のCTAを通り過ぎるまで固定CTAを出さない（同じCTAの二重表示を防ぐ） */
+.lp-sticky { transition: transform .25s ease; }
+.lp-sticky.is-hidden { transform: translateY(110%); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .lp-sticky { transition: none; } }
+
+/* ===========================================================
+   導入企業の声・事例（Dejam公式の事例素材を使う構成）
+   バナーには 顔写真＋企業ロゴ＋社名＋役職 が入っているため、
+   アバターや社名テキストを別途組まずバナーをそのまま見せる。
+   =========================================================== */
+.lp-voice { padding-top: 34px; }
+.lp-voice__banner {
+  order: -1; display: block; width: 100%; height: auto; border-radius: 8px;
+}
+/* アバターを廃止したので、氏名と社名は縦積みにする */
+.lp-voice__person { flex-direction: column; align-items: flex-start; gap: 2px; }
+
+/* 事例トグル: 企業ロゴを左に置く */
+.lp-case > summary { flex-direction: row; align-items: center; gap: 16px; }
+.lp-case__logo {
+  flex-shrink: 0; width: 72px; height: 56px; object-fit: contain;
+}
+.lp-case__head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+/* --- 手順ステップ: 説明の横に実際の操作画面を置く ---------- */
+/* STEP1だけ画像なし。画像の有無どちらでも崩れないよう flex で組む */
+.lp-step { flex-direction: column; gap: 20px; }
+.lp-step__text { display: flex; flex-direction: column; gap: 12px; }
+.lp-step__shot {
+  width: 100%; height: auto; border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .lp-step { flex-direction: row; align-items: center; gap: 28px; }
+  .lp-step__text { flex: 1; min-width: 0; }
+  .lp-step__shot { flex-shrink: 0; width: 46%; max-width: 380px; }
+}
+
+/* ===========================================================
+   間延び対策（内容は変えず、余白と要素サイズだけ圧縮）
+   実測: 全長15,579px / セクション余白だけで2,112px を占めていた
+   =========================================================== */
+
+/* 全セクション共通: 上下96px→48px。
+   依頼書は「セクション間96px」。上下96pxだと隣接セクション間の空白が192pxになり倍。
+   48pxにすると 48+48=96px で依頼書の指定どおりになる */
+.lp-section { padding-block: 48px; }
+.lp-head { gap: 18px; }
+
+/* 動画は16:9のため幅いっぱいだと571pxになる。中央寄せで幅を抑える */
+.lp-video { max-width: 680px; margin-inline: auto; }
+
+/* 操作フロー: カードの余白と画像幅を詰める */
+#ai .lp-cards { margin-top: 32px !important; gap: 14px; }
+#ai .lp-card { padding: 20px; }
+.lp-step { gap: 16px; }
+.lp-step__text { gap: 8px; }
+#ai .lp-card__title { font-size: 18px; }
+#ai .lp-card__body { font-size: 15px; line-height: 1.7; }
+
+/* 機能一覧: 12枚あるので1枚あたりを詰める */
+#fn-grid { gap: 12px; margin-top: 32px !important; }
+#fn-grid > li > div:first-child { padding: 12px !important; }
+#fn-grid > li > div:last-child { padding: 12px 14px !important; }
+#fn-grid .text-3 { font-size: 14px; line-height: 1.6; }
+
+/* 使いやすさ: 3カードと補足ブロックの間隔 */
+#usability .lp-cards { margin-top: 32px !important; }
+#usability .lp-card { padding: 22px 20px; }
+
+@media (min-width: 768px) {
+  .lp-step { gap: 24px; }
+  .lp-step__shot { width: 40%; max-width: 320px; }
+}
+
+/* 機能一覧: サムネイルが200px縦を占めカード高326pxの大半だった。
+   原寸377x247に対し縮小方向なので、高さを固定しても画質は落ちない */
+/* imgにインラインstyle(width:100%;height:auto)があるため上書きが必要 */
+#fn-grid img { height: 132px !important; width: auto !important; max-width: 100%; object-fit: contain; }
+#fn-grid > li > div:first-child { min-height: 0; }
+
+/* 動画をもう一段絞る（16:9なので幅がそのまま高さに効く） */
+.lp-video { max-width: 580px; }
+
+/* ===========================================================
+   操作フロー: 縦4段（1段あたり約220px）だと縦に伸びるため、
+   PCは4カラムの横並びに変更する。内容・順序は変えない。
+   =========================================================== */
+/* SPは横並び（テキスト左・画像右）が一番縦を食わない */
+.lp-step { flex-direction: row; align-items: center; gap: 14px; }
+.lp-step__shot { flex-shrink: 0; width: 38%; max-width: 150px; }
+
+@media (min-width: 768px) {
+  /* olのインラインstyle(grid-template-columns:1fr)を上書きする */
+  #ai .lp-cards { grid-template-columns: repeat(2, 1fr) !important; }
+  /* 2カラム以上では 画像を下に敷いて1枚を縦組みにする */
+  .lp-step { flex-direction: column; align-items: stretch; gap: 14px; }
+  .lp-step__text { flex: 0 0 auto; }
+  .lp-step__shot { width: 100%; max-width: none; margin-top: auto; }
+}
+
+@media (min-width: 1024px) {
+  #ai .lp-cards { grid-template-columns: repeat(4, 1fr) !important; gap: 12px; }
+  #ai .lp-card { padding: 18px 16px; }
+  #ai .lp-card__title { font-size: 16px; line-height: 1.5; }
+  #ai .lp-card__body { font-size: 14px; line-height: 1.7; }
+  .lp-step-no { height: 24px; padding: 0 11px; font-size: 12px; }
+}
+
+/* 手順の操作画面: クリックで拡大（PCで245px幅だと画面の中身が読めないため） */
+.lp-step__shot { cursor: zoom-in; }
+.lp-step__shot:focus-visible { outline: 3px solid var(--lp-primary); outline-offset: 3px; }
+.lp-lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; background: rgba(8, 9, 45, .82);
+}
+.lp-lightbox img {
+  max-width: min(1170px, 96vw); max-height: 90vh;
+  width: auto; height: auto; border-radius: 8px; background: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+.lp-lightbox__close {
+  position: absolute; top: 16px; right: 16px;
+  width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(255, 255, 255, .16);
+}
+.lp-lightbox__close::before,
+.lp-lightbox__close::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 20px; height: 2px; background: #fff;
+}
+.lp-lightbox__close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.lp-lightbox__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ===========================================================
+   表の間延び対策
+   実測: 比較表は1行97px×9行=873px、料金表は平均69px×7行
+   記号(◎)と補足の2段組みなので、セル余白を削るのが一番効く
+   =========================================================== */
+.lp-table th, .lp-table td { padding: 11px 12px; }
+.lp-table thead th { font-size: 15px; }
+
+.lp-table--compare th,
+.lp-table--compare td { padding: 11px 14px; }
+.lp-table--compare thead th { padding: 12px 14px; }
+.lp-table--compare thead th:nth-child(2) { padding-top: 14px; padding-bottom: 14px; }
+.lp-table--compare .is-mark { font-size: 20px; margin-bottom: 2px; }
+
+/* 強調帯も上下が厚かったので詰める */
+.lp-emphasis { padding: 16px 22px; gap: 4px; }
+.lp-emphasis strong { font-size: 20px; }
+.lp-emphasis--now strong { font-size: 22px; }
+
+/* 事例バナー: カードの内側余白ぶん外に広げ、幅いっぱいで見せる。
+   原寸760pxに対し255px表示だと社名・役職が読めないため。クリックで原寸表示もできる */
+.lp-voice { overflow: hidden; }
+.lp-voice__banner {
+  width: calc(100% + 68px); max-width: none;
+  margin-left: -34px; margin-right: -34px;
+  border-radius: 0; cursor: zoom-in;
+}
+.lp-voice__banner:focus-visible { outline: 3px solid var(--lp-primary); outline-offset: -3px; }
+/* 赤い縦アクセントがバナーに重ならないよう、画像の始点で止める */
+.lp-voice::before { height: 34px; }
+
+/* ===========================================================
+   移行代行: 01-03（LeanGo担当）を矢印でつなぎ、
+   04（並行稼働）は破線で切り離して別扱いにする
+   =========================================================== */
+.lp-mig {
+  display: grid; grid-template-columns: 1fr; gap: 28px;
+  background: #fff; border: 1px solid var(--lp-line); border-radius: 16px;
+  padding: 26px 20px; box-shadow: 0 14px 34px rgba(8, 9, 45, .06);
+}
+.lp-mig__flow { position: relative; padding-top: 30px; }
+
+/* 上部の赤い囲みラベル */
+.lp-mig__bracket {
+  position: absolute; top: 0; left: 0; right: 0; height: 22px;
+  border: 2px solid var(--lp-primary); border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+}
+.lp-mig__bracket span {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: #fff; padding: 0 14px; white-space: nowrap;
+  color: var(--lp-primary); font-size: 15px; font-weight: 700; line-height: 1;
+}
+
+.lp-mig__steps, .lp-mig__aside { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+.lp-mig__card {
+  position: relative; padding: 26px 18px 20px; border-radius: 12px;
+  border: 1px solid var(--lp-line); background: #fff; text-align: left;
+}
+.lp-mig__card--aside { border: 1.5px solid var(--lp-secondary); }
+
+/* 上辺にまたがるバッジ */
+.lp-mig__owner {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  padding: 4px 14px; border-radius: 999px; white-space: nowrap;
+  background: var(--lp-primary); color: #fff; font-size: 12px; font-weight: 700;
+}
+.lp-mig__owner--navy { background: var(--lp-secondary); }
+
+.lp-mig__icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 84px; height: 84px; border-radius: 50%; background: #fdeceb; margin: 6px auto 14px;
+}
+.lp-mig__icon--gray { background: #eceef3; }
+.lp-mig__icon svg {
+  width: 44px; height: 44px; fill: none;
+  stroke: var(--lp-secondary); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+.lp-mig__no {
+  display: block; color: var(--lp-primary); font-weight: 700; font-size: 26px; line-height: 1;
+  font-family: var(--font-red-hat-display);
+}
+.lp-mig__title {
+  margin-top: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--lp-line);
+  font-size: 17px; font-weight: 700; line-height: 1.5; color: var(--lp-secondary);
+}
+.lp-mig__body { margin-top: 12px; font-size: 14px; line-height: 1.8; color: #364153; }
+.lp-mig__title br { display: none; }
+
+@media (min-width: 768px) {
+  .lp-mig { grid-template-columns: minmax(0, 1fr) 250px; gap: 0; padding: 30px 24px; }
+  .lp-mig__flow { padding-right: 26px; }
+  .lp-mig__steps { grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  .lp-mig__title br { display: inline; }
+
+  /* カード間の赤い丸矢印 */
+  .lp-mig__steps > li:not(:last-child)::after {
+    content: ""; position: absolute; top: 50%; right: -30px; transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 50%; background: var(--lp-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
+    background-size: 14px; background-position: center; background-repeat: no-repeat;
+  }
+  /* 04は別扱いなので破線で仕切る */
+  .lp-mig__aside { border-left: 1px dashed #c9ccd3; padding-left: 26px; align-content: center; }
+}
+
+/* 括弧の修正:
+   1) flowのpadding-rightぶん右に26pxはみ出してカード03より長かった
+   2) 角丸6pxで「囲み枠」に見えていた。目標は角丸なしの短いツメ
+   3) SPは縦積みなので枠線は意味がなく、ラベルだけ見せる */
+.lp-mig__bracket { border: 0; height: auto; position: static; text-align: center; margin-bottom: 16px; }
+.lp-mig__bracket span { position: static; transform: none; display: inline-block; padding: 0; }
+.lp-mig__flow { padding-top: 0; }
+
+@media (min-width: 768px) {
+  .lp-mig__flow { padding-top: 40px; }
+  .lp-mig__bracket {
+    position: absolute; top: 0; left: 0; right: 26px; height: 18px; margin-bottom: 0;
+    border: 2px solid var(--lp-primary); border-bottom: 0; border-radius: 0;
+  }
+  .lp-mig__bracket span {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    padding: 0 14px; background: #fff;
+  }
+}
+
+/* ===========================================================
+   1) 使いやすさの白カードの空白
+   min-height:276px は3枚並びの高さを揃えるための指定だが、
+   その下の全幅カードにも効いて本文の下に129pxの空白ができていた
+   =========================================================== */
+#usability .lp-card { min-height: 0; }
+#usability .lp-cards--3 .lp-card { min-height: 276px; }
+
+/* ===========================================================
+   2) 導入企業の声: バナーをカード天面まで出す
+   赤い縦アクセントはバナーの上の白帯に取り残されて宙に浮くため外す
+   =========================================================== */
+.lp-voice { padding-top: 0; }
+.lp-voice::before { content: none; }
+.lp-voice__banner { margin-top: 0; }
+.lp-voice::after { margin-top: 26px; }
+
+/* ===========================================================
+   3) CTA: 押せることが伝わる形にする
+   依頼書「固定アニメはフェードのみ／prefers-reduced-motion必須」に触れないよう、
+   常時動くものは入れず、矢印とホバー・押下の反応だけで表現する
+   =========================================================== */
+.lp-cta--fv, .ct-form .lp-cta {
+  gap: 14px;
+  box-shadow: 0 8px 22px rgba(225, 32, 28, .30);
+}
+.lp-cta--fv::before, .ct-form .lp-cta::before {
+  content: ""; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background-color: rgba(255, 255, 255, .22);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h13M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  background-size: 17px; background-position: center; background-repeat: no-repeat;
+  transition: transform .15s ease;
+}
+.lp-cta--fv:hover, .ct-form .lp-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(225, 32, 28, .38);
+}
+.lp-cta--fv:hover::before, .ct-form .lp-cta:hover::before { transform: translateX(3px); }
+/* 押した瞬間に沈む */
+.lp-cta:active { transform: translateY(1px) scale(.995); box-shadow: 0 4px 12px rgba(225, 32, 28, .28); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-cta--fv::before, .ct-form .lp-cta::before { transition: none; }
+  .lp-cta--fv:hover::before, .ct-form .lp-cta:hover::before { transform: none; }
+}
+
+/* FVのCTAだけ矢印が右(::after)に付いていて他3つ(左)と不統一だったので揃える */
+.lp-fv .lp-cta--fv::after { content: none; }
+.lp-fv .lp-cta--fv::before {
+  content: ""; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background-color: rgba(255, 255, 255, .22);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h13M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  background-size: 17px; background-position: center; background-repeat: no-repeat;
+  transform: none; inset: auto; position: static; opacity: 1;
+}
+.lp-fv .lp-cta--fv:hover::before { transform: translateX(3px); }
+
+/* 括弧のラベルは「枠の中央」ではなく「線の上」に置く。
+   線は border-top なので枠の上辺(0)にあり、top:50%だと線より9px下にずれていた */
+@media (min-width: 768px) {
+  .lp-mig__bracket span { top: 0; }
+}
+
+/* 実績バッジを生成画像に差し替え。CSSで描いていた円・リボン・数字は使わない */
+.lp-badge__img { display: block; width: 132px; height: auto; margin: 0 auto; }
+.lp-badge { padding-top: 20px; }
+@media (min-width: 768px) {
+  .lp-badge__img { width: 148px; }
+}
+
+/* 使いやすさの背景を料金プラン(#price)と同じ単色に戻す。
+   Codexが入れた リボン画像・グラデーション・ドットパターン は他セクションと質感が合わないため外す */
+/* Codex側が !important 付きでグラデーションを指定しているため同じ強さで上書きする */
+#usability {
+  background: var(--lp-bg) !important;
+}
+#usability::before,
+#usability::after,
+#usability .lp-wrap::before,
+#usability .lp-wrap::after { content: none; }
+
+/* 実績バッジ: 金のメダル画像 → 赤いリング＋濃紺の数字（LPのトンマナに合わせる）
+   円周 = 2πr = 2π×45 ≒ 282.7。約1割を薄いグレーの隙間として残す */
+.lp-badge__img { display: none; }
+.lp-badge__ring {
+  position: relative; display: block; width: 116px; height: 116px; margin: 0 auto;
+}
+.lp-badge__ring svg { width: 100%; height: 100%; display: block; transform: rotate(-72deg); }
+.lp-badge__track { fill: none; stroke: #e8e8e8; stroke-width: 5; }
+.lp-badge__arc {
+  fill: none; stroke: var(--lp-primary); stroke-width: 5; stroke-linecap: round;
+  stroke-dasharray: 254 283;
+}
+.lp-badge__val {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--lp-secondary); font-weight: 700; line-height: 1;
+  font-size: 30px; font-family: var(--font-red-hat-display);
+}
+.lp-badge__val small { font-size: 16px; font-weight: 700; margin-left: 1px; }
+.lp-badge__val em { font-style: normal; font-size: 13px; margin-top: 5px; font-family: var(--font-noto-sans-jp); }
+.lp-badge__txt { font-size: 22px; letter-spacing: .02em; }
+
+@media (min-width: 768px) {
+  .lp-badge__ring { width: 128px; height: 128px; }
+  .lp-badge__val { font-size: 33px; }
+}
+
+/* FVのCTAは右側の矢印用に padding-right:76px が確保されていた。
+   矢印を左に移したので左右対称に戻す（右半分が空いて見えていた） */
+.lp-fv .lp-cta--fv { padding: 16px 32px; }
+
+/* ===========================================================
+   日本語の折り返しを文節単位にする
+   「サポー/ト」「修正/する」のような語中改行を防ぐ。
+   未対応ブラウザでは normal のままなので悪化はしない
+   =========================================================== */
+h1, h2, h3,
+.lp-head p, .lp-card__title, .lp-card__body, .lp-issue-card__title, .lp-issue-card__body,
+.lp-voice__quote, .lp-voice__body, .lp-voice__org,
+.lp-mig__title, .lp-mig__body, .lp-mig__bracket,
+.lp-case__lead, .lp-case__body p, .lp-badge__label,
+.lp-recap li, .lp-faq summary, .lp-faq__a, .lp-cta, .lp-note, .lp-micro,
+.lp-benefits__title, .lp-benefits__note, .lp-fv-bubble, .lp-emphasis, .lp-video__cap {
+  word-break: auto-phrase;
+}
+
+.lp-nobr { white-space: nowrap; }
+
+/* 実績バッジを指標の種類ごとに変える。
+   90%=リングを実数どおり90%塗る / 12.5%=8個中1個(=12.5%) / ISMS=割合ではないのでシールド */
+.lp-badge__arc { stroke-dasharray: 254.5 282.7; }
+.lp-badge__dot { fill: #e0e0e0; }
+.lp-badge__dot.is-on { fill: var(--lp-primary); }
+.lp-badge__shield { fill: none; stroke: var(--lp-primary); stroke-width: 5; stroke-linejoin: round; }
+
+/* 盾は上辺をまっすぐ、下端を一点にする正しい形にする。中にチェックを入れる */
+.lp-badge__check {
+  fill: none; stroke: var(--lp-primary); stroke-width: 5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+/* ISMSの文字は盾の上半分（幅の広いところ）に置く */
+.lp-badge__ring--shield .lp-badge__val { justify-content: flex-start; padding-top: 30%; }
+.lp-badge__ring--shield .lp-badge__txt { font-size: 19px; }
+
+/* ドット環は内側の余白が狭いので数字を小さくする（左上のドットに重なっていた） */
+.lp-badge__ring--dots .lp-badge__val { font-size: 26px; }
+@media (min-width: 768px) {
+  .lp-badge__ring--dots .lp-badge__val { font-size: 28px; }
+  .lp-badge__ring--shield .lp-badge__txt { font-size: 21px; }
+}
+
+/* ===========================================================
+   実績バッジ: 比率の図示をやめ、アイコン＋数字に統一する。
+   リングやドットで比率を描くと、90%は実際より強く、12.5%は実際より
+   弱く見える。どちらも誇張・過小になるので図示そのものを外した。
+   （旧 .lp-badge__ring / __track / __arc / __dot / __shield は未使用）
+   =========================================================== */
+.lp-badge__icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 76px; height: 76px; border-radius: 50%; background: #fdeceb;
+  margin: 0 auto 14px;
+}
+.lp-badge__icon svg {
+  width: 40px; height: 40px; fill: none;
+  stroke: var(--lp-secondary); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+.lp-badge__num {
+  display: flex; align-items: baseline; justify-content: center; gap: 1px;
+  color: var(--lp-secondary); font-weight: 700; line-height: 1;
+  font-size: 34px; font-family: var(--font-red-hat-display);
+}
+.lp-badge__num small { font-size: 18px; font-weight: 700; }
+.lp-badge__num em { font-style: normal; font-size: 14px; margin-left: 4px; font-family: var(--font-noto-sans-jp); }
+/* ISMSだけ文字が小さく右端が弱く見えたので、数字と同じ重さに揃える */
+.lp-badge__txt { font-size: 32px; letter-spacing: .01em; }
+.lp-badge__label { margin-top: 14px; }
+
+@media (min-width: 768px) {
+  .lp-badge__icon { width: 84px; height: 84px; }
+  .lp-badge__icon svg { width: 44px; height: 44px; }
+  .lp-badge__num { font-size: 37px; }
+  .lp-badge__txt { font-size: 35px; }
+}
+
+/* 初期の丸メダル用に .lp-badge__num へ与えていた円の指定が残っていたため打ち消す
+   （幅・高さ・角丸・背景・影・上マージン） */
+.lp-badge__num {
+  width: auto; height: auto; border-radius: 0;
+  background: none; box-shadow: none; margin-top: 0;
+}
+
+/* 初期メダル用の .lp-badge__num span { font-size:13px } が特異性で勝っていたため、
+   同じ深さのセレクタで上書きする */
+.lp-badge__num .lp-badge__txt {
+  font-size: 32px; letter-spacing: .01em; align-self: auto; margin-top: 0;
+}
+@media (min-width: 768px) {
+  .lp-badge__num .lp-badge__txt { font-size: 35px; }
+}
+
+/* 料金セクションの構造ブロック（人を増やしても支払いは増えない）を少し立たせる。
+   同セクションの .lp-emphasis（赤枠）とは差をつけ、淡い面＋左のラインで抑えめに */
+#price .lp-card {
+  background: #fdf5f4;
+  border-color: rgba(225, 32, 28, .22);
+  border-left: 4px solid var(--lp-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 26px;
+}
+#price .lp-card .lp-card__title { font-size: 21px; }
+#price .lp-hl {
+  color: var(--lp-primary);
+  background: linear-gradient(transparent 62%, rgba(225, 32, 28, .14) 62%);
+}
+@media (min-width: 768px) {
+  #price .lp-card .lp-card__title { font-size: 23px; }
+}
+
+/* 使いやすさの人数無制限ブロックも料金の構造ブロックと同じ扱いにする */
+#usability .lp-wrap > .lp-card {
+  background: #fdf5f4;
+  border-color: rgba(225, 32, 28, .22);
+  border-left: 4px solid var(--lp-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 26px;
+}
+#usability .lp-wrap > .lp-card .lp-card__title { font-size: 21px; }
+#usability .lp-hl {
+  color: var(--lp-primary);
+  background: linear-gradient(transparent 62%, rgba(225, 32, 28, .14) 62%);
+}
+@media (min-width: 768px) {
+  #usability .lp-wrap > .lp-card .lp-card__title { font-size: 23px; }
+}
+
+/* FVの名乗り（記事LP・スワイプLP…の制作・改善ツール）は依頼書で
+   「省くと以降が読まれない」とされる要素なのに14pxで本文最低16pxを下回っていた。
+   吹き出しは依頼書が15px・見出しの3割・第一到達点にしないと明示しているため据え置く */
+.lp-fv-copy > p.font-bold.text-primary { font-size: 17px; line-height: 1.6; }
+@media (min-width: 768px) {
+  .lp-fv-copy > p.font-bold.text-primary { font-size: 18px; }
+}
+
+/* CTAの矢印を通常フローに置くと「矢印＋文字」の塊が中央寄せになり、
+   文字だけ見ると矢印+余白の半分（22px）右にずれる。
+   矢印を絶対配置にして、文字をボタンの中央に置く */
+.lp-cta--fv, .ct-form .lp-cta { position: relative; gap: 0; }
+.lp-cta--fv::before, .ct-form .lp-cta::before,
+.lp-fv .lp-cta--fv::before {
+  position: absolute; left: 24px; top: 50%; transform: translateY(-50%);
+}
+.lp-cta--fv:hover::before, .ct-form .lp-cta:hover::before,
+.lp-fv .lp-cta--fv:hover::before { transform: translateY(-50%) translateX(3px); }
+/* 矢印と文字が重ならないよう左右に同じ余白を確保する */
+.lp-cta--fv, .ct-form .lp-cta { padding-left: 66px; padding-right: 66px; }
+.lp-fv .lp-cta--fv { padding-left: 66px; padding-right: 66px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-cta--fv:hover::before, .ct-form .lp-cta:hover::before,
+  .lp-fv .lp-cta--fv:hover::before { transform: translateY(-50%); }
+}
+@media (max-width: 767px) {
+  .lp-cta--fv, .ct-form .lp-cta, .lp-fv .lp-cta--fv { padding-left: 54px; padding-right: 54px; }
+  .lp-cta--fv::before, .ct-form .lp-cta::before, .lp-fv .lp-cta--fv::before { left: 16px; }
+}

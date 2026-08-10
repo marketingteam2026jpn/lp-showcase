@@ -1,0 +1,228 @@
+/* ===========================================================
+   Dejam 広告LP パターン4 / 第2版（乗り換え専用）
+   企画書v2で新設・変更になったブロックだけをここに置く。
+   共通トークン・既存部品は dejam-base.css / lp.css をそのまま使う。
+   =========================================================== */
+
+/* --- FV: 最上部ラベル（事実表示。体験談表現は使わない） ---- */
+.lp-fv-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  border: 1px solid rgba(8, 9, 45, .18); background: #fff;
+  font-size: 15px; font-weight: 700; line-height: 1.5; color: var(--lp-secondary);
+}
+.lp-fv-tag::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--lp-primary); flex-shrink: 0;
+}
+
+/* H1直下の受け見出し。H1より小さく、名乗り行より大きい */
+.lp-fv-sub {
+  font-size: clamp(21px, 4.2vw, 30px); font-weight: 700; line-height: 1.4;
+  color: var(--lp-primary); font-feature-settings: "palt" on;
+}
+.lp-fv-naming { font-size: 16px; line-height: 1.7; color: #364153; }
+
+/* 移行帯：価格帯より上に置く（企画書FVレイアウト指定） */
+.lp-fv-mig {
+  width: 100%; border: 1px solid var(--lp-primary); border-radius: 10px;
+  background: #fff; padding: 16px 18px; text-align: left;
+}
+.lp-fv-mig__main { font-size: 18px; font-weight: 700; line-height: 1.5; color: var(--lp-secondary); }
+.lp-fv-mig__main span { color: var(--lp-primary); }
+.lp-fv-mig__note { margin-top: 6px; font-size: 13px; line-height: 1.7; color: #707070; }
+
+/* --- 02 壁の除去 ------------------------------------------ */
+.lp-walls { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.lp-wall {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  border-radius: 12px; overflow: hidden; background: #fff;
+  border: 1px solid var(--lp-line);
+}
+.lp-wall__q {
+  padding: 20px 22px; background: #f1f1f0; color: #454550;
+}
+.lp-wall__label {
+  display: inline-block; margin-bottom: 8px; padding: 3px 10px; border-radius: 4px;
+  background: #8e8e8e; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+}
+.lp-wall__qtext { font-size: 18px; font-weight: 700; line-height: 1.6; }
+.lp-wall__a {
+  position: relative; padding: 20px 22px; background: #fff;
+  border-top: 3px solid var(--lp-primary);
+}
+.lp-wall__label--a { background: var(--lp-primary); }
+.lp-wall__atext { font-size: 17px; line-height: 1.8; color: var(--lp-secondary); }
+.lp-wall__atext strong { color: var(--lp-primary); }
+
+/* 08へ送るアンカー */
+.lp-anchor {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px;
+  border: 1px solid var(--lp-secondary); background: #fff;
+  font-size: 16px; font-weight: 700; color: var(--lp-secondary); text-decoration: none;
+}
+.lp-anchor::after {
+  content: ""; width: 8px; height: 8px; flex-shrink: 0;
+  border-right: 2px solid var(--lp-primary); border-bottom: 2px solid var(--lp-primary);
+  transform: rotate(45deg) translateY(-2px);
+}
+.lp-anchor:hover { background: #f5f6f1; }
+
+/* --- 03 使いやすさ: 体制ブロックの見出し内強調 ------------- */
+.lp-hl {
+  background: linear-gradient(transparent 62%, rgba(225, 32, 28, .18) 62%);
+  padding-bottom: 2px;
+}
+
+/* --- 04 AI連携: 意味づけブロック -------------------------- */
+.lp-meaning {
+  margin-top: 24px; padding: 24px 22px; border-radius: 12px;
+  background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18);
+}
+.lp-meaning__label { font-size: 14px; font-weight: 700; color: #ff7c7f; }
+.lp-meaning__text { margin-top: 8px; font-size: 18px; font-weight: 700; line-height: 1.7; color: #fff; }
+
+/* STEP2 は「行き来」を見せたいので画像を2枚並べる */
+.lp-step__pair { display: grid; grid-template-columns: 1fr; gap: 10px; width: 100%; }
+.lp-step__pair figure { margin: 0; }
+.lp-step__pair figcaption {
+  margin-top: 6px; font-size: 12px; line-height: 1.5; color: rgba(255, 255, 255, .7); text-align: center;
+}
+
+/* --- 06 利用者の声: 追加取得中の注記 ---------------------- */
+.lp-voice__tag {
+  display: inline-block; margin-bottom: 10px; padding: 3px 9px; border-radius: 4px;
+  background: #f4f2f2; color: #707070; font-size: 11px; font-weight: 700;
+}
+
+/* --- 07 比較表: 表の直下に置く料金の文章ブロック ----------- */
+.lp-pricenote {
+  margin-top: 20px; padding: 24px 22px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--lp-line); border-left: 4px solid var(--lp-primary);
+}
+.lp-pricenote p { font-size: 17px; line-height: 1.9; color: #364153; }
+.lp-pricenote p + p { margin-top: 10px; }
+.lp-pricenote strong { color: var(--lp-secondary); }
+
+/* 比較表: 最終行（移行代行）だけ視線を集める */
+.lp-table--compare tbody tr.is-key th,
+.lp-table--compare tbody tr.is-key td {
+  background: #fdf5f4; border-top: 2px solid var(--lp-primary); border-bottom: 2px solid var(--lp-primary);
+}
+.lp-table--compare tbody tr.is-key th { background: #fdeceb; }
+
+/* --- 08 担当区分図 ---------------------------------------- */
+.lp-duty { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.lp-duty__col {
+  border-radius: 12px; padding: 24px 22px; border: 1px solid var(--lp-line); background: #fff;
+}
+.lp-duty__col--us { border: 2px solid var(--lp-primary); }
+.lp-duty__col--you { background: #f4f2f2; }
+.lp-duty__who {
+  display: inline-flex; padding: 6px 14px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: #fff; background: var(--lp-primary);
+}
+.lp-duty__col--you .lp-duty__who { background: var(--lp-secondary); }
+.lp-duty__title { margin-top: 12px; font-size: 20px; font-weight: 700; line-height: 1.5; }
+.lp-duty__list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.lp-duty__list li {
+  position: relative; padding-left: 22px; font-size: 17px; line-height: 1.8; color: #364153;
+}
+.lp-duty__list li::before {
+  content: ""; position: absolute; left: 2px; top: .62em;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--lp-primary);
+}
+.lp-duty__col--you .lp-duty__list li::before { background: var(--lp-secondary); }
+
+/* 進め方3ステップ */
+.lp-flow3 { display: grid; grid-template-columns: 1fr; gap: 12px; counter-reset: f3; }
+.lp-flow3 li {
+  position: relative; display: flex; gap: 14px; align-items: flex-start;
+  padding: 20px 20px; border-radius: 12px; background: #fff; border: 1px solid var(--lp-line);
+}
+.lp-flow3 li::before {
+  counter-increment: f3; content: counter(f3);
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--lp-secondary); color: #fff; font-weight: 700; font-size: 15px;
+}
+.lp-flow3__title { font-size: 18px; font-weight: 700; line-height: 1.5; }
+.lp-flow3__body { margin-top: 6px; font-size: 16px; line-height: 1.8; color: #364153; }
+
+/* --- 09 機能対応表（07と記号・罫線を分ける） --------------- */
+.lp-support { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; }
+.lp-support caption { text-align: left; }
+.lp-support thead th {
+  background: #f4f2f2; color: var(--lp-secondary); font-size: 15px; font-weight: 700;
+  padding: 14px 16px; text-align: left; border-bottom: 2px solid var(--lp-secondary);
+}
+.lp-support thead th:last-child { width: 40%; }
+.lp-support tbody tr { border-bottom: 1px solid var(--lp-line); }
+.lp-support tbody th {
+  text-align: left; font-weight: 700; font-size: 16px; padding: 16px;
+  color: var(--lp-secondary); vertical-align: top;
+}
+.lp-support tbody td { padding: 16px; font-size: 15px; line-height: 1.7; color: #364153; vertical-align: top; }
+.lp-support .is-ok { color: var(--lp-primary); font-weight: 700; }
+.lp-support .is-ok::before { content: "●　"; }
+.lp-support tbody tr.is-ng th, .lp-support tbody tr.is-ng td { background: #fafafa; color: #707070; }
+.lp-support .is-ng-mark { color: #8e8e8e; font-weight: 700; }
+.lp-support .is-ng-mark::before { content: "×　"; }
+
+/* --- 11 送信後の流れ -------------------------------------- */
+.lp-after { display: grid; grid-template-columns: 1fr; gap: 10px; counter-reset: af; }
+.lp-after li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 15px; line-height: 1.7; color: #364153;
+}
+.lp-after li::before {
+  counter-increment: af; content: counter(af);
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--lp-secondary); color: #fff; font-weight: 700; font-size: 13px;
+}
+.lp-after__head { font-size: 15px; font-weight: 700; color: var(--lp-secondary); margin-bottom: 12px; }
+
+/* --- 01 課題: カード6枚（アイコンなしの圧縮版） ------------ */
+.lp-issue6 { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 48px; position: relative; z-index: 1; }
+.lp-issue6 li {
+  position: relative; padding: 24px 22px 24px 24px; border-radius: 8px; background: #fff;
+  border: 1px solid rgba(8, 9, 45, .1); box-shadow: 0 10px 26px rgba(8, 9, 45, .08);
+}
+.lp-issue6 li::before {
+  content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 3px;
+  border-radius: 0 3px 3px 0; background: var(--lp-primary);
+}
+.lp-issue6__no {
+  font-size: 13px; font-weight: 700; color: var(--lp-primary); letter-spacing: .06em;
+  font-family: var(--font-red-hat-display);
+}
+.lp-issue6__title { margin-top: 4px; font-size: 19px; font-weight: 700; line-height: 1.5; color: var(--lp-secondary); }
+.lp-issue6__body { margin-top: 10px; font-size: 16px; line-height: 1.8; color: #364153; }
+/* （6）だけ枠線を変えて次セクションへ接続する（企画書指定） */
+.lp-issue6 li.is-bridge { border: 2px solid var(--lp-primary); background: #fdf5f4; box-shadow: none; }
+.lp-issue6 li.is-bridge::before { content: none; }
+
+/* 04 AI連携は第2版で4ステップ→3ステップに減ったため、
+   lp.css の repeat(4,1fr) を3列に戻す（右端に空きカラムができるのを防ぐ） */
+@media (min-width: 768px) {
+  #ai .lp-cards { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media (min-width: 1024px) {
+  #ai .lp-cards { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px; }
+  #ai .lp-card { padding: 24px 20px; }
+  #ai .lp-card__title { font-size: 18px; }
+  #ai .lp-card__body { font-size: 15px; }
+}
+
+@media (min-width: 768px) {
+  .lp-issue6 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .lp-walls { gap: 20px; }
+  .lp-wall { grid-template-columns: 1fr 1.35fr; }
+  .lp-wall__a { border-top: 0; border-left: 3px solid var(--lp-primary); }
+  .lp-duty { grid-template-columns: 1.15fr 1fr; }
+  .lp-flow3 { grid-template-columns: repeat(3, 1fr); }
+  .lp-flow3 li { flex-direction: column; }
+  .lp-step__pair { grid-template-columns: 1fr 1fr; }
+}
