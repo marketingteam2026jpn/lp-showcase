@@ -43,13 +43,19 @@
 }
 
 /* --- 2. 課題セクション左上のナナメ吹き出し ------------------
-   .lp-wrap 内のフロー要素として置き、左寄せ＋回転で
-   「貼ったシール」の見え方にする。絶対配置にしないのは
-   SPで見出しに重なる事故を避けるため。 */
-.lp-tilt-bubble {
+   見出しブロックを基準に絶対配置し、左上から見出しを
+   「抱える」位置に重ねる。三角は見出し側＝右下に出す。 */
+.lp-head-hug {
   position: relative;
   display: inline-block;
-  margin: 0 0 26px;
+  max-width: 100%;
+}
+.lp-tilt-bubble {
+  position: absolute;
+  left: -14px;
+  bottom: calc(100% + 22px);  /* 傾けた分だけ持ち上げ、右下の三角だけが見出しに触れるようにする */
+  z-index: 2;
+  margin: 0;
   padding: 11px 22px;
   border-radius: 999px;
   background: var(--lp-primary);
@@ -59,19 +65,25 @@
   line-height: 1.4;
   letter-spacing: .02em;
   white-space: nowrap;
-  transform: rotate(-6deg);
-  transform-origin: left center;
+  /* 右下がりに倒すことで、見出しへ寄りかかる（抱える）向きになる。
+     三角のある右端が下がるので、しっぽが自然に見出しを指す。 */
+  transform: rotate(6deg);
+  transform-origin: left bottom;
   box-shadow: 0 10px 22px rgba(225, 32, 28, .22);
 }
+/* 三角は右下。見出しの方を向かせるため、わずかに右へ倒す。 */
 .lp-tilt-bubble::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 30px;
+  top: calc(100% - 1px);
+  right: 26px;
   border: 9px solid transparent;
   border-top-color: var(--lp-primary);
   border-bottom: 0;
+  transform: skewX(10deg);
 }
+/* 吹き出しが上にせり出す分、セクション上端の余白を確保 */
+#issue { padding-top: 116px; }
 
 /* --- 3. FV直下へ移動した「導入企業の声」の余白 --------------
    FVと同じ地色が続くため、上の詰まりだけ調整する。
@@ -81,10 +93,13 @@
 
 @media (max-width: 767px) {
   #voice { padding-top: 40px; }
-  .lp-tilt-bubble { margin-bottom: 22px; }
+  #issue { padding-top: 88px; }
+  /* SPは見出しが折り返して幅いっぱいになるため、はみ出しを抑える */
+  .lp-tilt-bubble { left: -4px; padding: 10px 18px; }
+  .lp-tilt-bubble::after { right: 22px; }
 }
 
 /* 動きを減らす設定の端末では回転を弱める（読みやすさ優先） */
 @media (prefers-reduced-motion: reduce) {
-  .lp-tilt-bubble { transform: rotate(-3deg); }
+  .lp-tilt-bubble { transform: rotate(3deg); }
 }
