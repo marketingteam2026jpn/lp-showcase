@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使いにくいLPツール、まだ使いますか？｜記事LP制作・改善ツール Dejam（デジャム）</title>
+<meta name="description" content="アドアフィ運用者の乗り換えが増えている記事LP制作・改善ツール。制作からヒートマップ・ABテストによる改善までを1つにまとめたCVR改善ツールです。有名ツールより低価格な月30,000円〜、ユーザー数は実質無制限。稼働中のLPは無料で移行サポートします。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://marketingteam2026jpn.github.io/lp-showcase/dejam-lp-improved/">
+
+<meta property="og:title" content="使いにくいLPツール、まだ使いますか？｜記事LP制作・改善ツール Dejam">
+<meta property="og:description" content="アドアフィ運用者の乗り換え、増えてます。記事LP・スワイプLP・アンケートLPの制作・改善ツール。有名ツールより低価格な月30,000円〜／ユーザー数実質無制限／稼働中LPの移行を無料サポート。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Dejam">
+
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/img/favicon-192x192.png">
+<link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+
+<link rel="stylesheet" href="./assets/css/dejam-base.css">
+<link rel="stylesheet" href="./assets/css/lp.css">
+<!-- 改善版で追加した差分スタイル（既存CSSは触らず、上書き分のみここに集約） -->
+<link rel="stylesheet" href="./assets/css/lp-improve.css">
+
+<!-- Dejam計測タグ（LeanGo様よりご共有 / 2026-08-06）
+     GTM導入後は「直張り（下記）」と「GTM版」のどちらか一方だけにする。両方入れると二重に読み込まれる。 -->
+<link rel="preload" as="script" href="https://storage.googleapis.com/dejam-tag/JsajptDEUyeNYO9ixt8X/js/dejam.js">
+<script id="dejam_tag" src="https://storage.googleapis.com/dejam-tag/JsajptDEUyeNYO9ixt8X/js/dejam.js" async></script>
+
+<!-- ▼要確認: GTMコンテナIDが未確定のため未設置。公開前に差し替える。
+     Dejam公式サイトは GTM-KGDLVM6。本LPをどのドメインに載せるかで変わるため、
+     確定してから下記を <head> 先頭と <body> 直後に入れる。
+<script>(function(w,d,s,l,i){ ... })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+</head>
+<body class="font-noto-sans">
+
+<!-- ============================================================
+     Header（非固定・グローバルナビなし）
+     ============================================================ -->
+<header class="w-full bg-F5F6F1 lp-fv-header">
+  <div class="lp-wrap flex items-center justify-between" style="height:72px;">
+    <img src="./assets/img/logo/logo_dejam.svg" width="150" height="30" alt="Dejam" style="width:150px;height:30px;">
+    <a href="./contact/" class="lp-cta lp-header-cta" style="min-height:44px;padding:8px 20px;font-size:14px;white-space:nowrap;">無料トライアルに申し込む</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     FV ファーストビュー（つかむ）
+     ============================================================ -->
+<section class="w-full bg-F5F6F1 lp-fv">
+  <div class="lp-wrap" style="padding-top:40px;padding-bottom:56px;">
+    <!-- SPは copy → 画面イメージ → CTA の順（1on1指定: 画面イメージを最初のCTAより上に）。
+         lg以上は左にcopy+action、右に画面イメージの2カラムへ組み替える。 -->
+    <div class="lp-fv-layout">
+
+      <div class="lp-fv-copy w-full flex flex-col items-center text-center lg:items-start lg:text-left">
+
+        <p class="lp-fv-bubble">アドアフィリエイト関係者から、大絶賛。</p>
+
+        <p class="font-bold text-3.5 text-primary tracking-2 leading-1.4p" style="margin-top:18px;">
+          記事LP・スワイプLP・アンケートLPの制作・改善ツール
+        </p>
+
+        <h1 class="lp-h2 font-palt font-bold text-secondary leading-1.2p tracking-2"
+            style="margin-top:14px;font-size:clamp(28px,6.4vw,50px);">
+          使いにくいLPツール、<br>まだ使いますか？
+        </h1>
+
+        <!-- サブコピー（＼／のナナメ罫は擬似要素で描画。文字化けしないよう記号は使わない） -->
+        <p class="lp-fv-sub">アドアフィ運用者の乗り換え、増えてます</p>
+
+        <p class="lp-measure text-4 text-364153 leading-1.5p" style="margin-top:20px;">
+          アドアフィ関係者のための、記事LP・スワイプLP・アンケートLPの制作・改善ツール。<br>
+          いま他社ツールで公開中のLPも、そのまま移せます。
+        </p>
+      </div>
+
+      <div class="lp-fv-media w-full shrink-0">
+        <img src="./assets/img/fv.webp" width="480" height="276" alt="Dejamの管理画面イメージ"
+             class="w-full" decoding="async" fetchpriority="high">
+        <video class="lp-fv-media__video" src="./assets/img/fv_video.mp4"
+               width="362" height="236" muted loop playsinline preload="metadata"
+               aria-label="Dejamの操作画面のデモ"></video>
+      </div>
+
+      <div class="lp-fv-action w-full flex flex-col items-center lg:items-start">
+
+        <!-- 価格帯（依頼書の優先順位1: ツール名と価格を近接で見せる） -->
+        <ul class="lp-fv-badges">
+          <li>
+            <span class="lp-fv-badges__label">有名ツールより低価格</span>
+            <strong class="lp-fv-badges__value">月30,000円〜</strong>
+          </li>
+          <li>
+            <span class="lp-fv-badges__label">人数が増えても定額</span>
+            <strong class="lp-fv-badges__value">ユーザー数<br>実質無制限</strong>
+          </li>
+          <li>
+            <span class="lp-fv-badges__label">稼働中のLPも対象</span>
+            <strong class="lp-fv-badges__value">移行サポート<br>無料</strong>
+          </li>
+        </ul>
+
+        <a href="./contact/" class="lp-cta lp-cta--fv" style="margin-top:28px;">3ヶ月間無料トライアルの<br class="lp-br-sp">申し込みはこちら</a>
+
+        <!-- 「3ヶ月、無料」「相談だけでもOK」の2カードは削除（1on1指定 / 2026-08-11）。
+             同じ趣旨は直下の lp-micro とCTA文言で担保している。 -->
+
+        <p class="lp-micro">費用はかかりません。しつこい営業はしません。</p>
+
+        <p class="lp-note" style="margin-top:16px;">
+          ※表示価格はすべて税別・各プランの最低価格です。ご利用状況（PV・サイト規模）に応じた従量課金です。<br>
+          ※無料トライアルの期間・適用条件は商談時にご説明します。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     00 利用者の声（FV直下へ移動 / 1on1指定 2026-08-11）
+     ============================================================ -->
+<section class="lp-section lp-section--tight w-full bg-F5F6F1" id="voice">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">導入企業の声</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        アドアフィリエイト事業を手がける会社から、他社ツールの乗り換えが進んでいます。
+      </p>
+    </div>
+
+    <!-- 1on1指定: 社名に「アフィリエイト」が入る事例を優先。顔・実名・社名が出ているものを重視。
+         バナー画像に 顔写真＋企業ロゴ＋社名＋役職 が入っているため、そのまま使う。 -->
+    <ul class="lp-voices lp-fade" style="margin-top:48px;">
+      <li class="lp-voice">
+        <img class="lp-voice__banner" src="./assets/img/case/nacht.webp" width="760" height="398"
+             alt="株式会社ナハト 取締役 栗田優磨様のDejam導入事例" loading="lazy" decoding="async">
+        <p class="lp-voice__quote">「LPのPDCA」を、弊社の管轄下でコントロールできる</p>
+        <p class="lp-voice__body">
+          これにより、クリエイティブや記事LPだけでなく、最終LPまで一気通貫で検証サイクルを回せるようになります。
+          この「圧倒的な検証スピード」こそが、他社にはないナハトの競争力になると確信しています。
+        </p>
+        <div class="lp-voice__person">
+          <strong class="lp-voice__name">栗田 優磨 様</strong>
+          <span class="lp-voice__org">株式会社ナハト／取締役</span>
+        </div>
+      </li>
+      <li class="lp-voice">
+        <img class="lp-voice__banner" src="./assets/img/case/seiryo.webp" width="760" height="398"
+             alt="株式会社SEIRYO 宮阪健太郎様のDejam導入事例" loading="lazy" decoding="async">
+        <p class="lp-voice__quote">アドアフィリエイト事業者の<span class="lp-nobr">方々</span>が、続々とDejamを導入されている</p>
+        <p class="lp-voice__body">
+          この業界に長く携わっていますが、Dejamのような新しい記事LPツールはこれまでほとんど登場していなかったため、「ついに出てきたか」という印象を受けました。
+        </p>
+        <div class="lp-voice__person">
+          <strong class="lp-voice__name">宮阪 健太郎 様</strong>
+          <span class="lp-voice__org">株式会社SEIRYO／代表取締役</span>
+        </div>
+      </li>
+      <li class="lp-voice">
+        <img class="lp-voice__banner" src="./assets/img/case/senjin.webp" width="760" height="398"
+             alt="株式会社Senjin Holdings 取締役 加藤修慈様のDejam導入事例" loading="lazy" decoding="async">
+        <p class="lp-voice__quote">AIで7割作成して人が最後に修正する、理想の業務フローを作れるようになった</p>
+        <p class="lp-voice__body">
+          既存のツールでは「ビジュアル編集」と「コード編集」を行き来して編集できない仕様なので、うまく使えない状態でした。
+          また、サポートも手厚いのでバグがあった際にも安心できると考えています。
+        </p>
+        <div class="lp-voice__person">
+          <strong class="lp-voice__name">加藤 修慈 様</strong>
+          <span class="lp-voice__org">株式会社Senjin Holdings／取締役</span>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="lp-note">
+      <li>※Dejam公式サイトで公開中の導入事例インタビューより、発言を原文のまま引用しています（掲載許諾済み）。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     01 課題（共感）
+     ============================================================ -->
+<section class="lp-section w-full" id="issue">
+  <div class="lp-wrap">
+    <!-- 左上のナナメ吹き出し（1on1指定 / 2026-08-11）。読み手の名指しをここでもう一度行う。 -->
+    <p class="lp-tilt-bubble">アドアフィ運用者の方！</p>
+
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">記事LP運用で、こんな悩みはないですか？</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        乗り換えたい理由ははっきりしているのに、動けない。多くの場合、原因は次の3つに集約されます。
+      </p>
+    </div>
+
+    <ul class="lp-issue-grid lp-fade">
+      <li class="lp-issue-card">
+        <div class="lp-issue-card__top">
+          <span class="lp-issue-card__no">01</span>
+          <img class="lp-issue-card__icon" src="./assets/img/issue/issue-icon-usability.webp" width="96" height="96" alt="" aria-hidden="true">
+        </div>
+        <h3 class="lp-issue-card__title">そもそも、使いにくい</h3>
+        <p class="lp-issue-card__body">
+          テンプレートが多すぎて選べない。使いこなせる人が社内に限られる。
+          ABテストとヒートマップが別ツールに分かれていて、見比べるだけで時間が溶ける。
+          配信エラーが起きてもサポートの反応が遅い。
+        </p>
+      </li>
+      <li class="lp-issue-card">
+        <div class="lp-issue-card__top">
+          <span class="lp-issue-card__no">02</span>
+          <img class="lp-issue-card__icon" src="./assets/img/issue/issue-icon-cost.webp" width="96" height="96" alt="" aria-hidden="true">
+        </div>
+        <h3 class="lp-issue-card__title">思ったより費用が膨らむ</h3>
+        <p class="lp-issue-card__body">
+          アカウント数で課金されるため、人を増やすと月額が上がる。
+          かといって権限を絞ると、確認や修正の待ちが発生して現場が回らない。
+          結局、来月いくらになるのかが読めない。
+        </p>
+      </li>
+      <li class="lp-issue-card">
+        <div class="lp-issue-card__top">
+          <span class="lp-issue-card__no">03</span>
+          <img class="lp-issue-card__icon" src="./assets/img/issue/issue-icon-migration.webp" width="96" height="96" alt="" aria-hidden="true">
+        </div>
+        <h3 class="lp-issue-card__title">乗り換えたいが、動けない</h3>
+        <p class="lp-issue-card__body">
+          移行にどれだけ工数がかかるか読めない。稼働中のLPは止められない。
+          そもそも今の契約期間がまだ残っている。
+          「いつかやる」のまま、判断が先送りになっている。
+        </p>
+      </li>
+    </ul>
+
+    <div class="lp-issue-bridge lp-fade">
+      <div class="lp-issue-arrows" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="lp-bridge__box">
+        <img class="lp-bridge__accent" src="./assets/img/issue/issue-bridge-accent.webp" width="1536" height="1024" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <p class="lp-bridge__lead">いまのLP制作／改善の課題を、まとめて解決するツール。</p>
+        <p class="lp-bridge__title">それが、<span>Dejam</span> です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 圧倒的な使いやすさ（納得・前半）
+     ============================================================ -->
+<section class="lp-section w-full bg-F5F6F1" id="usability">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">LPを速く回す。</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        制作・分析・改善が1つの画面に揃っているので、ツールをまたぐ待ち時間がなくなります。
+      </p>
+    </div>
+
+    <ul class="lp-cards lp-cards--3 lp-fade" style="margin-top:48px;">
+      <li class="lp-card">
+        <img src="./assets/icon/flow_01.svg" width="32" height="32" alt="" aria-hidden="true">
+        <h3 class="lp-card__title">制作 ─ パーツで迷わない</h3>
+        <p class="lp-card__body">
+          記事LP・スワイプLP・アンケートLPをパーツから組み立て。
+          AI連携で下書きから公開までがそのままつながります。
+        </p>
+      </li>
+      <li class="lp-card">
+        <img src="./assets/icon/flow_02.svg" width="32" height="32" alt="" aria-hidden="true">
+        <h3 class="lp-card__title">分析 ─ どこで落ちたかが見える</h3>
+        <p class="lp-card__body">
+          ヒートマップで離脱箇所を特定。別ツールの数字と突き合わせる作業が不要になります。
+        </p>
+      </li>
+      <li class="lp-card">
+        <img src="./assets/icon/flow_03.svg" width="32" height="32" alt="" aria-hidden="true">
+        <h3 class="lp-card__title">改善 ─ そのままABテストへ</h3>
+        <p class="lp-card__body">
+          見つけた課題を、同じ画面でABテストに載せる。分析から改善までが一続きです。
+        </p>
+      </li>
+    </ul>
+
+
+    <!-- 実際の操作画面（LeanGo様よりLP埋め込みの許諾あり / Slackスレッド 2026-07-29） -->
+    <figure class="lp-video lp-fade" style="margin-top:32px;">
+      <button type="button" class="lp-video__frame" data-youtube="zF3mZUpTIRw"
+              aria-label="動画を再生：記事LP制作機能の差別化ポイント">
+        <img src="https://i.ytimg.com/vi/zF3mZUpTIRw/hqdefault.jpg" alt="" aria-hidden="true" loading="lazy">
+        <span class="lp-video__play" aria-hidden="true"></span>
+      </button>
+      <figcaption class="lp-video__cap">実際の操作画面：記事LP制作機能の差別化ポイント（提供：LeanGo）</figcaption>
+    </figure>
+
+    <!-- ノーコード×AI（濃地で強調） -->
+    <div class="lp-dark lp-fade" style="margin-top:32px;border-radius:16px;padding:40px 28px;">
+      <p class="font-bold text-primary text-3.5 leading-1.4p" style="color:#ff6b67;">Dejamがいちばん違うところ</p>
+      <h3 class="lp-h2 font-bold leading-1.4p" style="font-size:clamp(22px,4.5vw,32px);margin-top:10px;">
+        ノーコードでも、コードでも。<br>AIの出力を、そのまま反映できる。
+      </h3>
+      <p class="lp-lead lp-measure text-4 leading-1.5p" style="margin-top:16px;">
+        ノーコードエディタとHTMLを行き来できるので、AIが書いたコードをそのまま貼って、
+        隣のタブで見た目を直して、公開する。エンジニアの手が空くのを待たずに済みます。
+      </p>
+    </div>
+
+    <!-- 人数無制限（白カードで補足） -->
+    <div class="lp-card lp-fade" style="margin-top:20px;">
+      <h3 class="lp-card__title">ユーザー数は実質無制限。人を増やしても、<span class="lp-hl">月額は変わりません。</span></h3>
+      <p class="lp-card__body">
+        料金はPV・サイト規模に応じた従量課金です。ディレクター・デザイナー・運用担当を全員入れても、
+        アカウント数で請求が増えることはありません。権限を絞って現場を止める必要がなくなります。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 AI連携（記事制作／修正）
+     ============================================================ -->
+<section class="lp-section lp-dark w-full" id="ai">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold leading-1.5p text-5 md:text-8">
+        HTML ⇄ ノーコードエディタ。<br>Dejam AIに修正を指示できる。
+      </h2>
+      <hr>
+      <p class="lp-lead lp-measure-c text-4 leading-1.5p">
+        コードとノーコードの行き来が圧倒的に楽になります。AIも使いやすく、
+        ストレスなく、すぐにLPを修正して公開できます。
+      </p>
+    </div>
+
+    <ol class="lp-cards lp-fade" style="margin-top:48px;grid-template-columns:1fr;">
+      <li class="lp-card lp-step" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff;">
+        <div class="lp-step__text">
+          <span class="lp-step-no" style="background:rgba(255,255,255,.14);color:#fff;">STEP 1</span>
+          <h3 class="lp-card__title">AIにHTMLを書かせる</h3>
+          <p class="lp-card__body" style="color:rgba(255,255,255,.8);">使い慣れた生成AIで、記事LPの原稿とHTMLをまとめて出力します。</p>
+        </div>
+        <img class="lp-step__shot" src="./assets/img/step/step1-ai.svg"
+             width="1170" height="648" alt="生成AIにプロンプトを入力してHTMLを出力させている画面のイメージ" loading="lazy">
+      </li>
+      <li class="lp-card lp-step" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff;">
+        <div class="lp-step__text">
+          <span class="lp-step-no" style="background:rgba(255,255,255,.14);color:#fff;">STEP 2</span>
+          <h3 class="lp-card__title">Dejamに貼る</h3>
+          <p class="lp-card__body" style="color:rgba(255,255,255,.8);">出力をそのままコピー＆ペースト。整形やタグの手直しは不要です。</p>
+        </div>
+        <img class="lp-step__shot" src="./assets/img/step/step2-code.webp"
+             width="1170" height="648" alt="Dejamのコードエディタ画面" loading="lazy" decoding="async">
+      </li>
+      <li class="lp-card lp-step" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff;">
+        <div class="lp-step__text">
+          <span class="lp-step-no" style="background:rgba(255,255,255,.14);color:#fff;">STEP 3</span>
+          <h3 class="lp-card__title">隣のタブで手直しする</h3>
+          <p class="lp-card__body" style="color:rgba(255,255,255,.8);">ノーコードエディタに切り替えて、見出し・画像・CTAを直感的に調整します。</p>
+        </div>
+        <img class="lp-step__shot" src="./assets/img/step/step3-nocode.webp"
+             width="1170" height="648" alt="Dejamのノーコードエディタ画面" loading="lazy" decoding="async">
+      </li>
+      <li class="lp-card lp-step" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff;">
+        <div class="lp-step__text">
+          <span class="lp-step-no" style="background:rgba(255,255,255,.14);color:#fff;">STEP 4</span>
+          <h3 class="lp-card__title">公開して、そのまま計測へ</h3>
+          <p class="lp-card__body" style="color:rgba(255,255,255,.8);">公開後はヒートマップとABテストに直結。次の改善案がすぐ手に入ります。</p>
+        </div>
+        <img class="lp-step__shot" src="./assets/img/step/step4-heatmap.webp"
+             width="1170" height="648" alt="Dejamのヒートマップ分析画面" loading="lazy" decoding="async">
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     05 料金（納得）
+     ============================================================ -->
+<section class="lp-section w-full bg-F5F6F1" id="price">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">料金プラン</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        3プランすべての最低価格を公開しています。どのプランでもユーザー数は実質無制限です。
+      </p>
+    </div>
+
+    <p class="lp-emphasis lp-fade" style="margin-top:40px;">
+      他社ツールをご利用中の方は、<strong>今の月額より安くご案内します。</strong>
+      <span>いまのプランと請求額をお知らせいただければ、その場で下回る条件をお出しします。</span>
+    </p>
+
+    <p class="lp-scroll-hint" style="margin-top:32px;">表は横にスクロールできます →</p>
+    <div class="lp-table-scroll lp-fade">
+      <table class="lp-table">
+        <caption class="sr-only">Dejamの料金プラン比較</caption>
+        <thead>
+          <tr>
+            <th scope="col">プラン</th>
+            <th scope="col">オプティマイズ</th>
+            <th scope="col">CMS</th>
+            <th scope="col">オールインワン</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">一言でいうと</th>
+            <td>既存サイトの最適化</td>
+            <td>新規ページの作成</td>
+            <td>制作から改善まで全部</td>
+          </tr>
+          <tr>
+            <th scope="row">参考料金</th>
+            <td class="is-price">月30,000円〜</td>
+            <td class="is-price">月50,000円〜</td>
+            <td class="is-price">月120,000円〜</td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザー数</th>
+            <td><span class="is-mark">実質無制限</span></td>
+            <td><span class="is-mark">実質無制限</span></td>
+            <td><span class="is-mark">実質無制限</span></td>
+          </tr>
+          <tr>
+            <th scope="row">新規LPの制作<br><span class="text-3 text-707070" style="font-weight:400;">記事LP・スワイプLP・フォーム</span></th>
+            <td><span class="is-no" role="img" aria-label="対象外">—</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">分析<br><span class="text-3 text-707070" style="font-weight:400;">ヒートマップなど</span></th>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">改善<br><span class="text-3 text-707070" style="font-weight:400;">ABテストなど</span></th>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">稼働中LPの移行サポート</th>
+            <td><span class="is-no" role="img" aria-label="対象外">—</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+            <td><span class="is-yes" role="img" aria-label="対応">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 構造ブロック -->
+    <div class="lp-card lp-fade" style="margin-top:24px;">
+      <h3 class="lp-card__title">人を増やしても、<span class="lp-hl">支払いは増えない。</span></h3>
+      <p class="lp-card__body">
+        料金はアカウント数ではなく、PV・サイト規模に連動します。
+        だから「誰に権限を渡すか」を費用で判断せずに済みます。
+        来期の体制が変わっても、月額の見通しが崩れません。
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center" style="margin-top:32px;">
+      <a href="./contact/" class="lp-cta lp-cta--fv">無料トライアルに申し込む</a>
+      <ul class="lp-benefits" aria-label="フォーム送信の補足">
+        <li>
+          <img class="lp-benefits__icon" src="./assets/img/cta/cta-icon-trial.webp" width="48" height="48" alt="" aria-hidden="true">
+          <div>
+            <p class="lp-benefits__title">3ヶ月間、無料</p>
+            <p class="lp-benefits__note">実際の操作感をお試しいただけます</p>
+          </div>
+        </li>
+        <li>
+          <img class="lp-benefits__icon" src="./assets/img/cta/cta-icon-consult.webp" width="48" height="48" alt="" aria-hidden="true">
+          <div>
+            <p class="lp-benefits__title">相談だけでもOK</p>
+            <p class="lp-benefits__note">乗り換えの相談だけでも承ります</p>
+          </div>
+        </li>
+      </ul>
+      <p class="lp-micro">費用はかかりません。しつこい営業はしません。</p>
+    </div>
+
+    <ul class="lp-note">
+      <li>※表示はすべて税別・各プランの最低価格です。ご利用状況により変動します。</li>
+      <li>※稼働中LPの移行サポートはCMSプラン以上が対象です。適用条件は商談時にご説明します。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 比較表（納得・脇役）
+     ============================================================ -->
+<section class="lp-section w-full" id="compare">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">Dejamが選ばれる理由</h2>
+      <hr>
+    </div>
+
+    <p class="lp-emphasis lp-emphasis--now lp-fade" style="margin-top:40px;">
+      <strong>乗り換えるなら、今。</strong>
+      <span>3ヶ月間は無料。稼働中のLPは無料で移行。他社ツールの契約が残っていても、並行稼働で試せます。</span>
+    </p>
+
+    <p class="text-707070 leading-1.5p" style="margin-top:32px;font-size:14px;">凡例：◎ 対応　○ 一部対応・条件あり　△ 限定的・公開情報なし</p>
+
+    <p class="lp-scroll-hint" style="margin-top:12px;">表は横にスクロールできます →</p>
+    <div class="lp-table-scroll lp-table-scroll--compare lp-fade">
+      <table class="lp-table lp-table--compare">
+        <caption class="sr-only">Dejamと一般的な記事LP量産型ツールの仕様比較</caption>
+        <thead>
+          <tr>
+            <th scope="col">比較項目</th>
+            <th scope="col">
+              <span class="lp-table__brand">
+                <svg class="lp-table__crown" viewBox="0 0 24 22" width="22" height="20" aria-hidden="true" focusable="false">
+                  <path d="M2.5 6.2l4.3 3.4L12 3.2l5.2 6.4 4.3-3.4-1.7 9.1H4.2L2.5 6.2z"/>
+                  <rect x="4.6" y="17.6" width="14.8" height="2.4" rx="1.2"/>
+                </svg>
+                Dejam
+              </span>
+            </th>
+            <th scope="col">一般的な記事LP量産型ツール</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">月額料金</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070"><span class="is-hl">30,000円〜</span>を公開</span></td><td><span class="is-mark">△</span><br><span class="text-3 text-707070">公開情報なし</span></td></tr>
+          <tr><th scope="row">料金の分かりやすさ</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">全<span class="is-hl">3</span>プランを公開</span></td><td><span class="is-mark">△</span><br><span class="text-3 text-707070">公開情報なし</span></td></tr>
+          <tr><th scope="row">人数が増えたときの費用</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">ユーザー数実質無制限</span></td><td><span class="is-mark">△</span><br><span class="text-3 text-707070">公開情報なし</span></td></tr>
+          <tr><th scope="row">ノーコード編集とコードの行き来</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">自由に行き来できる</span></td><td><span class="is-mark">○</span><br><span class="text-3 text-707070">一部対応</span></td></tr>
+          <tr><th scope="row">既存サイトへの導入（タグ1行）</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">タグ1行で簡単導入</span></td><td><span class="is-mark">○</span><br><span class="text-3 text-707070">一部対応</span></td></tr>
+          <tr><th scope="row">エンジニアなしでの運用</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">直感的な操作で運用可能</span></td><td><span class="is-mark">○</span><br><span class="text-3 text-707070">一部対応</span></td></tr>
+          <tr><th scope="row">ヒートマップ（CVR寄与度）</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">同一ツール内で可視化</span></td><td><span class="is-mark">△</span><br><span class="text-3 text-707070">公開情報なし</span></td></tr>
+          <tr><th scope="row">ABテスト</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070">同一ツール内で実施可能</span></td><td><span class="is-mark">○</span><br><span class="text-3 text-707070">一部対応</span></td></tr>
+          <tr><th scope="row">稼働中LPの移行</th><td><span class="is-mark">◎</span><br><span class="text-3 text-707070"><span class="is-hl">無料で移行</span><br><span class="lp-table__sub">※商談時にご説明</span></span></td><td><span class="is-mark">△</span><br><span class="text-3 text-707070">公開情報なし</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="lp-note">
+      <li>※2026年7月時点で、各社が公開している情報の範囲でまとめています。</li>
+      <li>※公開情報で確認できない項目は「公開情報なし」としています。優劣を断定するものではありません。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 移行代行（オファーの背骨）
+     ============================================================ -->
+<section class="lp-section w-full bg-F5F6F1" id="migration">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">乗り換えるなら今。<br>稼働中のLPも、無料で移行サポート。</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        既存ツールで公開中のLPの移行は、弊社が巻き取ります。
+        迅速なLPO／LP運用のために、最大限サポートいたします。
+      </p>
+    </div>
+
+    <div class="lp-mig lp-fade" style="margin-top:40px;">
+      <div class="lp-mig__flow">
+        <p class="lp-mig__bracket"><span>LeanGoが移行をサポートします</span></p>
+        <ol class="lp-mig__steps">
+        <li class="lp-mig__card">
+          <span class="lp-mig__owner">LeanGoが担当</span>
+          <span class="lp-mig__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="10" width="34" height="24" rx="3"/><path d="M7 17h34"/><circle cx="12" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><path d="M24 40V26M24 26l-5 5M24 26l5 5" stroke="#e1201c"/></svg></span>
+          <span class="lp-mig__no">01</span>
+          <h3 class="lp-mig__title">稼働中LPの移設</h3>
+          <p class="lp-mig__body">公開中のページをDejam上に移します。お客様側で作り直す作業は発生しません。</p>
+        </li>
+        <li class="lp-mig__card">
+          <span class="lp-mig__owner">LeanGoが担当</span>
+          <span class="lp-mig__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M25 7H41v16L24 40 8 24 25 7z"/><circle cx="34" cy="14" r="2.4"/><path d="M21 20l-4 4 4 4M27 20l4 4-4 4" stroke="#e1201c"/></svg></span>
+          <span class="lp-mig__no">02</span>
+          <h3 class="lp-mig__title">タグの発行・<br>設置手順のご案内</h3>
+          <p class="lp-mig__body">計測タグを発行し、設置手順までご案内します。</p>
+        </li>
+        <li class="lp-mig__card">
+          <span class="lp-mig__owner">LeanGoが担当</span>
+          <span class="lp-mig__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V26M20 38V15M30 38V21"/><path d="M6 42h32"/><circle cx="36" cy="33" r="8" stroke="#e1201c"/><path d="M32.5 33l2.5 2.5 4.5-5" stroke="#e1201c"/></svg></span>
+          <span class="lp-mig__no">03</span>
+          <h3 class="lp-mig__title">計測の引き継ぎ</h3>
+          <p class="lp-mig__body">既存の計測が途切れないよう、引き継ぎ方法をご提案します。</p>
+        </li>
+        </ol>
+      </div>
+      <ul class="lp-mig__aside">
+        <li class="lp-mig__card lp-mig__card--aside">
+          <span class="lp-mig__owner lp-mig__owner--navy">並行稼働できます</span>
+          <span class="lp-mig__icon lp-mig__icon--gray"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="24" height="17" rx="2.5"/><path d="M6 14h24"/><rect x="18" y="20" width="24" height="17" rx="2.5" fill="#fff"/><path d="M18 25h24"/><circle cx="36" cy="34" r="8" fill="#e1201c" stroke="none"/><path d="M32.5 34l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2.6"/></svg></span>
+          <span class="lp-mig__no">04</span>
+          <h3 class="lp-mig__title">他社ツールの契約が<br>残っていても大丈夫</h3>
+          <p class="lp-mig__body">既存ツールとDejamを並行稼働させ、更新月に合わせて切り替えられます。いま解約する必要はありません。</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col items-center" style="margin-top:32px;">
+      <a href="./contact/" class="lp-cta lp-cta--fv">3ヶ月間無料トライアルに申し込む</a>
+      <ul class="lp-benefits" aria-label="フォーム送信の補足">
+        <li>
+          <img class="lp-benefits__icon" src="./assets/img/cta/cta-icon-trial.webp" width="48" height="48" alt="" aria-hidden="true">
+          <div>
+            <p class="lp-benefits__title">3ヶ月間、無料</p>
+            <p class="lp-benefits__note">実際の操作感をお試しいただけます</p>
+          </div>
+        </li>
+        <li>
+          <img class="lp-benefits__icon" src="./assets/img/cta/cta-icon-consult.webp" width="48" height="48" alt="" aria-hidden="true">
+          <div>
+            <p class="lp-benefits__title">相談だけでもOK</p>
+            <p class="lp-benefits__note">乗り換えの相談だけでも承ります</p>
+          </div>
+        </li>
+      </ul>
+      <p class="lp-micro">費用はかかりません。しつこい営業はしません。</p>
+    </div>
+
+    <p class="lp-note">※移行サポートはCMSプラン以上が対象です。対応範囲・適用条件は商談時に詳しくご説明します。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     08 機能提示（安心）
+     ============================================================ -->
+<section class="lp-section w-full" id="function">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">Dejamの機能一覧</h2>
+      <hr>
+      <p class="lp-measure-c text-4 text-364153 leading-1.5p">
+        LP広告運用に必要な機能が、すべて揃っています。複数ツールを契約する必要はありません。
+      </p>
+    </div>
+
+    <ul class="lp-fade" style="margin-top:48px;" id="fn-grid">
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/lp.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">LP制作</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">パーツを組み合わせて記事LPを作成。コード編集にも切り替えられます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/swipelp.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">スワイプLP</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">スマホの操作に合わせた、スワイプ型のLPを制作できます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/enquetelp.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">アンケートLP</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">設問に答えてもらいながら、自然にCVへ誘導する形式のLPです。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/form.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">フォーム作成</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">入力フォームをノーコードで作成。LPと同じ画面で管理できます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/ab.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">ABテスト</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">ノーコードでパターンを作成し、そのまま配信・比較できます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/heatmap.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">ヒートマップ</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">どこまで読まれ、どこで離脱したかを可視化します。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/lpo.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">LPO</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">分析結果をもとに、改善案の作成から実装までを進められます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/efo.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">EFO</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">フォームの離脱を減らすための入力補助・改善機能です。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/popup.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">WEB接客／ポップアップ</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">離脱しそうな訪問者に、条件を決めて訴求を出し分けます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/ai.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">AI相談</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">改善の方向に迷ったとき、AIに相談しながら次の一手を決められます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/ad-dashboard.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">広告ダッシュボード</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">広告の数値とLPの数値を、同じ画面で確認できます。</p>
+        </div>
+      </li>
+      <li class="lp-card" style="padding:0;overflow:hidden;gap:0;">
+        <div class="flex items-center justify-center" style="background:rgba(142,142,142,.08);padding:20px;">
+          <img src="./assets/img/function/project-management.webp" width="188" height="123" alt="" class="object-contain" style="width:100%;height:auto;" loading="lazy">
+        </div>
+        <div style="padding:16px;">
+          <h3 class="font-bold text-secondary text-4 leading-1.4p">プロジェクト管理</h3>
+          <p class="text-3 text-707070 leading-1.5p" style="margin-top:6px;">誰がどの施策を進めているかを、ツール内で共有できます。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 実績＋導入企業ロゴ＋FAQ（信頼・後半）
+     ============================================================ -->
+<section class="lp-section w-full bg-F5F6F1" id="proof">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold text-secondary leading-1.5p text-5 md:text-8">これまでの導入実績</h2>
+      <hr>
+    </div>
+
+    <!-- バッジ風（1on1指定: 信頼性が上がる見せ方にする） -->
+    <ul class="lp-badges lp-fade" style="margin-top:48px;">
+      <li class="lp-badge">
+        <span class="lp-badge__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M16.5 24.5l5.5 5.5 10-11" stroke="#e1201c"/></svg></span>
+        <p class="lp-badge__num">90<small>%</small><em>以上</em></p>
+        <p class="lp-badge__label">コンサルティングでの<br>CVR改善成功率</p>
+        <p class="lp-badge__note">【仮】自社調べ。算定根拠・母集団の確認待ち</p>
+      </li>
+      <li class="lp-badge">
+        <span class="lp-badge__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 41h32"/><rect x="12" y="14" width="15" height="27" rx="1.5"/><rect x="27" y="22" width="10" height="19" rx="1.5"/><path d="M16.5 20h6M16.5 26h6M16.5 32h6" stroke="#e1201c"/><path d="M31 28h2M31 34h2" stroke="#e1201c"/></svg></span>
+        <p class="lp-badge__num">12.5<small>%</small></p>
+        <p class="lp-badge__label">上場している<br>広告業界企業への導入率</p>
+        <p class="lp-badge__note">【仮】自社調べ。算定根拠・母集団の確認待ち</p>
+      </li>
+      <li class="lp-badge">
+        <span class="lp-badge__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 12h30v14c0 11-7.5 17.5-15 20.5C16.5 43.5 9 37 9 26z"/><path d="M17.5 25.5l5 5 9-10" stroke="#e1201c"/></svg></span>
+        <p class="lp-badge__num"><span class="lp-badge__txt">ISMS</span></p>
+        <p class="lp-badge__label">情報セキュリティマネジメント<br>システム認証</p>
+        <p class="lp-badge__note">【仮】認証番号・取得範囲の確認待ち</p>
+      </li>
+    </ul>
+
+    <!-- 事例（上部の「声」と役割分担。ここは成果・使いこなしの話） -->
+    <h3 class="font-bold text-secondary text-5 leading-1.4p" style="margin-top:64px;">導入企業の成果</h3>
+    <!-- 上部の「声」と役割分担。ここは成果・使いこなしの話（1on1指定）。
+         引用はすべてDejam公式の導入事例インタビューの原文どおり。 -->
+    <div class="lp-cases lp-fade" style="margin-top:20px;">
+      <details class="lp-case">
+        <summary>
+          <img class="lp-case__logo" src="./assets/img/case/logo/stratorise.webp" width="280" height="280"
+               alt="株式会社Strato Rise" loading="lazy">
+          <span class="lp-case__head">
+            <span class="lp-case__org">株式会社Strato Rise／代表取締役 伊藤 涼 様</span>
+            <span class="lp-case__lead">かゆいところまで手が届く分析ができる</span>
+          </span>
+          <span class="lp-case__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="lp-case__body">
+          <p>その点、Dejamはそうした悩みを感じさせないほど分析機能が充実しており、かゆいところまで手が届く分析ができます。</p>
+          <p>LP改善には、細部まで定量的に分析しながら改善サイクルを回していくことが欠かせません。その環境を実現できるのがDejamだと思います。</p>
+          <p class="lp-case__metric">【仮】CPA・CVRの改善幅を記載（数値の確認待ち）</p>
+        </div>
+      </details>
+      <details class="lp-case">
+        <summary>
+          <img class="lp-case__logo" src="./assets/img/case/logo/xrossguild.webp" width="280" height="311"
+               alt="株式会社Xross Guild" loading="lazy">
+          <span class="lp-case__head">
+            <span class="lp-case__org">株式会社Xross Guild／代表取締役 内田 拓 様</span>
+            <span class="lp-case__lead">重要なのは、配信後にどう分析し、改善を重ねていくか</span>
+          </span>
+          <span class="lp-case__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="lp-case__body">
+          <p>形を作るだけでは広告効果は上がりません。本当に重要なのは、配信後にどのように分析し、改善を重ねていくかだと思っています。</p>
+          <p>成果につながる正しいPDCAを回したい企業は、ぜひDejamをおすすめします。</p>
+          <p class="lp-case__metric">【仮】改善サイクルの回転数・成果数値を記載（数値の確認待ち）</p>
+        </div>
+      </details>
+      <details class="lp-case">
+        <summary>
+          <img class="lp-case__logo" src="./assets/img/case/logo/temahima.webp" width="280" height="280"
+               alt="株式会社テマヒマ" loading="lazy">
+          <span class="lp-case__head">
+            <span class="lp-case__org">株式会社テマヒマ／代表取締役 平岡 大輔 様</span>
+            <span class="lp-case__lead">1つの機能を使いこなすだけでも価値のあるツール</span>
+          </span>
+          <span class="lp-case__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="lp-case__body">
+          <p>多くのツールが機能追加によって使い勝手が悪くなっていきます。Dejamも例外ではなく、日々進化し多機能が進んでいます。</p>
+          <p>ですが、まずは1つの機能を使いこなすだけでも価値のあるツールだと感じています。</p>
+          <p class="lp-case__metric">【仮】LPO代行案件での成果数値を記載（数値の確認待ち）</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ -->
+    <h3 class="font-bold text-secondary text-5 leading-1.4p" style="margin-top:64px;">よくあるご質問</h3>
+    <div class="lp-faq" style="margin-top:20px;">
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">他社ツールの契約が残っていても、始められますか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">はい。既存ツールとDejamを並行して動かせますので、いま解約いただく必要はありません。更新月に合わせて切り替えられます。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">現時点で対応していない機能はありますか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">【仮】MCP連携、および媒体とのホストバック連携の対応状況を記載します（対応可否の確認待ち）。これらが必須要件の場合は、お申し込み前にご相談ください。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">いま公開しているLPは、そのまま残りますか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">残ります。移行作業中も既存LPは公開したままで進められますので、配信を止める必要はありません。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">計測は途切れませんか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">計測タグの発行と引き継ぎ方法は弊社でご案内します。切り替えのタイミングを含めて、データが途切れないよう設計してから進めます。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">移行サポートはどこまで対応してもらえますか？解約するとどうなりますか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">【仮】対応範囲・適用条件・解約時の取り扱いを記載します（条件の確定待ち）。現時点では、稼働中LPの移設・タグ発行・計測引き継ぎを弊社で担当します。詳細は商談時にご説明します。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">セキュリティ審査に対応できますか？</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">【仮】ISMS認証の取得範囲・認証番号、およびセキュリティチェックシートへの対応可否を記載します（確認待ち）。</p>
+      </details>
+      <details>
+        <summary>
+          <span class="flex items-center gap-x-2"><img src="./assets/icon/q_dejam.svg" width="28" height="28" alt="" aria-hidden="true" class="shrink-0">申し込みから利用開始までの流れを教えてください。</span>
+          <img src="./assets/icon/plus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__plus shrink-0">
+          <img src="./assets/icon/minus_dejam.svg" width="16" height="16" alt="" aria-hidden="true" class="lp-faq__minus shrink-0">
+        </summary>
+        <p class="lp-faq__a">フォームをご送信いただいたあと、弊社より現状のLPと移行範囲をヒアリングし、お見積もりをご提示します。その後、タグを設置いただければご利用を開始できます。</p>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     10 最終CTA（決断）
+     ============================================================ -->
+<section class="lp-section lp-dark w-full" id="cta">
+  <div class="lp-wrap">
+    <div class="lp-head">
+      <h2 class="lp-h2 font-bold leading-1.5p text-5 md:text-8">まずは3ヶ月間、無料で。<br>乗り換えの相談だけでもOKです。</h2>
+      <hr>
+    </div>
+
+    <ul class="lp-recap lp-fade" style="margin-top:40px;">
+      <li><img src="./assets/icon/check_green.svg" width="16" height="17" alt="" aria-hidden="true">既存ツールと並行稼働できるので、配信を止めずに判断できます</li>
+      <li><img src="./assets/icon/check_green.svg" width="16" height="17" alt="" aria-hidden="true">稼働中LPの移設・タグ発行・計測引き継ぎは、弊社が担当します</li>
+      <li><img src="./assets/icon/check_green.svg" width="16" height="17" alt="" aria-hidden="true">いまの月額をお知らせいただければ、それを下回る条件をお出しします</li>
+    </ul>
+
+    <!-- 申込フォームは contact/ に分離した。ここは申込ページへ送る最終CTAに徹する。
+         （依頼書はLP内フォームだったが、フォームページを使う方針に変更） -->
+    <div class="flex flex-col items-center" style="margin-top:36px;">
+      <a href="./contact/" class="lp-cta lp-cta--fv">3ヶ月間無料トライアルを申し込む</a>
+      <p class="lp-micro">入力30秒。費用はかかりません。しつこい営業はしません。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="w-full bg-F5F6F1">
+  <div class="lp-wrap" style="padding-block:40px;">
+    <img src="./assets/img/logo/logo_leango.svg" width="160" height="30" alt="LeanGo" style="width:160px;height:auto;" loading="lazy">
+
+    <ul class="flex flex-col gap-y-3 sm:flex-row sm:gap-x-6" style="margin-top:24px;">
+      <li><a href="#company" class="text-3.5 text-secondary leading-1.5p">会社概要</a></li>
+      <li><a href="#privacy" id="privacy" class="text-3.5 text-secondary leading-1.5p">プライバシーポリシー</a></li>
+      <li><a href="#tokushoho" class="text-3.5 text-secondary leading-1.5p">特定商取引法に基づく表記</a></li>
+    </ul>
+
+    <ul class="lp-note" style="margin-top:24px;">
+      <li>※記載の料金はすべて税別・各プランの最低価格です。ご利用状況により変動します。</li>
+      <li>※実績・効果に関する数値は自社調べです。個別の事例であり、同様の成果を保証するものではありません。</li>
+      <li>※比較表は2026年7月時点で各社が公開している情報の範囲でまとめたものです。</li>
+      <li>※本文中の会社名・製品名は、各社の商標または登録商標です。</li>
+      <li id="company">※【仮】会社概要・プライバシーポリシー・特定商取引法に基づく表記の掲載内容とリンク先URLは確認待ちです。</li>
+      <li id="tokushoho">&copy; LeanGo, Inc.</li>
+    </ul>
+  </div>
+</footer>
+
+<!-- モバイル固定CTA（PCでは非表示） -->
+<div class="lp-sticky">
+  <a href="./contact/" class="lp-cta">無料トライアルの申し込みはこちら</a>
+</div>
+
+<script>
+// フェードイン（依頼書: 固定アニメは最大1種／prefers-reduced-motion対応は必須）
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.lp-fade');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+
+// FVデモ動画: reduced-motion のときは自動再生せず、1フレーム目で止める
+(function () {
+  var v = document.querySelector('.lp-fv-media__video');
+  if (!v) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.addEventListener('loadeddata', function () { v.pause(); });
+    v.currentTime = 0;
+    return;
+  }
+  v.autoplay = true;
+  var p = v.play();
+  if (p && p.catch) { p.catch(function () { /* 自動再生が拒否されても静止画のまま表示する */ }); }
+})();
+
+// モバイル固定CTA: FV内のCTAを通り過ぎるまでは出さない。
+// 同じCTAが上下に二重で見えるのを防ぐ（依頼書「スマホは下部固定の単一CTAバー」）。
+// IntersectionObserverだとアンカーのジャンプで要素を飛び越えたとき
+// isIntersecting が false のまま変わらず発火しないため、スクロール量で判定する。
+// JSが動かない環境では is-hidden が付かないので常時表示のままになる。
+(function () {
+  var sticky = document.querySelector('.lp-sticky');
+  var fvCta = document.querySelector('.lp-fv-action .lp-cta--fv');
+  if (!sticky || !fvCta) return;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    sticky.classList.toggle('is-hidden', fvCta.getBoundingClientRect().bottom > 0);
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
+
+// 手順の操作画面: クリックで拡大表示する（画面が小さくて読めないため）
+(function () {
+  var shots = document.querySelectorAll('.lp-step__shot, .lp-voice__banner');
+  if (!shots.length) return;
+  var overlay = null, lastFocus = null;
+
+  function close() {
+    if (!overlay) return;
+    overlay.remove(); overlay = null;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function open(img) {
+    lastFocus = img;
+    overlay = document.createElement('div');
+    overlay.className = 'lp-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', img.alt || '拡大表示');
+    var big = document.createElement('img');
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt || '';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'lp-lightbox__close';
+    btn.setAttribute('aria-label', '閉じる');
+    overlay.appendChild(big); overlay.appendChild(btn);
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+    btn.focus();
+    overlay.addEventListener('click', function (e) { if (e.target !== big) close(); });
+  }
+
+  shots.forEach(function (img) {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', (img.alt || '画像') + 'を拡大表示');
+    img.addEventListener('click', function () { open(img); });
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+
+// 動画: サムネイルを出しておき、クリックされて初めてYouTubeを読み込む
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('.lp-video__frame');
+  if (!b || !b.dataset.youtube) return;
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.youtube + '?autoplay=1&rel=0';
+  f.title = b.getAttribute('aria-label') || '';
+  f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture; web-share';
+  f.allowFullscreen = true;
+  var wrap = document.createElement('div');
+  wrap.className = b.className;
+  wrap.appendChild(f);
+  b.replaceWith(wrap);
+});
+
+// アンカーのスムーススクロール（固定CTAぶんの余白を考慮）
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  var id = a.getAttribute('href').slice(1);
+  if (!id) return;
+  var t = document.getElementById(id);
+  if (!t) return;
+  e.preventDefault();
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/* ============================================================
+   改善版の差分スタイル（2026-08-11 / 1on1指定分）
+   既存の lp.css は編集せず、上書き・追加分のみをここに置く。
+   1. .lp-fv-sub      FVサブコピー（＼ ／のナナメ罫つき）
+   2. .lp-tilt-bubble 課題セクション左上のナナメ吹き出し
+   3. #voice          FV直下へ移動したことによる余白調整
+   ============================================================ */
+
+/* --- 1. FVサブコピー ----------------------------------------
+   「＼アドアフィ運用者の乗り換え、増えてます／」
+   記号は直接置かず擬似要素の斜め罫で描く。フォント依存の
+   字形崩れ・全角半角の混在を避けるため。 */
+.lp-fv-sub {
+  position: relative;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 0 26px;
+  color: var(--lp-primary);
+  font-size: clamp(15px, 4.2vw, 20px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  font-feature-settings: "palt" on;
+}
+.lp-fv-sub::before,
+.lp-fv-sub::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 1.35em;
+  background: var(--lp-primary);
+  border-radius: 2px;
+}
+.lp-fv-sub::before {
+  left: 6px;
+  transform: translateY(-50%) rotate(-22deg);
+}
+.lp-fv-sub::after {
+  right: 6px;
+  transform: translateY(-50%) rotate(22deg);
+}
+
+/* --- 2. 課題セクション左上のナナメ吹き出し ------------------
+   .lp-wrap 内のフロー要素として置き、左寄せ＋回転で
+   「貼ったシール」の見え方にする。絶対配置にしないのは
+   SPで見出しに重なる事故を避けるため。 */
+.lp-tilt-bubble {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 26px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--lp-primary);
+  color: #fff;
+  font-size: clamp(15px, 4vw, 19px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  transform: rotate(-6deg);
+  transform-origin: left center;
+  box-shadow: 0 10px 22px rgba(225, 32, 28, .22);
+}
+.lp-tilt-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  border: 9px solid transparent;
+  border-top-color: var(--lp-primary);
+  border-bottom: 0;
+}
+
+/* --- 3. FV直下へ移動した「導入企業の声」の余白 --------------
+   FVと同じ地色が続くため、上の詰まりだけ調整する。
+   カード自体は白＋影なので、地色が同じでも埋もれない。 */
+#voice { padding-top: 56px; }
+#voice .lp-head h2 { font-feature-settings: "palt" on; }
+
+@media (max-width: 767px) {
+  #voice { padding-top: 40px; }
+  .lp-tilt-bubble { margin-bottom: 22px; }
+}
+
+/* 動きを減らす設定の端末では回転を弱める（読みやすさ優先） */
+@media (prefers-reduced-motion: reduce) {
+  .lp-tilt-bubble { transform: rotate(-3deg); }
+}

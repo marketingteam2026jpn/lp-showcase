@@ -1,0 +1,141 @@
+/* ===========================================================
+   コンタクトページ専用（contact/ と contact/thanks/）
+   レイアウトは univis-total-service の型を踏襲し、
+   配色・フォント・ボタンは本体LP（lp.css）のものをそのまま使う。
+   =========================================================== */
+
+/* --- ヒーロー帯 ------------------------------------------- */
+.ct-hero {
+  background: var(--lp-secondary); color: #fff;
+  padding-top: 56px; padding-bottom: 128px; text-align: center;
+}
+.ct-hero__title {
+  font-weight: 700; line-height: 1.35; letter-spacing: .02em;
+  font-size: clamp(24px, 5.4vw, 38px); text-wrap: balance;
+}
+.ct-hero__lead {
+  margin-top: 16px; font-size: 16px; line-height: 1.9;
+  color: rgba(255, 255, 255, .82); max-width: 34em; margin-inline: auto;
+}
+
+/* --- ヒーローに重ねるカード ------------------------------- */
+.ct-body { padding-bottom: 96px; }
+.ct-card {
+  margin-top: -88px; background: #fff; border-radius: 16px;
+  border: 1px solid var(--lp-line); box-shadow: 0 20px 48px rgba(8, 9, 45, .1);
+  padding: 32px 24px;
+}
+.ct-grid { display: grid; grid-template-columns: 1fr; gap: 36px; }
+
+/* --- 左カラム（案内） ------------------------------------- */
+.ct-lead__badge {
+  display: inline-block; padding: 5px 14px; border-radius: 999px;
+  background: var(--lp-primary); color: #fff; font-size: 13px; font-weight: 700;
+}
+/* 「止め／ずに」のような語中改行を避ける。非対応ブラウザは normal に落ちるだけ */
+.ct-hero__title,
+.ct-lead__title,
+.ct-done__title { word-break: auto-phrase; }
+
+.ct-lead__title {
+  margin-top: 14px; font-size: 22px; font-weight: 700; line-height: 1.5;
+  color: var(--lp-secondary); text-wrap: balance;
+}
+.ct-lead__body { margin-top: 14px; font-size: 16px; line-height: 1.9; color: #364153; }
+
+.ct-steps { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; counter-reset: ct-step; }
+.ct-steps li { display: flex; gap: 12px; align-items: flex-start; }
+.ct-steps li::before {
+  counter-increment: ct-step; content: counter(ct-step);
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--lp-card); color: var(--lp-primary);
+  font-family: var(--font-red-hat-display); font-weight: 700; font-size: 13px;
+}
+.ct-steps__title { font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--lp-secondary); }
+.ct-steps__note { margin-top: 3px; font-size: 14px; line-height: 1.7; color: #707070; }
+
+.ct-assure {
+  margin-top: 28px; padding: 18px 20px; border-radius: 12px; background: var(--lp-bg);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ct-assure li { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; line-height: 1.7; }
+.ct-assure img { margin-top: 4px; flex-shrink: 0; }
+
+/* --- 右カラム（フォーム） --------------------------------- */
+.ct-form {
+  background: var(--lp-bg); border: 1px solid var(--lp-line);
+  border-radius: 14px; padding: 26px 20px;
+}
+.ct-form__head { text-align: center; margin-bottom: 22px; }
+.ct-form__badge {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  background: var(--lp-primary); color: #fff; font-size: 12px; font-weight: 700;
+}
+.ct-form__title { margin-top: 10px; font-size: 20px; font-weight: 700; line-height: 1.5; }
+.ct-form__speed { margin-top: 6px; font-size: 13px; font-weight: 700; color: var(--lp-primary); }
+.ct-form .lp-cta { width: 100%; }
+
+/* --- 完了ページ ------------------------------------------- */
+.ct-done { text-align: center; padding-block: 96px; }
+.ct-done__mark {
+  width: 84px; height: 84px; border-radius: 50%; margin-inline: auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--lp-primary); box-shadow: 0 12px 30px rgba(225, 32, 28, .28);
+}
+.ct-done__mark svg { fill: none; stroke: #fff; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.ct-done__title {
+  margin-top: 26px; font-size: clamp(22px, 4.6vw, 32px); font-weight: 700; line-height: 1.45;
+  color: var(--lp-secondary); text-wrap: balance;
+}
+.ct-done__body { margin-top: 16px; font-size: 16px; line-height: 1.9; color: #364153; }
+.ct-done__actions { margin-top: 32px; display: flex; justify-content: center; }
+
+@media (min-width: 768px) {
+  .ct-card { padding: 44px 40px; }
+  .ct-form { padding: 32px 28px; }
+}
+
+@media (min-width: 1024px) {
+  .ct-hero { padding-top: 72px; padding-bottom: 144px; }
+  .ct-card { margin-top: -104px; padding: 52px 48px; }
+  .ct-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 48px; align-items: start; }
+}
+
+/* --- ヒーローの吹き出し（本体LPのFVと同じ社会的証明ラベル） --- */
+/* 濃紺の上に置くので、本体LPとは配色を反転させる（白地・濃紺文字） */
+.ct-hero__bubble {
+  position: relative; display: inline-block; margin-bottom: 26px;
+  padding: 9px 18px; border-radius: 999px;
+  background: #fff; color: var(--lp-secondary);
+  font-size: 14px; font-weight: 700; line-height: 1.4;
+}
+.ct-hero__bubble::after {
+  content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 7px solid transparent; border-top-color: #fff; border-bottom: 0;
+}
+
+/* --- 導入企業ロゴ（アドアフィリエイト事業者のみ） ----------- */
+.ct-logos { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--lp-line); }
+.ct-logos__label { font-size: 13px; font-weight: 700; color: #707070; line-height: 1.6; }
+.ct-logos ul {
+  margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 16px 28px;
+}
+.ct-logos li { display: flex; align-items: center; }
+/* SEIRYOのロゴが原寸150x26pxのため、拡大にならない26pxで全社を揃える */
+.ct-logos img { width: auto; height: 26px; object-fit: contain; }
+
+@media (min-width: 768px) {
+  .ct-hero__bubble { font-size: 15px; }
+}
+
+/* ロゴは中身の性質が違うため、高さを揃えるだけでは光学的に揃わない。
+   NAHATO/SEIRYO は文字が枠いっぱいのワードマーク、Senjin は紋章＋小さな文字。
+   共通の枠に入れたうえで、個別に上限を与えて見た目の大きさを合わせる。 */
+.ct-logos ul { align-items: center; gap: 14px 32px; }
+.ct-logos li { height: 44px; display: flex; align-items: center; justify-content: center; }
+.ct-logos img { width: auto; height: auto; max-width: 100%; max-height: 44px; object-fit: contain; }
+.ct-logos .is-nacht  { max-height: 24px; }
+.ct-logos .is-seiryo { max-height: 22px; }
+.ct-logos .is-senjin { max-height: 44px; }
