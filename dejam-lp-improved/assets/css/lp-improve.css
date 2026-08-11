@@ -44,7 +44,7 @@
 
 /* --- 2. 課題セクション左上のナナメ吹き出し ------------------
    見出しブロックを基準に絶対配置し、左上から見出しを
-   「抱える」位置に重ねる。三角は見出し側＝右下に出す。 */
+   「抱える」位置に重ねる。傾きは左肩下がり、三角は左下。 */
 .lp-head-hug {
   position: relative;
   display: inline-block;
@@ -53,7 +53,7 @@
 .lp-tilt-bubble {
   position: absolute;
   left: -14px;
-  bottom: calc(100% + 22px);  /* 傾けた分だけ持ち上げ、右下の三角だけが見出しに触れるようにする */
+  bottom: calc(100% + 22px);  /* 傾けた分だけ持ち上げ、左下の三角だけが見出しに触れるようにする */
   z-index: 2;
   margin: 0;
   padding: 11px 22px;
@@ -65,22 +65,21 @@
   line-height: 1.4;
   letter-spacing: .02em;
   white-space: nowrap;
-  /* 右下がりに倒すことで、見出しへ寄りかかる（抱える）向きになる。
-     三角のある右端が下がるので、しっぽが自然に見出しを指す。 */
-  transform: rotate(6deg);
-  transform-origin: left bottom;
+  /* 左肩下がり。回転の基点を右下に置き、下がった左端に三角を出す。 */
+  transform: rotate(-6deg);
+  transform-origin: right bottom;
   box-shadow: 0 10px 22px rgba(225, 32, 28, .22);
 }
-/* 三角は右下。見出しの方を向かせるため、わずかに右へ倒す。 */
+/* 三角は左下。傾きに合わせてわずかに左へ倒し、本体と継ぎ目なく繋げる。 */
 .lp-tilt-bubble::after {
   content: "";
   position: absolute;
   top: calc(100% - 1px);
-  right: 26px;
+  left: 30px;
   border: 9px solid transparent;
   border-top-color: var(--lp-primary);
   border-bottom: 0;
-  transform: skewX(10deg);
+  transform: skewX(-10deg);
 }
 /* 吹き出しが上にせり出す分、セクション上端の余白を確保 */
 #issue { padding-top: 116px; }
@@ -96,10 +95,10 @@
   #issue { padding-top: 88px; }
   /* SPは見出しが折り返して幅いっぱいになるため、はみ出しを抑える */
   .lp-tilt-bubble { left: -4px; padding: 10px 18px; }
-  .lp-tilt-bubble::after { right: 22px; }
+  .lp-tilt-bubble::after { left: 24px; }
 }
 
 /* 動きを減らす設定の端末では回転を弱める（読みやすさ優先） */
 @media (prefers-reduced-motion: reduce) {
-  .lp-tilt-bubble { transform: rotate(3deg); }
+  .lp-tilt-bubble { transform: rotate(-3deg); }
 }
