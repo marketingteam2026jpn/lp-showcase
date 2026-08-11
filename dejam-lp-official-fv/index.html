@@ -160,20 +160,22 @@ const dimensionTime = "14";
 .fv-micro { margin-top: 10px; color: #707070; font-size: 13px; line-height: 1.6; text-align: center; }
 .fv-note { margin-top: 12px; color: #8e8e8e; font-size: 12px; line-height: 1.7; text-align: left; }
 
+/* sm〜md は左カラムが312px固定のため、バッジは1列のままにする。
+   3列に詰めると「月30,000円〜」が折り返してカードからはみ出す。 */
 @media (min-width: 640px) {
   .fv-bubble, .fv-sub { align-self: flex-start; }
   .fv-bubble::after { left: 32px; }
   .fv-lead, .fv-micro { text-align: left; }
-  .fv-badges { grid-template-columns: repeat(3, 1fr); }
-  .fv-badges li { flex-direction: column; align-items: center; justify-content: flex-start; gap: 4px; padding: 14px 8px; text-align: center; }
-  .fv-badges__label { font-size: 12px; }
-  .fv-badges__value { font-size: 19px; text-align: center; }
-  .fv-badges__value br { display: inline; }
 }
 @media (min-width: 1024px) {
   .fv-bubble { font-size: 15px; }
   .fv-lead { font-size: 16px; }
   .fv-br-pc { display: inline; }
+  .fv-badges { grid-template-columns: repeat(3, 1fr); }
+  .fv-badges li { flex-direction: column; align-items: center; justify-content: flex-start; gap: 4px; padding: 14px 8px; text-align: center; }
+  .fv-badges__label { font-size: 12px; }
+  .fv-badges__value { font-size: 19px; text-align: center; }
+  .fv-badges__value br { display: inline; }
 }
 
 /* ============================================================
