@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT広告 30日トライアル｜マケナイ by 株式会社Ikigai</title>
+<meta name="description" content="ChatGPT広告を30日だけ試す。会話意図の設計・広告制作・計測・週次改善・継続判断まで一気通貫。支援費12万円〜＋広告費10万円〜。初期費用なし／自動更新なし。">
+<meta property="og:title" content="ChatGPT広告 30日トライアル｜マケナイ">
+<meta property="og:description" content="検索キーワードでは拾えない「比較・検討中の会話」に広告を届ける。30日で、続ける価値があるか判断する。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   マケナイ｜ChatGPT広告 30日トライアル LP  v3
+   Design direction: modern B2B SaaS (dark hero / light body)
+   ============================================================ */
+
+:root{
+  /* Surfaces */
+  --ink:        #08090D;
+  --ink-2:      #10131A;
+  --ink-3:      #171B24;
+  --line-dark:  rgba(255,255,255,.10);
+  --white:      #FFFFFF;
+  --bg-alt:     #F5F6F9;
+  --bg-alt-2:   #ECEEF3;
+  --line:       #E1E4EB;
+
+  /* Text */
+  --tx:         #0C0E13;   /* 17.6:1 on white */
+  --tx-sub:     #4E5766;   /* 7.8:1  on white */
+  --tx-mute:    #6B7482;
+  --tx-on-dark: #FFFFFF;
+  --tx-on-dark-sub: #A8B0BF;
+
+  /* Accent */
+  --acc:        #FF5A1F;
+  --acc-deep:   #E24000;
+  --acc-soft:   #FFF1EA;
+  --ai:         #5B62F0;
+  --ai-soft:    #EEEFFE;
+  --ok:         #0E9F6E;
+
+  /* Type */
+  --f: "Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;
+  --fs-body: 18px;
+  --lh: 1.85;
+
+  /* Layout */
+  --w: 1180px;
+  --w-narrow: 900px;
+  --measure: 34em;
+  --pad: 24px;
+  --sec: 112px;
+  --r: 16px;
+  --r-lg: 24px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;font-family:var(--f);font-size:var(--fs-body);line-height:var(--lh);
+  color:var(--tx);background:var(--white);
+  font-feature-settings:"palt" 1;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{margin:0;line-height:1.35;letter-spacing:-.02em;font-weight:800;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad);}
+.wrap-n{max-width:var(--w-narrow);margin:0 auto;padding:0 var(--pad);}
+.sec{padding:var(--sec) 0;}
+.sec-alt{background:var(--bg-alt);}
+.sec-dark{background:var(--ink);color:var(--tx-on-dark);}
+.sec-dark h2,.sec-dark h3{color:#fff;}
+
+/* ---------- Section heading ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;
+  color:var(--acc);text-transform:uppercase;margin-bottom:16px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--acc);border-radius:2px;}
+.sec-dark .eyebrow{color:#FF8A57;}
+.sec-dark .eyebrow::before{background:#FF8A57;}
+.h2{font-size:clamp(28px,4.2vw,44px);line-height:1.3;letter-spacing:-.03em;}
+.lead{margin-top:20px;color:var(--tx-sub);font-size:17px;max-width:var(--measure);}
+.sec-dark .lead{color:var(--tx-on-dark-sub);}
+.center{text-align:center;}
+.center .lead{margin-left:auto;margin-right:auto;}
+.center .eyebrow{justify-content:center;}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--f);font-weight:700;font-size:18px;letter-spacing:.01em;
+  padding:20px 34px;border-radius:12px;border:none;cursor:pointer;
+  text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+  line-height:1.4;text-align:center;
+}
+.btn-primary{
+  background:var(--acc);color:#fff;
+  box-shadow:0 8px 24px rgba(255,90,31,.34);
+}
+.btn-primary:hover{background:var(--acc-deep);transform:translateY(-2px);box-shadow:0 14px 32px rgba(255,90,31,.42);}
+.btn-ghost{background:transparent;color:var(--tx);border:1.5px solid var(--line);}
+.btn-ghost:hover{border-color:var(--tx);}
+.sec-dark .btn-ghost, .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28);}
+.sec-dark .btn-ghost:hover, .hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06);}
+.btn-lg{font-size:20px;padding:24px 44px;}
+.btn-arrow{font-size:1.1em;line-height:1;}
+.cta-note{margin-top:14px;font-size:14px;color:var(--tx-mute);}
+.sec-dark .cta-note,.hero .cta-note{color:var(--tx-on-dark-sub);}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+.center .cta-row{justify-content:center;}
+
+/* ---------- Header ---------- */
+.hd{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(8,9,13,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-dark);
+  transition:background .3s ease;
+}
+.hd-in{max-width:var(--w);margin:0 auto;padding:0 var(--pad);height:70px;display:flex;align-items:center;gap:28px;}
+.logo{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:#fff;flex-shrink:0;}
+.logo-mk{font-size:22px;font-weight:900;letter-spacing:-.02em;}
+.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);display:inline-block;transform:translateY(-2px);}
+.logo-sub{font-size:11px;color:var(--tx-on-dark-sub);font-weight:500;letter-spacing:.04em;}
+.nav{display:flex;gap:26px;margin-left:auto;}
+.nav a{color:#D5DAE3;text-decoration:none;font-size:14.5px;font-weight:500;transition:color .2s;}
+.nav a:hover{color:#fff;}
+.hd .btn{padding:12px 22px;font-size:15px;border-radius:10px;box-shadow:none;}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;background:var(--ink);color:var(--tx-on-dark);
+  padding:150px 0 100px;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(760px 460px at 12% 8%, rgba(255,90,31,.22), transparent 62%),
+    radial-gradient(700px 520px at 88% 88%, rgba(91,98,240,.20), transparent 64%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 40%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 40%,transparent 100%);
+  pointer-events:none;
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;}
+.badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px 8px 12px;border-radius:100px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  font-size:14px;font-weight:600;color:#E8ECF3;margin-bottom:26px;
+}
+.badge .pulse{width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55);}70%{box-shadow:0 0 0 9px rgba(74,222,128,0);}100%{box-shadow:0 0 0 0 rgba(74,222,128,0);}}
+.hero h1{
+  font-size:clamp(34px,5.4vw,60px);line-height:1.24;letter-spacing:-.035em;font-weight:900;
+}
+.hero h1 .mk{
+  background:linear-gradient(100deg,#FF8A57,#FF5A1F);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{margin-top:26px;font-size:19px;color:#C6CDD9;max-width:30em;}
+.hero-sub b{color:#fff;font-weight:700;}
+.hero .cta-row{margin-top:38px;}
+.hero-disc{margin-top:26px;font-size:13px;line-height:1.7;color:#7E8798;max-width:32em;}
+
+/* Hero mock */
+.mock{
+  background:linear-gradient(180deg,#181C26,#10131A);
+  border:1px solid rgba(255,255,255,.11);border-radius:20px;
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  overflow:hidden;
+}
+.mock-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.mock-bar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.16);}
+.mock-bar span{margin-left:10px;font-size:12px;color:#7E8798;letter-spacing:.04em;}
+.mock-body{padding:22px 20px 24px;}
+.bub-user{
+  background:rgba(255,255,255,.09);border-radius:14px 14px 4px 14px;
+  padding:13px 16px;font-size:15px;color:#EEF1F6;margin-left:auto;max-width:88%;line-height:1.65;
+}
+.bub-ai{
+  margin-top:16px;font-size:14.5px;color:#9AA3B2;line-height:1.8;
+  padding-left:14px;border-left:2px solid rgba(255,255,255,.12);
+}
+.mock-div{display:flex;align-items:center;gap:10px;margin:20px 0 12px;}
+.mock-div::before,.mock-div::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.10);}
+.mock-div span{font-size:11px;letter-spacing:.16em;color:#6E7789;font-weight:700;}
+.ad-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,90,31,.35);
+  border-radius:14px;padding:16px;position:relative;
+}
+.ad-tag{
+  position:absolute;top:-10px;left:14px;background:var(--acc);color:#fff;
+  font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:5px;
+}
+.ad-head{display:flex;align-items:center;gap:11px;}
+.ad-ico{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#5B62F0,#8B5CF6);flex-shrink:0;}
+.ad-name{font-size:14.5px;font-weight:700;color:#fff;}
+.ad-url{font-size:12px;color:#7E8798;}
+.ad-txt{margin-top:11px;font-size:13.5px;color:#B4BCCA;line-height:1.72;}
+.ad-btn{margin-top:14px;display:inline-block;background:#fff;color:#0C0E13;font-size:13.5px;font-weight:700;padding:9px 18px;border-radius:8px;}
+.mock-cap{margin-top:14px;font-size:12px;color:#6E7789;text-align:center;}
+
+/* ---------- Stat strip ---------- */
+.strip{background:var(--ink-2);border-top:1px solid var(--line-dark);color:#fff;}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr);}
+.strip-i{padding:34px 20px;text-align:center;border-right:1px solid var(--line-dark);}
+.strip-i:last-child{border-right:none;}
+.strip-n{font-size:32px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.2;}
+.strip-n em{font-style:normal;font-size:.6em;font-weight:700;color:#A8B0BF;margin-left:2px;}
+.strip-l{margin-top:6px;font-size:13.5px;color:#8D96A6;}
+
+/* ---------- Cards ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(12,14,19,.08);border-color:#CFD5E0;}
+.card h3{font-size:20px;margin-bottom:12px;letter-spacing:-.02em;}
+.card p{font-size:16px;color:var(--tx-sub);line-height:1.8;}
+.card-num{
+  font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--acc);
+  display:block;margin-bottom:14px;
+}
+.sec-dark .card{background:var(--ink-3);border-color:var(--line-dark);}
+.sec-dark .card p{color:var(--tx-on-dark-sub);}
+.sec-dark .card:hover{border-color:rgba(255,255,255,.24);box-shadow:none;}
+
+/* ---------- Compare ---------- */
+.cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;}
+.cmp-col{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:38px 32px;}
+.cmp-col.hi{border:2px solid var(--acc);box-shadow:0 16px 44px rgba(255,90,31,.14);position:relative;}
+.cmp-tag{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--tx-mute);margin-bottom:10px;}
+.cmp-col.hi .cmp-tag{color:var(--acc);}
+.cmp-h{font-size:23px;font-weight:800;line-height:1.45;letter-spacing:-.025em;margin-bottom:22px;}
+.cmp-list li{position:relative;padding-left:26px;margin-bottom:14px;font-size:16px;color:var(--tx-sub);line-height:1.75;}
+.cmp-list li::before{content:"";position:absolute;left:4px;top:.72em;width:8px;height:8px;border-radius:2px;background:#C3C9D4;}
+.cmp-col.hi .cmp-list li::before{background:var(--acc);}
+.cmp-plus{display:flex;align-items:center;justify-content:center;width:64px;font-size:26px;font-weight:800;color:var(--tx-mute);}
+
+/* ---------- Pain ---------- */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pain{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.pain-q{
+  flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--acc-soft);color:var(--acc);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;
+}
+.pain p{font-size:16.5px;font-weight:600;line-height:1.72;letter-spacing:-.01em;}
+
+/* ---------- Fit ---------- */
+.fit{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;}
+.fit-box{border-radius:var(--r-lg);padding:36px 32px;border:1px solid var(--line);background:#fff;}
+.fit-box.ok{border-color:#B9E5D3;background:#F3FBF7;}
+.fit-box.ng{border-color:#E6DEDE;background:#FAF8F8;}
+.fit-h{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;margin-bottom:20px;letter-spacing:-.02em;}
+.fit-ico{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;}
+.fit-box.ok .fit-ico{background:var(--ok);}
+.fit-box.ng .fit-ico{background:#9AA3B2;}
+.tags{display:flex;flex-wrap:wrap;gap:9px;}
+.tag{
+  background:#fff;border:1px solid var(--line);border-radius:100px;
+  padding:9px 17px;font-size:15px;font-weight:600;
+}
+.fit-box.ok .tag{border-color:#B9E5D3;color:#0B6B4B;}
+.fit-box.ng .tag{color:var(--tx-mute);}
+.fit-note{margin-top:20px;font-size:14.5px;color:var(--tx-sub);line-height:1.8;}
+
+.cond{margin-top:40px;background:var(--ink);border-radius:var(--r-lg);padding:40px 36px;color:#fff;}
+.cond h3{font-size:21px;margin-bottom:8px;}
+.cond .lead{margin-top:6px;margin-bottom:26px;color:var(--tx-on-dark-sub);font-size:16px;}
+.cond-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px;}
+.cond-grid li{position:relative;padding-left:30px;font-size:16px;color:#D5DAE3;line-height:1.75;}
+.cond-grid li::before{
+  content:"✓";position:absolute;left:0;top:0;color:#4ADE80;font-weight:800;font-size:15px;
+}
+
+/* ---------- Timeline ---------- */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:8px;}
+.tl-i{position:relative;padding:0 20px;}
+.tl-i:first-child{padding-left:0;}
+.tl-i:last-child{padding-right:0;}
+.tl-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.14);margin-bottom:22px;position:relative;overflow:hidden;}
+.tl-i:nth-child(1) .tl-bar::after,.tl-i:nth-child(2) .tl-bar::after,
+.tl-i:nth-child(3) .tl-bar::after,.tl-i:nth-child(4) .tl-bar::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--acc),#FF8A57);
+}
+.tl-day{font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#FF8A57;margin-bottom:10px;}
+.tl-h{font-size:19px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.02em;}
+.tl-p{font-size:15px;color:var(--tx-on-dark-sub);line-height:1.8;}
+
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;}
+.deliv-box{background:var(--ink-3);border:1px solid var(--line-dark);border-radius:var(--r);padding:32px 30px;}
+.deliv-box h4{font-size:17px;color:#fff;margin-bottom:18px;font-weight:800;}
+.deliv-box li{position:relative;padding-left:26px;font-size:15.5px;color:#C6CDD9;margin-bottom:11px;line-height:1.7;}
+.deliv-box li::before{content:"";position:absolute;left:6px;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--acc);}
+
+/* ---------- Pricing ---------- */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;}
+.pc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:40px 34px;position:relative;}
+.pc.hi{border:2px solid var(--acc);box-shadow:0 20px 50px rgba(255,90,31,.15);}
+.pc-rib{
+  position:absolute;top:-14px;left:34px;background:var(--acc);color:#fff;
+  font-size:13px;font-weight:800;padding:6px 16px;border-radius:8px;letter-spacing:.03em;
+}
+.pc-name{font-size:17px;font-weight:800;margin-bottom:6px;}
+.pc-desc{font-size:14.5px;color:var(--tx-sub);line-height:1.75;min-height:3.5em;}
+.pc-amt{margin-top:22px;display:flex;align-items:baseline;gap:4px;}
+.pc-old{font-size:16px;color:var(--tx-mute);text-decoration:line-through;margin-right:8px;}
+.pc-num{font-size:44px;font-weight:900;letter-spacing:-.04em;line-height:1;}
+.pc.hi .pc-num{color:var(--acc);}
+.pc-unit{font-size:17px;font-weight:700;color:var(--tx-sub);}
+.pc-plus{margin-top:12px;padding-top:14px;border-top:1px dashed var(--line);font-size:15.5px;color:var(--tx-sub);}
+.pc-plus b{color:var(--tx);font-weight:700;}
+.pc-meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:var(--bg-alt);border-radius:7px;padding:6px 12px;font-size:13.5px;font-weight:600;color:var(--tx-sub);}
+.pc .btn{width:100%;margin-top:26px;}
+
+.incl{margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:40px 36px;}
+.incl h3{font-size:20px;margin-bottom:24px;}
+.incl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px;}
+.incl-grid li{position:relative;padding-left:30px;font-size:16px;color:var(--tx-sub);line-height:1.75;}
+.incl-grid li::before{content:"✓";position:absolute;left:2px;top:0;color:var(--ok);font-weight:800;}
+.opt{margin-top:30px;padding-top:28px;border-top:1px solid var(--line);}
+.opt h4{font-size:16px;margin-bottom:16px;color:var(--tx-sub);font-weight:700;}
+.opt-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 32px;}
+.opt-list li{display:flex;justify-content:space-between;gap:16px;font-size:15.5px;padding:9px 0;border-bottom:1px dashed var(--line);color:var(--tx-sub);}
+.opt-list li b{font-weight:700;color:var(--tx);white-space:nowrap;}
+
+.guard{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.guard-i{background:var(--acc-soft);border-radius:14px;padding:22px 24px;}
+.guard-i b{display:block;font-size:16.5px;margin-bottom:7px;letter-spacing:-.01em;}
+.guard-i span{font-size:14.5px;color:var(--tx-sub);line-height:1.75;}
+
+/* ---------- Profile ---------- */
+.prof{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center;}
+.prof-fig{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-dark);background:var(--ink-3);}
+.prof-fig img{width:100%;height:auto;display:block;}
+.prof-ph{
+  aspect-ratio:5/4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+  color:#6E7789;font-size:14px;text-align:center;padding:24px;
+}
+.prof-cap{padding:16px 20px;font-size:13px;color:#8D96A6;line-height:1.7;border-top:1px solid var(--line-dark);}
+.prof-name{font-size:30px;font-weight:900;letter-spacing:-.03em;}
+.prof-role{margin-top:8px;font-size:15.5px;color:#FF8A57;font-weight:600;}
+.prof-body{margin-top:24px;}
+.prof-body li{padding:16px 0;border-bottom:1px solid var(--line-dark);display:grid;grid-template-columns:120px 1fr;gap:20px;}
+.prof-body li:first-child{border-top:1px solid var(--line-dark);}
+.prof-body dt{font-size:13.5px;font-weight:700;color:#8D96A6;letter-spacing:.04em;}
+.prof-body dd{margin:0;font-size:16px;color:#D5DAE3;line-height:1.8;}
+.prof-kpi{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;}
+.prof-kpi span{background:rgba(255,255,255,.07);border:1px solid var(--line-dark);border-radius:100px;padding:8px 16px;font-size:14px;color:#E8ECF3;font-weight:600;}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px;margin:0 auto;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{
+  list-style:none;cursor:pointer;padding:26px 48px 26px 0;position:relative;
+  font-size:18px;font-weight:700;line-height:1.65;letter-spacing:-.015em;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:34px;width:12px;height:12px;
+  border-right:2.5px solid var(--acc);border-bottom:2.5px solid var(--acc);
+  transform:rotate(45deg);transition:transform .22s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);top:38px;}
+.faq-a{padding:0 40px 28px 0;font-size:16.5px;color:var(--tx-sub);line-height:1.9;}
+
+/* ---------- Disclaimer ---------- */
+.disc{background:var(--bg-alt-2);border-radius:var(--r);padding:34px 32px;}
+.disc h4{font-size:14px;letter-spacing:.1em;color:var(--tx-mute);margin-bottom:16px;font-weight:800;}
+.disc li{position:relative;padding-left:20px;font-size:14.5px;color:var(--tx-sub);line-height:1.85;margin-bottom:7px;}
+.disc li::before{content:"※";position:absolute;left:0;color:var(--tx-mute);}
+
+/* ---------- Final CTA ---------- */
+.final{position:relative;background:var(--ink);color:#fff;padding:120px 0;overflow:hidden;text-align:center;}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(720px 420px at 50% 0%,rgba(255,90,31,.28),transparent 66%);
+}
+.final-in{position:relative;z-index:2;}
+.final h2{font-size:clamp(28px,4.6vw,46px);line-height:1.32;letter-spacing:-.035em;}
+.final p{margin-top:22px;color:#C6CDD9;font-size:18px;max-width:36em;margin-left:auto;margin-right:auto;}
+.final .cta-row{margin-top:40px;}
+.final-mail{margin-top:30px;font-size:15px;color:#8D96A6;}
+.final-mail a{color:#fff;font-weight:600;}
+
+/* ---------- Footer ---------- */
+.ft{background:#05060A;color:#8D96A6;padding:64px 0 40px;font-size:14.5px;}
+.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line-dark);}
+.ft h5{color:#fff;font-size:14px;font-weight:800;letter-spacing:.06em;margin-bottom:16px;}
+.ft li{margin-bottom:9px;line-height:1.7;}
+.ft a{color:#A8B0BF;text-decoration:none;}
+.ft a:hover{color:#fff;}
+.ft-brand{font-size:20px;font-weight:900;color:#fff;margin-bottom:10px;}
+.ft-brand span{color:var(--acc);}
+.ft-note{margin-top:12px;line-height:1.8;font-size:13.5px;max-width:30em;}
+.ft-bottom{padding-top:26px;font-size:13px;line-height:1.8;}
+
+/* ---------- Sticky mobile CTA ---------- */
+.sticky{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:99;
+  background:rgba(8,9,13,.94);backdrop-filter:blur(14px);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--line-dark);
+}
+.sticky .btn{width:100%;font-size:17px;padding:17px 20px;}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1);}
+.rv.on{opacity:1;transform:none;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  :root{--sec:84px;}
+  .hero-in{grid-template-columns:1fr;gap:48px;}
+  .prof{grid-template-columns:1fr;gap:36px;}
+  .cmp{grid-template-columns:1fr;gap:16px;}
+  .cmp-plus{width:auto;height:44px;}
+  .grid-3,.pain-grid{grid-template-columns:1fr 1fr;}
+  .tl{grid-template-columns:1fr 1fr;gap:34px 20px;}
+  .tl-i{padding:0;}
+  .fit{grid-template-columns:1fr;}
+  .nav{display:none;}
+}
+@media (max-width:720px){
+  :root{--fs-body:16.5px;--sec:64px;--pad:20px;}
+  body{padding-bottom:78px;}
+  .hero{padding:118px 0 72px;}
+  .hero-sub{font-size:17px;}
+  .btn,.btn-lg{width:100%;font-size:17px;padding:18px 22px;}
+  .cta-row{flex-direction:column;}
+  .hd .btn{width:auto;font-size:14px;padding:10px 16px;}
+  .strip-in{grid-template-columns:1fr 1fr;}
+  .strip-i{border-bottom:1px solid var(--line-dark);}
+  .strip-i:nth-child(2n){border-right:none;}
+  .grid-2,.grid-3,.pain-grid,.price,.deliv,.guard,.tl{grid-template-columns:1fr;}
+  .cond-grid,.incl-grid,.opt-list{grid-template-columns:1fr;}
+  .ft-top{grid-template-columns:1fr;gap:32px;}
+  .prof-body li{grid-template-columns:1fr;gap:4px;}
+  .card,.pc,.incl,.cond,.fit-box{padding:26px 22px;}
+  .sticky{display:block;}
+  .strip-n{font-size:27px;}
+  .pc-num{font-size:38px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="hd">
+  <div class="hd-in">
+    <a href="#top" class="logo">
+      <span class="logo-mk">マケナイ<span class="logo-dot"></span></span>
+      <span class="logo-sub">by 株式会社Ikigai</span>
+    </a>
+    <nav class="nav">
+      <a href="#what">ChatGPT広告とは</a>
+      <a href="#flow">30日の進め方</a>
+      <a href="#fit">対象</a>
+      <a href="#price">料金</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#cta" class="btn btn-primary">トライアルを相談する</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <span class="badge"><span class="pulse"></span>ChatGPT Ads Manager 日本の広告主も利用可能</span>
+      <h1>検索では拾えない<br>「<span class="mk">迷っている会話</span>」に、<br>広告を出す。</h1>
+      <p class="hero-sub">
+        ChatGPT広告を、<b>30日だけ試す</b>プラン。<br>
+        会話意図の設計から広告制作・計測・週次改善まで一気通貫。<br>
+        大きな予算を投じる前に、続ける価値があるかを見極めます。
+      </p>
+      <div class="cta-row">
+        <a href="#cta" class="btn btn-primary btn-lg">30日トライアルを相談する<span class="btn-arrow">→</span></a>
+        <a href="#price" class="btn btn-ghost btn-lg">料金を見る</a>
+      </div>
+      <p class="cta-note">支援費12万円〜＋広告費10万円〜／初期費用なし／自動更新なし</p>
+      <p class="hero-disc">
+        本サービスはOpenAIの公式・公認・提携サービスではありません。ChatGPT、OpenAIは各権利者の商標です。
+      </p>
+    </div>
+
+    <div>
+      <div class="mock">
+        <div class="mock-bar"><i></i><i></i><i></i><span>ChatGPT — 広告表示イメージ</span></div>
+        <div class="mock-body">
+          <div class="bub-user">出張が多いんだけど、法人カードはどれがいい？年会費も抑えたい。</div>
+          <div class="bub-ai">
+            比較の軸は3つあります。年会費、還元率、経費精算ツールとの連携です。出張が多い場合は……
+          </div>
+          <div class="mock-div"><span>SPONSORED</span></div>
+          <div class="ad-card">
+            <span class="ad-tag">広告</span>
+            <div class="ad-head">
+              <div class="ad-ico"></div>
+              <div>
+                <div class="ad-name">〇〇法人カード</div>
+                <div class="ad-url">example-card.jp</div>
+              </div>
+            </div>
+            <p class="ad-txt">出張の多い企業向け。年会費無料、経費精算ツールと自動連携。最短3営業日で発行。</p>
+            <span class="ad-btn">無料で申し込む</span>
+          </div>
+          <p class="mock-cap">広告は回答とは分離して表示されます。実際の表示とは異なる場合があります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="strip">
+  <div class="wrap strip-in">
+    <div class="strip-i"><div class="strip-n">30<em>日</em></div><div class="strip-l">トライアル期間</div></div>
+    <div class="strip-i"><div class="strip-n">12<em>万円〜</em></div><div class="strip-l">支援費（初期3社）</div></div>
+    <div class="strip-i"><div class="strip-n">10<em>万円〜</em></div><div class="strip-l">推奨広告費（30日）</div></div>
+    <div class="strip-i"><div class="strip-n">0<em>円</em></div><div class="strip-l">初期費用・自動更新</div></div>
+  </div>
+</section>
+
+<!-- ============ WHAT ============ -->
+<section class="sec" id="what">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">What is it</span>
+      <h2 class="h2">検索広告とは、拾うタイミングが違う。</h2>
+      <p class="lead">どちらが優れているという話ではありません。届く瞬間が違うだけです。</p>
+    </div>
+
+    <div class="cmp rv" style="margin-top:56px;">
+      <div class="cmp-col">
+        <div class="cmp-tag">これまで</div>
+        <h3 class="cmp-h">検索広告<br>言葉になった需要を刈り取る</h3>
+        <ul class="cmp-list">
+          <li>「〇〇 比較」など、明確なキーワードで配信する</li>
+          <li>買う直前の顧客に強い</li>
+          <li>成熟した市場では入札が競り上がり、CPAが上がる</li>
+          <li>まだ言葉にできていない需要には届かない</li>
+        </ul>
+      </div>
+      <div class="cmp-plus">＋</div>
+      <div class="cmp-col hi">
+        <div class="cmp-tag">ここから</div>
+        <h3 class="cmp-h">ChatGPT広告<br>迷っている会話に割り込む</h3>
+        <ul class="cmp-list">
+          <li>会話の文脈と意図をもとに配信される</li>
+          <li>「どれがいいか相談している」段階に届く</li>
+          <li>広告は回答とは分けて表示される</li>
+          <li>CPM・CPC・oCPCに対応。Pixel／CAPIで成果を測れる</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3 rv" style="margin-top:56px;">
+      <div class="card">
+        <span class="card-num">01</span>
+        <h3>キーワード一致ではない</h3>
+        <p>完全一致キーワードで買う枠ではありません。会話の文脈、LP、広告文、こちらが設定する文脈ヒントから関連性が判断されます。だから設計の巧拙が結果を分けます。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">02</span>
+        <h3>表示されるのは無料層</h3>
+        <p>広告はFree・Goのユーザーに表示されます。Plus・Pro・Business・Enterprise・Eduでは表示されません。誰に届くのかを踏まえて商材を選びます。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">03</span>
+        <h3>成果はクリック後まで測る</h3>
+        <p>OpenAI PixelとConversions APIで、購入・申込・登録を計測できます。「出しました」で終わらせず、CPAまで数字で出します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAIN ============ -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Common blockers</span>
+      <h2 class="h2">やってみたい。でも、決めきれない。</h2>
+      <p class="lead">相談でよく出る詰まりどころです。どれも、30日の中で答えが出ます。</p>
+    </div>
+    <div class="pain-grid rv" style="margin-top:52px;">
+      <div class="pain"><div class="pain-q">?</div><p>Google広告と何が違うのか、社内に説明できない</p></div>
+      <div class="pain"><div class="pain-q">?</div><p>何をターゲティングすればいいのか分からない</p></div>
+      <div class="pain"><div class="pain-q">?</div><p>広告文を何パターン作ればいいのか判断できない</p></div>
+      <div class="pain"><div class="pain-q">?</div><p>Pixel・CAPIの実装が新しく、計測が不安</p></div>
+      <div class="pain"><div class="pain-q">?</div><p>自社の商材が審査を通るのか分からない</p></div>
+      <div class="pain"><div class="pain-q">?</div><p>相場がなく、続けるべきかを判断できない</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">What we do</span>
+      <h2 class="h2">マケナイがやる、5つのこと。</h2>
+      <p class="lead">出稿代行ではありません。設計から判断までを引き受けます。</p>
+    </div>
+    <div class="grid-3 rv" style="margin-top:52px;">
+      <div class="card">
+        <span class="card-num">設計</span>
+        <h3>会話意図マップをつくる</h3>
+        <p>顧客の悩み・用途・比較基準・検討段階に会話を分解します。そのうえで文脈ヒントと広告グループを設計します。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">制作</span>
+        <h3>広告を複数の角度で作る</h3>
+        <p>見出し・説明文・画像を3〜5パターン。AIで案を広げ、人が正確性と差別化を確認します。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">計測</span>
+        <h3>クリック後まで追う</h3>
+        <p>OpenAI Pixel・UTM・コンバージョンイベントを設定します。GA4との数値のズレも突き合わせます。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">運用</span>
+        <h3>毎週、直す</h3>
+        <p>配信状況を確認し、広告文・入札・意図テーマを週次で改善します。放置しません。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">判断</span>
+        <h3>30日後に、正直に言う</h3>
+        <p>続ける・直す・止めるを実測データで提案します。効果が薄ければ、そう伝えます。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">審査</span>
+        <h3>出す前に、通るか調べる</h3>
+        <p>広告ポリシーとカテゴリーを事前に確認します。出稿できない商材は、契約前にお伝えします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIT ============ -->
+<section class="sec sec-alt" id="fit">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="h2">業種は絞りません。<br>条件が合えば、試せます。</h2>
+      <p class="lead">相性を決めるのは業界ではなく、商材の性質と計測環境です。</p>
+    </div>
+
+    <div class="fit rv" style="margin-top:52px;">
+      <div class="fit-box ok">
+        <div class="fit-h"><span class="fit-ico">✓</span>試せる商材</div>
+        <div class="tags">
+          <span class="tag">消費財・D2C</span>
+          <span class="tag">EC・通販</span>
+          <span class="tag">SaaS・デジタルツール</span>
+          <span class="tag">オンライン教育・スクール</span>
+          <span class="tag">旅行・体験</span>
+          <span class="tag">地域サービス</span>
+          <span class="tag">BtoBサービス</span>
+          <span class="tag">サブスク型サービス</span>
+        </div>
+        <p class="fit-note">共通するのは「比較しながら選ぶ商材」であること。用途・予算・条件を相談しながら決めるカテゴリーほど、会話意図を設計しやすくなります。</p>
+      </div>
+      <div class="fit-box ng">
+        <div class="fit-h"><span class="fit-ico">!</span>制限がある領域</div>
+        <div class="tags">
+          <span class="tag">金融・保険・証券</span>
+          <span class="tag">医療・医薬・健康</span>
+          <span class="tag">法律・士業</span>
+          <span class="tag">ギャンブル</span>
+          <span class="tag">アルコール</span>
+          <span class="tag">成人向け</span>
+          <span class="tag">政治・選挙</span>
+        </div>
+        <p class="fit-note">個別承認制または出稿不可のカテゴリーです。該当しそうな場合も、まず無料の適性確認でポリシーを照合します。可否は契約前にお伝えします。</p>
+      </div>
+    </div>
+
+    <div class="cond rv">
+      <h3>この5つが揃っていれば、30日で答えが出ます</h3>
+      <p class="lead">1つ欠けていても構いません。相談の中で埋め方を設計します。</p>
+      <ul class="cond-grid">
+        <li>Google広告かMeta広告を運用中で、比較できる数字がある</li>
+        <li>申込・資料請求・購入など、コンバージョン地点が明確</li>
+        <li>広告の受け皿になるLPがある</li>
+        <li>PixelまたはConversions APIを実装できる</li>
+        <li>30日分のテスト予算（広告費10万円〜）を用意できる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="sec sec-dark" id="flow">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">30 days</span>
+      <h2 class="h2">30日間、こう進みます。</h2>
+      <p class="lead">出して放置ではありません。4つのフェーズで伴走します。</p>
+    </div>
+
+    <div class="tl rv" style="margin-top:56px;">
+      <div class="tl-i">
+        <div class="tl-bar"></div>
+        <div class="tl-day">事前 — DAY 3</div>
+        <h3 class="tl-h">出せるか確かめる</h3>
+        <p class="tl-p">商材の出稿適性とポリシーを確認。Ads Managerの開設、権限・請求設定、目的・予算・地域の設計まで。</p>
+      </div>
+      <div class="tl-i">
+        <div class="tl-bar"></div>
+        <div class="tl-day">DAY 4 — 10</div>
+        <h3 class="tl-h">意図を設計し、作る</h3>
+        <p class="tl-p">会話意図マップと文脈ヒントを作成。広告グループを設計し、見出し・説明文・画像を制作。既存LPの改善点も洗い出します。</p>
+      </div>
+      <div class="tl-i">
+        <div class="tl-bar"></div>
+        <div class="tl-day">DAY 11 — 27</div>
+        <h3 class="tl-h">配信して、毎週直す</h3>
+        <p class="tl-p">Pixel・UTMを実装して配信開始。週次でレポートを出し、広告文・入札・意図テーマを改善します。</p>
+      </div>
+      <div class="tl-i">
+        <div class="tl-bar"></div>
+        <div class="tl-day">DAY 28 — 30</div>
+        <h3 class="tl-h">続けるか、決める</h3>
+        <p class="tl-p">実測データで評価。継続・修正・停止を提案し、Google・Metaとの比較を添えた評価レポートを納品します。</p>
+      </div>
+    </div>
+
+    <div class="deliv rv">
+      <div class="deliv-box">
+        <h4>30日でやること</h4>
+        <ul>
+          <li>出稿適性・広告ポリシーの確認</li>
+          <li>Ads Manager開設・権限・請求設定</li>
+          <li>会話意図マップ・文脈ヒントの設計</li>
+          <li>広告グループ設計、広告文・画像3〜5パターン</li>
+          <li>既存LPの改善提案</li>
+          <li>OpenAI Pixel・UTM・CVイベント設定</li>
+          <li>週次レポートと週次改善（全4回）</li>
+          <li>30日評価会と継続判断</li>
+        </ul>
+      </div>
+      <div class="deliv-box">
+        <h4>手元に残るもの</h4>
+        <ul>
+          <li>会話意図マップ（他施策にも転用できる資産）</li>
+          <li>広告アセット一式（見出し・説明文・画像）</li>
+          <li>計測ダッシュボード（スプレッドシート）</li>
+          <li>週次改善レポート（4回分）</li>
+          <li>30日評価レポート（継続可否と根拠）</li>
+        </ul>
+        <p style="margin-top:20px;font-size:14.5px;color:var(--tx-on-dark-sub);line-height:1.8;">
+          広告の反応が弱かった場合でも、会話意図マップと計測環境は残ります。SEO・コンテンツ・LP改善にそのまま使えます。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICE ============ -->
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Pricing</span>
+      <h2 class="h2">30日で終わる。自動更新はしません。</h2>
+      <p class="lead">表示価格は税別です。広告費はお客様の負担となります。</p>
+    </div>
+
+    <div class="price rv" style="margin-top:56px;">
+      <div class="pc hi">
+        <span class="pc-rib">初期3社限定</span>
+        <div class="pc-name">共同検証パートナー</div>
+        <p class="pc-desc">実データの共有と、匿名での事例化にご協力いただける企業向けの価格です。</p>
+        <div class="pc-amt">
+          <span class="pc-old">150,000円</span>
+          <span class="pc-num">120,000</span><span class="pc-unit">円</span>
+        </div>
+        <div class="pc-plus">＋ 広告費 <b>100,000円〜</b>（実費・お客様負担）</div>
+        <div class="pc-meta">
+          <span class="chip">初期費用なし</span>
+          <span class="chip">30日で終了</span>
+          <span class="chip">自動更新なし</span>
+        </div>
+        <a href="#cta" class="btn btn-primary">この枠で相談する<span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="pc">
+        <div class="pc-name">30日トライアル（通常）</div>
+        <p class="pc-desc">1商材・1キャンペーンを30日間検証する標準プランです。事例化の条件はありません。</p>
+        <div class="pc-amt">
+          <span class="pc-num">150,000</span><span class="pc-unit">円</span>
+        </div>
+        <div class="pc-plus">＋ 広告費 <b>100,000円〜</b>（実費・お客様負担）</div>
+        <div class="pc-meta">
+          <span class="chip">初期費用なし</span>
+          <span class="chip">30日で終了</span>
+          <span class="chip">自動更新なし</span>
+        </div>
+        <a href="#cta" class="btn btn-ghost">内容を相談する</a>
+      </div>
+    </div>
+
+    <div class="incl rv">
+      <h3>支援費に含まれるもの</h3>
+      <ul class="incl-grid">
+        <li>出稿適性・広告ポリシーの事前確認</li>
+        <li>Ads Manager開設・権限・請求設定の支援</li>
+        <li>会話意図マップの作成</li>
+        <li>文脈ヒント・広告グループの設計</li>
+        <li>広告文・画像 3〜5パターンの制作</li>
+        <li>既存LPの簡易改善提案</li>
+        <li>OpenAI Pixel・UTM・CVイベント設定支援</li>
+        <li>週次レポート・週次改善（全4回）</li>
+        <li>30日評価レポートと継続判断会</li>
+        <li>Google・Meta広告との役割整理</li>
+      </ul>
+
+      <div class="opt">
+        <h4>別料金となるもの（税別）</h4>
+        <ul class="opt-list">
+          <li><span>既存LPの実装改修</span><b>100,000〜150,000円</b></li>
+          <li><span>ChatGPT広告専用LPの新規制作</span><b>250,000〜350,000円</b></li>
+          <li><span>Conversions API実装</span><b>50,000〜100,000円</b></li>
+          <li><span>追加商材・追加キャンペーン</span><b>50,000円〜</b></li>
+          <li><span>Google・Metaとの統合分析</span><b>50,000円〜</b></li>
+          <li><span>追加クリエイティブ（3案）</span><b>30,000円〜</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guard rv">
+      <div class="guard-i">
+        <b>長期契約を押しつけません</b>
+        <span>30日で自動終了します。継続する場合のみ、別途あらためて合意します。</span>
+      </div>
+      <div class="guard-i">
+        <b>効果が弱くても資産は残ります</b>
+        <span>会話意図マップと広告アセットは、他の施策にそのまま転用できます。</span>
+      </div>
+      <div class="guard-i">
+        <b>成果は保証しません</b>
+        <span>掲載・クリック数・CV数・CPAの保証はしません。30日は判断材料を揃える期間です。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFILE ============ -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:56px;">
+      <span class="eyebrow">Who runs it</span>
+      <h2 class="h2">設計と判断は、人がやります。</h2>
+      <p class="lead">AIで案を広げ、最終確認は代表が行います。AIだけで完結させません。</p>
+    </div>
+
+    <div class="prof rv">
+      <figure class="prof-fig" style="margin:0;">
+        <img src="assets/mikami-altman.jpg" alt="株式会社Ikigai 代表取締役 三神勇治" onerror="this.style.display='none';this.parentNode.querySelector('.prof-ph').style.display='flex';">
+        <div class="prof-ph" style="display:none;">
+          <strong style="color:#C6CDD9;font-size:16px;">三神 勇治</strong>
+          <span>株式会社Ikigai 代表取締役</span>
+        </div>
+        <figcaption class="prof-cap">
+          サンフランシスコ・Moscone Centerにて、OpenAI CEO サム・アルトマン氏と。<br>
+          ※個人的な記録写真です。OpenAIとの提携・公認・推奨を示すものではありません。
+        </figcaption>
+      </figure>
+
+      <div>
+        <div class="prof-name">三神 勇治</div>
+        <div class="prof-role">株式会社Ikigai 代表取締役／AI × マーケティング</div>
+        <dl class="prof-body">
+          <li>
+            <dt>起業期</dt>
+            <dd>東京大学経済学部在学中にSEOメディア事業を立ち上げ、月間360万PVを構築。その後DeNAヘルスケア事業部で新規事業マーケティングを担当。</dd>
+          </li>
+          <li>
+            <dt>CMO</dt>
+            <dd>ARETECO HOLDINGS子会社RelookのCMOとしてマーケティングを統括。瞑想アプリで40万DL（国内No.1）を達成。</dd>
+          </li>
+          <li>
+            <dt>現在</dt>
+            <dd>株式会社Ikigaiを創業。広告運用・SNS運用・メディア運営を、戦略設計から実行まで一気通貫で支援。</dd>
+          </li>
+        </dl>
+        <div class="prof-kpi">
+          <span>YouTube 月間1,100万PV</span>
+          <span>TikTok 100万再生</span>
+          <span>広告CPA 最大80%改善</span>
+          <span>自社メディア 月間360万PV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-alt" id="faq">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2">よくあるご質問</h2>
+    </div>
+    <div class="faq rv" style="margin-top:48px;">
+      <details open>
+        <summary>ChatGPT広告は、日本でも出せますか。</summary>
+        <div class="faq-a">日本の広告主もAds Managerを利用できます。ただし配信地域・表示対象・機能・ポリシーは変更される場合があります。実際の配信可否は、契約前にAds Managerの地域設定画面で一緒に確認します。</div>
+      </details>
+      <details>
+        <summary>自社の業種でも出稿できますか。</summary>
+        <div class="faq-a">消費財、EC、SaaS、教育、旅行・体験、地域サービスなど幅広い商材が対象です。金融・医療・法律は個別承認制または制限あり、ギャンブル・政治広告などは出稿できません。無料の適性確認でポリシーを照合し、可否を先にお伝えします。</div>
+      </details>
+      <details>
+        <summary>広告費はいくら必要ですか。</summary>
+        <div class="faq-a">日本の最低日予算は1キャンペーンあたり2,500円と案内されています。30日で約75,000円が下限です。運用調整の余地を含めて、10万円からを推奨しています。</div>
+      </details>
+      <details>
+        <summary>30日で成果は出ますか。</summary>
+        <div class="faq-a">30日は成果を保証する期間ではありません。ChatGPT広告が自社の獲得チャネルとして機能するかを判断する期間です。一定のCV数を約束するものではありません。</div>
+      </details>
+      <details>
+        <summary>30日後は、必ず継続しないといけませんか。</summary>
+        <div class="faq-a">いいえ。自動更新はしません。評価会で継続・修正・停止を一緒に判断します。止める選択をされても、会話意図マップと広告素材はそのままお使いいただけます。</div>
+      </details>
+      <details>
+        <summary>会話意図マップとは何ですか。</summary>
+        <div class="faq-a">ChatGPT広告では、キーワードの代わりに「文脈ヒント」で配信トリガーを設定します。会話意図マップは、顧客がChatGPT上で行う相談・比較の会話パターンを言語化した設計資料です。広告以外にも、LP改善やコンテンツ制作に転用できます。</div>
+      </details>
+      <details>
+        <summary>いまの広告代理店と併用できますか。</summary>
+        <div class="faq-a">できます。Google広告・Meta広告の現行代理店との役割分担を整理したうえで設計します。GA4など既存の計測環境との接続方法も、相談の中で確認します。</div>
+      </details>
+      <details>
+        <summary>LPがなくても相談できますか。</summary>
+        <div class="faq-a">相談は可能です。ただしLPなしでは効果が限定されるため、既存サイトの改善提案か、オプションでの新規制作をご提案します。まずは現状をお聞かせください。</div>
+      </details>
+      <details>
+        <summary>ChatGPT広告の運用実績はありますか。</summary>
+        <div class="faq-a">ChatGPT広告は新しい媒体のため、現在は初期パートナーと共同でデータを蓄積している段階です。Google・Meta広告の運用、LP改善、AI活用の知見をもとに設計します。実績を誇張することはしません。</div>
+      </details>
+      <details>
+        <summary>AIだけで運用するのですか。</summary>
+        <div class="faq-a">いいえ。AIで仮説と素案を高速化しますが、会話意図設計と広告設計の最終確認は代表が行います。人が判断する体制で進めます。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISCLAIMER ============ -->
+<section style="padding:0 0 var(--sec);">
+  <div class="wrap-n">
+    <div class="disc">
+      <h4>ご確認いただきたいこと</h4>
+      <ul>
+        <li>本サービスはOpenAIの公式・公認・提携サービスではありません。ChatGPT、OpenAIおよび関連する名称・ロゴは各権利者の商標です。</li>
+        <li>広告はChatGPTの回答とは別に表示されます。回答の中で自社が紹介されることを保証するものではありません。</li>
+        <li>広告掲載、配信量、成果（CVR・CPA等）を保証するものではありません。</li>
+        <li>商材や表現によっては、審査で不承認となる場合があります。</li>
+        <li>対象地域、表示対象、料金、機能、広告ポリシーは予告なく変更される場合があります。</li>
+        <li>表示価格はすべて税別です。広告費は別途お客様のご負担となります。</li>
+        <li>広告費10万円は、1商材・1キャンペーンの目安です。</li>
+        <li>30日間は媒体適性を判断する期間であり、一定のコンバージョン数を保証する期間ではありません。</li>
+        <li>本ページの情報は2026年8月時点のものです。最新の仕様はAds Managerおよびお問い合わせでご確認ください。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final" id="cta">
+  <div class="wrap final-in">
+    <h2>「効くか分からない」を、<br>30日で「分かった」に変える。</h2>
+    <p>まずは20分。出稿できる商材か、どんな会話に届きそうか、計測は組めるか。この3つを確認してから、トライアルに進みます。</p>
+    <div class="cta-row">
+      <a href="mailto:news@ikigaiinc.com?subject=ChatGPT広告%2030日トライアルの相談" class="btn btn-primary btn-lg">20分の無料相談を予約する<span class="btn-arrow">→</span></a>
+      <a href="#price" class="btn btn-ghost btn-lg">料金をもう一度見る</a>
+    </div>
+    <p class="cta-note">相談後、2営業日以内に担当者からご返信します。無理な勧誘はしません。</p>
+    <p class="final-mail">メールでのご相談：<a href="mailto:news@ikigaiinc.com">news@ikigaiinc.com</a></p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">マケナイ<span>.</span></div>
+        <div>ChatGPT広告 30日トライアル</div>
+        <p class="ft-note">運営：株式会社Ikigai／代表取締役 三神 勇治<br>本サービスはOpenAIの公式・公認・提携サービスではありません。</p>
+      </div>
+      <div>
+        <h5>サービス</h5>
+        <ul>
+          <li><a href="#what">ChatGPT広告とは</a></li>
+          <li><a href="#fit">対象となる商材</a></li>
+          <li><a href="#flow">30日の進め方</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#faq">よくあるご質問</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>お問い合わせ</h5>
+        <ul>
+          <li><a href="mailto:news@ikigaiinc.com">news@ikigaiinc.com</a></li>
+          <li><a href="https://ikigaiinc.com" target="_blank" rel="noopener">ikigaiinc.com</a></li>
+          <li><a href="#cta">20分の無料相談を予約する →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      © 2026 株式会社Ikigai. All rights reserved.<br>
+      ChatGPT・OpenAIは各権利者の商標です。本サービスはOpenAIとは無関係です。
+    </div>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="#cta" class="btn btn-primary">20分の無料相談を予約する</a>
+</div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('on');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); }
+    });
+  },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
