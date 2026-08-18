@@ -408,6 +408,58 @@ ul{margin:0;padding:0;list-style:none;}
 .final-mail{margin-top:30px;font-size:15px;color:#8D96A6;}
 .final-mail a{color:#fff;font-weight:600;}
 
+/* ---------- Form ---------- */
+.form-card{
+  background:#fff;border-radius:var(--r-lg);padding:44px 40px;
+  max-width:760px;margin:44px auto 0;text-align:left;
+  box-shadow:0 24px 60px rgba(0,0,0,.42);
+}
+.form-card h3{font-size:21px;margin-bottom:8px;letter-spacing:-.02em;}
+.form-card .fc-note{font-size:14.5px;color:var(--tx-sub);line-height:1.75;margin-bottom:28px;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.fld{display:flex;flex-direction:column;gap:8px;}
+.fld.full{grid-column:1 / -1;}
+.fld label{font-size:14.5px;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:8px;}
+.req{background:var(--acc);color:#fff;font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;letter-spacing:.04em;}
+.opt-tag{background:var(--bg-alt);color:var(--tx-mute);font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;}
+.fld input[type=text],.fld input[type=email],.fld input[type=tel],.fld select,.fld textarea{
+  font-family:var(--f);font-size:16px;color:var(--tx);line-height:1.6;
+  padding:14px 15px;border:1.5px solid var(--line);border-radius:10px;background:#fff;
+  width:100%;transition:border-color .18s ease,box-shadow .18s ease;
+}
+.fld textarea{resize:vertical;min-height:92px;}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(255,90,31,.14);
+}
+.fld input:user-invalid,.fld textarea:user-invalid{border-color:#D93025;}
+.choices{display:flex;flex-wrap:wrap;gap:9px;}
+.choice{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1.5px solid var(--line);border-radius:100px;padding:10px 16px;
+  font-size:15px;font-weight:600;color:var(--tx-sub);transition:.16s ease;user-select:none;
+}
+.choice input{accent-color:var(--acc);margin:0;width:16px;height:16px;}
+.choice:has(input:checked){border-color:var(--acc);background:var(--acc-soft);color:var(--tx);}
+.agree{display:flex;align-items:flex-start;gap:11px;font-size:15px;color:var(--tx-sub);line-height:1.7;cursor:pointer;}
+.agree input{accent-color:var(--acc);margin-top:5px;width:17px;height:17px;flex-shrink:0;}
+.agree a{color:var(--acc);text-decoration:underline;}
+.form-card .btn{width:100%;margin-top:8px;}
+.fc-foot{margin-top:16px;font-size:13.5px;color:var(--tx-mute);line-height:1.75;text-align:center;}
+.fc-foot a{color:var(--tx-sub);text-decoration:underline;}
+.fmsg{margin-top:16px;font-size:15px;line-height:1.75;border-radius:10px;padding:14px 16px;display:none;}
+.fmsg.err{display:block;background:#FDECEA;color:#B3261E;border:1px solid #F4C7C3;}
+.form-done{display:none;text-align:center;padding:24px 8px;}
+.form-done .fd-ico{
+  width:60px;height:60px;border-radius:50%;background:var(--ok);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;margin:0 auto 20px;
+}
+.form-done h3{font-size:23px;margin-bottom:12px;}
+.form-done p{font-size:16px;color:var(--tx-sub);line-height:1.85;}
+@media (max-width:720px){
+  .form-card{padding:28px 22px;margin-top:32px;}
+  .fgrid{grid-template-columns:1fr;gap:18px;}
+}
+
 /* ---------- Footer ---------- */
 .ft{background:#05060A;color:#8D96A6;padding:64px 0 40px;font-size:14.5px;}
 .ft-top{display:grid;grid-template-columns:1.5fr 1fr 1.1fr 1.2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line-dark);}
@@ -1006,12 +1058,90 @@ ul{margin:0;padding:0;list-style:none;}
   <div class="wrap final-in">
     <h2>「効くか分からない」を、<br>30日で「分かった」に変える。</h2>
     <p>まずは20分。出稿できる商材か、どんな会話に届きそうか、計測は組めるか。この3つを確認してから、トライアルに進みます。</p>
-    <div class="cta-row">
-      <a href="mailto:news@ikigaiinc.com?subject=ChatGPT広告%2030日トライアルの相談" class="btn btn-primary btn-lg">20分の無料相談を予約する<span class="btn-arrow">→</span></a>
-      <a href="#price" class="btn btn-ghost btn-lg">料金をもう一度見る</a>
+
+    <div class="form-card">
+      <div id="formWrap">
+        <h3>20分の無料相談を申し込む</h3>
+        <p class="fc-note">出稿できる商材か、どんな会話に届きそうか、計測は組めるか。この3点を確認したうえで、トライアルに進むかを決めます。相談だけで終わっても構いません。</p>
+
+        <form id="leadForm" novalidate>
+          <div class="fgrid">
+            <div class="fld">
+              <label for="f-company">会社名<span class="req">必須</span></label>
+              <input type="text" id="f-company" name="company" required autocomplete="organization" placeholder="株式会社Ikigai">
+            </div>
+            <div class="fld">
+              <label for="f-name">お名前<span class="req">必須</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="三神 勇治">
+            </div>
+            <div class="fld">
+              <label for="f-email">メールアドレス<span class="req">必須</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="fld">
+              <label for="f-tel">電話番号<span class="opt-tag">任意</span></label>
+              <input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="03-0000-0000">
+            </div>
+            <div class="fld full">
+              <label for="f-product">商材・サービスの概要<span class="req">必須</span></label>
+              <textarea id="f-product" name="product" required placeholder="例）中小企業向けの経費精算SaaS。月額1万円から。申込は無料トライアル登録。"></textarea>
+            </div>
+            <div class="fld full">
+              <label>現在運用中の広告<span class="opt-tag">任意・複数選択可</span></label>
+              <div class="choices">
+                <label class="choice"><input type="checkbox" name="current" value="Google広告">Google広告</label>
+                <label class="choice"><input type="checkbox" name="current" value="Meta広告">Meta広告</label>
+                <label class="choice"><input type="checkbox" name="current" value="その他">その他</label>
+                <label class="choice"><input type="checkbox" name="current" value="運用していない">運用していない</label>
+              </div>
+            </div>
+            <div class="fld">
+              <label for="f-budget">月間の広告予算<span class="opt-tag">任意</span></label>
+              <select id="f-budget" name="budget">
+                <option value="">選択してください</option>
+                <option>10万円未満</option>
+                <option>10〜30万円</option>
+                <option>30〜100万円</option>
+                <option>100万円以上</option>
+                <option>まだ決めていない</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="f-plan">希望プラン<span class="opt-tag">任意</span></label>
+              <select id="f-plan" name="plan">
+                <option value="">選択してください</option>
+                <option>初期3社モニター（支援費12万円）</option>
+                <option>通常トライアル（支援費15万円）</option>
+                <option>まだ決めていない</option>
+              </select>
+            </div>
+            <div class="fld full">
+              <label for="f-message">ご相談内容<span class="opt-tag">任意</span></label>
+              <textarea id="f-message" name="message" placeholder="気になっていること、確認したいことがあればご記入ください。"></textarea>
+            </div>
+            <div class="fld full">
+              <label class="agree">
+                <input type="checkbox" id="f-agree" name="agree" required>
+                <span><a href="https://ikigaiinc.com/privacypolicy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します。ご入力いただいた情報は、ご相談への対応のみに使用します。</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="fmsg" id="formMsg"></div>
+          <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">無料相談を申し込む<span class="btn-arrow">→</span></button>
+          <p class="fc-foot">
+            2営業日以内に担当者からご返信します。無理な勧誘はしません。<br>
+            メールでのご相談は <a href="mailto:news@ikigaiinc.com">news@ikigaiinc.com</a> へ。
+          </p>
+        </form>
+      </div>
+
+      <div class="form-done" id="formDone">
+        <div class="fd-ico">✓</div>
+        <h3>送信しました</h3>
+        <p>お申し込みありがとうございます。<br>2営業日以内に <strong>news@ikigaiinc.com</strong> よりご返信します。<br>迷惑メールフォルダに振り分けられる場合がありますので、あわせてご確認ください。</p>
+      </div>
     </div>
-    <p class="cta-note">相談後、2営業日以内に担当者からご返信します。無理な勧誘はしません。</p>
-    <p class="final-mail">メールでのご相談：<a href="mailto:news@ikigaiinc.com">news@ikigaiinc.com</a></p>
   </div>
 </section>
 
@@ -1066,6 +1196,87 @@ ul{margin:0;padding:0;list-style:none;}
 </div>
 
 <script>
+/* ===== 送信先エンドポイント =====
+   Google Apps Script のウェブアプリURLをここに入れる。
+   空のままの場合、フォームは送信せずメール作成に切り替わる。 */
+var LEAD_ENDPOINT = "";
+
+(function(){
+  var form = document.getElementById('leadForm');
+  if(!form) return;
+  var btn  = document.getElementById('submitBtn');
+  var msg  = document.getElementById('formMsg');
+  var wrap = document.getElementById('formWrap');
+  var done = document.getElementById('formDone');
+
+  function show(t){ msg.textContent = t; msg.className = 'fmsg err'; }
+  function clear(){ msg.textContent = ''; msg.className = 'fmsg'; }
+
+  function collect(){
+    var d = {};
+    ['company','name','email','tel','product','budget','plan','message'].forEach(function(k){
+      var el = form.elements[k];
+      d[k] = el ? el.value.trim() : '';
+    });
+    d.current = Array.prototype.slice.call(form.querySelectorAll('input[name=current]:checked'))
+                     .map(function(c){return c.value;}).join(' / ');
+    d.page = location.href;
+    d.referrer = document.referrer || '';
+    d.userAgent = navigator.userAgent;
+    return d;
+  }
+
+  function mailtoFallback(d){
+    var body = [
+      '会社名: ' + d.company, 'お名前: ' + d.name, 'メール: ' + d.email, '電話: ' + d.tel,
+      '', '商材・サービス:', d.product,
+      '', '現在運用中の広告: ' + d.current, '月間広告予算: ' + d.budget, '希望プラン: ' + d.plan,
+      '', 'ご相談内容:', d.message
+    ].join('\n');
+    location.href = 'mailto:news@ikigaiinc.com'
+      + '?subject=' + encodeURIComponent('ChatGPT広告 30日トライアルの相談')
+      + '&body=' + encodeURIComponent(body);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clear();
+
+    if(!form.checkValidity()){
+      var bad = form.querySelector(':invalid');
+      if(bad){ bad.focus(); bad.scrollIntoView({block:'center', behavior:'smooth'}); }
+      show('未入力の必須項目があります。ご確認ください。');
+      return;
+    }
+
+    var data = collect();
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+
+    if(!LEAD_ENDPOINT){
+      btn.disabled = false;
+      btn.innerHTML = '無料相談を申し込む<span class="btn-arrow">→</span>';
+      mailtoFallback(data);
+      return;
+    }
+
+    fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(data)
+    }).then(function(){
+      wrap.style.display = 'none';
+      done.style.display = 'block';
+      done.scrollIntoView({block:'center', behavior:'smooth'});
+    }).catch(function(){
+      btn.disabled = false;
+      btn.innerHTML = '無料相談を申し込む<span class="btn-arrow">→</span>';
+      show('送信に失敗しました。お手数ですが news@ikigaiinc.com へ直接ご連絡ください。');
+    });
+  });
+})();
+
 (function(){
   var els = document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
