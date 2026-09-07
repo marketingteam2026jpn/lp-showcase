@@ -1,0 +1,237 @@
+<!-- <style> はFV側に1回入れていれば不要。単体で貼る場合のみ有効化 -->
+<style>
+/* ---- Dejam インハウス訴求パターン 追加スタイル（FV・ボディ共通。ページに1回だけ入れる） ---- */
+.dj3{--r:#E72420;--rc:#D01A17;--deep:#7A0F0C;--n:#08092d;--ink:#1F1516;--mute:#5C5C66;--line:#e5e5ea;--soft:#f9f9f9;--tint:#FDF4F2}
+.dj3 ul,.dj3 ol{list-style:none;margin:0;padding:0}
+.dj3 *,.dj3 *::before,.dj3 *::after{box-sizing:border-box}
+
+/* FV 左カラム */
+.dj3-tag{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--rc);border-radius:6px;
+  padding:6px 16px;margin-bottom:18px;color:var(--rc);font-size:18px;font-weight:900;line-height:1.3;letter-spacing:.08em;background:#fff}
+.dj3-tag small{font-size:13px;font-weight:700;letter-spacing:0;color:var(--n)}
+.dj3-kicker{margin-top:12px;color:var(--rc);font-size:15px;font-weight:700;line-height:1.5}
+.dj3-lead{margin-top:14px;font-size:15px;font-weight:500;line-height:1.9;color:var(--ink)}
+.dj3-lead b{color:var(--n);font-weight:900}
+.dj3-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.dj3-points li{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:8px 16px 8px 12px;font-size:15px;font-weight:700;color:var(--n);line-height:1.3}
+.dj3-points li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--r);flex:0 0 10px}
+.dj3-points li sup{font-size:10px;color:var(--mute);margin-left:2px}
+
+/* CTA */
+.dj3-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:22px}
+.dj3-cta{display:inline-flex;align-items:center;gap:14px;background:var(--rc);color:#fff;
+  border-radius:999px;padding:12px 24px 12px 12px;text-decoration:none;
+  box-shadow:0 6px 16px rgba(208,26,23,.28);transition:transform .18s ease,box-shadow .18s ease}
+.dj3-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(208,26,23,.34)}
+.dj3-cta__free{flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:#fff;color:var(--rc);
+  display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;letter-spacing:-.02em}
+.dj3-cta__txt{display:flex;flex-direction:column;line-height:1.35}
+.dj3-cta__txt small{font-size:13px;font-weight:700}
+.dj3-cta__txt strong{font-size:20px;font-weight:900}
+.dj3-cta__arrow{flex:0 0 auto;font-size:18px;font-weight:700;opacity:.9;margin-left:4px}
+.dj3-cta-sub{display:inline-flex;align-items:center;gap:6px;color:var(--n);font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.dj3-notes{margin-top:14px;font-size:12px;line-height:1.8;color:#8e8e8e}
+
+/* FV 右カラム：動画＋「作る・試す・直す」 */
+.dj3-right{display:flex;flex-direction:column;gap:10px;width:100%;max-width:340px}
+.dj3-flow{background:#fff;border-radius:12px;padding:14px 14px 12px}
+.dj3-flow__ttl{font-size:13px;font-weight:700;color:var(--mute);line-height:1.4;margin-bottom:8px;text-align:center}
+.dj3-flow__ttl b{color:var(--rc)}
+.dj3-flow ul{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:6px}
+.dj3-flow li{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--tint);border-radius:8px;padding:10px 4px;text-align:center}
+.dj3-flow li b{font-size:16px;font-weight:900;color:var(--n);line-height:1.2}
+.dj3-flow li span{font-size:11px;font-weight:700;color:var(--mute);line-height:1.3}
+.dj3-flow li.arrow{background:none;padding:0;color:var(--r);font-size:16px;font-weight:900}
+
+/* 悩みカード */
+.dj3-pains{display:grid;grid-template-columns:1fr;gap:12px;width:100%}
+.dj3-pains li{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:18px 20px;box-shadow:0 1px 2px rgba(8,9,45,.04)}
+.dj3-pains li::before{content:"\00D7";flex:0 0 34px;width:34px;height:34px;border-radius:50%;
+  background:rgba(231,36,32,.1);color:var(--rc);font-size:20px;font-weight:900;line-height:1;
+  display:flex;align-items:center;justify-content:center}
+.dj3-pains li span{font-size:16px;font-weight:700;line-height:1.6;color:var(--n)}
+.dj3-close{text-align:center;font-size:18px;font-weight:900;line-height:1.7;color:var(--n)}
+.dj3-close b{color:var(--rc)}
+
+/* 社内で回せる理由 3枚 */
+.dj3-reasons{display:grid;grid-template-columns:1fr;gap:14px;width:100%}
+.dj3-reasons li{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px 22px}
+.dj3-reasons .num{display:inline-block;color:var(--rc);font-size:13px;font-weight:900;letter-spacing:.12em;margin-bottom:8px}
+.dj3-reasons h3{margin:0 0 10px;font-size:19px;font-weight:900;line-height:1.5;color:var(--n)}
+.dj3-reasons p{margin:0;font-size:15px;line-height:1.85;color:var(--ink)}
+.dj3-reasons p b{color:var(--n)}
+.dj3-result{width:100%;display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 20px;border-radius:16px;
+  background:var(--deep);color:#fff;text-align:center}
+.dj3-result .arrow{font-size:22px;font-weight:900;line-height:1;color:#fff;opacity:.85;margin-bottom:2px}
+.dj3-result .lbl{font-size:17px;font-weight:700;line-height:1.5}
+.dj3-result .val{font-size:44px;font-weight:900;line-height:1.1;letter-spacing:-.01em}
+.dj3-result .val small{font-size:18px;font-weight:900;margin-left:4px}
+.dj3-result .val sup{font-size:14px;font-weight:700;opacity:.85}
+
+/* 比較表（外注 vs Dejamで内製） */
+.dj3-cmp{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dj3-cmp table{width:100%;min-width:680px;border-collapse:separate;border-spacing:0}
+.dj3-cmp th,.dj3-cmp td{padding:16px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
+.dj3-cmp thead th{text-align:center;color:#fff;font-weight:900;font-size:17px;border-bottom:none}
+.dj3-cmp thead th.h-blank{background:transparent;border-bottom:1px solid var(--line)}
+.dj3-cmp thead th.h-dejam{background:var(--rc);border-radius:14px 14px 0 0}
+.dj3-cmp thead th.h-other{background:var(--n);border-radius:14px 14px 0 0}
+.dj3-cmp tbody th{width:22%;background:var(--soft);font-weight:700;font-size:15px;color:var(--n)}
+.dj3-cmp td{width:39%}
+.dj3-cmp td.c-dejam{background:rgba(231,36,32,.06)}
+.dj3-cmp .cell{display:flex;align-items:center}
+.dj3-cmp .mark{flex:0 0 32px;width:32px;margin-right:10px;text-align:center;font-size:26px;font-weight:900;line-height:1}
+.dj3-cmp .mark-o{color:var(--rc)}
+.dj3-cmp .mark-t,.dj3-cmp .mark-x{color:#8D8A89}
+.dj3-cmp .c-dejam .txt{font-size:15px;font-weight:700;line-height:1.6;color:var(--n)}
+.dj3-cmp .c-other .txt{font-size:15px;font-weight:500;line-height:1.6;color:var(--mute)}
+.dj3-note{width:100%;font-size:12px;line-height:1.7;color:#8e8e8e}
+
+@media (min-width:768px){
+  .dj3-pains{grid-template-columns:1fr 1fr;gap:14px}
+  .dj3-reasons{grid-template-columns:1fr 1fr 1fr}
+  .dj3-result{flex-direction:row;justify-content:center;gap:18px}
+  .dj3-result .arrow{margin:0}
+}
+@media (min-width:1024px){
+  .dj3-tag{font-size:20px;padding:7px 18px}
+  .dj3-kicker{font-size:16px}
+  .dj3-lead{font-size:16px}
+  .dj3-points li{font-size:16px}
+  .dj3-pains li span{font-size:17px}
+  .dj3-close{font-size:22px}
+  .dj3-result .val{font-size:56px}
+}
+@media (min-width:1280px){
+  .dj3-right{max-width:480px}
+  .dj3-flow li b{font-size:18px}
+  .dj3-flow li span{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .dj3-cta{transition:none}
+  .dj3-cta:hover{transform:none}
+}
+</style>
+
+<!-- ===== 追加1: 悩み（外注していると起きること） ===== -->
+<section class="dj3 w-full bg-F5F6F1 py-10 lg:py-16">
+<div class="mx-auto flex max-w-[1184px] flex-col items-center gap-y-8 px-4 lg:px-12 xl:px-0">
+<h2 class="text-center font-bold text-5.5 text-secondary leading-1.4p tracking-widest md:text-8 md:leading-[42px]">LPを外注していると、<br class="md:hidden">こんなことが起きていませんか</h2>
+<ul class="dj3-pains">
+<li><span>修正を1行頼むだけで、見積もりと納期が発生する</span></li>
+<li><span>依頼してから公開まで、2週間かかる</span></li>
+<li><span>ABテストの本数が、代理店の稼働に左右される</span></li>
+<li><span>ヒートマップと制作ツールが、別契約になっている</span></li>
+<li><span>改善の判断材料が、社内に残らない</span></li>
+<!-- 「社内にエンジニアがいない」不安にFV直下で答える場合は、次の1行を有効化して6項目にする
+<li><span>社内にHTMLを触れる人がいない</span></li>
+-->
+</ul>
+<p class="dj3-close">ひとつでも当てはまるなら、<b>LPの改善を社内で完結させる</b>選択肢があります。</p>
+</div>
+</section>
+
+<!-- ===== 追加2: 社内で回せる理由3つ → CVR140% ===== -->
+<section class="dj3 w-full bg-white py-10 lg:py-16">
+<div class="mx-auto flex max-w-[1184px] flex-col items-center gap-y-8 px-4 lg:px-12 xl:px-0">
+<h2 class="text-center font-bold text-5.5 text-secondary leading-1.4p tracking-widest md:text-8 md:leading-[42px]">Dejamなら、社内で回せる理由</h2>
+<ol class="dj3-reasons">
+<li>
+<span class="num">理由 01</span>
+<h3>AI活用で、すぐにLPを制作・修正</h3>
+<p>AIで生成したHTMLをそのまま取り込み、ノーコードで微修正。<b>最短5分で1本作れる</b>ので、修正のたびに依頼書を書く必要がありません。</p>
+</li>
+<li>
+<span class="num">理由 02</span>
+<h3>チーム全員で触れる、使いやすいノーコードツール</h3>
+<p>ユーザー数は実質無制限。マーケ担当も、デザイナーも、確認する上司も<b>同じ画面で作業できる</b>ので、社内の誰かに作業が集中しません。</p>
+</li>
+<li>
+<span class="num">理由 03</span>
+<h3>手厚いカスタマーサポート</h3>
+<p>導入時の設定から最初の1本の公開まで、チャットで専任担当が伴走。<b>社内にエンジニアがいなくても</b>、自社で運用を始められます。</p>
+</li>
+</ol>
+<div class="dj3-result">
+<span class="arrow">&darr;</span>
+<span class="lbl">結果、Dejamなら</span>
+<span class="val">CVR<small>140%</small>改善<sup>※1</sup></span>
+</div>
+<p class="dj3-note">※1 2021年〜2026年7月に公開しているDejam導入事例のCVR改善値のおよその平均値です。CVRが対比で140%になったことを指し、成果を保証するものではありません。</p>
+<div class="flex w-full flex-col items-center gap-3 lg:flex-row lg:justify-center">
+<a href="/dejam/contact/?trial=1" class="box-border flex max-h-14 min-h-10 w-full max-w-fit shrink-0 items-center justify-between gap-x-2 rounded-9 border p-1 h-14 px-6 max-w-none lg:w-[var(--cv-btn-width)] lg:min-w-[var(--cv-btn-width)] lg:max-w-fit bg-primary border-transparent" style="--cv-btn-width: 290px;">
+<span class="flex shrink-0 grow flex-col items-center gap-y-1 font-medium font-noto-sans text-white">
+<span class="font-bold leading-1.4p text-4">3ヶ月無料で試す</span>
+</span>
+</a>
+<a href="/dejam/contact/" class="box-border flex max-h-14 min-h-10 w-full max-w-fit shrink-0 items-center justify-between gap-x-2 rounded-9 border p-1 h-14 px-6 max-w-none lg:w-[var(--cv-btn-width)] lg:min-w-[var(--cv-btn-width)] lg:max-w-fit bg-secondary border-transparent" style="--cv-btn-width: 290px;">
+<span class="flex shrink-0 grow flex-col items-center gap-y-1 font-medium font-noto-sans text-white">
+<span class="font-bold leading-1.4p text-4">内製化の相談をする(無料)</span>
+</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== 追加3（任意）: 比較表 外注 vs Dejamで内製 ===== -->
+<section class="dj3 w-full bg-F5F6F1 py-10 lg:py-16">
+<div class="mx-auto flex max-w-[1184px] flex-col items-center gap-y-8 px-4 lg:px-12 xl:px-0">
+<h2 class="text-center font-bold text-5.5 text-secondary leading-1.4p tracking-widest md:text-8 md:leading-[42px]">外注と、ここが変わります</h2>
+<div class="dj3-cmp">
+<table>
+<thead>
+<tr>
+<th class="h-blank"></th>
+<th class="h-dejam">Dejamで内製</th>
+<th class="h-other">代理店・制作会社に外注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>修正の依頼</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">管理画面で自社が直接修正</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">1行でも見積もりと納期が発生</span></span></td>
+</tr>
+<tr>
+<th>公開までの時間</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">直したその場で公開できる</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">依頼から公開まで約2週間</span></span></td>
+</tr>
+<tr>
+<th>ABテスト</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">標準搭載。本数は自社で決められる</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">本数が代理店の稼働に左右される</span></span></td>
+</tr>
+<tr>
+<th>ヒートマップ</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">制作ツールと同じ画面で確認</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">別ツール・別契約になりがち</span></span></td>
+</tr>
+<tr>
+<th>改善の判断材料</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">ヒートマップ・回答データが社内に蓄積</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">代理店側に残り、社内に残らない</span></span></td>
+</tr>
+<tr>
+<th>費用</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">月30,000円〜の定額※</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">制作費・修正費が都度発生</span></span></td>
+</tr>
+<tr>
+<th>利用人数</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">実質無制限。何人増えても追加費用なし</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">窓口担当を介したやり取り</span></span></td>
+</tr>
+<tr>
+<th>いま公開中のLP</th>
+<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">移行サポート無料（CMSプラン以上）</span></span></td>
+<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">移し替えは自社で対応</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dj3-note">※料金は税別・各プランの最低価格です。PV数に応じたプラン制のため、PV数の増加によりプランが変わる場合があります。<br>※外注側の内容は一般的な制作・運用の委託形態をもとに記載しています。条件は各社の契約により異なります。</p>
+</div>
+</section>
