@@ -84,23 +84,7 @@
 .dj3-result .val{font-size:40px;font-weight:900;line-height:1.1;letter-spacing:-.01em}
 .dj3-result .val sup{font-size:14px;font-weight:700;opacity:.85;vertical-align:super}
 
-/* 比較表（外注 vs Dejamで内製） */
-.dj3-cmp{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.dj3-cmp table{width:100%;min-width:680px;border-collapse:separate;border-spacing:0}
-.dj3-cmp th,.dj3-cmp td{padding:16px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
-.dj3-cmp thead th{text-align:center;color:#fff;font-weight:900;font-size:17px;border-bottom:none}
-.dj3-cmp thead th.h-blank{background:transparent;border-bottom:1px solid var(--line)}
-.dj3-cmp thead th.h-dejam{background:var(--rc);border-radius:14px 14px 0 0}
-.dj3-cmp thead th.h-other{background:var(--n);border-radius:14px 14px 0 0}
-.dj3-cmp tbody th{width:22%;background:var(--soft);font-weight:700;font-size:15px;color:var(--n)}
-.dj3-cmp td{width:39%}
-.dj3-cmp td.c-dejam{background:rgba(231,36,32,.06)}
-.dj3-cmp .cell{display:flex;align-items:center}
-.dj3-cmp .mark{flex:0 0 32px;width:32px;margin-right:10px;text-align:center;font-size:26px;font-weight:900;line-height:1}
-.dj3-cmp .mark-o{color:var(--rc)}
-.dj3-cmp .mark-t,.dj3-cmp .mark-x{color:#8D8A89}
-.dj3-cmp .c-dejam .txt{font-size:15px;font-weight:700;line-height:1.6;color:var(--n)}
-.dj3-cmp .c-other .txt{font-size:15px;font-weight:500;line-height:1.6;color:var(--mute)}
+
 .dj3-note{width:100%;font-size:12px;line-height:1.7;color:#8e8e8e}
 
 @media (min-width:768px){
@@ -186,66 +170,5 @@
 </span>
 </a>
 </div>
-</div>
-</section>
-
-<!-- ===== 追加3（任意）: 比較表 外注 vs Dejamで内製 ===== -->
-<section class="dj3 w-full bg-F5F6F1 py-10 lg:py-16">
-<div class="mx-auto flex max-w-[1184px] flex-col items-center gap-y-8 px-4 lg:px-12 xl:px-0">
-<h2 class="text-center font-bold text-5.5 text-secondary leading-1.4p tracking-widest md:text-8 md:leading-[42px]">外注と、ここが変わります</h2>
-<div class="dj3-cmp">
-<table>
-<thead>
-<tr>
-<th class="h-blank"></th>
-<th class="h-dejam">Dejamで内製</th>
-<th class="h-other">代理店・制作会社に外注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>修正の依頼</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">管理画面で自社が直接修正</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">1行でも見積もりと納期が発生</span></span></td>
-</tr>
-<tr>
-<th>公開までの時間</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">直したその場で公開できる</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">依頼から公開まで約2週間</span></span></td>
-</tr>
-<tr>
-<th>ABテスト</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">標準搭載。本数は自社で決められる</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">本数が代理店の稼働に左右される</span></span></td>
-</tr>
-<tr>
-<th>ヒートマップ</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">制作ツールと同じ画面で確認</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">別ツール・別契約になりがち</span></span></td>
-</tr>
-<tr>
-<th>改善の判断材料</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">ヒートマップ・回答データが社内に蓄積</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">代理店側に残り、社内に残らない</span></span></td>
-</tr>
-<tr>
-<th>費用</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">月30,000円〜の定額※</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">制作費・修正費が都度発生</span></span></td>
-</tr>
-<tr>
-<th>利用人数</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">実質無制限。何人増えても追加費用なし</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-t">△</span><span class="txt">窓口担当を介したやり取り</span></span></td>
-</tr>
-<tr>
-<th>いま公開中のLP</th>
-<td class="c-dejam"><span class="cell"><span class="mark mark-o">○</span><span class="txt">移行サポート無料（CMSプラン以上）</span></span></td>
-<td class="c-other"><span class="cell"><span class="mark mark-x">×</span><span class="txt">移し替えは自社で対応</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="dj3-note">※料金は税別・各プランの最低価格です。PV数に応じたプラン制のため、PV数の増加によりプランが変わる場合があります。<br>※外注側の内容は一般的な制作・運用の委託形態をもとに記載しています。条件は各社の契約により異なります。</p>
 </div>
 </section>

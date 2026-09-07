@@ -83,23 +83,7 @@
 .dj3-result .val{font-size:40px;font-weight:900;line-height:1.1;letter-spacing:-.01em}
 .dj3-result .val sup{font-size:14px;font-weight:700;opacity:.85;vertical-align:super}
 
-/* 比較表（外注 vs Dejamで内製） */
-.dj3-cmp{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.dj3-cmp table{width:100%;min-width:680px;border-collapse:separate;border-spacing:0}
-.dj3-cmp th,.dj3-cmp td{padding:16px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
-.dj3-cmp thead th{text-align:center;color:#fff;font-weight:900;font-size:17px;border-bottom:none}
-.dj3-cmp thead th.h-blank{background:transparent;border-bottom:1px solid var(--line)}
-.dj3-cmp thead th.h-dejam{background:var(--rc);border-radius:14px 14px 0 0}
-.dj3-cmp thead th.h-other{background:var(--n);border-radius:14px 14px 0 0}
-.dj3-cmp tbody th{width:22%;background:var(--soft);font-weight:700;font-size:15px;color:var(--n)}
-.dj3-cmp td{width:39%}
-.dj3-cmp td.c-dejam{background:rgba(231,36,32,.06)}
-.dj3-cmp .cell{display:flex;align-items:center}
-.dj3-cmp .mark{flex:0 0 32px;width:32px;margin-right:10px;text-align:center;font-size:26px;font-weight:900;line-height:1}
-.dj3-cmp .mark-o{color:var(--rc)}
-.dj3-cmp .mark-t,.dj3-cmp .mark-x{color:#8D8A89}
-.dj3-cmp .c-dejam .txt{font-size:15px;font-weight:700;line-height:1.6;color:var(--n)}
-.dj3-cmp .c-other .txt{font-size:15px;font-weight:500;line-height:1.6;color:var(--mute)}
+
 .dj3-note{width:100%;font-size:12px;line-height:1.7;color:#8e8e8e}
 
 @media (min-width:768px){
