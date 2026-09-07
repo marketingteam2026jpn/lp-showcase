@@ -6,9 +6,10 @@
 .dj3 *,.dj3 *::before,.dj3 *::after{box-sizing:border-box}
 
 /* FV 左カラム */
-.dj3-tag{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--rc);border-radius:6px;
-  padding:6px 16px;margin-bottom:18px;color:var(--rc);font-size:18px;font-weight:900;line-height:1.3;letter-spacing:.08em;background:#fff}
-.dj3-tag small{font-size:13px;font-weight:700;letter-spacing:0;color:var(--n)}
+.dj3-tag{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 10px;border:2px solid var(--rc);border-radius:6px;
+  padding:6px 14px;margin-bottom:18px;color:var(--rc);font-size:18px;font-weight:900;line-height:1.3;letter-spacing:.08em;background:#fff}
+.dj3-tag > span{white-space:nowrap}
+.dj3-tag small{font-size:13px;font-weight:700;letter-spacing:0;color:var(--n);line-height:1.4}
 .dj3-kicker{margin-top:12px;color:var(--rc);font-size:15px;font-weight:700;line-height:1.5}
 .dj3-lead{margin-top:14px;font-size:15px;font-weight:500;line-height:1.9;color:var(--ink)}
 .dj3-lead b{color:var(--n);font-weight:900}
