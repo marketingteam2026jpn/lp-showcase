@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瞑想塾｜続かない瞑想を、2ヶ月で習慣にする1対1の瞑想コーチング</title>
+<meta name="description" content="瞑想塾は、脳科学と性格分析にもとづいて「あなたに合う瞑想」を設計し、プロトレーナーが2ヶ月間1対1で伴走する瞑想コーチングです。まずは30分の無料カウンセリングで、合う瞑想法を1つ持ち帰ってください。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --base:#ffffff;--base2:#f7f5fb;--base3:#fbfaf6;
+  --main:#5b43a8;--main-d:#43308a;--accent:#b89a4a;--accent-l:#e9dcb3;
+  --text:#333333;--text-l:#666666;--line:#e4e0ee;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;font-weight:400;font-size:17px;line-height:1.9;color:var(--text);background:var(--base);letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--main)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.narrow{max-width:680px;margin:0 auto}
+section{padding:72px 0}
+h1,h2,h3{font-family:"Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:600;line-height:1.5;color:#2b2140}
+h2{font-size:clamp(24px,3.6vw,32px);text-align:center;margin-bottom:14px}
+.lead{text-align:center;color:var(--text-l);font-size:16px;margin-bottom:44px}
+h2 .en{display:block;font-family:"Noto Sans JP",sans-serif;font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:500;margin-bottom:8px}
+p{max-width:34em}
+.center p{margin-left:auto;margin-right:auto}
+strong{font-weight:700}
+.mark{background:linear-gradient(transparent 62%,#f3e9c7 62%)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:"Noto Serif JP",serif;font-weight:600;font-size:20px;color:#2b2140;text-decoration:none}
+.logo small{font-family:"Noto Sans JP",sans-serif;font-size:11px;color:var(--text-l);margin-left:8px;font-weight:400}
+.hbtn{display:inline-block;background:var(--main);color:#fff;font-weight:700;font-size:14px;padding:11px 18px;border-radius:999px;text-decoration:none;min-height:44px;line-height:1.3}
+@media(max-width:600px){.hbtn{font-size:13px;padding:10px 14px}}
+
+/* hero */
+.hero{padding:64px 0 56px;background:linear-gradient(180deg,#fbfaff 0%,#ffffff 100%);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--main);background:#efeaf9;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(28px,4.6vw,42px);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--main)}
+.hero .sub{font-size:17px;margin-bottom:28px;color:#444}
+.hero .points{list-style:none;margin:0 0 28px;display:grid;gap:8px}
+.hero .points li{padding-left:28px;position:relative;font-size:15.5px}
+.hero .points li:before{content:"";position:absolute;left:0;top:9px;width:18px;height:18px;border-radius:50%;background:var(--main)}
+.hero .points li:after{content:"";position:absolute;left:6px;top:13px;width:6px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.hero figure{border-radius:16px;overflow:hidden;background:#ece7f6;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:#8a7cb5;font-size:14px;text-align:center;padding:20px;box-shadow:0 12px 40px rgba(91,67,168,.12)}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero figure{aspect-ratio:4/3;order:-1;max-height:300px}.hero{padding:36px 0 44px}}
+
+/* cta */
+.cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.cta.center{align-items:center;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--main);color:#fff;font-weight:700;font-size:18px;padding:18px 40px;border-radius:999px;text-decoration:none;min-height:60px;box-shadow:0 8px 24px rgba(91,67,168,.28);transition:transform .15s,background .15s;width:100%;max-width:460px}
+.btn:hover{background:var(--main-d);transform:translateY(-1px)}
+.btn .ar{font-size:14px}
+.cta .note{font-size:13px;color:var(--text-l)}
+.ctaband{background:var(--base2);padding:56px 0}
+.ctaband h2{font-size:clamp(20px,3vw,26px)}
+
+/* pains */
+.pains{background:var(--base)}
+.pain-list{list-style:none;display:grid;gap:12px;max-width:680px;margin:0 auto 36px}
+.pain-list li{background:var(--base2);border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 54px;position:relative;font-size:16px;line-height:1.7}
+.pain-list li:before{content:"";position:absolute;left:18px;top:19px;width:22px;height:22px;border:2px solid var(--main);border-radius:5px}
+.pain-list li:after{content:"";position:absolute;left:26px;top:22px;width:6px;height:11px;border:solid var(--main);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.pivot{background:#fff;border:2px solid var(--accent-l);border-radius:14px;padding:28px 28px;max-width:680px;margin:0 auto;text-align:center}
+.pivot h3{font-size:clamp(20px,3vw,24px);margin-bottom:12px}
+.pivot p{margin:0 auto;font-size:16px}
+
+/* reason */
+.reasons{background:var(--base2)}
+.r-grid{display:grid;gap:22px}
+.r-card{background:#fff;border-radius:14px;padding:30px 28px;border:1px solid var(--line);display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start}
+.r-num{font-family:"Noto Serif JP",serif;font-size:34px;color:var(--accent);line-height:1;padding-top:4px}
+.r-card h3{font-size:21px;margin-bottom:10px}
+.r-card p{font-size:16px}
+.r-card .detail{list-style:none;margin-top:12px;display:grid;gap:6px}
+.r-card .detail li{font-size:15px;padding-left:18px;position:relative;color:#444}
+.r-card .detail li:before{content:"・";position:absolute;left:0;color:var(--accent)}
+@media(max-width:600px){.r-card{grid-template-columns:1fr;gap:8px;padding:24px 20px}}
+
+/* flow */
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+.f-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;position:relative}
+.f-card .step{font-size:12px;letter-spacing:.15em;color:var(--accent);font-weight:700;margin-bottom:8px}
+.f-card h3{font-size:19px;margin-bottom:10px}
+.f-card p{font-size:15px;color:#444}
+.f-card .time{display:inline-block;background:#efeaf9;color:var(--main);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:12px}
+@media(max-width:760px){.flow-grid{grid-template-columns:1fr}}
+
+/* program */
+.prog-table{width:100%;border-collapse:collapse;max-width:760px;margin:0 auto;font-size:15.5px;background:#fff}
+.prog-table th,.prog-table td{border:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top}
+.prog-table th{background:var(--base2);width:34%;font-weight:700}
+.gift{max-width:760px;margin:32px auto 0;background:var(--base3);border:1px solid #efe7cf;border-radius:14px;padding:26px 28px}
+.gift h3{font-size:19px;margin-bottom:12px}
+.gift ol{padding-left:1.4em;display:grid;gap:6px;font-size:15.5px}
+
+/* trainer */
+.trainer{background:var(--base2)}
+.t-card{background:#fff;border-radius:16px;border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:160px 1fr;gap:28px;max-width:860px;margin:0 auto;align-items:start}
+.t-card figure{width:160px;height:160px;border-radius:50%;background:#ece7f6;display:flex;align-items:center;justify-content:center;color:#8a7cb5;font-size:13px;text-align:center;padding:14px}
+.t-card .role{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.1em;margin-bottom:6px}
+.t-card h3{font-size:24px;margin-bottom:12px}
+.t-card p{font-size:15.5px;margin-bottom:10px}
+.t-card .links a{font-size:14px;margin-right:14px}
+.t-team{max-width:860px;margin:28px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.t-team div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;font-size:14.5px;line-height:1.7}
+.t-team strong{display:block;font-size:15px;margin-bottom:4px;color:#2b2140}
+@media(max-width:700px){.t-card{grid-template-columns:1fr;justify-items:center;text-align:left}.t-team{grid-template-columns:1fr}}
+
+/* voice */
+.v-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+.v-card{background:var(--base3);border-left:4px solid var(--accent);border-radius:10px;padding:24px 24px 20px}
+.v-card p{font-size:15.5px;margin-bottom:12px}
+.v-card .who{font-size:13px;color:var(--text-l);text-align:right}
+@media(max-width:700px){.v-grid{grid-template-columns:1fr}}
+.v-note{text-align:center;font-size:13px;color:var(--text-l);margin-top:18px}
+
+/* science */
+.sci{background:var(--base)}
+.sci-box{max-width:760px;margin:0 auto;display:grid;gap:16px}
+.sci-item{display:grid;grid-template-columns:120px 1fr;gap:16px;border-bottom:1px solid var(--line);padding:16px 0}
+.sci-item .k{font-family:"Noto Serif JP",serif;font-size:26px;color:var(--main);line-height:1.2}
+.sci-item .k small{display:block;font-family:"Noto Sans JP",sans-serif;font-size:12px;color:var(--text-l)}
+.sci-item p{font-size:15.5px}
+@media(max-width:600px){.sci-item{grid-template-columns:1fr;gap:6px}}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);max-width:760px;margin:0 auto}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 40px;font-weight:700;font-size:16.5px;position:relative;line-height:1.6}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:before{content:"Q";position:absolute;left:8px;top:19px;color:var(--main);font-family:"Noto Serif JP",serif;font-size:20px}
+.faq summary:after{content:"+";position:absolute;right:12px;top:16px;font-size:24px;color:var(--accent)}
+.faq details[open] summary:after{content:"−"}
+.faq .a{padding:0 16px 22px 40px;font-size:15.5px;color:#444}
+
+/* final */
+.final{background:linear-gradient(180deg,#f7f5fb 0%,#efeaf9 100%);text-align:center;padding:72px 0}
+.final h2{margin-bottom:10px}
+.final p{margin:0 auto 26px}
+
+footer{background:#2b2140;color:#cfc8e4;font-size:13px;padding:36px 0;text-align:center}
+footer a{color:#e8e2f7;margin:0 10px}
+
+/* sticky sp */
+.sticky{display:none}
+@media(max-width:760px){
+  .sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);padding:10px 14px;box-shadow:0 -4px 16px rgba(0,0,0,.1)}
+  .sticky a{display:flex;align-items:center;justify-content:center;background:var(--main);color:#fff;font-weight:700;font-size:15px;min-height:52px;border-radius:999px;text-decoration:none}
+  body{padding-bottom:76px}
+  section{padding:52px 0}
+  body{font-size:16px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">瞑想塾<small>株式会社Ikigai</small></a>
+    <a class="hbtn" href="#cta">無料カウンセリングへ</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="tag">1対1の瞑想コーチング</span>
+      <h1>続かなかった瞑想を、<br><em>2ヶ月で「朝の習慣」</em>に。</h1>
+      <p class="sub">やり方は知っている。でも続かない。<br>その原因は意志の弱さではなく、<strong class="mark">あなたの性格に合った瞑想を選べていない</strong>ことにあります。瞑想塾は、脳科学と性格分析であなた専用の瞑想を設計し、プロのトレーナーが2ヶ月間、毎週・毎日伴走します。</p>
+      <ul class="points">
+        <li>30分の無料カウンセリングで「合う瞑想法」を1つ持ち帰れる</li>
+        <li>オンライン完結。朝でも夜でも、自宅から参加</li>
+        <li>宗教・思想は持ち込まない、科学的根拠にもとづく指導</li>
+      </ul>
+      <div class="cta">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfDQxeur1jSkYQXN4qk9mui_n0Wj-l6McsvHbqV-WrnSyA7Uw/viewform" target="_blank" rel="noopener">無料カウンセリングを予約する<span class="ar">▶</span></a>
+        <span class="note">所要30分・オンライン・無理な勧誘はしません</span>
+      </div>
+    </div>
+    <figure>［写真］朝の自宅で、椅子に座って目を閉じている30〜40代の受講生。自然光・白い部屋</figure>
+  </div>
+</section>
+
+<section class="pains">
+  <div class="wrap">
+    <h2><span class="en">CHECK</span>こんな経験はありませんか</h2>
+    <p class="lead">ひとつでも当てはまれば、瞑想塾の対象です</p>
+    <ul class="pain-list">
+      <li>アプリや動画で始めたが、1〜2週間で途切れてしまった</li>
+      <li>雑念が止まらず「自分には向いていない」と感じる</li>
+      <li>座るとすぐ眠くなり、できているのか分からない</li>
+      <li>本やネットで調べるほど、やり方が分からなくなった</li>
+      <li>効果を実感する前に、やめてしまった</li>
+    </ul>
+    <div class="pivot">
+      <h3>続かないのは、やり方ではなく「選び方」の問題です</h3>
+      <p>呼吸に集中する瞑想が合う人もいれば、歩きながらの瞑想や、書く瞑想のほうが続く人もいます。性格・生活リズム・雑念の出方によって、合う瞑想はまったく違います。瞑想塾は、まずそこから見立てます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="reasons">
+  <div class="wrap">
+    <h2><span class="en">REASON</span>瞑想塾で続くようになる3つの理由</h2>
+    <p class="lead">知識を教えるのではなく、あなたの生活に瞑想が定着するところまで設計します</p>
+    <div class="r-grid">
+      <div class="r-card">
+        <div class="r-num">01</div>
+        <div>
+          <h3>性格と脳の傾向から、あなた専用の瞑想を設計する</h3>
+          <p>これまでの会員5,000人分の性格・瞑想経験・心理データと、国内外の研究をもとに、初回カウンセリングであなたの傾向を分析。「集中型」「観察型」「身体型」など、続きやすい瞑想法と時間帯を提案します。</p>
+          <ul class="detail">
+            <li>雑念が多い人には、呼吸を数える瞑想から</li>
+            <li>じっとしていられない人には、歩く瞑想・書く瞑想から</li>
+            <li>眠くなる人には、時間帯と姿勢の設計から</li>
+          </ul>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="r-num">02</div>
+        <div>
+          <h3>認定トレーナーが、2ヶ月間マンツーマンで伴走する</h3>
+          <p>毎週1回の個別セッションで進み具合を見直し、毎日の集団瞑想に参加でき、公式LINEではいつでもトレーナーに質問できます。「今日は座れなかった」も含めて報告できる相手がいることが、習慣化の最大の支えになります。</p>
+          <ul class="detail">
+            <li>毎週の個別セッション（オンライン）</li>
+            <li>毎日の集団瞑想（朝・夜）</li>
+            <li>LINEでの質問・報告は回数無制限</li>
+          </ul>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="r-num">03</div>
+        <div>
+          <h3>宗教や思想ではなく、脳科学と心理学で説明する</h3>
+          <p>瞑想中に雑念が湧くのは、脳のデフォルトモードネットワークが働く自然な状態です。瞑想塾では「なぜ雑念が出るのか」「なぜ8週間で変化が起きるのか」を仕組みから説明するので、怪しさを感じずに、納得して続けられます。</p>
+          <ul class="detail">
+            <li>特定の宗教・宗派の教えは持ち込みません</li>
+            <li>効果の根拠は研究論文と会員データで示します</li>
+            <li>医療行為ではありません。通院中の方は医師にご相談ください</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sci">
+  <div class="wrap">
+    <h2><span class="en">EVIDENCE</span>なぜ「2ヶ月」なのか</h2>
+    <p class="lead">多くの瞑想プログラムが8週間を区切りにしているのには、理由があります</p>
+    <div class="sci-box">
+      <div class="sci-item">
+        <div class="k">8週間<small>脳の変化が観察された期間</small></div>
+        <p>ハーバード大学のSara Lazarらが2011年に発表した研究では、8週間のマインドフルネスプログラムの前後で、参加者の扁桃体や海馬など、感情調整や記憶に関わる部位に構造的な変化が観察されました。</p>
+      </div>
+      <div class="sci-item">
+        <div class="k">5分<small>最初の目標</small></div>
+        <p>長く座る必要はありません。最初の目標は「毎日5分、決めた場所に座る」ことだけ。瞑想塾では時間より頻度を優先し、生活の既存の行動に紐づけて定着させます。</p>
+      </div>
+      <div class="sci-item">
+        <div class="k">雑念<small>失敗ではなく練習量</small></div>
+        <p>雑念に気づいて呼吸に戻す、その1回ごとに注意の切り替え回路が働きます。瞑想塾では「気づいて戻した回数」を練習量として扱うので、雑念が多い人ほど伸びしろがあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <h2><span class="en">FLOW</span>無料カウンセリングで起きること</h2>
+    <p class="lead">売り込みの場ではありません。30分で「あなたに合う瞑想」を1つ持ち帰っていただきます</p>
+    <div class="flow-grid">
+      <div class="f-card">
+        <div class="step">STEP 1</div>
+        <h3>予約フォームに記入</h3>
+        <p>お名前と希望日時、瞑想の経験（未経験でも構いません）を入力。2分で終わります。</p>
+        <span class="time">所要2分</span>
+      </div>
+      <div class="f-card">
+        <div class="step">STEP 2</div>
+        <h3>オンラインで現状をヒアリング</h3>
+        <p>続かなかった理由、生活リズム、雑念や眠気の出方を伺い、性格傾向を簡易分析します。</p>
+        <span class="time">所要20分</span>
+      </div>
+      <div class="f-card">
+        <div class="step">STEP 3</div>
+        <h3>合う瞑想法を1つ提案</h3>
+        <p>その場で試していただき、明日から自宅でできる形にして持ち帰ります。プログラムの案内は、希望された方にだけ行います。</p>
+        <span class="time">所要10分</span>
+      </div>
+    </div>
+    <div class="cta center" style="margin-top:36px" id="cta">
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfDQxeur1jSkYQXN4qk9mui_n0Wj-l6McsvHbqV-WrnSyA7Uw/viewform" target="_blank" rel="noopener">無料カウンセリングを予約する<span class="ar">▶</span></a>
+      <span class="note">オンライン（Zoom）・平日夜と土日も対応</span>
+    </div>
+  </div>
+</section>
+
+<section class="program" style="background:var(--base2)">
+  <div class="wrap">
+    <h2><span class="en">PROGRAM</span>2ヶ月プログラムの内容</h2>
+    <p class="lead">カウンセリングのあと、続けたい方にご案内する本プログラムです</p>
+    <table class="prog-table">
+      <tr><th>期間</th><td>最短2ヶ月（8週間）。延長・アフターフォローあり</td></tr>
+      <tr><th>形式</th><td>オンライン完結（個別セッション・集団瞑想ともZoom）</td></tr>
+      <tr><th>個別セッション</th><td>週1回・担当トレーナーとマンツーマン。進み具合に合わせて瞑想法を調整</td></tr>
+      <tr><th>集団瞑想</th><td>毎日開催。参加は自由。一人では座れない日の支えになります</td></tr>
+      <tr><th>サポート</th><td>公式LINEでトレーナーにいつでも質問・報告</td></tr>
+      <tr><th>専門家チーム</th><td>栄養管理・心理学・カウンセリングの専門家が必要に応じて連携</td></tr>
+      <tr><th>料金</th><td>無料カウンセリングでご説明します。カウンセリング当日の入会判断は求めません</td></tr>
+    </table>
+    <div class="gift">
+      <h3>入会時にお渡しする3つの教材</h3>
+      <ol>
+        <li>あなた専用の瞑想マニュアル（性格傾向に合わせて作成）</li>
+        <li>0から瞑想がわかる7本の動画</li>
+        <li>正しい瞑想の方法と効果がわかる科学的資料</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="trainer">
+  <div class="wrap">
+    <h2><span class="en">TRAINER</span>塾長・トレーナー紹介</h2>
+    <p class="lead">瞑想を「知っている」人ではなく、「続けさせられる」人だけが指導します</p>
+    <div class="t-card">
+      <figure>［写真］塾長の顔写真</figure>
+      <div>
+        <div class="role">瞑想塾 塾長・人生工学者</div>
+        <h3>吉河 幸祈富<span style="font-family:'Noto Sans JP';font-size:14px;color:var(--text-l);font-weight:400;margin-left:10px">よしかわ ゆきと</span></h3>
+        <p>東京大学経済学部卒。インド・ペルーで瞑想修行を積み、国内ダウンロード数トップの瞑想アプリでCMOを務めた後、瞑想塾を主宰。延べ100人以上の1対1瞑想コーチングと3万人の心理分析をもとに、瞑想を脳科学・心理学の言葉で体系化する「人生工学」を提唱している。</p>
+        <p>「瞑想が続かない人は、才能がないのではなく、合わない方法を頑張っているだけです。まず合うものを一緒に見つけましょう。」</p>
+        <div class="links"><a href="https://note.com/nice_koala586" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@life-engineering" target="_blank" rel="noopener">YouTube</a></div>
+      </div>
+    </div>
+    <div class="t-team">
+      <div><strong>認定トレーナー</strong>3年以上の瞑想実践と、脳科学・習慣化・コーチングの認定試験に合格したトレーナーのみが担当します。</div>
+      <div><strong>心理学・栄養の専門家</strong>性格や行動心理の分析、心身を整える食事面の助言で、必要に応じて連携します。</div>
+      <div><strong>カウンセラー</strong>瞑想中に強い感情が出た時など、日常生活の面からサポートします。</div>
+    </div>
+  </div>
+</section>
+
+<section class="voice">
+  <div class="wrap">
+    <h2><span class="en">VOICE</span>受講した方の声</h2>
+    <p class="lead">変化は、座っている時間よりも日常の中に先に現れます</p>
+    <div class="v-grid">
+      <div class="v-card">
+        <p>瞑想を習慣化したら、仕事のモヤモヤを整理できるようになりました。パフォーマンスが上がって、無事昇進できました。</p>
+        <div class="who">システムエンジニア・30代男性</div>
+      </div>
+      <div class="v-card">
+        <p>仕事や家庭で周りが苦しい時も、私は瞑想のおかげで乗り越えられました。ストレスが減ったのを一番感じています。</p>
+        <div class="who">サービス業・20代女性</div>
+      </div>
+      <div class="v-card">
+        <p>忙しい毎日の中でも、瞑想をすれば思考が整理される。大事なことと向き合える。新しいアイディアに気づく時間が生まれました。</p>
+        <div class="who">経営者・30代男性</div>
+      </div>
+      <div class="v-card">
+        <p>繰り返すうちに、瞑想の時にこそ本当の幸福感、充実感を感じるようになった。自分とは何かに、少しずつ気づいていけています。</p>
+        <div class="who">飲食店オーナー・50代男性</div>
+      </div>
+    </div>
+    <p class="v-note">※瞑想塾会員へのアンケート（2024年）より。効果には個人差があります。</p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2><span class="en">FAQ</span>よくあるご質問</h2>
+    <p class="lead">カウンセリング前の不安は、ここで解消してください</p>
+    <details><summary>瞑想をすると寝てしまいます。本当にできるようになりますか？</summary><div class="a">トレーナーの多くも、初めは瞑想中に眠ってしまっていました。時間帯・姿勢・方法を合わせれば、眠らずに取り組めるようになります。不眠や過眠の傾向がある方向けの瞑想法もご用意しています。</div></details>
+    <details><summary>そもそもじっとしていられません。こんな私でも瞑想できますか？</summary><div class="a">じっとしているのが苦手な方には、歩く瞑想や書く瞑想など、体を使う瞑想法から入ります。むしろ、落ち着かない方ほど日常の変化を実感しやすい傾向があります。</div></details>
+    <details><summary>瞑想のことをまったく知りません。基本から学べますか？</summary><div class="a">はい。科学的な瞑想の効果と正しい方法を0からお伝えします。知識・経験・性格に合わせてマンツーマンで進めるので、ご自身のペースで身につけられます。</div></details>
+    <details><summary>瞑想は宗教的なものではありませんか？</summary><div class="a">瞑想塾のプログラムは、特定の宗教や思想を持ち込まず、瞑想の科学的・実践的な側面だけを扱います。ご自身の信仰や考えに合わせた進め方の相談も可能です。</div></details>
+    <details><summary>無料カウンセリングで勧誘されませんか？</summary><div class="a">カウンセリングでは、合う瞑想法を1つお持ち帰りいただくことを目的にしています。プログラムの案内は希望された方にだけ行い、当日の入会判断は求めません。</div></details>
+    <details><summary>料金はいくらですか？</summary><div class="a">プログラムの内容と期間によって異なるため、無料カウンセリングで現状を伺ったうえでご説明しています。費用面の相談だけでも構いません。</div></details>
+    <details><summary>通院中・持病があります。受けられますか？</summary><div class="a">瞑想塾は医療行為ではありません。通院中の方や持病のある方は、事前に主治医にご相談のうえご参加ください。カウンセリングの段階でお知らせいただければ、無理のない進め方を一緒に考えます。</div></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>まずは30分、<br class="sp">あなたに合う瞑想を見つけることから</h2>
+    <p>やり方を変えるだけで、続く人がほとんどです。<br>無理な勧誘はしません。気軽にお話しください。</p>
+    <div class="cta center">
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfDQxeur1jSkYQXN4qk9mui_n0Wj-l6McsvHbqV-WrnSyA7Uw/viewform" target="_blank" rel="noopener">無料カウンセリングを予約する<span class="ar">▶</span></a>
+      <span class="note">オンライン・所要30分・費用0円</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="max-width:none;margin:0 auto 10px">瞑想塾（株式会社Ikigai）</p>
+    <p style="max-width:none;margin:0 auto"><a href="https://ikigaiinc.com" target="_blank" rel="noopener">会社概要</a><a href="https://lifeengineering.jp" target="_blank" rel="noopener">人生工学メディア</a><a href="https://note.com/nice_koala586" target="_blank" rel="noopener">note</a></p>
+  </div>
+</footer>
+
+<div class="sticky"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfDQxeur1jSkYQXN4qk9mui_n0Wj-l6McsvHbqV-WrnSyA7Uw/viewform" target="_blank" rel="noopener">無料カウンセリングを予約する（30分）</a></div>
+
+</body>
+</html>
