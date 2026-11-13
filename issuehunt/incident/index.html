@@ -378,6 +378,11 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
 }
 .h-kicker,.pains-after,.checks b,details summary{word-break:keep-all;overflow-wrap:anywhere}
 .log-row.h,.log-foot{font-size:12px}
+.nt{font-family:var(--body);font-size:12px;font-weight:400;letter-spacing:0;line-height:0;vertical-align:super;margin-left:3px;opacity:.75;text-shadow:none}
+.nw{white-space:nowrap}
+.h-fix .nt{margin-left:0}
+@media (max-width:400px){.h-fix{font-size:min(28px,7.2vw)}}
+.fv-note{margin-top:10px;font-size:12.5px;line-height:1.6;color:var(--panel-dim);max-width:44em}
 @media (max-width:560px){pre.code{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 
@@ -401,7 +406,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p class="h-kicker">被害を、<wbr>二度と<wbr>繰り返さないために。</p>
         <h1 class="h-main"><span>再発防止</span></h1>
         <p class="h-sub1">のための脆弱性診断</p>
-        <p class="h-fix">最短<em class="num">2日</em>で対応します。</p>
+        <p class="h-fix">最短<em class="num">2日</em>で対応しま<span class="nw">す。<sup class="nt">※2</sup></span></p>
         <div class="fixflow" aria-label="ご依頼から報告までの日程">
           <div class="ff"><i>今日</i><b>相談・契約</b></div><span class="ff-arr" aria-hidden="true">→</span>
           <div class="ff"><i>翌日</i><b>診断を実施</b></div><span class="ff-arr" aria-hidden="true">→</span>
@@ -412,6 +417,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
           <div class="badge"><span>再診断は</span><b>無料</b></div>
           <div class="badge"><span>費用は相場の</span><b>約半額<sup>※1</sup></b></div>
         </div>
+        <p class="fv-note">※2 最短2日での報告は、AI自動診断の場合です。診断員による手動診断は、完了まで一定の期間がかかります。</p>
       </div>
 
       <form class="hform" id="hero-form" novalidate>
@@ -490,7 +496,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p>調査、報告、問い合わせ対応。これ以上、社内だけで診断まで手を回すのは難しい。</p>
       </div>
     </div>
-    <p class="pains-after">残る<wbr>弱点を、<b>最短2日で<wbr>洗い出し、<wbr>直し方まで</b>お渡しします。</p>
+    <p class="pains-after">残る<wbr>弱点を、<b>最短2日で<wbr>洗い出し、<wbr>直し方まで</b>お渡しします。<sup class="nt">※2</sup></p>
   </div>
 </section>
 
@@ -523,7 +529,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="feats">
       <div class="feat">
         <span class="feat-n">01</span>
-        <h3><small>SPEED</small>即日契約、<wbr>翌日診断、<wbr>2日後に<wbr>報告。</h3>
+        <h3><small>SPEED</small>即日契約、<wbr>翌日診断、<wbr>2日後に<wbr>報告。<sup class="nt">※2</sup></h3>
         <div class="body">
           <p>インシデント後は一日でも早く「もう大丈夫」と言える状態が必要です。<strong>AIが検査箇所を洗い出す</strong>ので、診断対象の一覧づくりを待たずにすぐ始められます。</p>
           <div class="speed"><span><i>D+0</i>相談・契約</span><span><i>D+1</i>診断実施</span><span><i>D+2</i>報告・対策提示</span></div>
@@ -636,7 +642,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     </div>
     <div class="faq">
       <details open><summary>被害の<wbr>調査や<wbr>復旧も<wbr>お願い<wbr>できますか。</summary><div class="a"><p>初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。IssueHunt One は、初動のあとに残る弱点を見つけて再発を防ぐための診断と、対策のご提示を行います。</p></div></details>
-      <details><summary>本当に<wbr>2日で<wbr>報告して<wbr>もらえますか。</summary><div class="a"><p>最短で、即日契約・翌日診断・2日後報告が可能です。診断する範囲や規模によって日数は変わるため、ご相談時に具体的な日程をお伝えします。</p></div></details>
+      <details><summary>本当に<wbr>2日で<wbr>報告して<wbr>もらえますか。</summary><div class="a"><p>AI自動診断なら、最短で即日契約・翌日診断・2日後報告が可能です。AIエージェントが自律的に診断します。診断員による手動診断は翌日の実施ができず、診断完了まで一定の期間がかかります。診断する範囲や規模によっても日数は変わるため、ご相談時に具体的な日程をお伝えします。</p></div></details>
       <details><summary>見つかった<wbr>問題は、<wbr>どこまで<wbr>対応して<wbr>もらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法・対策手順をお伝えします。開発担当や保守会社がそのまま修正に入れる内容です。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
       <details><summary>社内に<wbr>セキュリティの<wbr>担当者がいません。</summary><div class="a"><p>問題ありません。AIが検査箇所を洗い出すため、診断対象の一覧をご用意いただく必要はありません。レポートは専門知識がなくても読める形でお渡しします。</p></div></details>
       <details><summary>本番環境に<wbr>影響は<wbr>出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
@@ -650,10 +656,10 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
   <div class="wrap cta-grid">
     <div>
       <span class="logo-word" style="font-size:22px">IssueHunt One</span>
-      <h2 style="margin-top:18px">再発防止の<wbr>脆弱性診断、<br><span>最短2日</span>で<wbr>対応します。</h2>
+      <h2 style="margin-top:18px">再発防止の<wbr>脆弱性診断、<br><span>最短2日</span>で<wbr>対応します。<sup class="nt">※2</sup></h2>
       <p class="lead">いまの状況をそのままお聞かせください。どこから調べるべきか、いつまでに何ができるかをご提案します。</p>
       <ul class="cta-list">
-        <li>最短で即日契約、翌日診断、2日後に報告</li>
+        <li>最短で即日契約、翌日診断、2日後に報告<sup class="nt">※2</sup></li>
         <li>弱点ごとに修正方法・対策手順をご提示</li>
         <li>修正後の再診断は無料</li>
         <li>導入企業の7割が上場企業</li>
@@ -682,7 +688,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
 </main>
 
 
-<div class="notes"><div class="wrap">※1 当社調べ。一般的なWebアプリケーション脆弱性診断（ツール＋手動）の価格との比較。対象範囲・条件により異なります。導入企業の声は IssueHunt One 公式サイト掲載の導入事例より抜粋（各社のご利用サービスは事例ページをご覧ください）。「最短2日」は即日契約・翌日診断の場合。診断範囲により日数は異なります。</div></div>
+<div class="notes"><div class="wrap">※1 当社調べ。一般的なWebアプリケーション脆弱性診断（ツール＋手動）の価格との比較。対象範囲・条件により異なります。導入企業の声は IssueHunt One 公式サイト掲載の導入事例より抜粋（各社のご利用サービスは事例ページをご覧ください）。</div><div class="wrap" style="margin-top:6px">※2 「最短2日」「即日契約・翌日診断・2日後報告」は、AI自動診断（AIエージェントが自律的に診断）の場合です。診断員による手動診断は翌日の実施ができず、診断完了まで一定の期間がかかります。いずれも診断範囲により日数は異なります。</div></div>
 
 <footer>
   <div class="wrap"><span class="logo-word">IssueHunt One</span><span>IssueHunt株式会社　© IssueHunt, Inc.</span></div>
