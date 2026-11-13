@@ -387,6 +387,9 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
   .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
   .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
 }
+.h-kicker,.pains-after,.checks b,details summary{word-break:keep-all;overflow-wrap:anywhere}
+.log-row.h,.log-foot{font-size:12px}
+@media (max-width:560px){pre.code{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 
 </head>
@@ -406,7 +409,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="hero-main">
       <div>
         <span class="target"><b>C2C・マッチングサービス</b>の運営責任者へ</span>
-        <p class="h-kicker">情報漏洩で、取引が止まる前に。</p>
+        <p class="h-kicker">情報漏洩で、<wbr>取引が<wbr>止まる前に。</p>
         <h1 class="h-main"><span>脆弱性診断</span></h1>
         <p class="h-fix"><em>他人の会員情報</em>が、<br>見えてしまう穴はないか。</p>
         <div class="fixflow" aria-label="診断員が確かめること">
@@ -494,7 +497,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p>限られた予算で、できるだけ多くの機能をプロに見てほしい。でも、どこから頼めばいいかわからない。</p>
       </div>
     </div>
-    <p class="pains-after">不正利用につながる穴を、<b>見つけて、直すところまで</b>お手伝いします。</p>
+    <p class="pains-after">不正利用に<wbr>つながる<wbr>穴を、<b>見つけて、<wbr>直す<wbr>ところまで</b>お手伝いします。</p>
   </div>
 </section>
 
@@ -507,12 +510,12 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       <p>他人の情報を見たり操作したりできないか。取引や決済のような複雑な処理は、自動ツールだけでは確かめきれません。診断員が出品者・購入者の両方の立場で操作して確認します。</p>
     </div>
     <ul class="checks">
-      <li><i>会員</i><b>他人のプロフィールや住所が見える</b><span>URLやIDを書き換えるだけで、ほかの会員の個人情報が表示されないか</span></li>
-      <li><i>会員</i><b>退会・利用停止した会員が操作を続けられる</b><span>停止したはずのアカウントで出品や購入ができてしまわないか</span></li>
-      <li><i>取引</i><b>他人の取引メッセージが読める</b><span>当事者以外が、取引中のやり取りや添付ファイルを見られないか</span></li>
-      <li><i>取引</i><b>他人の出品を編集・削除できる</b><span>出品者本人でなくても、価格や内容を書き換えられないか</span></li>
-      <li><i>お金</i><b>支払わずに取引を完了できる</b><span>手順を飛ばしたり値を書き換えたりして、決済をすり抜けられないか</span></li>
-      <li><i>お金</i><b>売上金の振込先を書き換えられる</b><span>他人の振込先口座を、自分の口座に変更できてしまわないか</span></li>
+      <li><i>会員</i><b>他人の<wbr>プロフィールや<wbr>住所が<wbr>見える</b><span>URLやIDを書き換えるだけで、ほかの会員の個人情報が表示されないか</span></li>
+      <li><i>会員</i><b>退会・利用<wbr>停止した<wbr>会員が<wbr>操作を<wbr>続けられる</b><span>停止したはずのアカウントで出品や購入ができてしまわないか</span></li>
+      <li><i>取引</i><b>他人の<wbr>取引メッセージが<wbr>読める</b><span>当事者以外が、取引中のやり取りや添付ファイルを見られないか</span></li>
+      <li><i>取引</i><b>他人の<wbr>出品を<wbr>編集・削除できる</b><span>出品者本人でなくても、価格や内容を書き換えられないか</span></li>
+      <li><i>お金</i><b>支払わずに<wbr>取引を<wbr>完了できる</b><span>手順を飛ばしたり値を書き換えたりして、決済をすり抜けられないか</span></li>
+      <li><i>お金</i><b>売上金の<wbr>振込先を<wbr>書き換えられる</b><span>他人の振込先口座を、自分の口座に変更できてしまわないか</span></li>
     </ul>
     <p class="cap">※ 診断で確認する項目の例です。サービスの機能に合わせて範囲をご提案します。</p>
   </div>
@@ -693,12 +696,12 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
-      <details open><summary>取引や決済の流れも診断できますか。</summary><div class="a"><p>できます。出品から購入、決済、取引完了、売上金の振込申請まで、診断員が手順を追って確認します。他人の取引を操作できないか、手順を飛ばして決済をすり抜けられないかなどを検査します。</p></div></details>
-      <details><summary>実際の会員や取引に影響は出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の内容を事前に取り決め、実際の会員や取引に影響が出ないように進めます。</p></div></details>
-      <details><summary>診断のために何を用意すればいいですか。</summary><div class="a"><p>機能の一覧づくりは不要です。AIがソースコードから検査する場所を洗い出します。検査に使うアカウントなど、必要なものはご相談時にご案内します。</p></div></details>
-      <details><summary>限られた予算で、どこまで診断できますか。</summary><div class="a"><p>料金はエンドポイント数に応じたプラン制です。ご予算を伺ったうえで、会員情報や売上金など優先度の高い機能から範囲をご提案します。費用は相場の約半額です。</p></div></details>
-      <details><summary>見つかった問題は、どこまで対応してもらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法をお伝えします。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
-      <details><summary>ソースコードを渡すのが不安です。</summary><div class="a"><p>取り扱い範囲や管理方法は、契約前に詳しくご説明します。秘密保持契約の締結にも対応します。IssueHunt One は経済産業省の「情報セキュリティサービス基準」に適合した脆弱性診断サービスとして登録されています。</p></div></details>
+      <details open><summary>取引や<wbr>決済の<wbr>流れも<wbr>診断できますか。</summary><div class="a"><p>できます。出品から購入、決済、取引完了、売上金の振込申請まで、診断員が手順を追って確認します。他人の取引を操作できないか、手順を飛ばして決済をすり抜けられないかなどを検査します。</p></div></details>
+      <details><summary>実際の<wbr>会員や<wbr>取引に<wbr>影響は<wbr>出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の内容を事前に取り決め、実際の会員や取引に影響が出ないように進めます。</p></div></details>
+      <details><summary>診断の<wbr>ために<wbr>何を<wbr>用意すれば<wbr>いいですか。</summary><div class="a"><p>機能の一覧づくりは不要です。AIがソースコードから検査する場所を洗い出します。検査に使うアカウントなど、必要なものはご相談時にご案内します。</p></div></details>
+      <details><summary>限られた<wbr>予算で、<wbr>どこまで<wbr>診断できますか。</summary><div class="a"><p>料金はエンドポイント数に応じたプラン制です。ご予算を伺ったうえで、会員情報や売上金など優先度の高い機能から範囲をご提案します。費用は相場の約半額です。</p></div></details>
+      <details><summary>見つかった<wbr>問題は、<wbr>どこまで<wbr>対応して<wbr>もらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法をお伝えします。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
+      <details><summary>ソースコードを<wbr>渡すのが<wbr>不安です。</summary><div class="a"><p>取り扱い範囲や管理方法は、契約前に詳しくご説明します。秘密保持契約の締結にも対応します。IssueHunt One は経済産業省の「情報セキュリティサービス基準」に適合した脆弱性診断サービスとして登録されています。</p></div></details>
     </div>
   </div>
 </section>

@@ -346,6 +346,9 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
   .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
   .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
 }
+.h-kicker,.pains-after,.checks b,details summary{word-break:keep-all;overflow-wrap:anywhere}
+.log-row.h,.log-foot{font-size:12px}
+@media (max-width:560px){pre.code{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 
 </head>
@@ -365,7 +368,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="hero-main">
       <div>
         <span class="target"><b>人事・経理SaaS</b>の開発責任者へ</span>
-        <p class="h-kicker">AIの速さと、診断員の目で。</p>
+        <p class="h-kicker">AIの<wbr>速さと、<wbr>診断員の<wbr>目で。</p>
         <h1 class="h-main"><span>脆弱性診断</span></h1>
         <p class="h-fix">見つけて終わり、にしない。<br><em>直すところまで</em>伴走します。</p>
         <div class="badges">
@@ -486,7 +489,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p>何をどう直せばいいのかわからず、対応が後回しに。結局、穴が残ったままになっている。</p>
       </div>
     </div>
-    <p class="pains-after">IssueHunt One は、<b>弱点を見つけて、直すところまで</b>お手伝いします。</p>
+    <p class="pains-after">IssueHunt One は、<b>弱点を<wbr>見つけて、<wbr>直す<wbr>ところまで</b>お手伝いします。</p>
   </div>
 </section>
 
@@ -625,13 +628,13 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
-      <details open><summary>見つかった問題は、どこまで対応してもらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法・対策手順をお伝えします。開発チームや保守会社がそのまま修正に入れる内容です。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
-      <details><summary>なぜ相場の約半額でできるのですか。</summary><div class="a"><p>検査箇所の洗い出しや作業の一部をAIで自動化し、診断員は人の判断が必要な部分に集中しています。品質を落とさずに、かかる工数を減らしています。</p></div></details>
-      <details><summary>AIの診断だけで大丈夫ですか。</summary><div class="a"><p>AIが担うのは、検査する場所の洗い出しと作業の一部です。テナント越境や権限の抜けなど、業務ロジックに関わる部分は診断員が手動で確認します。</p></div></details>
-      <details><summary>ソースコードを渡すのが不安です。</summary><div class="a"><p>取り扱い範囲や管理方法は、契約前に詳しくご説明します。秘密保持契約の締結にも対応します。IssueHunt One は経済産業省の「情報セキュリティサービス基準」に適合した脆弱性診断サービスとして登録されています。</p></div></details>
-      <details><summary>本番環境に影響は出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
-      <details><summary>料金はどう決まりますか。</summary><div class="a"><p>検査するエンドポイント数に応じたプランでご案内します。範囲と日程を伺ったうえで、無料でお見積もりします。</p></div></details>
-      <details><summary>毎年、診断会社を変えています。単発でも頼めますか。</summary><div class="a"><p>ご相談ください。他社で診断を受けたうえで、別の視点の確認として追加でご利用いただくこともできます。</p></div></details>
+      <details open><summary>見つかった<wbr>問題は、<wbr>どこまで<wbr>対応して<wbr>もらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法・対策手順をお伝えします。開発チームや保守会社がそのまま修正に入れる内容です。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
+      <details><summary>なぜ相場の<wbr>約半額で<wbr>できるのですか。</summary><div class="a"><p>検査箇所の洗い出しや作業の一部をAIで自動化し、診断員は人の判断が必要な部分に集中しています。品質を落とさずに、かかる工数を減らしています。</p></div></details>
+      <details><summary>AIの<wbr>診断だけで<wbr>大丈夫ですか。</summary><div class="a"><p>AIが担うのは、検査する場所の洗い出しと作業の一部です。テナント越境や権限の抜けなど、業務ロジックに関わる部分は診断員が手動で確認します。</p></div></details>
+      <details><summary>ソースコードを<wbr>渡すのが<wbr>不安です。</summary><div class="a"><p>取り扱い範囲や管理方法は、契約前に詳しくご説明します。秘密保持契約の締結にも対応します。IssueHunt One は経済産業省の「情報セキュリティサービス基準」に適合した脆弱性診断サービスとして登録されています。</p></div></details>
+      <details><summary>本番環境に<wbr>影響は<wbr>出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
+      <details><summary>料金は<wbr>どう<wbr>決まりますか。</summary><div class="a"><p>検査するエンドポイント数に応じたプランでご案内します。範囲と日程を伺ったうえで、無料でお見積もりします。</p></div></details>
+      <details><summary>毎年、<wbr>診断会社を<wbr>変えています。<wbr>単発でも<wbr>頼めますか。</summary><div class="a"><p>ご相談ください。他社で診断を受けたうえで、別の視点の確認として追加でご利用いただくこともできます。</p></div></details>
     </div>
   </div>
 </section>

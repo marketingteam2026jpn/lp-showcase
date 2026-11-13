@@ -374,6 +374,9 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
   .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
   .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
 }
+.h-kicker,.pains-after,.checks b,details summary{word-break:keep-all;overflow-wrap:anywhere}
+.log-row.h,.log-foot{font-size:12px}
+@media (max-width:560px){pre.code{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 
 </head>
@@ -393,7 +396,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="hero-main">
       <div>
         <span class="target"><b>自社サイトのセキュリティ</b>が不安な方へ</span>
-        <p class="h-kicker">何から対策すればいいか、わからないなら。</p>
+        <p class="h-kicker">何から<wbr>対策すれば<wbr>いいか、<wbr>わからないなら。</p>
         <h1 class="h-main"><span>脆弱性診断</span></h1>
         <p class="h-fix">まず、<br><em>自社サイトの弱点</em>を知る。</p>
         <div class="fixflow" aria-label="診断でわかること">
@@ -482,7 +485,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p>費用も範囲も会社ごとにバラバラで、比べようがない。結局、後回しになっている。</p>
       </div>
     </div>
-    <p class="pains-after">迷っているなら、<b>まず現状を知ること</b>から始めませんか。</p>
+    <p class="pains-after">迷っているなら、<b>まず<wbr>現状を<wbr>知る<wbr>こと</b>から<wbr>始めませんか。</p>
   </div>
 </section>
 
@@ -676,12 +679,12 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
-      <details open><summary>どんな診断が必要なのか、自分ではわかりません。</summary><div class="a"><p>それで大丈夫です。サイトの内容と心配なことを伺い、必要な範囲をこちらからご提案します。専門用語がわからなくても進められます。</p></div></details>
-      <details><summary>うちのような規模の会社でも必要ですか。</summary><div class="a"><p>お客様の個人情報や決済情報を扱うサイトであれば、規模にかかわらず確認をおすすめします。攻撃は会社の大きさを選びません。</p></div></details>
-      <details><summary>サイトの開発・保守を外部の会社に任せています。</summary><div class="a"><p>ご依頼いただけます。診断の実施にあたって保守会社と調整が必要な点はご相談時にお伝えします。レポートには保守会社向けの修正方法も記載するので、そのまま修正を依頼できます。</p></div></details>
-      <details><summary>診断でサイトが止まったりしませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
-      <details><summary>費用はどのくらいですか。</summary><div class="a"><p>検査するエンドポイント（サイトの画面や機能の入口）の数に応じたプランでご案内します。AIで作業の一部を自動化しているため、相場の約半額でご提供しています。お見積もりは無料です。</p></div></details>
-      <details><summary>見つかった問題は、どこまで対応してもらえますか。</summary><div class="a"><p>問題ごとに、やさしい説明と具体的な修正方法をお伝えします。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
+      <details open><summary>どんな<wbr>診断が<wbr>必要なのか、<wbr>自分では<wbr>わかりません。</summary><div class="a"><p>それで大丈夫です。サイトの内容と心配なことを伺い、必要な範囲をこちらからご提案します。専門用語がわからなくても進められます。</p></div></details>
+      <details><summary>うちのような<wbr>規模の<wbr>会社でも<wbr>必要ですか。</summary><div class="a"><p>お客様の個人情報や決済情報を扱うサイトであれば、規模にかかわらず確認をおすすめします。攻撃は会社の大きさを選びません。</p></div></details>
+      <details><summary>サイトの<wbr>開発・保守を<wbr>外部の<wbr>会社に<wbr>任せています。</summary><div class="a"><p>ご依頼いただけます。診断の実施にあたって保守会社と調整が必要な点はご相談時にお伝えします。レポートには保守会社向けの修正方法も記載するので、そのまま修正を依頼できます。</p></div></details>
+      <details><summary>診断で<wbr>サイトが<wbr>止まったりしませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
+      <details><summary>費用は<wbr>どの<wbr>くらいですか。</summary><div class="a"><p>検査するエンドポイント（サイトの画面や機能の入口）の数に応じたプランでご案内します。AIで作業の一部を自動化しているため、相場の約半額でご提供しています。お見積もりは無料です。</p></div></details>
+      <details><summary>見つかった<wbr>問題は、<wbr>どこまで<wbr>対応して<wbr>もらえますか。</summary><div class="a"><p>問題ごとに、やさしい説明と具体的な修正方法をお伝えします。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
     </div>
   </div>
 </section>
