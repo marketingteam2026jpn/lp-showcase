@@ -382,6 +382,10 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
 .nw{white-space:nowrap}
 .h-fix .nt{margin-left:0}
 @media (max-width:400px){.h-fix{font-size:min(28px,7.2vw)}}
+.fv-notes{margin-top:14px;display:grid;gap:3px;font-size:12px;line-height:1.6;color:var(--panel-dim);max-width:46em}
+.fv-notes p,.notes p{padding-left:2.2em;text-indent:-2.2em}
+.notes p+p{margin-top:4px}
+.h-sub1 .nt{font-size:12px}
 .fv-note{margin-top:10px;font-size:12.5px;line-height:1.6;color:var(--panel-dim);max-width:44em}
 @media (max-width:560px){pre.code{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
@@ -525,7 +529,7 @@ footer{background:#050405;border-color:var(--line);color:var(--panel-dim)}
         <span class="target"><b>サイバー攻撃・情報漏洩</b>が起きた企業の方へ</span>
         <p class="h-kicker">被害を、<wbr>二度と<wbr>繰り返さないために。</p>
         <h1 class="h-main"><span>再発防止</span></h1>
-        <p class="h-sub1">のための脆弱性診断</p>
+        <p class="h-sub1">のための脆弱性診断<sup class="nt">※1</sup></p>
         <p class="h-fix">最短<em class="num">2日</em>で対応しま<span class="nw">す。<sup class="nt">※2</sup></span></p>
         <div class="fixflow" aria-label="ご依頼から報告までの日程">
           <div class="ff"><i>今日</i><b>相談・契約</b></div><span class="ff-arr" aria-hidden="true">→</span>
@@ -535,9 +539,13 @@ footer{background:#050405;border-color:var(--line);color:var(--panel-dim)}
         <div class="badges">
           <div class="badge"><span>残る弱点を</span><b>洗い出し</b></div>
           <div class="badge"><span>再診断は</span><b>無料</b></div>
-          <div class="badge"><span>費用は相場の</span><b>約半額<sup>※1</sup></b></div>
+          <div class="badge"><span>費用は相場の</span><b>約半額<sup>※3</sup></b></div>
         </div>
-        <p class="fv-note">※2 最短2日での報告は、AI自動診断の場合です。診断員による手動診断は、完了まで一定の期間がかかります。</p>
+        <div class="fv-notes">
+          <p>※1 初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。初動のあと、残る弱点を見つけて再発を防ぐための診断を行います。</p>
+          <p>※2 最短2日での報告は、AI自動診断の場合です。診断員による手動診断は、完了まで一定の期間がかかります。</p>
+          <p>※3 当社調べ。一般的な脆弱性診断（ツール＋手動）の価格との比較です。</p>
+        </div>
       </div>
 
       <form class="hform" id="hero-form" novalidate>
@@ -555,7 +563,6 @@ footer{background:#050405;border-color:var(--line);color:var(--panel-dim)}
       </form>
     </div>
 
-    <p class="scope-note">※ 初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。初動のあと、残る弱点を見つけて再発を防ぐための診断を行います。</p>
 
     <div class="proof">
       <div>
@@ -808,7 +815,7 @@ footer{background:#050405;border-color:var(--line);color:var(--panel-dim)}
 </main>
 
 
-<div class="notes"><div class="wrap">※1 当社調べ。一般的なWebアプリケーション脆弱性診断（ツール＋手動）の価格との比較。対象範囲・条件により異なります。導入企業の声は IssueHunt One 公式サイト掲載の導入事例より抜粋（各社のご利用サービスは事例ページをご覧ください）。</div><div class="wrap" style="margin-top:6px">※2 「最短2日」「即日契約・翌日診断・2日後報告」は、AI自動診断（AIエージェントが自律的に診断）の場合です。診断員による手動診断は翌日の実施ができず、診断完了まで一定の期間がかかります。いずれも診断範囲により日数は異なります。</div></div>
+<div class="notes"><div class="wrap"><p>※1 初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。初動のあと、残る弱点を見つけて再発を防ぐための診断を行います。</p><p>※2 「最短2日」「即日契約・翌日診断・2日後報告」は、AI自動診断（AIエージェントが自律的に診断）の場合です。診断員による手動診断は翌日の実施ができず、診断完了まで一定の期間がかかります。いずれも診断範囲により日数は異なります。</p><p>※3 当社調べ。一般的なWebアプリケーション脆弱性診断（ツール＋手動）の価格との比較。対象範囲・条件により異なります。</p><p>導入企業の声は IssueHunt One 公式サイト掲載の導入事例より抜粋（各社のご利用サービスは事例ページをご覧ください）。</p></div></div>
 
 <footer>
   <div class="wrap"><span class="logo-word">IssueHunt One</span><span>IssueHunt株式会社　© IssueHunt, Inc.</span></div>
