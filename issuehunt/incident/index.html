@@ -110,9 +110,11 @@ a{color:inherit}
 .ff.hl{background:rgba(255,201,60,.12);border-color:var(--cta)}
 .ff.hl i{color:var(--cta)}
 .ff-arr{align-self:center;font-family:var(--mono);color:var(--panel-accent)}
-.chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:14px;color:#fff;background:var(--panel-2);border:1px solid var(--panel-line);border-radius:8px;padding:8px 14px}
-.chip::before{content:"✓";color:var(--panel-ok);font-family:var(--mono)}
+.badges{margin-top:30px;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:16px}
+.badge{width:148px;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;background:var(--panel-2);border:2px solid var(--cta);line-height:1.2}
+.badge span{font-family:var(--display);font-weight:700;font-size:14px;color:var(--panel-ink)}
+.badge b{position:relative;font-family:var(--heavy);font-weight:900;font-size:28px;color:var(--cta);white-space:nowrap;letter-spacing:-.01em}
+.badge sup{font-family:var(--body);font-weight:400;font-size:11px;color:var(--panel-dim);position:absolute;left:100%;top:-2px;margin-left:1px;line-height:1}
 
 /* hero proof row */
 .proof{position:relative;display:grid;grid-template-columns:auto auto 1fr;gap:0;border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);margin-top:8px}
@@ -292,6 +294,10 @@ footer .logo-word{font-size:18px}
   .h-main{font-size:clamp(44px,16.5vw,80px)}
   .fixflow{grid-template-columns:1fr;gap:6px}
   .ff-arr{transform:rotate(90deg);justify-self:center;line-height:1}
+  .badges{gap:10px;flex-wrap:nowrap}
+  .badge{width:auto;flex:1 1 0;max-width:120px}
+  .badge span{font-size:13px}
+  .badge b{font-size:21px}
   .proof{grid-template-columns:1fr}
   .proof > div{padding:16px 0}
   .proof > div + div{border-left:0;border-top:1px solid var(--panel-line)}
@@ -396,10 +402,10 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
           <div class="ff"><i>翌日</i><b>診断を実施</b></div><span class="ff-arr" aria-hidden="true">→</span>
           <div class="ff hl"><i>2日後</i><b>報告と<br>対策の提示</b></div>
         </div>
-        <div class="chips">
-          <span class="chip">残る弱点と直し方がわかる</span>
-          <span class="chip">修正後の再診断は無料</span>
-          <span class="chip">費用は相場の約半額 ※1</span>
+        <div class="badges">
+          <div class="badge"><span>残る弱点と</span><b>直し方</b></div>
+          <div class="badge"><span>再診断は</span><b>無料</b></div>
+          <div class="badge"><span>費用は相場の</span><b>約半額<sup>※1</sup></b></div>
         </div>
       </div>
 
