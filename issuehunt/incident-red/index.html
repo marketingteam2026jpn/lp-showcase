@@ -400,9 +400,9 @@ body{
   text-shadow:-1px -1px 0 #2A0004,1px -1px 0 #2A0004,-1px 1px 0 #2A0004,1px 1px 0 #2A0004,5px 6px 0 #000}
 
 /* ボタン：赤く光る丸ボタン */
-.btn-cta{background:linear-gradient(180deg,#FF4040 0%,#C8101A 100%);color:#fff;border:2px solid rgba(255,140,140,.9);border-radius:999px;
+.btn-cta{background:linear-gradient(180deg,#E3222A 0%,#B80D16 100%);color:#fff;border:2px solid rgba(255,140,140,.9);border-radius:999px;
   box-shadow:0 0 0 4px rgba(255,43,43,.18),0 0 26px rgba(255,43,43,.55);transition:filter .15s,transform .15s}
-.btn-cta:hover{background:linear-gradient(180deg,#FF4040 0%,#C8101A 100%);filter:brightness(1.08)}
+.btn-cta:hover{background:linear-gradient(180deg,#E3222A 0%,#B80D16 100%);filter:brightness(1.08)}
 .btn-cta:active{transform:translateY(2px);box-shadow:0 0 0 4px rgba(255,43,43,.18),0 0 18px rgba(255,43,43,.45)}
 
 /* ヘッダー */
@@ -443,8 +443,8 @@ body{
 .logo-band{background:#140B0E;border-bottom:1px solid var(--line);color-scheme:dark}
 .lb-h{color:var(--panel-dim)}
 .lb-list{gap:14px}
-.lb-list li{background:#fff;border-radius:10px;padding:6px 18px;height:64px;box-shadow:0 0 0 1px rgba(255,64,64,.25)}
-.lb-list img{max-height:48px}
+.lb-list li{flex:0 0 146px;background:#fff;border-radius:10px;padding:6px 14px;height:56px;box-shadow:0 0 0 1px rgba(255,64,64,.25)}
+.lb-list img{max-height:30px;max-width:118px}
 
 /* 節の背景：黒を2段で交互 */
 .pains-sec,.report-sec,.flow-sec{background:var(--surface-2);border-color:var(--line)}
@@ -490,12 +490,13 @@ footer{background:#050405;border-color:var(--line);color:var(--panel-dim)}
 @media (min-width:981px){
   .hform{position:relative;margin-top:110px}
   .hero::after{display:none}
-  .hform::before{content:"";position:absolute;top:-128px;right:24px;width:150px;height:132px;background:url(assets/fv_owl.png) center top/100% auto no-repeat;pointer-events:none}
+  .hform::before{content:"";position:absolute;top:-128px;right:24px;width:150px;height:132px;background:url(assets/fv_owl.png) center top/100% auto no-repeat;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 60% 65% at 55% 45%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 60% 65% at 55% 45%,#000 60%,transparent 100%)}
 }
 @media (max-width:560px){
   .hero::after{width:130px;height:22px}
   .lb-list{gap:10px}
-  .lb-list li{height:44px;padding:4px 10px}
+  .lb-list li{flex:0 0 calc((100% - 22px)/3);height:44px;padding:4px 8px}
+  .field textarea{min-height:124px}
   .lb-list img{transform:none;max-height:28px;max-width:96px}
 }
 </style>
