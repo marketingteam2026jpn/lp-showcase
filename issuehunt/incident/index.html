@@ -339,6 +339,32 @@ footer .logo-word{font-size:18px}
   .lb-list li{height:44px}
   .lb-list img{transform:scale(.78);transform-origin:center}
 }
+/* fix 2026-11-13: 見本ログの列重なり・スマホ比較表・固定CTA・見出し改行 */
+h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+.log-row{grid-template-columns:46px minmax(max-content,1fr) max-content max-content;gap:8px 12px;min-width:max-content}
+.mcta{transition:transform .2s ease}
+.mcta.is-hidden{transform:translateY(110%)}
+@media (prefers-reduced-motion:reduce){.mcta{transition:none}}
+@media (max-width:1140px){
+  .log-row{grid-template-columns:52px 1fr max-content;gap:2px 10px;min-width:0;white-space:normal}
+  .log-row>:nth-child(2){grid-column:2/4;overflow-wrap:anywhere}
+  .log-row>:nth-child(3){grid-column:2}
+  .log-row>:nth-child(4){grid-column:3;text-align:right}
+}
+@media (max-width:560px){
+  .tbl-wrap table{min-width:0}
+  .tbl-wrap thead{display:none}
+  .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tr,.tbl-wrap th,.tbl-wrap td{display:block;width:auto}
+  .tbl-wrap tbody tr{border-bottom:1px solid var(--line);padding-bottom:14px}
+  .tbl-wrap tbody tr:last-child{border-bottom:0}
+  .tbl-wrap tbody th{padding:16px 18px 6px;font-size:15px;color:var(--ink);border-bottom:0;white-space:normal}
+  .tbl-wrap td{border-bottom:0;font-size:15px}
+  .tbl-wrap td.them{padding:4px 18px 10px}
+  .tbl-wrap td.us{margin:0 12px;padding:10px 12px;border-radius:8px}
+  .tbl-wrap td::before{display:block;font-size:12px;font-weight:700;margin-bottom:2px}
+  .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
+  .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
+}
 </style>
 
 </head>
@@ -377,7 +403,7 @@ footer .logo-word{font-size:18px}
       <form class="hform" id="hero-form" novalidate>
         <div class="hform-h">
           <span class="free">急ぎのご相談も受付中・相談無料</span>
-          <h2>再発防止の診断を<br>相談する</h2>
+          <h2>再発防止の<wbr>診断を<br>相談する</h2>
         </div>
         <div class="field"><label for="h-company">会社名<span class="req">必須</span></label><input id="h-company" name="company" required autocomplete="organization" placeholder="例：株式会社〇〇"></div>
         <div class="field"><label for="h-name">お名前<span class="req">必須</span></label><input id="h-name" name="name" required autocomplete="name"></div>
@@ -434,7 +460,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">いま、こんな状況ではありませんか</span>
-      <h2>初動は終わった。<br>でも、本当にもう大丈夫なのか。</h2>
+      <h2>初動は<wbr>終わった。<br>でも、<wbr>本当に<wbr>もう<wbr>大丈夫なのか。</h2>
     </div>
     <div class="pains">
       <div class="pain">
@@ -459,7 +485,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">IssueHunt One が担う範囲</span>
-      <h2>初動のあと、「二度目」を防ぐところを担当します。</h2>
+      <h2>初動の<wbr>あと、<wbr>「二度目」を<wbr>防ぐ<wbr>ところを<wbr>担当します。</h2>
       <p>被害調査や復旧は、専門の初動対応会社の領域です。IssueHunt One はその後の、再発防止のための診断と対策に特化しています。</p>
     </div>
     <ol class="phase">
@@ -478,12 +504,12 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">選ばれる理由</span>
-      <h2>インシデント後に頼れる、4つの理由</h2>
+      <h2>インシデント後に<wbr>頼れる、<wbr>4つの<wbr>理由</h2>
     </div>
     <div class="feats">
       <div class="feat">
         <span class="feat-n">01</span>
-        <h3><small>SPEED</small>即日契約、翌日診断、2日後に報告。</h3>
+        <h3><small>SPEED</small>即日契約、<wbr>翌日診断、<wbr>2日後に<wbr>報告。</h3>
         <div class="body">
           <p>インシデント後は一日でも早く「もう大丈夫」と言える状態が必要です。<strong>AIが検査箇所を洗い出す</strong>ので、診断対象の一覧づくりを待たずにすぐ始められます。</p>
           <div class="speed"><span><i>D+0</i>相談・契約</span><span><i>D+1</i>診断実施</span><span><i>D+2</i>報告・対策提示</span></div>
@@ -491,21 +517,21 @@ footer .logo-word{font-size:18px}
       </div>
       <div class="feat">
         <span class="feat-n">02</span>
-        <h3><small>FIND</small>今回とは別の「残る穴」まで洗い出す。</h3>
+        <h3><small>FIND</small>今回とは<wbr>別の<wbr>「残る穴」まで<wbr>洗い出す。</h3>
         <div class="body">
           <p>AIがソースコードを読み取り、検査する場所を広く洗い出します。権限の抜けや業務ロジックの穴など、<strong>ツールでは見つけにくい部分は診断員が手で確かめます。</strong></p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">03</span>
-        <h3><small>FIX</small>見つけて終わりにせず、直し方まで。</h3>
+        <h3><small>FIX</small>見つけて<wbr>終わりに<wbr>せず、<wbr>直し方まで。</h3>
         <div class="body">
           <p>弱点ごとに<strong>再現手順・具体的な修正方法・対策手順</strong>をお渡しします。開発担当や保守会社にそのまま修正を依頼できます。修正後は<strong>無料の再診断</strong>で、直ったことまで確認します。</p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">04</span>
-        <h3><small>EXPLAIN</small>「何を調べたか」を示せるレポート。</h3>
+        <h3><small>EXPLAIN</small>「何を<wbr>調べたか」を<wbr>示せる<wbr>レポート。</h3>
         <div class="body">
           <p>一般的なレポートは見つかった脆弱性の一覧だけです。IssueHunt One は<strong>検査した箇所と試した攻撃の内容まで開示</strong>します。経営層・取引先・お客様への再発防止策の説明に、そのまま使えます。</p>
         </div>
@@ -519,13 +545,13 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">レポート見本</span>
-      <h2>直し方と、調べた範囲。<br>両方を一冊に。</h2>
+      <h2>直し方と、<wbr>調べた<wbr>範囲。<br>両方を<wbr>一冊に。</h2>
     </div>
     <div class="report">
       <article class="card">
         <div class="card-h"><span class="sev">重大度：高</span><span class="id">IH-2026-0721</span></div>
         <div class="card-b">
-          <h3>会員検索APIからSQLインジェクションが可能</h3>
+          <h3>会員検索APIから<wbr>SQLインジェクションが<wbr>可能</h3>
           <dl class="kv">
             <dt>対象</dt><dd class="mono">GET /api/members/search?q=</dd>
             <dt>影響</dt><dd>検索文字列に細工をすると、会員テーブルの氏名・メールアドレス・住所を一括で取得できます。今回のインシデントとは別の経路です。</dd>
@@ -564,7 +590,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">導入企業の声</span>
-      <h2>説明責任を重く見る企業に、選ばれています。</h2>
+      <h2>説明責任を<wbr>重く<wbr>見る<wbr>企業に、<wbr>選ばれています。</h2>
       <p>IssueHunt One 公式サイトの導入事例インタビューから抜粋しています。</p>
     </div>
     <div class="voices">
@@ -592,7 +618,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">よくあるご質問</span>
-      <h2>ご依頼前によくいただく質問</h2>
+      <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
       <details open><summary>被害の調査や復旧もお願いできますか。</summary><div class="a"><p>初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。IssueHunt One は、初動のあとに残る弱点を見つけて再発を防ぐための診断と、対策のご提示を行います。</p></div></details>
@@ -610,7 +636,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap cta-grid">
     <div>
       <span class="logo-word" style="font-size:22px">IssueHunt One</span>
-      <h2 style="margin-top:18px">再発防止の脆弱性診断、<br><span>最短2日</span>で対応します。</h2>
+      <h2 style="margin-top:18px">再発防止の<wbr>脆弱性診断、<br><span>最短2日</span>で<wbr>対応します。</h2>
       <p class="lead">いまの状況をそのままお聞かせください。どこから調べるべきか、いつまでに何ができるかをご提案します。</p>
       <ul class="cta-list">
         <li>最短で即日契約、翌日診断、2日後に報告</li>
@@ -620,7 +646,7 @@ footer .logo-word{font-size:18px}
       </ul>
     </div>
     <form class="form" id="lead-form" novalidate>
-      <h3>再発防止の診断を相談する</h3>
+      <h3>再発防止の<wbr>診断を<wbr>相談する</h3>
       <div class="row2">
         <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="company" required autocomplete="organization"></div>
         <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" required autocomplete="name"></div>
@@ -664,6 +690,16 @@ document.querySelectorAll('form').forEach(function (form) {
     form.querySelector('.done').hidden = false;
   });
 });
+(function () {
+  var bar = document.querySelector('.mcta');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  var shown = new Set();
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
+    bar.classList.toggle('is-hidden', shown.size > 0);
+  }, { threshold: 0.15 });
+  document.querySelectorAll('#hero-form, #lead-form').forEach(function (f) { io.observe(f); });
+})();
 </script>
 
 </body>

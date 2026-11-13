@@ -320,6 +320,32 @@ footer .logo-word{font-size:18px}
   .lb-list li{height:44px}
   .lb-list img{transform:scale(.78);transform-origin:center}
 }
+/* fix 2026-11-13: 見本ログの列重なり・スマホ比較表・固定CTA・見出し改行 */
+h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+.log-row{grid-template-columns:46px minmax(max-content,1fr) max-content max-content;gap:8px 12px;min-width:max-content}
+.mcta{transition:transform .2s ease}
+.mcta.is-hidden{transform:translateY(110%)}
+@media (prefers-reduced-motion:reduce){.mcta{transition:none}}
+@media (max-width:1140px){
+  .log-row{grid-template-columns:52px 1fr max-content;gap:2px 10px;min-width:0;white-space:normal}
+  .log-row>:nth-child(2){grid-column:2/4;overflow-wrap:anywhere}
+  .log-row>:nth-child(3){grid-column:2}
+  .log-row>:nth-child(4){grid-column:3;text-align:right}
+}
+@media (max-width:560px){
+  .tbl-wrap table{min-width:0}
+  .tbl-wrap thead{display:none}
+  .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tr,.tbl-wrap th,.tbl-wrap td{display:block;width:auto}
+  .tbl-wrap tbody tr{border-bottom:1px solid var(--line);padding-bottom:14px}
+  .tbl-wrap tbody tr:last-child{border-bottom:0}
+  .tbl-wrap tbody th{padding:16px 18px 6px;font-size:15px;color:var(--ink);border-bottom:0;white-space:normal}
+  .tbl-wrap td{border-bottom:0;font-size:15px}
+  .tbl-wrap td.them{padding:4px 18px 10px}
+  .tbl-wrap td.us{margin:0 12px;padding:10px 12px;border-radius:8px}
+  .tbl-wrap td::before{display:block;font-size:12px;font-weight:700;margin-bottom:2px}
+  .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
+  .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
+}
 </style>
 
 </head>
@@ -352,7 +378,7 @@ footer .logo-word{font-size:18px}
       <form class="hform" id="hero-form" novalidate>
         <div class="hform-h">
           <span class="free">相談・見積もり 無料</span>
-          <h2>診断と対策の進め方を<br>相談する</h2>
+          <h2>診断と<wbr>対策の<wbr>進め方を<br>相談する</h2>
         </div>
         <div class="field"><label for="h-company">会社名<span class="req">必須</span></label><input id="h-company" name="company" required autocomplete="organization" placeholder="例：株式会社〇〇"></div>
         <div class="field"><label for="h-name">お名前<span class="req">必須</span></label><input id="h-name" name="name" required autocomplete="name"></div>
@@ -406,7 +432,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">導入企業の声</span>
-      <h2>SaaS企業の開発・セキュリティ責任者が選んでいます。</h2>
+      <h2>SaaS企業の<wbr>開発・セキュリティ責任者が<wbr>選んでいます。</h2>
       <p>IssueHunt One 公式サイトの導入事例インタビューから抜粋しています。</p>
     </div>
     <div class="voices">
@@ -444,7 +470,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">こんな状態ではありませんか</span>
-      <h2>「うちも、別の会社の請求書が見えてしまう穴はないか？」</h2>
+      <h2>「うちも、<wbr>別の<wbr>会社の<wbr>請求書が<wbr>見えてしまう穴は<wbr>ないか？」</h2>
     </div>
     <div class="pains">
       <div class="pain">
@@ -469,13 +495,13 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">IssueHunt One の脆弱性診断</span>
-      <h2>選ばれる4つの理由</h2>
+      <h2>選ばれる<wbr>4つの<wbr>理由</h2>
       <p>診断して終わりではなく、弱点がなくなるところまでを支援します。</p>
     </div>
     <div class="feats">
       <div class="feat">
         <span class="feat-n">01</span>
-        <h3><small>FIX</small>見つけた弱点を、直すところまで。</h3>
+        <h3><small>FIX</small>見つけた<wbr>弱点を、<wbr>直す<wbr>ところまで。</h3>
         <div class="body">
           <p>多くの診断は「脆弱性が見つかりました」で終わります。IssueHunt One は問題ごとに<strong>再現手順・具体的な修正方法・対策手順</strong>をお渡しします。</p>
           <p>レポートをそのまま開発チームや保守会社に渡せば修正に入れます。修正後は<strong>無料の再診断</strong>で、直ったことまで確認します。</p>
@@ -483,21 +509,21 @@ footer .logo-word{font-size:18px}
       </div>
       <div class="feat">
         <span class="feat-n">02</span>
-        <h3><small>TRANSPARENT</small>何を、どう攻撃したかまで開示。</h3>
+        <h3><small>TRANSPARENT</small>何を、<wbr>どう<wbr>攻撃したかまで<wbr>開示。</h3>
         <div class="body">
           <p>一般的なレポートは見つかった脆弱性の一覧だけです。IssueHunt One は<strong>検査したエンドポイントと試した攻撃の内容まで</strong>お渡しします。テナント越境や権限の抜けなど業務ロジックの穴は、<strong>診断員が手で確かめます。</strong></p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">03</span>
-        <h3><small>EASY</small>画面・機能の一覧は、作らなくていい。</h3>
+        <h3><small>EASY</small>画面・機能の<wbr>一覧は、<wbr>作らなくていい。</h3>
         <div class="body">
           <p>通常の診断では、検査対象の一覧を依頼側が用意します。IssueHunt One では<strong>AIがソースコードを読み取り、検査する場所を洗い出します。</strong>開発を止めずに進められます。</p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">04</span>
-        <h3><small>SPEED &amp; COST</small>最短2日後に報告。<br>費用は相場の約半額。</h3>
+        <h3><small>SPEED &amp; COST</small>最短2日後に<wbr>報告。<br>費用は<wbr>相場の<wbr>約半額。</h3>
         <div class="body">
           <p>即日契約・翌日実施・2日後報告に対応します。検査の準備や作業の一部を<strong>AIで自動化</strong>しているため、費用も抑えられます。料金はエンドポイント数に応じたプラン制です。</p>
           <div class="speed"><span><i>D+0</i>契約</span><span><i>D+1</i>診断実施</span><span><i>D+2</i>報告</span></div>
@@ -512,14 +538,14 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">レポート見本</span>
-      <h2>指摘だけでなく、直し方まで書いた報告書。</h2>
+      <h2>指摘だけでなく、<wbr>直し方まで<wbr>書いた<wbr>報告書。</h2>
       <p>見つかった問題ごとに、影響・再現手順・修正方法。検査した範囲もすべて開示します。</p>
     </div>
     <div class="report">
       <article class="card">
         <div class="card-h"><span class="sev">重大度：高</span><span class="id">IH-2026-0413</span></div>
         <div class="card-b">
-          <h3>他テナントの請求書PDFをダウンロードできる</h3>
+          <h3>他テナントの<wbr>請求書PDFを<wbr>ダウンロードできる</h3>
           <dl class="kv">
             <dt>対象</dt><dd class="mono">GET /api/v1/invoices/{id}/pdf</dd>
             <dt>影響</dt><dd>ログイン中の利用者が、IDを書き換えるだけで他社の請求書（取引先名・金額・口座情報）を取得できます。</dd>
@@ -558,7 +584,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">比較</span>
-      <h2>一般的な脆弱性診断との違い</h2>
+      <h2>一般的な<wbr>脆弱性診断との<wbr>違い</h2>
     </div>
     <div class="tbl-wrap">
       <table>
@@ -580,11 +606,11 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">ご依頼の流れ</span>
-      <h2>相談から報告まで、開発チームの作業は最小限。</h2>
+      <h2>相談から<wbr>報告まで、<wbr>開発チームの<wbr>作業は<wbr>最小限。</h2>
     </div>
     <div class="flow">
       <div class="step"><span class="no">STEP 1</span><h3>無料相談</h3><p>サービスの概要と、心配な機能（ログイン、請求書、給与、承認フローなど）を伺います。</p><span class="you">オンライン30分</span></div>
-      <div class="step"><span class="no">STEP 2</span><h3>範囲と見積もり</h3><p>エンドポイント数をもとに、検査範囲・費用・日程をご提示します。</p><span class="you">画面一覧の作成は不要</span></div>
+      <div class="step"><span class="no">STEP 2</span><h3>範囲と<wbr>見積もり</h3><p>エンドポイント数をもとに、検査範囲・費用・日程をご提示します。</p><span class="you">画面一覧の作成は不要</span></div>
       <div class="step"><span class="no">STEP 3</span><h3>診断・報告</h3><p>AIが検査箇所を洗い出し、診断員が確認。弱点ごとの修正方法・対策手順をまとめてお渡しします。</p><span class="you">最短2日後に報告</span></div>
       <div class="step"><span class="no">STEP 4</span><h3>対策・再診断</h3><p>修正方法をもとに開発チームや保守会社で対応。直ったかを再診断で確認します。</p><span class="you">再診断は無料</span></div>
     </div>
@@ -596,7 +622,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">よくあるご質問</span>
-      <h2>ご依頼前によくいただく質問</h2>
+      <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
       <details open><summary>見つかった問題は、どこまで対応してもらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法・対策手順をお伝えします。開発チームや保守会社がそのまま修正に入れる内容です。修正後は無料の再診断で、問題が解消されたかを確認します。</p></div></details>
@@ -615,7 +641,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap cta-grid">
     <div>
       <span class="logo-word" style="font-size:22px">IssueHunt One</span>
-      <h2 style="margin-top:18px">脆弱性診断を、<br><span>直すところまで</span>。</h2>
+      <h2 style="margin-top:18px">脆弱性診断を、<br><span>直す<wbr>ところまで</span>。</h2>
       <p class="lead">「請求書の閲覧まわりだけ見てほしい」「次のリリース前に確かめたい」。範囲が決まっていなくても大丈夫です。必要な検査と費用の目安をご提案します。</p>
       <ul class="cta-list">
         <li>弱点ごとに修正方法・対策手順をご提示</li>
@@ -626,7 +652,7 @@ footer .logo-word{font-size:18px}
       </ul>
     </div>
     <form class="form" id="lead-form" novalidate>
-      <h3>診断・対策の無料相談</h3>
+      <h3>診断・対策の<wbr>無料相談</h3>
       <div class="row2">
         <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="company" required autocomplete="organization"></div>
         <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" required autocomplete="name"></div>
@@ -670,6 +696,16 @@ document.querySelectorAll('form').forEach(function (form) {
     form.querySelector('.done').hidden = false;
   });
 });
+(function () {
+  var bar = document.querySelector('.mcta');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  var shown = new Set();
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
+    bar.classList.toggle('is-hidden', shown.size > 0);
+  }, { threshold: 0.15 });
+  document.querySelectorAll('#hero-form, #lead-form').forEach(function (f) { io.observe(f); });
+})();
 </script>
 
 </body>

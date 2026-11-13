@@ -361,6 +361,32 @@ footer .logo-word{font-size:18px}
   .lb-list li{height:44px}
   .lb-list img{transform:scale(.78);transform-origin:center}
 }
+/* fix 2026-11-13: 見本ログの列重なり・スマホ比較表・固定CTA・見出し改行 */
+h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+.log-row{grid-template-columns:46px minmax(max-content,1fr) max-content max-content;gap:8px 12px;min-width:max-content}
+.mcta{transition:transform .2s ease}
+.mcta.is-hidden{transform:translateY(110%)}
+@media (prefers-reduced-motion:reduce){.mcta{transition:none}}
+@media (max-width:1140px){
+  .log-row{grid-template-columns:52px 1fr max-content;gap:2px 10px;min-width:0;white-space:normal}
+  .log-row>:nth-child(2){grid-column:2/4;overflow-wrap:anywhere}
+  .log-row>:nth-child(3){grid-column:2}
+  .log-row>:nth-child(4){grid-column:3;text-align:right}
+}
+@media (max-width:560px){
+  .tbl-wrap table{min-width:0}
+  .tbl-wrap thead{display:none}
+  .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tr,.tbl-wrap th,.tbl-wrap td{display:block;width:auto}
+  .tbl-wrap tbody tr{border-bottom:1px solid var(--line);padding-bottom:14px}
+  .tbl-wrap tbody tr:last-child{border-bottom:0}
+  .tbl-wrap tbody th{padding:16px 18px 6px;font-size:15px;color:var(--ink);border-bottom:0;white-space:normal}
+  .tbl-wrap td{border-bottom:0;font-size:15px}
+  .tbl-wrap td.them{padding:4px 18px 10px}
+  .tbl-wrap td.us{margin:0 12px;padding:10px 12px;border-radius:8px}
+  .tbl-wrap td::before{display:block;font-size:12px;font-weight:700;margin-bottom:2px}
+  .tbl-wrap td.them::before{content:"一般的な脆弱性診断";color:var(--muted)}
+  .tbl-wrap td.us::before{content:"IssueHunt One";color:var(--accent)}
+}
 </style>
 
 </head>
@@ -398,7 +424,7 @@ footer .logo-word{font-size:18px}
       <form class="hform" id="hero-form" novalidate>
         <div class="hform-h">
           <span class="free">相談・見積もり 無料</span>
-          <h2>会員・取引まわりの<br>診断を相談する</h2>
+          <h2>会員・取引まわりの<br>診断を<wbr>相談する</h2>
         </div>
         <div class="field"><label for="h-company">会社名<span class="req">必須</span></label><input id="h-company" name="company" required autocomplete="organization" placeholder="例：株式会社〇〇"></div>
         <div class="field"><label for="h-name">お名前<span class="req">必須</span></label><input id="h-name" name="name" required autocomplete="name"></div>
@@ -452,7 +478,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">こんな不安はありませんか</span>
-      <h2>会員と取引を預かる以上、<br>「たぶん大丈夫」では済まされない。</h2>
+      <h2>会員と<wbr>取引を<wbr>預かる以上、<br>「たぶん<wbr>大丈夫」では<wbr>済まされない。</h2>
     </div>
     <div class="pains">
       <div class="pain">
@@ -477,7 +503,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">C2Cプラットフォームの診断</span>
-      <h2>個人間取引ならではの穴を、診断員が手で確かめます。</h2>
+      <h2>個人間取引ならではの<wbr>穴を、<wbr>診断員が<wbr>手で<wbr>確かめます。</h2>
       <p>他人の情報を見たり操作したりできないか。取引や決済のような複雑な処理は、自動ツールだけでは確かめきれません。診断員が出品者・購入者の両方の立場で操作して確認します。</p>
     </div>
     <ul class="checks">
@@ -497,7 +523,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">もし、穴を突かれたら</span>
-      <h2>C2Cでは、一度の事故が<br>「両側」の利用者を遠ざけます。</h2>
+      <h2>C2Cでは、<wbr>一度の<wbr>事故が<br>「両側」の<wbr>利用者を<wbr>遠ざけます。</h2>
     </div>
     <div class="risks">
       <div class="risk"><i>01</i><b>取引が止まる</b><p>調査と修正のあいだ、出品・購入を止めざるを得ません。手数料収入もその間止まります。</p></div>
@@ -513,33 +539,33 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">選ばれる理由</span>
-      <h2>C2Cプラットフォームに選ばれる4つの理由</h2>
+      <h2>C2Cプラットフォームに<wbr>選ばれる<wbr>4つの<wbr>理由</h2>
     </div>
     <div class="feats">
       <div class="feat">
         <span class="feat-n">01</span>
-        <h3><small>MANUAL</small>出品者・購入者、両方の立場で確かめる。</h3>
+        <h3><small>MANUAL</small>出品者・購入者、<wbr>両方の<wbr>立場で<wbr>確かめる。</h3>
         <div class="body">
           <p>他人の情報を見たり操作したりできないかを、<strong>診断員が複数の会員アカウントを使って手動で検査</strong>します。取引や決済のような複雑な処理も、手順を追って確認します。</p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">02</span>
-        <h3><small>FIX</small>何を直すかまでわかる。</h3>
+        <h3><small>FIX</small>何を<wbr>直すかまで<wbr>わかる。</h3>
         <div class="body">
           <p>弱点ごとに<strong>問題が起きる手順と、具体的な修正方法</strong>をお渡しします。開発チームはそのまま修正に入れます。修正後は<strong>無料の再診断</strong>で、直ったことまで確認します。</p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">03</span>
-        <h3><small>COVERAGE</small>限られた予算で、より多くの機能を。</h3>
+        <h3><small>COVERAGE</small>限られた<wbr>予算で、<wbr>より<wbr>多くの機能を。</h3>
         <div class="body">
           <p><strong>AIがソースコードから検査する場所を洗い出す</strong>ので、機能の一覧づくりは不要です。作業の一部を自動化しているため、費用は<strong>相場の約半額</strong>。同じ予算で、より広い範囲を診断できます。</p>
         </div>
       </div>
       <div class="feat">
         <span class="feat-n">04</span>
-        <h3><small>TRANSPARENT</small>何を、どう攻撃したかまで開示。</h3>
+        <h3><small>TRANSPARENT</small>何を、<wbr>どう<wbr>攻撃したかまで<wbr>開示。</h3>
         <div class="body">
           <p>見つかった弱点だけでなく、<strong>検査した箇所と試した攻撃の内容まで</strong>お渡しします。経営層への報告や、会員への安全性の説明にも使えます。最短で即日契約・翌日診断・2日後報告に対応します。</p>
         </div>
@@ -553,13 +579,13 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">レポート見本</span>
-      <h2>起きる手順と、直し方。<br>開発チームがすぐ動ける報告書。</h2>
+      <h2>起きる<wbr>手順と、<wbr>直し方。<br>開発チームが<wbr>すぐ<wbr>動ける<wbr>報告書。</h2>
     </div>
     <div class="report">
       <article class="card">
         <div class="card-h"><span class="sev">重大度：高</span><span class="id">IH-2026-1108</span></div>
         <div class="card-b">
-          <h3>他の会員の売上金振込先口座を変更できる</h3>
+          <h3>他の<wbr>会員の<wbr>売上金振込先口座を<wbr>変更できる</h3>
           <dl class="kv">
             <dt>対象</dt><dd class="mono">PUT /api/v1/payout_accounts/{id}</dd>
             <dt>影響</dt><dd>ログイン中の会員が、IDを書き換えるだけで他の出品者の振込先口座を自分の口座に変更できます。売上金の横取りにつながります。</dd>
@@ -598,7 +624,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">導入企業の声</span>
-      <h2>多くの会員を抱えるサービスに、選ばれています。</h2>
+      <h2>多くの<wbr>会員を<wbr>抱える<wbr>サービスに、<wbr>選ばれています。</h2>
       <p>IssueHunt One 公式サイトの導入事例インタビューから抜粋しています。</p>
     </div>
     <div class="voices">
@@ -626,7 +652,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">比較</span>
-      <h2>一般的な脆弱性診断との違い</h2>
+      <h2>一般的な<wbr>脆弱性診断との<wbr>違い</h2>
     </div>
     <div class="tbl-wrap">
       <table>
@@ -648,11 +674,11 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">ご依頼の流れ</span>
-      <h2>開発チームの手を止めずに進められます。</h2>
+      <h2>開発チームの<wbr>手を<wbr>止めずに<wbr>進められます。</h2>
     </div>
     <div class="flow">
       <div class="step"><span class="no">STEP 1</span><h3>無料相談</h3><p>サービスの機能と、心配なところ（会員情報、取引、売上金など）を伺います。</p><span class="you">オンライン30分</span></div>
-      <div class="step"><span class="no">STEP 2</span><h3>範囲と見積もり</h3><p>エンドポイント数をもとに、検査範囲・費用・日程をご提示します。</p><span class="you">機能一覧の作成は不要</span></div>
+      <div class="step"><span class="no">STEP 2</span><h3>範囲と<wbr>見積もり</h3><p>エンドポイント数をもとに、検査範囲・費用・日程をご提示します。</p><span class="you">機能一覧の作成は不要</span></div>
       <div class="step"><span class="no">STEP 3</span><h3>診断・報告</h3><p>AIが検査箇所を洗い出し、診断員が両方の立場で確認。修正方法つきでお渡しします。</p><span class="you">最短2日後に報告</span></div>
       <div class="step"><span class="no">STEP 4</span><h3>修正・再診断</h3><p>開発チームで修正後、直ったかを再診断で確認します。</p><span class="you">再診断は無料</span></div>
     </div>
@@ -664,7 +690,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">よくあるご質問</span>
-      <h2>ご依頼前によくいただく質問</h2>
+      <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
     </div>
     <div class="faq">
       <details open><summary>取引や決済の流れも診断できますか。</summary><div class="a"><p>できます。出品から購入、決済、取引完了、売上金の振込申請まで、診断員が手順を追って確認します。他人の取引を操作できないか、手順を飛ばして決済をすり抜けられないかなどを検査します。</p></div></details>
@@ -682,7 +708,7 @@ footer .logo-word{font-size:18px}
   <div class="wrap cta-grid">
     <div>
       <span class="logo-word" style="font-size:22px">IssueHunt One</span>
-      <h2 style="margin-top:18px">会員と取引を守る診断を、<br><span>直すところまで</span>。</h2>
+      <h2 style="margin-top:18px">会員と<wbr>取引を<wbr>守る<wbr>診断を、<br><span>直す<wbr>ところまで</span>。</h2>
       <p class="lead">「会員情報まわりだけ先に見てほしい」「売上金の振込まわりが心配」。範囲が決まっていなくても大丈夫です。優先すべき機能と費用の目安をご提案します。</p>
       <ul class="cta-list">
         <li>出品者・購入者の両方の立場で手動確認</li>
@@ -692,7 +718,7 @@ footer .logo-word{font-size:18px}
       </ul>
     </div>
     <form class="form" id="lead-form" novalidate>
-      <h3>会員・取引まわりの診断を相談する</h3>
+      <h3>会員・取引まわりの<wbr>診断を<wbr>相談する</h3>
       <div class="row2">
         <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="company" required autocomplete="organization"></div>
         <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" required autocomplete="name"></div>
@@ -738,6 +764,16 @@ document.querySelectorAll('form').forEach(function (form) {
     form.querySelector('.done').hidden = false;
   });
 });
+(function () {
+  var bar = document.querySelector('.mcta');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  var shown = new Set();
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
+    bar.classList.toggle('is-hidden', shown.size > 0);
+  }, { threshold: 0.15 });
+  document.querySelectorAll('#hero-form, #lead-form').forEach(function (f) { io.observe(f); });
+})();
 </script>
 
 </body>
