@@ -692,7 +692,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="worry-card"><span class="icon-circle"><svg><use href="#i-chat"></use></svg></span><p>担当者に<wbr/>聞いても、<wbr/>どこを<wbr/>どう<wbr/>確かめたかまでは<wbr/>分からない。</p></div>
 <div class="worry-card"><span class="icon-circle"><svg><use href="#i-person-q"></use></svg></span><p>社内に、<wbr/>セキュリティに<wbr/>詳しい<wbr/>人が<wbr/>いない。</p></div>
 </div>
-<div class="answer"><p>中身が<wbr/>分からなくても、<br/><span class="grad-text">第三者の目で<wbr/><span class="nw">確かめることは</span><wbr/><span class="nw">できます。</span></span></p></div>
+<div class="answer"><p>中身が<wbr/>分からなくても、<br/><span class="grad-text">第三者の目で<wbr/><span class="nw">確かめることはできます。</span></span></p></div>
 </div>
 </section>
 <!-- 4. 3つの特長 -->
@@ -756,7 +756,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <dt>原因</dt><dd>表示する会員情報が、ログインしている本人のものかを確かめていない</dd>
 </dl>
 <p class="rep-fix-h">開発担当者向けの直し方</p>
-<pre class="rep-code"><span class="cm"># 直し方：URLの番号ではなく、ログインしている本人の情報を表示する</span>
+<pre class="rep-code"><span class="cm"># 直し方：ログイン中の本人の情報だけを表示する</span>
 <span class="del">- user = User.find(params[:user_id])</span>
 <span class="add">+ user = current_user</span></pre>
 </div>
