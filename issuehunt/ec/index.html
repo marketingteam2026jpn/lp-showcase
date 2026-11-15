@@ -216,7 +216,7 @@ section{padding:88px 0}
 .faq .a-body p{padding-top:4px}
 
 /* ---- 7. 最後の相談（ブランド色の帯） ---- */
-.contact-band{background:linear-gradient(135deg,#03A56A 0%,#1C95D2 100%);color:#fff;text-align:center;padding:72px 0}
+.contact-band{background:linear-gradient(135deg,#047857 0%,#0B6FA4 100%);color:#fff;text-align:center;padding:72px 0}
 .contact-band h2{font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.5}
 .contact-band p{max-width:720px;margin:18px auto 0;font-size:16px}
 .contact-band .btn{margin-top:30px}
@@ -587,6 +587,20 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 .td-row .t1,.td-row .t2{word-break:keep-all;overflow-wrap:anywhere}
 .feature .body{text-align:left}
 @media (max-width:360px){.td-row .t1{font-size:14.5px}}
+
+/* QA 2026-11-15: スマホの文字サイズと検査表 */
+@media (max-width:640px){
+  .loss-card p,.flow-list p,.cmp-card small{font-size:15px}
+  .rep-table{display:block;min-width:0;table-layout:auto}
+  .rep-table thead{display:none}
+  .rep-table tbody{display:block}
+  .rep-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:2px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .rep-table td{display:block;border:0;padding:0;width:auto!important}
+  .rep-table td:first-child{grid-column:1 / -1}
+  .rep-table td:first-child code{white-space:nowrap;word-break:normal;overflow-wrap:normal;font-size:12.5px;color:var(--muted)}
+  .rep-table td:nth-child(2){font-size:14px;color:var(--ink)}
+  .rep-table td:nth-child(3){align-self:start}
+}
 </style>
 </head>
 <body>
@@ -647,7 +661,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="badge"><span>再診断は</span><b>無料</b></div>
 <div class="badge"><span>費用は相場の</span><b>約半額<sup class="nt">※1</sup></b></div>
 </div>
-<p class="fv-note">※1 当社<wbr/>調べ。<wbr/>一般的な<wbr/>脆弱性診断<wbr/>（ツール＋手動）の<wbr/>価格との<wbr/>比較。<wbr/>条件に<wbr/>より<wbr/>異なります。</p>
+<p class="fv-note">※1 当社<wbr/>調べ。<wbr/>一般的な<wbr/>Webアプリケーション<wbr/>脆弱性診断<wbr/>（ツール＋手動）の<wbr/>価格との<wbr/>比較。<wbr/>対象範囲・<wbr/>条件に<wbr/>より<wbr/><span class="nw">異なります。</span></p>
 </div>
 <form class="form-card" id="form" novalidate="">
 <div class="form-head">
@@ -681,7 +695,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="wrap">
 <div class="td-grid">
 <div class="td-row td-num"><b>70<small>%</small></b><p><span class="t1">利用企業の<wbr/><span class="nw">7割が上場企業</span></span><span class="t2">社会的な<wbr/>信用が<wbr/>求められる<wbr/>企業に</span></p></div>
-<div class="td-row td-std"><span class="td-seal">基準<br/>適合</span><p><span class="t1">情報セキュリティサービス基準 適合</span><span class="t2">経済産業省の<wbr/>基準に<wbr/>適合した<wbr/>脆弱性診断サービスと<wbr/>して、<wbr/>IPAの<wbr/>リストに<wbr/>掲載<wbr/>（<span class="nw">登録番号 025-0033-20</span>）</span></p></div>
+<div class="td-row td-std"><span class="td-seal">基準<br/>適合</span><p><span class="t1">経産省の<wbr/>基準に適合</span><span class="t2">IPAの<wbr/>リストに<wbr/>掲載<wbr/>（<span class="nw">登録番号 025-0033-20</span>）</span></p></div>
 <div class="td-row td-case"><span class="td-seal td-seal-ec"><svg><use href="#i-cart"></use></svg></span><p><span class="t1">九州の<wbr/>健康食品<wbr/><span class="nw">通販企業も導入</span></span><span class="t2">年商 約200億円。<wbr/>自社通販サイトで<wbr/>多くの<wbr/>お客様の<wbr/>情報を<wbr/>預かる<wbr/>企業です</span></p></div>
 </div>
 </div>
@@ -739,7 +753,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 </div></div>
 <div>
 <span class="f-label"><b>01</b>特長</span>
-<h3>AIで<wbr/>広く<wbr/>調べ、<br/><span class="grad-text">会員・決済まわり</span>は<wbr/>診断員が<wbr/>手で<wbr/>試す。</h3>
+<h3>AIで<wbr/>広く<wbr/>調べ、<br/><span class="grad-text">会員・決済まわり</span>は<wbr/><span class="nw">診断員が手で試す。</span></h3>
 <p class="body">診断専用のAIがサイトの入口を広く洗い出し、攻撃のシナリオを作ります。<strong>検査する画面の一覧を、お客様が用意する必要はありません。</strong>会員ページや決済のような込み入った処理は、診断員が実際に手を動かして<span class="nw">確かめます。</span></p>
 </div>
 </article>
@@ -788,11 +802,11 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="rep-tw"><table class="rep-table">
 <thead><tr><th>画面・機能</th><th>試したこと</th><th>結果</th></tr></thead>
 <tbody>
-<tr><td><code>POST /<wbr/>admin/<wbr/>login</code></td><td>パスワードの<wbr/>総当たり</td><td class="ok">対策<wbr/>あり</td></tr>
-<tr><td><code>POST /<wbr/>products/<wbr/>{id}/<wbr/>reviews</code></td><td>レビュー欄に<wbr/>不正な<wbr/>プログラムを<wbr/>仕込む</td><td class="ng">要修正</td></tr>
-<tr><td><code>POST /<wbr/>cart/<wbr/>checkout</code></td><td>金額を<wbr/>書き換えて<wbr/>購入する</td><td class="ok">問題な<wbr/>し</td></tr>
-<tr><td><code>GET /<wbr/>mypage/<wbr/>orders/<wbr/>{id}</code></td><td>ほかの<wbr/>お客様の<wbr/>注文を<wbr/>開く</td><td class="ok">問題な<wbr/>し</td></tr>
-<tr><td><code>GET /<wbr/>admin/<wbr/>export.csv</code></td><td>ログインせずに<wbr/>顧客データを<wbr/>取り出す</td><td class="ng">要修正</td></tr>
+<tr><td><code>POST /admin/login</code></td><td>パスワードの<wbr/>総当たり</td><td class="ok">対策<wbr/>あり</td></tr>
+<tr><td><code>POST /products/{id}/reviews</code></td><td>レビュー欄に<wbr/>不正な<wbr/>プログラムを<wbr/>仕込む</td><td class="ng">要修正</td></tr>
+<tr><td><code>POST /cart/checkout</code></td><td>金額を<wbr/>書き換えて<wbr/>購入する</td><td class="ok">問題な<wbr/>し</td></tr>
+<tr><td><code>GET /mypage/orders/{id}</code></td><td>ほかの<wbr/>お客様の<wbr/>注文を<wbr/>開く</td><td class="ok">問題な<wbr/>し</td></tr>
+<tr><td><code>GET /admin/export.csv</code></td><td>ログインせずに<wbr/>顧客データを<wbr/>取り出す</td><td class="ng">要修正</td></tr>
 </tbody>
 </table></div>
 <p class="rep-sum">検査した箇所 72 か所／要修正 2 件</p>
