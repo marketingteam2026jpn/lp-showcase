@@ -456,7 +456,8 @@ body{
 .nw{white-space:nowrap}
 
 /* 実績の帯：2項目 */
-.proof{grid-template-columns:auto 1fr;border-color:var(--line)}
+.proof{border-color:var(--line)}
+@media (min-width:561px){.proof{grid-template-columns:auto 1fr}.proof > div:nth-child(2){grid-column:auto;border-top:0;border-left:1px solid var(--line);padding-left:28px}}
 .proof > div + div{border-color:var(--line)}
 .seal{border-color:var(--cyan);color:var(--cyan)}
 
@@ -627,7 +628,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
       </div>
       <div>
         <span class="seal">経産省<br>基準<br>適合</span>
-        <span class="p-lbl"><b>情報セキュリティサービス基準 適合</b>脆弱性診断サービス 登録番号 025-0033-20</span>
+        <span class="p-lbl"><b>情報セキュリティサービス基準 適合</b>脆弱性診断サービス <span class="nw">登録番号 025-0033-20</span></span>
       </div>
     </div>
   </div>
@@ -873,7 +874,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
       <ul class="cta-list">
         <li>出品者・購入者の両方の立場で手動確認</li>
         <li>弱点ごとに起きる手順と修正方法をご提示</li>
-        <li>修正後の再診断は無料、費用は相場の約半額<sup class="nt">※1</sup></li>
+        <li><span>修正後の再診断は無料、費用は相場の<span class="nw">約半額<sup class="nt">※1</sup></span></span></li>
         <li>導入企業の7割が上場企業</li>
       </ul>
     </div>
