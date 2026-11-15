@@ -535,7 +535,7 @@ section{padding:88px 0}
 .scan-h b{margin-left:auto;font-size:28px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .scan-h b small{font-size:.5em}
 .scan-list{list-style:none;margin:14px 0 0;padding:0}
-.scan-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.scan-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
 .scan-list code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:var(--ink)}
 .who{flex:none;font-size:12px;font-weight:700;line-height:1.5;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--muted);border:1px solid var(--line)}
 .who.hand{background:var(--mint);color:var(--green-d);border-color:#BFEBD7}
@@ -698,13 +698,13 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="scan-bar"><i></i><i></i><i></i><span>検査する箇所</span></div>
 <div class="scan-body">
 <p class="scan-h"><svg><use href="#i-ai"></use></svg>AIが<wbr/>洗い出した<wbr/>入口<b>64<small>か<wbr/>所</small></b></p>
-<ul class="scan-list">
-<li><code>/login</code><span class="who hand">診断員が手で確認</span></li>
-<li><code>/mypage/profile</code><span class="who hand">診断員が手で確認</span></li>
-<li><code>/checkout</code><span class="who hand">診断員が手で確認</span></li>
-<li><code>/search</code><span class="who">AIで検査</span></li>
-<li><code>/contact</code><span class="who">AIで検査</span></li>
-</ul>
+<div class="scan-list">
+<div class="scan-row"><code>/login</code><span class="who hand">診断員が手で確認</span></div>
+<div class="scan-row"><code>/mypage/profile</code><span class="who hand">診断員が手で確認</span></div>
+<div class="scan-row"><code>/checkout</code><span class="who hand">診断員が手で確認</span></div>
+<div class="scan-row"><code>/search</code><span class="who">AIで検査</span></div>
+<div class="scan-row"><code>/contact</code><span class="who">AIで検査</span></div>
+</div>
 <p class="scan-foot">画面の<wbr/>一覧づくりは<wbr/>不要です</p>
 </div>
 </div></div>
