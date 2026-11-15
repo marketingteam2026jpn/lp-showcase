@@ -570,8 +570,29 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
 }
 @media (max-width:400px){.h-fix{font-size:min(28px,7.4vw)}}
 @media (prefers-reduced-motion:reduce){.btn-cta{transition:none}}
-</style>
 
+/* QA 2026-11-15 2回目の修正 */
+.ib{display:inline-block}
+.pain q{word-break:keep-all;overflow-wrap:anywhere}
+.badge-long b{font-size:22px}
+.risks{border-top:0;gap:14px}
+.risk,.risk + .risk{background:var(--navy3);border:1.5px solid var(--line);border-left:4px solid #FF6B6B;border-radius:12px;padding:22px 22px 20px}
+.field select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2352626B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;padding:11px 36px 11px 13px;line-height:1.5;height:auto;border-radius:8px}
+.form .field input,.form .field select{min-height:50px}
+@media (max-width:980px){.risks{grid-template-columns:1fr 1fr}.risk:nth-child(3){padding-left:22px;border-left:4px solid #FF6B6B}}
+@media (max-width:560px){
+  .risks{grid-template-columns:1fr}
+  .risk,.risk + .risk{padding:18px 18px 16px;border-top:1.5px solid var(--line)}
+  .badge-long b{font-size:16px}
+  pre.code{white-space:pre;overflow-wrap:normal;word-break:normal;overflow-x:auto}
+}
+@media (max-width:480px){
+  .fixflow{grid-template-columns:1fr;gap:8px}
+  .ff{display:grid;grid-template-columns:3.2em 1fr;align-items:center;column-gap:10px;padding:11px 14px}
+  .ff i{font-size:13px}
+  .ff b{font-size:15px;line-height:1.5}
+}
+</style>
 </head>
 <body>
 <header class="top">
@@ -598,12 +619,12 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
           <div class="ff hl"><i>お金</i><b>売上金を<wbr>不正に<wbr><br>動かせないか</b></div>
         </div>
         <div class="badges">
-          <div class="badge"><span>診断員が</span><b>手で確認</b></div>
+          <div class="badge badge-long"><span>診断員が</span><b>手動で確認</b></div>
           <div class="badge"><span>再診断は</span><b>無料</b></div>
           <div class="badge"><span>費用は相場の</span><b>約半額<sup>※1</sup></b></div>
         </div>
         <div class="fv-notes">
-          <p>※1 当社調べ。一般的な脆弱性診断（ツール＋手動）の価格との比較。条件により異なります。</p>
+          <p>※1 当社調べ。一般的なWebアプリケーション脆弱性診断（ツール＋手動）の価格との比較。対象範囲・条件により異なります。</p>
         </div>
       </div>
 
@@ -628,7 +649,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
       </div>
       <div>
         <span class="seal">経産省<br>基準<br>適合</span>
-        <span class="p-lbl"><b>情報セキュリティサービス基準 適合</b>脆弱性診断サービス <span class="nw">登録番号 025-0033-20</span></span>
+        <span class="p-lbl"><b>情報セキュリティサービス基準 <span class="nw">適合</span></b>脆弱性診断サービス <span class="nw">登録番号 025-0033-20</span></span>
       </div>
     </div>
   </div>
@@ -669,19 +690,19 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
     </div>
     <div class="pains">
       <div class="pain">
-        <q>他社サービスの不正アクセスのニュースを見て、うちは大丈夫かと思った</q>
-        <p>会員の氏名、住所、振込先口座。漏れたら取り返しがつかない情報を預かっている。</p>
+        <q>他社サービスの<wbr>不正アクセスの<wbr>ニュースを<wbr>見て、<wbr>うちは<wbr><span class="nw">大丈夫かと</span><wbr>思った</q>
+        <p>会員の氏名、住所、振込先口座。漏れたら取り返しがつかない情報を<span class="nw">預かっている。</span></p>
       </div>
       <div class="pain">
-        <q>出品者と購入者、立場ごとの権限が複雑で確かめきれない</q>
+        <q>出品者と<wbr>購入者、<wbr>立場ごとの<wbr>権限が<wbr>複雑で<wbr>確かめきれない</q>
         <p>「自分の取引だけ操作できる」が本当に守られているか、すべての組み合わせはテストできていない。</p>
       </div>
       <div class="pain">
-        <q>開発チームは機能改善と不具合対応で手一杯</q>
+        <q>開発チームは<wbr>機能改善と<wbr>不具合対応で<wbr>手一杯</q>
         <p>限られた予算で、できるだけ多くの機能をプロに見てほしい。でも、どこから頼めばいいかわからない。</p>
       </div>
     </div>
-    <p class="pains-after">不正利用に<wbr>つながる<wbr>穴を、<b>見つけて、<wbr>直す<wbr>ところまで</b>お手伝いします。</p>
+    <p class="pains-after"><span class="ib">不正利用につながる穴を、</span><b class="ib">見つけて、直すところまで</b><span class="ib">お手伝いします。</span></p>
   </div>
 </section>
 
@@ -694,7 +715,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
       <p>他人の情報を見たり操作したりできないか。取引や決済のような複雑な処理は、自動ツールだけでは確かめきれません。診断員が出品者・購入者の両方の立場で操作して確認します。</p>
     </div>
     <ul class="checks">
-      <li><i>会員</i><b>他人の<wbr>プロフィールや<wbr>住所が<wbr>見える</b><span>URLやIDを書き換えるだけで、ほかの会員の個人情報が表示されないか</span></li>
+      <li><i>会員</i><b>他人の<wbr>プロフィールや<wbr>住所が<wbr>見える</b><span>URLやIDを書き換えるだけで、他の会員の情報が見えないか</span></li>
       <li><i>会員</i><b>退会・利用<wbr>停止した<wbr>会員が<wbr>操作を<wbr>続けられる</b><span>停止したはずのアカウントで出品や購入ができてしまわないか</span></li>
       <li><i>取引</i><b>他人の<wbr>取引メッセージが<wbr>読める</b><span>当事者以外が、取引中のやり取りや添付ファイルを見られないか</span></li>
       <li><i>取引</i><b>他人の<wbr>出品を<wbr>編集・削除できる</b><span>出品者本人でなくても、価格や内容を書き換えられないか</span></li>
@@ -713,10 +734,10 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
       <h2>C2Cでは、<wbr>一度の<wbr>事故が<br>「両側」の<wbr>利用者を<wbr>遠ざけます。</h2>
     </div>
     <div class="risks">
-      <div class="risk"><i>01</i><b>取引が止まる</b><p>調査と修正のあいだ、出品・購入を止めざるを得ません。手数料収入もその間止まります。</p></div>
-      <div class="risk"><i>02</i><b>問い合わせが殺到する</b><p>「自分の情報は漏れたのか」という会員からの問い合わせに、運営チームが追われます。</p></div>
-      <div class="risk"><i>03</i><b>出品者も購入者も離れる</b><p>出品者が減れば購入者が減り、購入者が減れば出品者も減る。信用の低下は両側に広がります。</p></div>
-      <div class="risk"><i>04</i><b>補償と対応の費用</b><p>不正に動かされたお金の補償、原因調査、改修。事故のあとの出費は大きくなりがちです。</p></div>
+      <div class="risk"><b>取引が止まる</b><p>調査と修正のあいだ、出品・購入を止めざるを得ません。手数料収入もその間止まります。</p></div>
+      <div class="risk"><b>問い合わせが殺到する</b><p>「自分の情報は漏れたのか」という会員からの問い合わせに、運営チームが追われます。</p></div>
+      <div class="risk"><b>出品者も購入者も離れる</b><p>出品者が減れば購入者が減り、購入者が減れば出品者も減る。信用の低下は両側に広がります。</p></div>
+      <div class="risk"><b>補償と対応の費用</b><p>不正に動かされたお金の補償、原因調査、改修。事故のあとの出費は大きくなりがちです。</p></div>
     </div>
   </div>
 </section>
@@ -850,7 +871,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">よくあるご質問</span>
-      <h2>ご依頼前に<wbr>よく<wbr>いただく<wbr>質問</h2>
+      <h2>ご依頼前に<br>よくいただく質問</h2>
     </div>
     <div class="faq">
       <details open><summary>取引や<wbr>決済の<wbr>流れも<wbr>診断できますか。</summary><div class="a"><p>できます。出品から購入、決済、取引完了、売上金の振込申請まで、診断員が手順を追って確認します。他人の取引を操作できないか、手順を飛ばして決済をすり抜けられないかなどを検査します。</p></div></details>
@@ -912,7 +933,7 @@ footer{background:#020818;border-color:var(--line);color:var(--panel-dim)}
   <div class="wrap"><span class="logo-word">IssueHunt One</span><span>IssueHunt株式会社　© IssueHunt, Inc.</span></div>
 </footer>
 
-<div class="mcta"><a class="btn btn-cta" href="#hero-form">会員・取引まわりの診断を相談する</a></div>
+<div class="mcta"><a class="btn btn-cta" href="#hero-form">無料で相談する <span class="arr">→</span></a></div>
 
 <script>
 document.querySelectorAll('form').forEach(function (form) {
@@ -936,7 +957,7 @@ document.querySelectorAll('form').forEach(function (form) {
     entries.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
     bar.classList.toggle('is-hidden', shown.size > 0);
   }, { threshold: 0.15 });
-  document.querySelectorAll('#hero-form, #lead-form').forEach(function (f) { io.observe(f); });
+  document.querySelectorAll('#hero-form button[type=submit], #lead-form').forEach(function (f) { io.observe(f); });
 })();
 </script>
 
