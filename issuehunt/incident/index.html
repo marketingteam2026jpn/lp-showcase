@@ -100,7 +100,7 @@ a{color:inherit}
 .h-price .big{font-size:clamp(48px,6.6vw,84px);line-height:.95;color:var(--cta);letter-spacing:-.02em}
 .h-price .big small{font-size:.45em;margin-left:2px}
 .h-price sup{font-size:13px;color:var(--panel-dim);align-self:flex-start;font-family:var(--body);font-weight:400}
-.h-fix{margin-top:22px;font-family:var(--heavy);font-weight:900;color:#fff;font-size:clamp(28px,3.6vw,46px);line-height:1.3;letter-spacing:-.01em}
+.h-fix{margin-top:22px;font-family:var(--heavy);font-weight:900;color:#fff;font-size:clamp(26px,3.6vw,44px);line-height:1.3;letter-spacing:-.01em}
 .h-fix em{font-style:normal;color:var(--cta)}
 .h-fix-sub{margin-top:10px;font-size:16px;color:var(--panel-ink);max-width:36em}
 .fixflow{margin-top:22px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:8px;max-width:640px}
@@ -381,7 +381,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
 .nt{font-family:var(--body);font-size:12px;font-weight:400;letter-spacing:0;line-height:0;vertical-align:super;margin-left:3px;opacity:.75;text-shadow:none}
 .nw{white-space:nowrap}
 .h-fix .nt{margin-left:0}
-@media (max-width:400px){.h-fix{font-size:min(28px,7.2vw)}}
+@media (max-width:400px){.h-fix{font-size:min(26px,6.4vw)}}
 .fv-notes{margin-top:14px;display:grid;gap:3px;font-size:12px;line-height:1.6;color:var(--panel-dim);max-width:46em}
 .fv-notes p,.notes p{padding-left:2.2em;text-indent:-2.2em}
 .notes p+p{margin-top:4px}
@@ -410,7 +410,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <p class="h-kicker">被害を、<wbr>二度と<wbr>繰り返さないために。</p>
         <h1 class="h-main"><span>再発防止</span></h1>
         <p class="h-sub1">のための脆弱性診断<sup class="nt">※1</sup></p>
-        <p class="h-fix">どこを、どう直すか。<br><em>対策まで</em>、<wbr><span class="nw">こちらで提案します。</span></p>
+        <p class="h-fix">どこを、どう直すか。<br><em>対策まで</em><wbr><span class="nw">こちらで提案します。</span></p>
         <div class="badges">
           <div class="badge"><span>対象の一覧</span><b>作成不要</b></div>
           <div class="badge"><span>診断プロセス</span><b>100％開示</b></div>
@@ -486,7 +486,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="pains">
       <div class="pain">
         <q>今回の穴はふさいだ。でも、ほかにも残っていないかわからない</q>
-        <p>攻撃者は一度入った会社をまた狙います。同じ種類の弱点がほかの画面やAPIに残っていれば、また破られます。</p>
+        <p>一度破られた会社は、再び狙われることがあります。同じ種類の弱点がほかの画面やAPIに残っていれば、そこが次の入口になります。</p>
       </div>
       <div class="pain">
         <q>経営層・取引先・お客様に、再発防止策を説明しなければならない</q>
@@ -507,14 +507,14 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
     <div class="sec-head">
       <span class="eyebrow">IssueHunt One が担う範囲</span>
       <h2>初動の<wbr>あと、<wbr>「二度目」を<wbr>防ぐ<wbr>ところを<wbr>担当します。</h2>
-      <p>被害調査や復旧は、専門の初動対応会社の領域です。IssueHunt One はその後の、再発防止のための診断と対策に特化しています。</p>
+      <p>被害調査や復旧は、専門の初動対応会社の領域です。IssueHunt One はその後の、再発防止のための診断と、対策の提案を担います。</p>
     </div>
     <ol class="phase">
       <li class="ph off"><i>PHASE 1</i><b>発生・検知</b><span>攻撃や漏洩に気づく</span></li>
       <li class="ph off"><i>PHASE 2</i><b>初動対応</b><span>被害範囲の調査・封じ込め・復旧<br><em>対象外</em></span></li>
       <li class="ph on"><i>PHASE 3</i><b>再発防止の診断</b><span>ほかに残る弱点を洗い出す</span></li>
-      <li class="ph on"><i>PHASE 4</i><b>対策・修正</b><span>弱点ごとの修正方法を提示</span></li>
-      <li class="ph on"><i>PHASE 5</i><b>再診断・説明</b><span>直ったことを確認し、説明資料に</span></li>
+      <li class="ph on"><i>PHASE 4</i><b>対策の提案</b><span>弱点ごとの修正方法を提示</span></li>
+      <li class="ph on"><i>PHASE 5</i><b>再診断（オプション）</b><span>直ったことを確認できます</span></li>
     </ol>
     <p class="phase-cap"><span class="sw"></span>IssueHunt One の対応範囲</p>
   </div>
@@ -546,7 +546,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <span class="feat-n">03</span>
         <h3><small>EXPLAIN</small>「何を<wbr>調べたか」を<wbr>示せる<wbr>レポート。</h3>
         <div class="body">
-          <p>一般的なレポートは見つかった脆弱性の一覧だけです。IssueHunt One は<strong>検査した箇所と試した攻撃の内容まで開示</strong>します。経営層・取引先・お客様への再発防止策の説明に、そのまま使えます。</p>
+          <p>一般的な診断では、どこをどう検査したかまでは開示されないことがあります。IssueHunt One は<strong>検査した箇所と試した攻撃の内容まで開示</strong>します。第三者による診断の結果として、経営層や取引先への説明に使えます。</p>
         </div>
       </div>
     </div>
@@ -619,7 +619,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       </article>
       <article class="voice">
         <div class="v-co"><b>株式会社TOKIUM</b><span>経費精算・請求書の経理SaaS</span></div>
-        <blockquote>価格が現実的で納得感があったことと、<mark>導入から定着までを見据えた伴走支援の手厚さ</mark>が決め手。</blockquote>
+        <blockquote>価格が現実的で納得感があったことと、<mark>導入から定着までを見据えた伴走支援の手厚さ</mark>が決め手でした。</blockquote>
         <div class="v-who"><span>取締役CTO 西平様／開発部長 橘高様</span></div>
       </article>
     </div>
@@ -637,7 +637,7 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
       <details open><summary>被害の<wbr>調査や<wbr>復旧も<wbr>お願い<wbr>できますか。</summary><div class="a"><p>初動対応（被害範囲の調査・封じ込め・復旧）は対象外です。IssueHunt One は、初動のあとに残る弱点を見つけて再発を防ぐための診断と、対策のご提示を行います。</p></div></details>
       <details><summary>報告まで、<wbr>どのくらい<wbr>かかりますか。</summary><div class="a"><p>診断する範囲や規模によって日数は変わります。ご希望の時期を伺ったうえで、ご相談時に具体的な日程をお伝えします。</p></div></details>
       <details><summary>見つかった<wbr>問題は、<wbr>どこまで<wbr>対応して<wbr>もらえますか。</summary><div class="a"><p>問題ごとに、起きる手順と具体的な修正方法・対策手順をお伝えします。開発担当や保守会社がそのまま修正に入れる内容です。修正後は、再診断（オプション）で問題が解消されたかを確認できます。</p></div></details>
-      <details><summary>社内に<wbr>セキュリティの<wbr>担当者がいません。</summary><div class="a"><p>問題ありません。AIが検査箇所を洗い出すため、診断対象の一覧をご用意いただく必要はありません。レポートは専門知識がなくても読める形でお渡しします。</p></div></details>
+      <details><summary>社内に<wbr>セキュリティの<wbr>担当者がいません。</summary><div class="a"><p>問題ありません。AIが検査箇所を洗い出すため、診断対象の一覧をご用意いただく必要はありません。</p></div></details>
       <details><summary>本番環境に<wbr>影響は<wbr>出ませんか。</summary><div class="a"><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
       <details><summary>費用は<wbr>どの<wbr>くらいですか。</summary><div class="a"><p>検査するエンドポイント数に応じたプランでご案内します。AIで作業の一部を自動化しているため、相場より格安でご提供しています。お見積もりは無料です。</p></div></details>
     </div>
@@ -667,8 +667,8 @@ h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
         <div class="field"><label for="f-email">会社のメールアドレス<span class="req">必須</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
         <div class="field"><label for="f-tel">電話番号<span class="req">必須</span></label><input id="f-tel" name="tel" type="tel" required autocomplete="tel"></div>
       </div>
-      <div class="field"><label for="f-timing">いつまでに結果が必要ですか</label>
-        <select id="f-timing" name="timing"><option value="">選択してください</option><option>今週中</option><option>2週間以内</option><option>1か月以内</option><option>まだ決まっていない</option></select></div>
+      <div class="field"><label for="f-timing">ご希望の時期</label>
+        <select id="f-timing" name="timing"><option value="">選択してください</option><option>できるだけ早く</option><option>1か月以内</option><option>2〜3か月以内</option><option>まだ決まっていない</option></select></div>
       <div class="field"><label for="f-msg">状況（わかる範囲で）</label><textarea id="f-msg" name="message" placeholder="例：ECサイトで不正アクセスがあり、初動対応は完了。ほかに弱点がないか確認したい"></textarea></div>
       <button class="btn btn-cta" type="submit">今すぐ相談する <span class="arr">→</span></button>
       <p class="fine">内容は秘密として扱います。担当者より折り返しご連絡します。</p>
