@@ -19,7 +19,7 @@
 /* 色はIssueHunt公式（issuehunt.jp）に合わせる。作りはAeyeScan（aeyescan.jp）を参考にする */
 :root{
   --green:#04BD79;
-  --green-d:#06A36F;
+  --green-d:#047A54;
   --sky:#4EBEFF;
   --grad:linear-gradient(135deg,#04BD79 0%,#4EBEFF 100%);
   --ink:#222;
@@ -872,17 +872,22 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="sticky-cta" id="sticky"><a class="btn js-to-form" href="#form">まずは無料で相談する<span class="chev"></span></a></div>
 <script>
 (function () {
-  var bar = document.querySelector('.sticky-cta'), form = document.getElementById('form'), band = document.querySelector('.contact-band');
-  if (!bar || !('IntersectionObserver' in window)) return;
-  var seen = { form: true, band: false };
+  // スマホの固定ボタンは、フォームの送信ボタンか最後の相談の帯が見えるまで出しておく
+  var bar = document.getElementById('sticky');
+  if (!bar || !('IntersectionObserver' in window)) { if (bar) bar.classList.add('on'); return; }
+  var targets = [document.getElementById('next'), document.querySelector('#form button[type=submit]'), document.querySelector('.contact-band')].filter(Boolean);
+  var vis = new Map();
+  function update() {
+    var any = false; vis.forEach(function (v) { if (v) any = true; });
+    bar.classList.toggle('on', !any); bar.setAttribute('aria-hidden', any ? 'true' : 'false');
+    bar.querySelector('a').tabIndex = any ? -1 : 0;
+  }
   var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.target === form) seen.form = e.isIntersecting; else seen.band = e.isIntersecting; });
-    var on = !seen.form && !seen.band;
-    bar.classList.toggle('on', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true');
-    bar.querySelector('a').tabIndex = on ? 0 : -1;
+    es.forEach(function (e) { vis.set(e.target, e.isIntersecting && e.target.offsetParent !== null); });
+    update();
   });
-  if (form) io.observe(form);
-  if (band) io.observe(band);
+  targets.forEach(function (t) { vis.set(t, false); io.observe(t); });
+  update();
 })();
 </script>
 <script>
@@ -919,12 +924,5 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
     function done() { if (img.naturalWidth > 0) img.classList.remove('ph'); }
     if (img.complete) done(); else img.addEventListener('load', done);
   });
-  // フォームが見えている間はスマホの固定ボタンを隠す
-  var sticky = document.getElementById('sticky');
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      sticky.style.visibility = entries[0].isIntersecting ? 'hidden' : '';
-    }).observe(form);
-  }
 })();
 </script>
