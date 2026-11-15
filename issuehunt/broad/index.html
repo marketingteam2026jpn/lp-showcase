@@ -501,7 +501,7 @@ section{padding:88px 0}
   .footer{padding-bottom:84px}
 }
 
-/* ===== v6（EC版：健康診断の段） ===== */
+/* ===== v6 ===== */
 .health{border-bottom:1px solid var(--line)}
 .hl-table tbody th{width:7.5em}
 .hl-table thead th:nth-child(2){width:36%}
@@ -523,7 +523,7 @@ section{padding:88px 0}
 .cmp-notes{max-width:960px;margin:16px auto 0;display:grid;gap:4px;font-size:12px;line-height:1.65;color:var(--muted)}
 .cmp-notes p{padding-left:2.2em;text-indent:-2.2em}
 .cmp-table td{word-break:auto-phrase}
-/* 特長01の図（ショップの挿絵の代わり） */
+/* 特長01の図 */
 .scan{max-width:500px;margin:0 auto;background:#fff;border:3px solid #2B3A45;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
 .scan-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:2px solid #E3E7EC;background:#F7F9FA}
 .scan-bar i{width:10px;height:10px;border-radius:50%;background:#C9D2DA}
@@ -559,6 +559,12 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
   .feature .body,.faq .a-body p{text-align:left}
 }
 @media (max-width:400px){.fv-points li.main{font-size:12px;letter-spacing:-.01em}}
+
+@media (max-width:760px){.rep-code{white-space:pre;word-break:normal;overflow-x:auto}}
+@media (max-width:640px){
+  body{padding-bottom:0}
+  .proof-logos li{flex-basis:50%}
+}
 </style>
 </head>
 <body>
@@ -619,7 +625,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <li><svg><use href="#i-yen"></use></svg>費用は<wbr/>相場の<br/>約半額<sup class="nt">※1</sup></li>
 <li><svg><use href="#i-refresh"></use></svg>修正後の<wbr/>再診断<br/>1か<wbr/>月以内は<wbr/>無料</li>
 </ul>
-<p class="fv-note">※1 当社<wbr/>調べ。<wbr/>一般的な<wbr/>脆弱性診断<wbr/>（ツール＋手動）の<wbr/>価格との<wbr/>比較。<wbr/>条件に<wbr/>より<wbr/>異なります。</p>
+<p class="fv-note">※1 当社<wbr/>調べ。<wbr/>一般的な<wbr/>脆弱性診断<wbr/>（ツール＋手動）の<wbr/>価格との<wbr/>比較。<wbr/>条件に<wbr/>より<wbr/><span class="nw">異なります。</span></p>
 </div>
 <form class="form-card" id="form" novalidate="">
 <div class="form-head">
@@ -686,7 +692,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="worry-card"><span class="icon-circle"><svg><use href="#i-chat"></use></svg></span><p>担当者に<wbr/>聞いても、<wbr/>どこを<wbr/>どう<wbr/>確かめたかまでは<wbr/>分からない。</p></div>
 <div class="worry-card"><span class="icon-circle"><svg><use href="#i-person-q"></use></svg></span><p>社内に、<wbr/>セキュリティに<wbr/>詳しい<wbr/>人が<wbr/>いない。</p></div>
 </div>
-<div class="answer"><p>中身が<wbr/>分からなくても、<br/><span class="grad-text">第三者の<wbr/>目で<wbr/>確かめる<wbr/>ことは<wbr/>できます。</span></p></div>
+<div class="answer"><p>中身が<wbr/>分からなくても、<br/><span class="grad-text">第三者の目で<wbr/><span class="nw">確かめることは</span><wbr/><span class="nw">できます。</span></span></p></div>
 </div>
 </section>
 <!-- 4. 3つの特長 -->
@@ -694,14 +700,14 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <div class="wrap">
 <h2 class="sec-title">詳しい<wbr/>人が<wbr/>社内に<wbr/>いなくても、<br/>穴を<wbr/>見つけて<wbr/>直す<wbr/>ところまで<wbr/>進められます。</h2>
 <article class="feature">
-<div class="f-img"><div aria-label="AIが検査する箇所を洗い出し、ログインや決済まわりは診断員が手で確かめる様子" class="scan" role="img">
+<div class="f-img"><div aria-label="AIが検査する箇所を洗い出し、ログインや会員情報まわりは診断員が手で確かめる様子" class="scan" role="img">
 <div class="scan-bar"><i></i><i></i><i></i><span>検査する箇所</span></div>
 <div class="scan-body">
 <p class="scan-h"><svg><use href="#i-ai"></use></svg>AIが<wbr/>洗い出した<wbr/>入口<b>64<small>か<wbr/>所</small></b></p>
 <div class="scan-list">
 <div class="scan-row"><code>/login</code><span class="who hand">診断員が手で確認</span></div>
 <div class="scan-row"><code>/mypage/profile</code><span class="who hand">診断員が手で確認</span></div>
-<div class="scan-row"><code>/checkout</code><span class="who hand">診断員が手で確認</span></div>
+<div class="scan-row"><code>/upload</code><span class="who hand">診断員が手で確認</span></div>
 <div class="scan-row"><code>/search</code><span class="who">AIで検査</span></div>
 <div class="scan-row"><code>/contact</code><span class="who">AIで検査</span></div>
 </div>
@@ -710,8 +716,8 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 </div></div>
 <div>
 <span class="f-label"><b>01</b>特長</span>
-<h3>AIで<wbr/>広く<wbr/>調べ、<br/><span class="grad-text">ログインや<wbr/>決済まわり</span>は<wbr/>診断員が<wbr/>手で<wbr/>試す。</h3>
-<p class="body">診断専用のAIがサイトの入口を広く洗い出し、攻撃のシナリオを作ります。<strong>検査する画面の一覧を、お客様が用意する必要はありません。</strong>ログインや決済のような込み入った処理は、診断員が実際に手を動かして確かめます。</p>
+<h3>AIで<wbr/>広く<wbr/>調べ、<br/><span class="grad-text">ログインや<wbr/>会員情報まわり</span>は<wbr/>診断員が<wbr/>手で<wbr/>試す。</h3>
+<p class="body">診断専用のAIがサイトの入口を広く洗い出し、攻撃のシナリオを作ります。<strong>検査する画面の一覧を、お客様が用意する必要はありません。</strong>ログインや会員情報のような込み入った処理は、診断員が実際に手を動かして<span class="nw">確かめます。</span></p>
 </div>
 </article>
 <article class="feature rev">
@@ -760,7 +766,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <thead><tr><th>画面・機能</th><th>試したこと</th><th>結果</th></tr></thead>
 <tbody>
 <tr><td><code>POST /login</code></td><td>パスワードの総当たり</td><td class="ok">対策あり</td></tr>
-<tr><td><code>GET /mypage/profile/{id}</code></td><td>ほかの会員の情報を開く</td><td class="ng">要修正</td></tr>
+<tr><td><code>GET /mypage/{id}</code></td><td>ほかの会員の情報を開く</td><td class="ng">要修正</td></tr>
 <tr><td><code>POST /contact</code></td><td>入力欄から不正なプログラムを送り込む</td><td class="ok">問題なし</td></tr>
 <tr><td><code>GET /search</code></td><td>検索欄からデータベースを操作する</td><td class="ok">問題なし</td></tr>
 <tr><td><code>GET /admin</code></td><td>ログインせずに管理画面に入る</td><td class="ng">要修正</td></tr>
@@ -784,7 +790,7 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <tr><th>報告書</th><td data-l="一般的な脆弱性診断">専門用語の<wbr/>多い、<wbr/>弱点の<wbr/>一覧</td><td class="ih" data-l="IssueHunt One">やさしい<wbr/>説明と、<wbr/>直し方の<wbr/>両方を<wbr/>記載</td></tr>
 <tr><th>調べた<wbr/>範囲</th><td data-l="一般的な脆弱性診断">見つかった<wbr/>問題だけを<wbr/>記載</td><td class="ih" data-l="IssueHunt One">検査した<wbr/>箇所と、<wbr/>試した<wbr/>攻撃まで<wbr/>開示</td></tr>
 <tr><th>見つかった<wbr/>後</th><td data-l="一般的な脆弱性診断">指摘して<wbr/>終わる<wbr/>ことが<wbr/>多い</td><td class="ih" data-l="IssueHunt One">直し方を<wbr/>示し、<wbr/>再診断で<wbr/>確認<wbr/>（1か<wbr/>月以内は<wbr/>無料）</td></tr>
-<tr><th>期間</th><td data-l="一般的な脆弱性診断">日程の<wbr/>調整に<wbr/>数週間かかる<wbr/>ことも</td><td class="ih" data-l="IssueHunt One">診断後1週間ほどで<wbr/>報告。<wbr/>AI自動診断なら<wbr/>最短2日後<sup class="nt">※2</sup></td></tr>
+<tr><th>期間</th><td data-l="一般的な脆弱性診断">日程の<wbr/>調整に<wbr/>数週間かかる<wbr/>ことも</td><td class="ih" data-l="IssueHunt One">AI自動診断なら<wbr/>即日契約、<wbr/>最短2日後に<wbr/><span class="nw">報告<sup class="nt">※2</sup></span><br/>診断員の<wbr/>確認を<wbr/>含む<wbr/>場合は、<wbr/>診断後<wbr/>1週間ほど</td></tr>
 <tr><th>費用</th><td data-l="一般的な脆弱性診断">一般的な<wbr/>相場</td><td class="ih" data-l="IssueHunt One"><strong>相場の<wbr/>約半額</strong><sup class="nt">※1</sup></td></tr>
 </tbody>
 </table></div>
@@ -817,9 +823,9 @@ h1,h2,h3,summary,.fv-points li,.fv .sub,.sec-lead,.loss-card p,.worry-card p,.an
 <details open=""><summary><span class="qa q">Q</span>脆弱性診断とは<wbr/>何ですか？</summary><div class="a-body"><span class="qa a">A</span><p>サイトの“健康診断”のようなものです。攻撃者が使う手口を実際に試して、お客様の情報が見えてしまう穴や、外から入り込まれる穴がないかを調べます。</p></div></details>
 <details><summary><span class="qa q">Q</span>専門知識が<wbr/>なくても<wbr/>進められますか？</summary><div class="a-body"><span class="qa a">A</span><p>はい。見つかった弱点ごとに直し方をお伝えするので、その内容をもとに、開発や保守の担当者と修正を進められます。</p></div></details>
 <details><summary><span class="qa q">Q</span>開発・保守を<wbr/>外部に<wbr/>任せていても<wbr/>受けられますか？</summary><div class="a-body"><span class="qa a">A</span><p>はい。開発会社やサーバー会社への事前の連絡が要るかどうかも含めて、ご相談のときに進め方をご案内します。</p></div></details>
-<details><summary><span class="qa q">Q</span>うちのような<wbr/>規模の<wbr/>会社でも<wbr/>必要ですか？</summary><div class="a-body"><span class="qa a">A</span><p>お客様の個人情報や決済情報を扱うサイト・サービスであれば、規模にかかわらず確認をおすすめします。攻撃は会社の大きさを選びません。</p></div></details>
+<details><summary><span class="qa q">Q</span>うちのような<wbr/>規模の<wbr/>会社でも<wbr/>必要ですか？</summary><div class="a-body"><span class="qa a">A</span><p>お客様の個人情報を扱うサイト・サービスであれば、規模にかかわらず確認をおすすめします。攻撃は会社の大きさを選びません。</p></div></details>
 <details><summary><span class="qa q">Q</span>どんな<wbr/>ことを<wbr/>調べますか？</summary><div class="a-body"><span class="qa a">A</span><p>会員ページで他人の情報が見えてしまう穴、入力欄から不正なプログラムを送り込まれる穴、ログインの仕組みの弱さなどを、国際的な基準（OWASP Top 10など）に沿って調べます。</p></div></details>
-<details><summary><span class="qa q">Q</span>AIだけの<wbr/>診断ですか？</summary><div class="a-body"><span class="qa a">A</span><p>いいえ。AIが調べる場所と試し方を洗い出し、診断員がすべて確認します。ログインや決済まわりの込み入った処理は、診断員が手で試します。</p></div></details>
+<details><summary><span class="qa q">Q</span>AIだけの<wbr/>診断ですか？</summary><div class="a-body"><span class="qa a">A</span><p>標準では、AIが調べる場所と試し方を洗い出し、診断員が確認します。ログインや会員情報まわりの込み入った処理は、診断員が手で試します。お急ぎの場合は、AI自動診断のみで進めることもできます（最短2日後に報告）。</p></div></details>
 <details><summary><span class="qa q">Q</span>診断で<wbr/>サイトが<wbr/>止まったりしませんか？</summary><div class="a-body"><span class="qa a">A</span><p>検証環境での実施をおすすめしています。本番環境で行う場合は、実施日時や検査の強さを事前に取り決めたうえで進めます。</p></div></details>
 <details><summary><span class="qa q">Q</span>結果は<wbr/>いつ出ますか？</summary><div class="a-body"><span class="qa a">A</span><p>診断員による確認を含む場合は、診断後1週間ほどで報告書をお出しします。AI自動診断のみなら、最短で即日契約・翌日診断・2日後のご報告が可能です。範囲や規模によって日数は変わるため、ご相談時に具体的な日程をお伝えします。</p></div></details>
 <details><summary><span class="qa q">Q</span>費用は<wbr/>どう<wbr/>決まりますか？</summary><div class="a-body"><span class="qa a">A</span><p>調べる対象の数に応じたプランでご案内します。作業の一部をAIで自動化しているため、一般的な脆弱性診断の相場の約半額でご提供しています<sup class="nt">※1</sup>。ご相談のうえでお見積もりをお出しします。ご相談は無料です。</p></div></details>
