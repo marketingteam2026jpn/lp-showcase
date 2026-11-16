@@ -167,6 +167,16 @@ footer a{color:#e8e2f7;margin:0 10px}
 .hero figure.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-size:14px;text-align:left}
 .t-card figure.photo{overflow:hidden;flex-shrink:0}
 @media(max-width:480px){.btn{font-size:17px;padding:16px 22px;white-space:nowrap;width:100%}}
+/* 2026-11-16 QA指摘対応 */
+.hero figure.photo{aspect-ratio:1/1}
+@media(max-width:800px){.hero figure.photo{aspect-ratio:16/10;max-height:210px}}
+h2,h3,.lead,.final p{text-wrap:balance}
+.t-team div{font-size:15px}
+.f-card .time,.v-card .who,.v-note,.cta .note,.t-card .role{font-size:14px}
+.v-grid .v-note{grid-column:1/-1}
+@media(max-width:480px){.prog-table{font-size:15px}.prog-table th{width:7.6em;white-space:nowrap;padding:12px 10px}.prog-table td{padding:12px}}
+footer a{margin:0 8px}
+p,.lead{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -194,7 +204,7 @@ footer a{color:#e8e2f7;margin:0 10px}
         <span class="note">所要30分・オンライン・無理な勧誘はしません</span>
       </div>
     </div>
-    <figure class="photo"><img src="assets/yoshikawa.jpg" alt="瞑想塾 塾長 吉河幸祈富" width="678" height="897"><figcaption>瞑想塾 塾長　吉河 幸祈富</figcaption></figure>
+    <figure class="photo"><img src="assets/yoshikawa_hero.jpg" alt="瞑想塾 塾長 吉河幸祈富" width="570" height="530"><figcaption>瞑想塾 塾長　吉河 幸祈富</figcaption></figure>
   </div>
 </section>
 
@@ -413,7 +423,7 @@ footer a{color:#e8e2f7;margin:0 10px}
 <footer>
   <div class="wrap">
     <p style="max-width:none;margin:0 auto 10px">瞑想塾（株式会社Ikigai）</p>
-    <p style="max-width:none;margin:0 auto"><a href="https://ikigaiinc.com" target="_blank" rel="noopener">会社概要</a><a href="https://lifeengineering.jp" target="_blank" rel="noopener">人生工学メディア</a><a href="https://note.com/nice_koala586" target="_blank" rel="noopener">note</a></p>
+    <p style="max-width:none;margin:0 auto"><a href="https://ikigaiinc.com" target="_blank" rel="noopener">会社概要</a><a href="https://lifeengineering.jp" target="_blank" rel="noopener">人生工学メディア</a><a href="https://note.com/nice_koala586" target="_blank" rel="noopener">note</a><a href="https://ikigaiinc.com/privacypolicy" target="_blank" rel="noopener">プライバシーポリシー</a></p>
   </div>
 </footer>
 
