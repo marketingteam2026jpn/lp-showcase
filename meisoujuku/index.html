@@ -162,6 +162,9 @@ footer a{color:#e8e2f7;margin:0 10px}
   body{font-size:16px}
 }
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+.hero figure.photo,.t-card figure.photo{padding:0;position:relative;background:#ece7f6}
+.hero figure.photo img,.t-card figure.photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero figure.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-size:14px;text-align:left}
 </style>
 </head>
 <body>
@@ -189,7 +192,7 @@ footer a{color:#e8e2f7;margin:0 10px}
         <span class="note">所要30分・オンライン・無理な勧誘はしません</span>
       </div>
     </div>
-    <figure>［写真］朝の自宅で、椅子に座って目を閉じている30〜40代の受講生。自然光・白い部屋</figure>
+    <figure class="photo"><img src="assets/yoshikawa.jpg" alt="瞑想塾 塾長 吉河幸祈富" width="678" height="897"><figcaption>瞑想塾 塾長　吉河 幸祈富</figcaption></figure>
   </div>
 </section>
 
@@ -337,7 +340,7 @@ footer a{color:#e8e2f7;margin:0 10px}
     <h2><span class="en">TRAINER</span>塾長・トレーナー紹介</h2>
     <p class="lead">瞑想を「知っている」人ではなく、「続けさせられる」人だけが指導します</p>
     <div class="t-card">
-      <figure>［写真］塾長の顔写真</figure>
+      <figure class="photo"><img src="assets/yoshikawa_face.jpg" alt="塾長 吉河幸祈富の顔写真" width="160" height="160" loading="lazy"></figure>
       <div>
         <div class="role">瞑想塾 塾長・人生工学者</div>
         <h3>吉河 幸祈富<span style="font-family:'Noto Sans JP';font-size:14px;color:var(--text-l);font-weight:400;margin-left:10px">よしかわ ゆきと</span></h3>
