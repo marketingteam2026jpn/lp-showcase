@@ -73,6 +73,7 @@
   .strip img { width: 112px; height: 132px; object-fit: cover; border-radius: 10px; display: block; box-shadow: 0 6px 14px rgba(196,166,150,.25); }
   .strip img:nth-child(odd) { transform: translateY(6px); }
   @keyframes strip { to { transform: translateX(-50%); } }
+  .strip:hover .strip-track, .strip.is-paused .strip-track { animation-play-state: paused; }
 
   .fv-card { position: relative; margin: 10px 12px 0; padding: 18px 16px 16px; background: var(--paper); box-shadow: var(--shadow); display: grid; gap: 10px; border-radius: 4px; }
   .catch { font-family: var(--mincho); color: var(--ink); text-align: center; line-height: 1.5; }
@@ -138,7 +139,7 @@
   .pay { background: var(--paper); box-shadow: var(--shadow); padding: 22px 18px 20px; display: grid; gap: 12px; text-align: center; border-radius: 4px; }
   .pay-when { font-family: var(--mincho); font-weight: 700; font-size: 20px; color: var(--mocha-deep); letter-spacing: .1em; }
   .pay-cond { font-size: 12px; color: var(--ink-2); margin-top: -8px; }
-  .pay-total { justify-self: center; background: var(--mocha); color: #fff; padding: 6px 22px; border-radius: 3px; font-weight: 700; }
+  .pay-total { justify-self: center; background: var(--mocha-deep); color: #fff; padding: 6px 22px; border-radius: 3px; font-weight: 700; }
   .pay-total .num { font-size: 40px; line-height: 1; padding-right: 2px; }
   .pay-rows { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 4px; width: 100%; max-width: 280px; }
   .pay-rows li { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--ink-2); border-bottom: 1px dotted var(--pink-2); padding: 4px 2px; }
@@ -207,7 +208,7 @@
   .shot:first-child { grid-row: span 2; }
   .shot:first-child img { aspect-ratio: 4 / 5; }
   .shot:not(:first-child) img { aspect-ratio: 4 / 3; }
-  .shot figcaption { position: absolute; left: -6px; bottom: 10px; background: var(--mocha); color: #fff; font-family: var(--mincho); font-size: 12px; font-weight: 600; letter-spacing: .04em; line-height: 1.5; padding: 6px 10px; max-width: 92%; box-shadow: 0 6px 14px rgba(122,94,80,.25); }
+  .shot figcaption { position: absolute; left: -6px; bottom: 10px; background: var(--mocha-deep); color: #fff; font-family: var(--mincho); font-size: 12px; font-weight: 600; letter-spacing: .04em; line-height: 1.5; padding: 6px 10px; max-width: 92%; box-shadow: 0 6px 14px rgba(122,94,80,.25); }
   .ways .reason { box-shadow: 0 6px 18px rgba(196,166,150,.22); }
 
   /* 7. Brow beginners */
@@ -273,7 +274,7 @@
   .final h2 { font-family: var(--mincho); font-size: 20px; font-weight: 600; line-height: 1.75; letter-spacing: .06em; }
   .final p { font-size: 13.5px; color: var(--ink-2); }
   .req { display: flex; gap: 10px; align-items: center; background: var(--paper); padding: 10px 12px; text-align: left; border-radius: 4px; }
-  .req .tag { flex: none; background: var(--mocha); color: #fff; font-family: var(--mincho); font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
+  .req .tag { flex: none; background: var(--mocha-deep); color: #fff; font-family: var(--mincho); font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
   .req b { font-size: 13.5px; font-weight: 700; display: block; word-break: keep-all; }
   .req small { display: block; color: var(--ink-2); font-size: 12px; }
   .foot { padding-block: 28px 8px; font-size: 12px; color: var(--muted); text-align: center; display: grid; gap: 8px; justify-items: center; }
@@ -309,7 +310,7 @@
     .fv-title .script { font-size: 64px; margin-bottom: -20px; }
     .fv-title h1 { font-size: 52px; }
     .fv-title .for { font-size: 15px; }
-    .strip img { width: 168px; height: 196px; }
+    .strip img { width: 124px; height: 146px; }
     .fv-card { max-width: 640px; padding: 28px 40px 24px; }
     .catch b { font-size: 30px; }
     .ba-row.after .num { font-size: 64px; }
@@ -354,7 +355,7 @@
       <span class="shop-name" data-shop></span>
     </div>
 
-    <div class="strip" aria-hidden="true">
+    <div class="strip" aria-hidden="true" title="タップで一時停止">
       <div class="strip-track">
         <img src="img/feat-2.jpg" alt="" width="112" height="132"><img src="img/staff-d.jpg" alt="" width="112" height="132"><img src="img/fv-treatment-close.jpg" alt="" width="112" height="132"><img src="img/staff-b.jpg" alt="" width="112" height="132"><img src="img/feat-1.jpg" alt="" width="112" height="132"><img src="img/staff-c.jpg" alt="" width="112" height="132"><img src="img/feat-3.jpg" alt="" width="112" height="132"><img src="img/staff-a.jpg" alt="" width="112" height="132"><img src="img/feat-2.jpg" alt="" width="112" height="132"><img src="img/staff-d.jpg" alt="" width="112" height="132"><img src="img/fv-treatment-close.jpg" alt="" width="112" height="132"><img src="img/staff-b.jpg" alt="" width="112" height="132"><img src="img/feat-1.jpg" alt="" width="112" height="132"><img src="img/staff-c.jpg" alt="" width="112" height="132"><img src="img/feat-3.jpg" alt="" width="112" height="132"><img src="img/staff-a.jpg" alt="" width="112" height="132">
       </div>
@@ -436,7 +437,7 @@
           <div class="step"><div class="amt">28万</div><div class="bar"></div><div class="when">5か月目<br>1日4.8人</div></div>
           <div class="step"><div class="amt">32万</div><div class="bar"></div><div class="when">6か月目<br>1日5.8人</div></div>
         </div>
-        <p class="fine">5か月目は技術売上70万円、6か月目は80万円の場合の計算で、店販売上の報酬（10%）は含みません。先輩の金額は実績のため、客単価・指名数・店販によってこの目安と異なります。</p>
+        <p class="fine">5か月目は技術売上70万円、6か月目は80万円の場合の計算で、店販売上の報酬（10%）は含みません。先輩の金額は実績のため、客単価・指名数・店販によってこの目安と異なります。4か月目以降は、売上に応じた報酬になります。</p>
       </div>
     </div>
 
@@ -446,6 +447,7 @@
         <p class="shout">客単価が高い</p>
         <svg class="brush" viewBox="0 0 110 14" aria-hidden="true"><path d="M3 9 C 25 3, 45 12, 62 6 S 95 4, 107 8" fill="none" stroke="#E2C8BC" stroke-width="4" stroke-linecap="round"/></svg>
         <p class="big">平均<span class="num">6,000</span>円</p>
+        <p class="fine">※店舗・メニューによって異なります</p>
         <p class="txt">眉とまつげを1人に1〜2時間かけて仕上げる分、<span class="mk">1人あたりの単価が高く</span>なります。1日にたくさんのお客様を担当しなくても、売上が積み上がります。</p>
       </li>
       <li class="reason rv">
@@ -479,13 +481,6 @@
     <div class="vc rv">
       <div class="vc-track" id="vc-track">
         <article class="voice">
-          <div class="v-head"><img class="avatar" src="img/staff-d.jpg" alt="Dさん" width="68" height="68" loading="lazy"><div><p class="v-name">Dさん</p><p class="v-meta">前職：アイリスト</p></div></div>
-          <p class="v-up"><span class="b">月13万円</span><span class="arrow">→</span><span class="a">36<small>万円</small></span></p>
-          <h3 class="v-title">“びっくりする金額をいただけて、生活が激変しました”</h3>
-          <p class="v-quote">前のお店では、週6日働いても月13万円にしかなりませんでした。今は頑張った分がお給料に反映されるので、仕事を楽しめています。ずっと夢だった車も買えて、涙が出るほど嬉しかったです。勤務時間も自分で調整できて、子育てとも両立できています。</p>
-          <table class="cmp"><thead><tr><th></th><th>前のお店</th><th>今</th></tr></thead><tbody><tr><th>施術人数/日</th><td class="b">10人</td><td class="a">5〜6人</td></tr><tr><th>勤務日数/月</th><td class="b">25〜26日</td><td class="a">22〜23日<small>1日6〜8時間</small></td></tr></tbody></table>
-        </article>
-        <article class="voice">
           <div class="v-head"><img class="avatar" src="img/staff-c.jpg" alt="Cさん" width="68" height="68" loading="lazy"><div><p class="v-name">Cさん</p><p class="v-meta">前職：アイリスト（回転型サロン）</p></div></div>
           <p class="v-up"><span class="b">月25万円</span><span class="arrow">→</span><span class="a">44<small>万円</small></span></p>
           <h3 class="v-title">“上下関係がなく、お客様と向き合える”</h3>
@@ -507,6 +502,13 @@
           <p class="v-quote">初めてのことばかりで、最初は不安でいっぱいでした。でも何かあればすぐに対応してもらえるので、安心して始められました。予定がある日は朝ゆっくり出勤したり、夜早く帰ったり。誰にも気を使わずに決められます。</p>
           <table class="cmp"><thead><tr><th></th><th>前のお店</th><th>今</th></tr></thead><tbody><tr><th>勤務日数/月</th><td class="b">24日</td><td class="a">23日<small>フレックス制</small></td></tr></tbody></table>
         </article>
+        <article class="voice">
+          <div class="v-head"><img class="avatar" src="img/staff-d.jpg" alt="Dさん" width="68" height="68" loading="lazy"><div><p class="v-name">Dさん</p><p class="v-meta">前職：アイリスト</p></div></div>
+          <p class="v-up"><span class="b">月13万円</span><span class="arrow">→</span><span class="a">36<small>万円</small></span></p>
+          <h3 class="v-title">“びっくりする金額をいただけて、生活が激変しました”</h3>
+          <p class="v-quote">前のお店では、週6日働いても月13万円にしかなりませんでした。今は頑張った分がお給料に反映されるので、仕事を楽しめています。ずっと夢だった車も買えて、涙が出るほど嬉しかったです。勤務時間も自分で調整できて、子育てとも両立できています。</p>
+          <table class="cmp"><thead><tr><th></th><th>前のお店</th><th>今</th></tr></thead><tbody><tr><th>施術人数/日</th><td class="b">10人</td><td class="a">5〜6人</td></tr><tr><th>勤務日数/月</th><td class="b">25〜26日</td><td class="a">22〜23日<small>1日6〜8時間</small></td></tr></tbody></table>
+        </article>
       </div>
       <div class="vc-bar" aria-hidden="true"><i id="vc-bar"></i></div>
       <p class="vc-hint">横にスワイプすると、ほかの先輩の声が見られます</p>
@@ -526,9 +528,9 @@
       <h2 id="ways-title">数をこなす頑張り方から、<br>1人を深める頑張り方へ</h2>
     </div>
     <div class="shots rv">
-      <figure class="shot"><img src="img/feat-2.jpg" alt="お客様と一緒に眉の形を確認するアイリスト" width="900" height="674" loading="lazy"><figcaption>骨格に合わせたデザインを提案</figcaption></figure>
-      <figure class="shot"><img src="img/fv-treatment-close.jpg" alt="お客様の眉を施術するアイリストの手元" width="1054" height="474" loading="lazy"><figcaption>施術はひとりで最後まで</figcaption></figure>
-      <figure class="shot"><img src="img/feat-3.jpg" alt="施術後のお客様をお見送りするアイリスト" width="900" height="674" loading="lazy"><figcaption>お見送りまで担当</figcaption></figure>
+      <figure class="shot"><img src="img/feat-2.jpg" alt="お客様と一緒に眉の形を確認するアイリスト" width="900" height="674" loading="lazy"><figcaption>デザイン提案</figcaption></figure>
+      <figure class="shot"><img src="img/fv-treatment-close.jpg" alt="お客様の眉を施術するアイリストの手元" width="1054" height="474" loading="lazy"><figcaption>施術</figcaption></figure>
+      <figure class="shot"><img src="img/feat-3.jpg" alt="施術後のお客様をお見送りするアイリスト" width="900" height="674" loading="lazy"><figcaption>お見送り</figcaption></figure>
     </div>
     <ol class="reason-list">
       <li class="reason rv">
@@ -587,12 +589,11 @@
   <!-- 9. FAQ -->
   <section class="faq pad" aria-labelledby="faq-title">
     <div class="sec-head rv">
-      <span class="script" aria-hidden="true">Q &amp; A</span>
-      <p class="eyebrow">よくある質問</p>
+            <p class="eyebrow">よくある質問</p>
       <h2 id="faq-title">よくいただくご質問</h2>
     </div>
     <div class="qa rv">
-      <details><summary>収入が下がらないか不安です</summary><p>契約月から3か月間は、月20万円の報酬を最低保証しています（業務開始月は開始日によって金額が変わります）。4か月目以降も保証額を上回れるよう、本部が集客とリピート率の面からサポートします。ほとんどのスタッフが、3か月後には保証額以上を受け取っています。</p></details>
+      <details><summary>収入が下がらないか不安です</summary><p>契約月から3か月間は、月20万円の報酬を最低保証しています（毎月15日締めのため、業務開始月のみ開始日に応じた金額になります）。4か月目以降も保証額を上回れるよう、本部が集客とリピート率の面からサポートします。ほとんどのスタッフが、3か月後には保証額以上を受け取っています。</p></details>
       <details><summary>お客様が来てくれるか不安です</summary><p>集客は本部が広告費も含めてすべて担当します。新規のお客様はスタッフに交互に入るので、一人に偏ることもありません。</p></details>
       <details><summary>休みは自由に取れますか？</summary><p>はい。完全予約制なので、休みたい日に合わせて予約を調整できます。ただし接客業のため、毎週土日を固定で休むのは難しいです。土日を月2〜3日休む形なら調整できます。</p></details>
       <details><summary>社会保険・雇用保険はありますか？</summary><p>業務委託契約のため、社会保険・雇用保険はありません。</p></details>
@@ -608,8 +609,7 @@
   <!-- 10. Fit -->
   <section class="fit pad" aria-labelledby="fit-title">
     <div class="sec-head rv">
-      <span class="script" aria-hidden="true">For You</span>
-      <p class="eyebrow">向いている方</p>
+            <p class="eyebrow">向いている方</p>
       <h2 id="fit-title">こんなアイリストに<br>向いています</h2>
     </div>
     <div class="fit-grid rv">
@@ -636,8 +636,7 @@
   <!-- 11. Flow + job details -->
   <section class="jobs pad" id="jobs" aria-labelledby="jobs-title">
     <div class="sec-head rv">
-      <span class="script" aria-hidden="true">Job Details</span>
-      <p class="eyebrow">募集要項</p>
+            <p class="eyebrow">募集要項</p>
       <h2 id="jobs-title">応募から働き始めるまで</h2>
     </div>
     <ol class="flow-steps rv">
@@ -653,7 +652,7 @@
         <tr><th>応募資格</th><td>美容師免許をお持ちの方<br>まつげパーマの施術経験がある方<span class="hl">眉の施術は未経験でも大丈夫です</span></td></tr>
         <tr><th>勤務地</th><td><span data-shop-place-long>全国59店舗の Frillnature 各店</span><span class="area">北海道／宮城・福島／東京・埼玉・神奈川・千葉・茨城／新潟・福井・静岡・愛知・三重／京都・奈良・大阪・兵庫／広島・岡山・山口・愛媛／福岡・長崎・大分・宮崎・沖縄</span></td></tr>
         <tr><th>契約形態</th><td>業務委託（1年契約・自動更新）</td></tr>
-        <tr><th>報酬</th><td>技術売上の40%＋店販売上の10%<br>最低報酬保証：月20万円（契約月から3か月間）<br>※業務開始月は、開始日が16日なら20万円、1日なら10万円<br>毎月15日締め<br>※国民健康保険・国民年金・所得税はご自身でお支払いいただきます</td></tr>
+        <tr><th>報酬</th><td>技術売上の40%＋店販売上の10%<br>最低報酬保証：月20万円（契約月から3か月間）<br>毎月15日締め<br>※15日締めのため、業務開始月の保証額は開始日で変わります（16日開始なら20万円、1日開始なら最初の締めまで15日間のため10万円）<br>※国民健康保険・国民年金・所得税はご自身でお支払いいただきます</td></tr>
         <tr><th>勤務時間</th><td>フレックス制（営業時間は店舗ごとに異なります）</td></tr>
         <tr><th>休日</th><td>予約に合わせて自分で調整（土日は月2〜3日まで）</td></tr>
         <tr><th>手当</th><td>予約連絡対応手当<br>通勤手当（公共交通機関は月1万円まで・駐車場は全額）</td></tr>
@@ -707,6 +706,9 @@
     }, { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.rv, .ladder').forEach(function (el) { io.observe(el); });
   })();
+
+  /* Photo strip: tap to pause / resume */
+  (function () { var st = document.querySelector('.strip'); if (st) st.addEventListener('click', function () { st.classList.toggle('is-paused'); }); })();
 
   /* Voices swipe progress bar */
   (function () {
